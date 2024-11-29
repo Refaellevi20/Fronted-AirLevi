@@ -17,7 +17,6 @@ export function StayPreview({ stay,}) {
       <PreviewImageSlider
         imgUrls={imgUrls}
         user={user}
-
         stayId={stay._id}
       />
       <PreviewInfo info={info} />

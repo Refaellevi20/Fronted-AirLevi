@@ -27,7 +27,7 @@ export function StayIndex() {
 
   return (
     <section style={{ position: 'relative' }}>
-      {!!stays && <StayList stays={stays} />}  //! for 0
+      {!!stays && <StayList stays={stays} />}
     </section>
   )
 }

@@ -69,3 +69,22 @@ export async function onLikeStayOptimistic(stayId) {
     })
   }
 }
+
+// export async function updateStay(stay) {
+//   try {
+//       const savedStay = await stayService.save(stay)
+//       console.log('Updated stay action store:', savedStay)
+//       store.dispatch(getActionUpdateStay(savedStay))
+//       return savedStay
+//   } catch (err) {
+//       console.log('Cannot save stay', err)
+//       throw err
+//   }
+// }
+
+// export function getActionUpdatestay(stay) {
+//   return {
+//       type: UPDATE_STAYS,
+//       stay
+//   }
+// }

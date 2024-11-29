@@ -175,6 +175,7 @@ function _createDemoStays() {
       _id: uuidv4(),
       name: "Moshe's house",
       type: 'Entire home/apt',
+      host_id: 'u101',
       imgUrls: [
         'http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg',
         'http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436294/mvhb3iazpiar6duvy9we.jpg',
@@ -242,6 +243,7 @@ function _createDemoStays() {
         'Beachfront',
       ],
       labels: ['national-parks'],
+  
       host: {
         _id: 'u101',
         fullname: 'Muki Host',

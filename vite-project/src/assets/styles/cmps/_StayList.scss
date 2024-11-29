@@ -64,3 +64,20 @@
     right: 40%;
   }
 }
+
+.stay-heart__preview {
+  position: absolute;
+  top: 13px;
+  right: 17px;
+  z-index: 1;
+
+  button {
+    border: none;
+    background-color: transparent;
+  }
+
+  .heart-img {
+    aspect-ratio: unset;
+    cursor: pointer;
+  }
+}

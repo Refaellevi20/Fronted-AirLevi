@@ -3,8 +3,9 @@ import { Routes, Route, useLocation } from 'react-router'
 
 import { HomePage } from './pages/HomePage'
 import { StayIndex } from './pages/StayIndex'
+import { AppFooter } from './cmps/AppFooter'
 // import { AppFooter } from './cmps/AppFooter'
-// import { UserMsg } from './cmps/UserMsg'
+import { UserMsg } from './cmps/UserMsg'
 
 
 
@@ -13,7 +14,7 @@ export function RootCmp() {
 
   return (
     <div className="main-container  main-layout full">
-      {/* <UserMsg /> */}
+      <UserMsg />
       <main>
         <Routes>
         <Route path='/' element={<StayIndex />} />
@@ -21,7 +22,7 @@ export function RootCmp() {
 
         </Routes>
       </main>
-      {/* <AppFooter/> */}
+      <AppFooter/>
     </div>
   )
 }

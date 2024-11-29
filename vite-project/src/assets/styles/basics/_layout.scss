@@ -1,114 +1,114 @@
 .main-layout {
-    padding-left: 24px;
-    padding-right: 24px;
-    margin: auto;
-  
-    @include for-narrow-layout {
-      padding: 0 24px;
-    }
-  
-    @include for-wide-layout {
-      padding: 0 $normal-layout-padding;
-    }
-  
-    @include for-large-layout {
-      padding: 0 $wide-layout-padding;
-      max-width: $primary-max-width;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin: auto;
+
+  @include for-narrow-layout {
+    padding: 0 $mobile-layout-padding;
+  }
+
+  @include for-wide-layout {
+    padding: 0 $normal-layout-padding;
+  }
+
+  @include for-large-layout {
+    padding: 0 $wide-layout-padding;
+    max-width: $primary-max-width;
+  }
+}
+
+.stay-index {
+  .header-logo-container {
+    @include for-mobile-layout {
+      display: none !important;
     }
   }
-  
-  .stay-index {
-    .header-logo-container {
+
+  .header-menu-container {
+    .nav-menu {
       @include for-mobile-layout {
-        display: none !important;
-      }
-    }
-  
-    .header-menu-container {
-      .nav-menu {
-        @include for-mobile-layout {
-          display: none;
-        }
-      }
-    }
-  }
-  
-  .secondary-layout {
-    max-width: $secondary-max-width;
-    margin: auto;
-    padding-inline: $normal-layout-padding;
-  
-    @include for-mobile-layout {
-      padding: 0;
-      &.app-header .logo,
-      &.app-header .nav-menu {
         display: none;
       }
     }
-    @include for-max-narrow-layout {
-      padding: 0;
-    }
-  
-    @include for-wide-layout {
-      padding: 0 $wide-layout-padding;
+  }
+}
+
+.secondary-layout {
+  max-width: $secondary-max-width;
+  margin: auto;
+  padding-inline: $normal-layout-padding;
+
+  @include for-mobile-layout {
+    padding: 0;
+    &.app-header .logo,
+    &.app-header .nav-menu {
+      display: none;
     }
   }
-  
-  .secondary-layout-p {
-    max-width: $secondary-max-width;
-    margin: auto;
-    padding-inline: $normal-layout-padding;
-  
-    @include for-mobile-layout {
-      padding: 0 24px;
-      &.app-header .logo,
-      &.app-header .nav-menu {
-        display: none;
-      }
-    }
-  
-    @include for-max-narrow-layout {
-      padding: 0 $normal-layout-padding;
-    }
-  
-    @include for-wide-layout {
-      padding: 0 $wide-layout-padding;
+  @include for-max-narrow-layout {
+    padding: 0;
+  }
+
+  @include for-wide-layout {
+    padding: 0 $wide-layout-padding;
+  }
+}
+
+.secondary-layout-p {
+  max-width: $secondary-max-width;
+  margin: auto;
+  padding-inline: $normal-layout-padding;
+
+  @include for-mobile-layout {
+    padding: 0 $mobile-layout-padding;
+    &.app-header .logo,
+    &.app-header .nav-menu {
+      display: none;
     }
   }
-  
-  .full-header {
-    padding: 0 24px;
+
+  @include for-max-narrow-layout {
+    padding: 0 $normal-layout-padding;
   }
-  .shadow-bottom {
-    border-bottom: 1px solid rgb(228, 228, 228);
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 4px;
+
+  @include for-wide-layout {
+    padding: 0 $wide-layout-padding;
   }
-  
-  .card-grid {
-    display: grid;
-  
-    column-gap: 24px;
-    grid-template-columns: 1, repeat(1, 1fr);
-  
-    @media (max-width: $grid-break-point-1) {
-      row-gap: 50px;
-    }
-  
-    @media (min-width: $grid-break-point-1) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  
-    @media (min-width: $grid-break-point-2) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      row-gap: 40px;
-    }
-  
-    @media (min-width: $grid-break-point-4) {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-  
-    @media (min-width: $grid-break-point-5) {
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-    }
+}
+
+.full-header {
+  padding: 0 24px;
+}
+.shadow-bottom {
+  border-bottom: 1px solid rgb(228, 228, 228);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 4px;
+}
+
+.card-grid {
+  display: grid;
+
+  column-gap: 24px;
+  grid-template-columns: 1, repeat(1, 1fr);
+
+  @media (max-width: $grid-break-point-1) {
+    row-gap: 50px;
   }
-  
+
+  @media (min-width: $grid-break-point-1) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 26px;
+  }
+
+  @media (min-width: $grid-break-point-2) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 40px;
+  }
+
+  @media (min-width: $grid-break-point-4) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  @media (min-width: $grid-break-point-5) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
