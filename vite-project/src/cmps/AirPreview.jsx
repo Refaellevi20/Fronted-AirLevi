@@ -6,15 +6,11 @@ import { updateAir } from "../store/actions/air.actions"
 import { useEffect, useState } from "react"
 import { userService } from "../services/user/user.service.local"
 
-
-
 export function AirPreview({ air }) {
     const user = useSelector((storeState) => storeState.userModule.user)
-
     
     const [heart, setHeart] = useState(false)
     const [owner, setOwner] = useState(null)
-    
 
     useEffect(() => {
         if (user) {

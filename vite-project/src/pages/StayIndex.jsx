@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
+import moment from 'moment'
 import { useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
-import { StayList } from '../cmps/stay/StayList' 
+import { StayList } from '../cmps/stay/StayList'
 import { loadStays } from '../store/stay/stay.action'
 
 export function StayIndex() {
@@ -12,8 +13,8 @@ export function StayIndex() {
   const filterBy = {
     category: searchParams.get('category'),
     location: searchParams.get('location'),
-    startDate: new Date().setDate(new Date().getDate() + 1),
-    endDate: new Date().setDate(new Date().getDate() + 4),
+    startDate: moment().add(1, 'days').format('YYYY-MM-DD'),
+    endDate: moment().add(4, 'days').format('YYYY-MM-DD')
   }
 
   useEffect(() => {
@@ -26,15 +27,7 @@ export function StayIndex() {
 
   return (
     <section style={{ position: 'relative' }}>
-      {/* <AppHeader className='main-layout stay-index' />
-      <CategoryFilterBar
-        handleChange={handleChange}
-        currCategory={filterBy.category}
-      />
-      {isLoading && <IndexLoader />}
-      {filterBy.location && <h4 className='main-layout'>Showing results for {filterBy.location}</h4>} */}
-      {!!stays && <StayList stays={stays} />}
-      {/* <AppFooter className='main-layout stay-index-footer fixed' /> */}
+      {!!stays && <StayList stays={stays} />}  //! for 0
     </section>
   )
 }

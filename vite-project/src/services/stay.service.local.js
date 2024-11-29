@@ -1,6 +1,7 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 // import { userService } from './user.service.js'
+import { v4 as uuidv4 } from 'uuid'
 
 const STORAGE_KEY = 'stayDB'
 
@@ -171,7 +172,7 @@ function getEmptyStay() {
 function _createDemoStays() {
   const DEMO_STAYS = [
     {
-      _id: '622f337a75c7d36e498aaaf8',
+      _id: uuidv4(),
       name: "Moshe's house",
       type: 'Entire home/apt',
       imgUrls: [
@@ -421,7 +422,7 @@ function _createDemoStays() {
       likedByUsers: [],
     },
     {
-      _id: '622f337a75c7d36e498aaaf9',
+      _id: uuidv4(),
       name: 'Belle chambre à côté Metro Papineau',
       type: 'Private room',
       imgUrls: [
@@ -540,7 +541,7 @@ function _createDemoStays() {
       likedByUsers: [],
     },
     {
-      _id: '622f337a75c7d36e498aaafa',
+      _id: uuidv4(),
       name: 'M&M Space MM2  Apartamento no centro da cidade',
       type: 'Entire home/apt',
       imgUrls: [
@@ -949,7 +950,7 @@ function _createDemoStays() {
       likedByUsers: [],
     },
     {
-      _id: '622f337a75c7d36e498aaafb',
+      _id: uuidv4(),
       name: 'Fresh and modern 1BR in Bed-Stuy',
       type: 'Entire home/apt',
       imgUrls: [

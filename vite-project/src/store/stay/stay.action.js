@@ -9,14 +9,13 @@ import { LOADING_DONE, LOADING_START } from '../system.reducer'
 export async function loadStays(filterBy = {}, sortBy = {}) {
   store.dispatch({ type: LOADING_START })
   try {
-    try {
-      const stays = await stayService.query(filterBy, sortBy)
-      store.dispatch({ type: SET_STAYS, stays: stays })
-    } catch (err) {
-      console.log('Had issues loading stays: ', err)
-      throw err
-    }
-  } finally {
+    const stays = await stayService.query(filterBy, sortBy)
+    store.dispatch({ type: SET_STAYS, stays: stays })
+  } catch (err) {
+    console.log('Had issues loading stays: ', err)
+    throw err
+  }
+  finally {
     store.dispatch({ type: LOADING_DONE })
   }
 }

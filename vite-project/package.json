@@ -43,6 +43,7 @@
     "sass": "^1.81.0",
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^4.8.1",
+    "uuid": "^11.0.3",
     "web-vitals": "^4.2.4",
     "workbox-background-sync": "^7.3.0",
     "workbox-broadcast-update": "^7.3.0",

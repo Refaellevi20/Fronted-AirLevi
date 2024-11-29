@@ -6,10 +6,10 @@ import { systemReducer } from './system.reducer'
 import { stayReducer } from './stay/stay.reducer.js'
 
 const rootReducer = combineReducers({
+  stayModule: stayReducer,
   userModule: userReducer,
   systemModule: systemReducer,
   orderModule: orderReducer,
-  stayModule: stayReducer,
 })
 
 const middleware = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__

@@ -2,13 +2,7 @@ import { userService } from '../services/user.service.local.js'
 import { store } from '../store/store.js'
 import { showErrorMsg } from '../services/event-bus.service.js'
 import { LOADING_DONE, LOADING_START } from './system.reducer.js'
-import {
-  REMOVE_USER,
-  SET_USER,
-  SET_USERS,
-  SET_WATCHED_USER,
-  CLEAR_NOTIFICATIONS,
-} from './user.reducer.js'
+import { REMOVE_USER, SET_USER, SET_USERS, SET_WATCHED_USER, CLEAR_NOTIFICATIONS, } from './user.reducer.js'
 
 export async function loadUsers() {
   try {

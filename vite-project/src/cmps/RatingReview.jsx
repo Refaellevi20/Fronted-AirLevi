@@ -1,6 +1,5 @@
 import { FaStar } from 'react-icons/fa'
 
-import { Fragment } from 'react'
 
 
 export function RatingReview({ reviews }) {
@@ -21,14 +20,12 @@ export function RatingReview({ reviews }) {
     let avgRating = calcAvgReview(reviews)
 
     return (
-        <Fragment>
+        <>
             <span className="avg-rating flex" style={{flexWrap: 'nowrap'}}>
                 <span className="total-avg-star"> <FaStar /></span>
                 <span className="total-avg-rating" style={{paddingLeft: '4px'}}>{avgRating}</span>
             </span>
-
-
-        </Fragment>
+        </>
     )
 
 }
