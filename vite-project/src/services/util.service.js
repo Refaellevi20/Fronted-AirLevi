@@ -115,7 +115,7 @@ function formatCurrency(num) {
 
 function totalDays(startDate, endDate) {
   const diffTime = Math.abs(endDate - startDate)
-  return Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+  return Math.ceil(diffTime / (1000 * 60 * 60 * 24)) //! on need those func i can use the laberiy momnt
 
 }
 
