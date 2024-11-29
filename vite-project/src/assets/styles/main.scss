@@ -1,0 +1,25 @@
+//& Setup
+@import "setup/vars";
+@import "setup/functions";
+@import "setup/mixins";
+
+//& Basics
+@import "basics/base";
+@import "basics/helpers";
+@import "basics/layout";
+// @import "basics/helpers";
+
+//& cmps
+// @import "cmps/AirPreview";
+@import "cmps/StayList";
+
+//& slide
+// @import "cmps/slide/SlideGig";
+// @import "cmps/slide/SlideList";
+// @import "cmps/slide/DetailsCarousel";
+// @import "cmps/slide/SlideDetails";
+// @import "cmps/slide/SlideAirPreview";
+
+
+// @import "setup/vars";
+// @import "setup/reset";

@@ -1,0 +1,44 @@
+// Colors
+$clr-brand: rgb(255, 56, 93);
+$clr-text-secondary: hsl(0, 0%, 44%);
+$clr-text-lighter: #717171;
+$clr-text-primary: hsl(0, 0%, 13%);
+$clr-svg-imgs: #222222;
+
+$clr-border: hsl(0, 0%, 87%);
+$clr-border-dark: hsl(0, 0%, 69%);
+$clr-bg: rgb(235, 235, 235);
+$clr-white: #fff;
+$clr-hover-bg: rgb(247, 247, 247);
+$clr-hover-bg-dark: #dddddd;
+$clr-black: #000;
+
+$clr-success: #00ff00;
+$clr-error: #ff0000;
+$clr-warning: #ffc400;
+
+$border-radius: 12px;
+
+$header-height: 80px;
+
+//PADDING
+$wide-layout-padding: 80px;
+$normal-layout-padding: 40px;
+$mobile-layout-padding: 24px;
+
+//MAX-WIDTH
+$primary-max-width: 2360px;
+$secondary-max-width: 1280px;
+$chat-msg-min-width: 370px;
+
+// Breakpoints
+$mobile-breakpoint: 460px;
+$narrow-breakpoint: 744px;
+$normal-breakpoint: 945px;
+$wide-breakpoint: 1440px;
+
+$grid-break-point-1: 460px;
+$grid-break-point-2: 644px;
+$grid-break-point-3: 950px;
+$grid-break-point-4: 1128px;
+$grid-break-point-5: 1440px;

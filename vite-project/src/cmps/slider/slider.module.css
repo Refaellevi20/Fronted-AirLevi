@@ -1,0 +1,75 @@
+.carousel:hover .navIcon {
+    opacity: 1;
+    transition: opacity 300ms ease;
+}
+
+.carouselWindow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carouselContainer {
+    display: flex;
+    height: 100%;
+
+    transition: transform 300ms ease-out;
+}
+
+.carouselContainer img {
+    height: 100%;
+}
+
+.navIcon {
+    opacity: 0;
+    position: absolute;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 29px;
+    height: 29px;
+    margin: 10px;
+    background-color: white;
+    border: 2px solid hsl(0, 0%, 87%);
+    border-radius: 16px;
+
+    transition: box-shadow 0.2s ease 0s;
+}
+
+/* increase hover area  */
+.navIcon::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    width: 200%;
+    height: 200%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.navIcon:hover {
+    box-shadow: 1px 1px 5px lightgray;
+    width: 31px;
+    height: 31px;
+}
+
+.navIconLeft {
+    top: calc(50% - 15px);
+    left: 12px;
+}
+
+.navIconRight {
+    top: calc(50% - 15px);
+    right: 12px;
+}
+
+.hidden {
+    opacity: 0;
+    z-index: -1;
+}

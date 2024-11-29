@@ -1,0 +1,114 @@
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// Font Sizes
+.fs12 {
+    font-size: rem(12px);
+  }
+  
+  .fs14 {
+    font-size: rem(14px);
+  }
+  
+  .fs18 {
+    font-size: rem(18px);
+  }
+  
+  .fs20 {
+    font-size: rem(20px);
+  }
+  
+  .fs24 {
+    font-size: rem(24px);
+  }
+  
+  .fs28 {
+    font-size: rem(28px);
+  }
+  
+  .fs30 {
+    font-size: rem(30px);
+  }
+  
+  // flex helpers
+  
+  .flex {
+    display: flex;
+  
+    > *.full {
+      flex: 1;
+    }
+  
+    &.column {
+      flex-direction: column;
+    }
+  
+    &.justify-center {
+      justify-content: center;
+    }
+  
+    &.align-center {
+      align-items: center;
+    }
+  
+    &.justify-between {
+      justify-content: space-between;
+    }
+  }
+  
+  .clean-button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+  
+  .grid {
+    display: grid;
+  }
+  
+  //Design helpers
+  
+  .border-buttom {
+    border-bottom: 1px solid $clr-border;
+  }
+  
+  // helpers
+  .square-ratio {
+    @include aspect-ratio(1, 1);
+  }
+  
+  .almost-square-ratio {
+    @include aspect-ratio(20, 19);
+  }
+  
+  .video-ratio {
+    @include aspect-ratio(16, 9);
+  }
+  
+  .portrait-ratio {
+    @include aspect-ratio(9, 16);
+  }
+  
+  // icon
+  .icon24 {
+    height: 24px;
+    width: 24px;
+  }
+  
+  // text
+  .text-bold {
+    // font-family: cereal-Medium;
+  }
+  
+  .ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
