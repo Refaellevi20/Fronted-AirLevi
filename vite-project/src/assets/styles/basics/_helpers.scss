@@ -112,3 +112,9 @@
     overflow: hidden;
   }
   
+   @media (max-width: 785px) {
+  .revers-flex__media {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}

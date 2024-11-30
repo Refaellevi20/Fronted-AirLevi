@@ -33,11 +33,13 @@ export function StayDetails() {
     {!stay && <StayLoader />}
     {stay && (
       <>
+      <section className="revers-flex__media">
         <h1 className="stay-top">{stay.name}</h1>
         <ImgUseGrid
           imgsToDisplay={imgsToDisplay}
           onOpenStayGallery={onOpenStayGallery}
         />
+         </section>
       </>
     )}
   </section>
