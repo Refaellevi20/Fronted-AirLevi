@@ -21,7 +21,7 @@ export function StayList({ stays }) {
         {' '}
         <Modal />
       </div> */}
-      <ul className='card-grid stay-list clean-list main-layout'>
+      <ul className='card-grid stay-list clean-list main-layout '>
         {stays.map((stay) => {
           return (
             <li

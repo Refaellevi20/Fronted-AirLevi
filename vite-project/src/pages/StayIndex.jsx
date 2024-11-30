@@ -3,7 +3,9 @@ import moment from 'moment'
 import { useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import { StayList } from '../cmps/stay/StayList'
+
 import { loadStays } from '../store/stay/stay.action'
+import { AppFooterHome } from '../cmps/AppFooterHome'
 
 export function StayIndex() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -28,6 +30,7 @@ export function StayIndex() {
   return (
     <section style={{ position: 'relative' }}>
       {!!stays && <StayList stays={stays} />}
+      <AppFooterHome />
     </section>
   )
 }
