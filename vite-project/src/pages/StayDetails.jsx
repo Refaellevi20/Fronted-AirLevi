@@ -1,29 +1,45 @@
+import { useEffect, useState } from "react"
+import { ImgUseGrid } from "../cmps/ImgUseGrid"
+import { stayService } from "../services/stay.service.local"
+import { useNavigate, useParams } from "react-router-dom"
+import {StayLoader } from "./StayLoader"
 
-import stayImg from '../assets/img/blank.png'
+export function StayDetails() {
+  const [stay, setStay] = useState(null)
+  const { stayId } = useParams()
+  const navigate = useNavigate()
+  const imgsToDisplay = stay?.imgUrls?.slice(0, 5)
 
+  useEffect(() => {
+    loadStay()
+  }, [])
 
-export function StayDetails({ imgUrls}) {
- 
-    const demoStays = Array.from({ length: 5 }, (_, i) => ({ _id: i + 101 }))
+  async function loadStay() {
+    try {
+      const stay = await stayService.getById(stayId)
+      setStay(stay)
+    } catch (err) {
+      console.log('Had issues in stay details', err)
+      navigate('/stay')
+    }
+  }
 
+  function onOpenStayGallery() {
+    console.log('open gallery')
+  }
 
-
-
-    return (
-        <section className='secondary-layout'>
-            <section className='stay-details stay-details-loader'>
-                <h1 className="title title-loader" style={{ backgroundColor: "#b0b0b0", color: "#b0b0b0", lineHeight: '1.875rem', marginTop: '18px', width: '37%' }}>.</h1>
-                <div className='stay-title-subheader stay-title-subheader-loader'>
-                    <div className="name-subtitle name-subtitle-loader" style={{ backgroundColor: "#ebebeb", color: "#ebebeb", lineHeight: '15px', marginTop: '17px', marginBottom:'30px', width: '23%' }}>.</div>
-                </div>
-                <div>
-                    <div className="images-container stay-imgs stay-imgs-loader grid">
-                        {demoStays.map((img, index) => (
-                            <img src={stayImg} alt={stayImg + index} key={index} className="img img-loader" style={{ backgroundColor: '#ebebeb' }} />
-                        ))}
-                    </div>
-                </div>
-            </section>
-        </section>
-    )
+  return (
+    <section className="secondary-layout">
+    {!stay && <StayLoader />}
+    {stay && (
+      <>
+        <h1 className="stay-top">{stay.name}</h1>
+        <ImgUseGrid
+          imgsToDisplay={imgsToDisplay}
+          onOpenStayGallery={onOpenStayGallery}
+        />
+      </>
+    )}
+  </section>
+  )
 }

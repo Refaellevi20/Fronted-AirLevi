@@ -13,12 +13,8 @@
 @import "cmps/RatingReview";
 @import "cmps/StayList";
 
-//& slide
-// @import "cmps/slide/SlideGig";
-// @import "cmps/slide/SlideList";
-// @import "cmps/slide/DetailsCarousel";
-// @import "cmps/slide/SlideDetails";
-// @import "cmps/slide/SlideAirPreview";
+//& details / cmps
+@import "cmps/details/ImgUseGrid";
 
 //& page
 @import "pages/StayDetailes";
