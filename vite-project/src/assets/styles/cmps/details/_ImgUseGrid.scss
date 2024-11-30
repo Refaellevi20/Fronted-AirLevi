@@ -56,3 +56,9 @@
         }
     }
 }
+
+@media (max-width: 784px) {
+    .images-container{
+        grid-template: unset;
+        }
+}
