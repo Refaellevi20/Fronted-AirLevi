@@ -2,8 +2,9 @@
     display: flex;
     gap: 18px;
     margin-top: 48px;
-    overflow-x: auto;
     white-space: nowrap;
+    overflow: hidden; 
+    scroll-behavior: smooth;
 
     .category-item {
         display: inline-flex;
@@ -12,10 +13,29 @@
         cursor: pointer;
     }
 
+    .category-name{
+        font-size: 12px;  //! here
+    }
+
+
     button.selected {
         border: 1px solid $clr-border;
         background-color: $clr-hover-bg;
         border-color: $clr-black;
         border-width: 3px;
+    }
+
+    .right-icon__list{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        justify-items: center;
+    }
+    .left-icon__list{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
     }
 }

@@ -7,10 +7,8 @@ export function StayPreview({ stay,}) {
   const imgUrls = stay.imgUrls
   const { price, reviews, type, capacity } = stay
 
-  const {
-    loc: { address: location },
-  } = stay
-
+  const { loc: { address: location }  } = stay
+ 
   const info = { price, reviews, location, type, capacity }
   return (
     <article className='preview'>
