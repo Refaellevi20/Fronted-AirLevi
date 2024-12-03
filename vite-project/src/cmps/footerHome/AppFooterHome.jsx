@@ -1,21 +1,15 @@
-import { IoIosArrowDown } from "react-icons/io";
-import { TbWorld } from "react-icons/tb";
-import React, { useState } from 'react';
-import Modal from "./footerHomeModal";
-import { IoMdClose } from "react-icons/io";
-
+import { IoIosArrowDown } from "react-icons/io"
+import { TbWorld } from "react-icons/tb"
+import React, { useState } from 'react'
+import Modal from "./footerHomeModal"
+// import { IoMdClose } from "react-icons/io"
 
 export function AppFooterHome() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
-    const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
+    const openModal = () => setIsModalOpen(true)
+    const closeModal = () => setIsModalOpen(false)
 
-    const styles = {
-        modalHeader: {
-
-        },
-    }
     return (
         <footer>
             <section className="fix home-footer__container">
