@@ -1,32 +1,22 @@
-import { useEffect, useState } from "react";
-import { filterService } from "../services/filter.service";
-import { useNavigate } from "react-router-dom";
-import { stayService } from "../services/stay.service.local";
+import { useEffect, useState } from "react"
+import { filterService } from "../services/filter.service"
 
 export function NavBar() {
     const categories = filterService.getPopularCategories();
-    const types = filterService.getTypes();
-
-    const [stayToEdit, setStayToEdit] = useState(stayService.getEmptyStay());
-
-    const [stepNum, setStepNum] = useState(0)
-    const navigate = useNavigate()
-
+    const types = filterService.getTypes()
+    const [selectedType, setSelectedType] = useState(null)
+    const [location, setLocation] = useState({})
     const [selectedCategory, setSelectedCategory] = useState(null)
 
     function onSelectCategory(categoryUrl) {
         setSelectedCategory(categoryUrl)
     }
 
-    const [selectedType, setSelectedType] = useState(null)
-
     function onSelectType(type) {
         setSelectedType(type)
     }
 
-    const [location, setLocation] = useState({})
-
-    useEffect(() => {
+    useEffect(() => { //! maybe by locations not sure
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 setLocation({
