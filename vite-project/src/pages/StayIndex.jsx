@@ -6,6 +6,7 @@ import { StayList } from '../cmps/stay/StayList'
 
 import { loadStays } from '../store/stay/stay.action'
 import { AppFooterHome } from '../cmps/footerHome/AppFooterHome'
+import { NavBar } from '../cmps/NavBar'
 
 export function StayIndex() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -28,9 +29,12 @@ export function StayIndex() {
   }
 
   return (
+    <section>
+      <NavBar />
     <section style={{ position: 'relative' }}>
       {!!stays && <StayList stays={stays} />}
       <AppFooterHome />
+    </section>
     </section>
   )
 }

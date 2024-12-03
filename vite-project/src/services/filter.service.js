@@ -32,10 +32,10 @@ function getTypes() {
 
 function getPopularCategories() {
   const categories = [
-    {
-      name: 'Amazing views',
-      url: 'amazing-view',
-    },
+    // {
+    //   name: 'Amazing views',
+    //   url: 'amazing-view',
+    // },
     {
       name: "Chief's kitchens",
       url: 'chiefs-kitchen',
