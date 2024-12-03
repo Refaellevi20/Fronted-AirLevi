@@ -1,10 +1,13 @@
 .category-list {
     display: flex;
-    gap: 18px;
-    margin-top: 48px;
+    gap: 38px;
+    // margin-top: 48px;
     white-space: nowrap;
     overflow: hidden; 
     scroll-behavior: smooth;
+    position: relative;
+    padding: 25px;
+    color: #6A6A6A;;
 
     .category-item {
         display: inline-flex;
@@ -26,11 +29,29 @@
         justify-content: center;
         justify-items: center;
     }
-    .left-icon__list{
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        justify-items: center;
+
+    img.clr-secondary{
+        color: #6A6A6A ;
     }
+
+}
+
+// .sss{
+//     align-items: end;
+// }
+
+.left-icon__list{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.left-icon__list{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
 }
