@@ -13,11 +13,6 @@
         cursor: pointer;
     }
 
-    .category-name{
-        font-size: 12px;  //! here
-    }
-
-
     button.selected {
         border: 1px solid $clr-border;
         background-color: $clr-hover-bg;

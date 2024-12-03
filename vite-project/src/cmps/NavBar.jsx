@@ -103,14 +103,14 @@ function scrollLeft (){
 
     return (
         <section className="category-list main-layout" ref={categoryListRef}>
-            <span className="left-icon__list">{LeftNavIcon}</span>
+            <span className="left-icon__list ">{LeftNavIcon}</span>
             {categories.map((category) => (
                 <div
                     key={category.url}
 
                     className={`category-item ${category.url === selectedCategory ? 'selected' : ''}`}
                     onClick={() => onSelectCategory(category.url)}>
-                    <img className="icon24 clr-secondary" src={`/img/categories/${category.url}.png`} alt={category.name} />
+                    <img className="icon24  clr-secondary" src={`/img/categories/${category.url}.png`} alt={category.name} />
                     <p className="category-name fs12">{category.name}</p>
 
                 </div>
