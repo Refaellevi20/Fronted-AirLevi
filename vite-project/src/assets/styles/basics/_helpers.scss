@@ -118,3 +118,15 @@
     flex-direction: column-reverse;
   }
 }
+
+.fix {
+  position: fixed;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.underline:hover{
+text-decoration: underline;
+}

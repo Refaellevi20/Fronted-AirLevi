@@ -1,0 +1,114 @@
+footer {
+
+    .fix {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        background-color: #fff;
+        padding: 10px 0;
+        border-top: 1px solid $clr-border;
+    }
+
+    .home-footer__container {
+        padding: 13px 40px 14px;
+    }
+
+    .top-border__footer {}
+
+    .flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .left-aligned {
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+    .right-aligned {
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+    }
+
+    .footer-p {
+        text-align: start;
+        ;
+        display: flex;
+        justify-content: flex-start;
+        font-size: 14px;
+        font-family: cereal-Medium;
+    }
+
+    p {
+        text-align: start;
+        ;
+        display: flex;
+        justify-content: flex-start;
+        ;
+        margin: 0;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .section-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 20px; 
+      }
+      
+      .item-footer {
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+      
+        h2 {
+          margin-bottom: 12px;
+          font-size: 14px;
+          color: $clr2-black;
+        }
+      
+        ul {
+          li {
+            margin-bottom: 8px;
+            list-style: none;
+            font-size: 14px;
+            color: $clr2-black;
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
+          }
+        }
+      }
+}
+
+@media screen and (max-width: 990px) {
+    .footer-p {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .media1 {
+        display: block;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 754px) {
+    footer {
+        .home-footer__container {
+            display: none;
+        }
+    }
+
+}

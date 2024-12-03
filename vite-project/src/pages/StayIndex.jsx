@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom'
 import { StayList } from '../cmps/stay/StayList'
 
 import { loadStays } from '../store/stay/stay.action'
-import { AppFooterHome } from '../cmps/AppFooterHome'
+import { AppFooterHome } from '../cmps/footerHome/AppFooterHome'
 
 export function StayIndex() {
   const [searchParams, setSearchParams] = useSearchParams()
