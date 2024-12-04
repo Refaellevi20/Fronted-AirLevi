@@ -15,7 +15,6 @@ footer {
         padding: 13px 40px 14px;
     }
 
-    .top-border__footer {}
 
     .flex {
         display: flex;
@@ -111,4 +110,12 @@ footer {
         }
     }
 
+}
+@media screen and (min-width: 1440px) {
+    footer {
+        .home-footer__container {
+            padding: 13px 80px 14px;
+
+        }
+    }
 }

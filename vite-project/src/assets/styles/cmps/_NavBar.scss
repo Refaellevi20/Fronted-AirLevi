@@ -1,20 +1,83 @@
+.navBar-container {
+    display: flex;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0px;
+    z-index: 10;
+    background-color: #fff;
+    color: #6A6A6A;
+    line-height: 2.875;
+
+
+}
+
+.navBar-container.scrolling {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+
+    .left-icon__list {
+        margin: 12px 0 0px;
+    }
+
+    .right-icon__list {
+        margin: 12px 0 0px;
+    }
+
+    .category-list {
+        margin: 12px 0 0px;
+
+    }
+
+}
+
 .category-list {
     display: flex;
     gap: 38px;
-    // margin-top: 48px;
     white-space: nowrap;
-    overflow: hidden; 
+    overflow: hidden;
     scroll-behavior: smooth;
     position: relative;
-    padding: 25px;
-    color: #6A6A6A;;
+    background-color: unset;
+    color: #6A6A6A;
+    padding: 4px 0px;
+    margin: 10px 0px 12px;
+
+    line-height: 2.875;
+    z-index: 10;
+
+
+    img {
+        background-color: unset;
+    }
 
     .category-item {
+        position: relative;
         display: inline-flex;
         flex-direction: column;
         align-items: center;
         cursor: pointer;
+
+
     }
+
+    .category-item::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background-color: $clr-hover-bg-dark;
+        transition: width 0.3s ease;
+    }
+
+    .category-item:hover::after {
+        width: 100%;
+    }
+
 
     button.selected {
         border: 1px solid $clr-border;
@@ -23,35 +86,33 @@
         border-width: 3px;
     }
 
-    .right-icon__list{
+    .right-icon__list {
         display: flex;
         text-align: center;
         justify-content: center;
         justify-items: center;
     }
 
-    img.clr-secondary{
-        color: #6A6A6A ;
+    .left-icon__list {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
     }
 
+
+    // img.clr-secondary{
+    //     color: #6A6A6A ;
+    // }
+
 }
 
-// .sss{
-//     align-items: end;
+
+// .left-icon__list {
+//     display: flex;
+//     text-align: center;
+//     align-items: center;
+//     justify-content: center;
+//     justify-items: center;
 // }
-
-.left-icon__list{
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-}
-
-.left-icon__list{
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-}

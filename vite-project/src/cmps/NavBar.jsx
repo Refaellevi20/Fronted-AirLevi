@@ -9,6 +9,18 @@ export function NavBar() {
     const categoryListRef = useRef(null)
     const [selectedCategory, setSelectedCategory] = useState(null)
 
+    const categoryList = document.querySelector('.navBar-container')
+    window.addEventListener('scroll', () => {
+        if (!categoryList) return
+    
+        if (window.scrollY > 0) {
+            categoryList.classList.add('scrolling')
+        } else {
+            categoryList.classList.remove('scrolling')
+            categoryList.classList.remove('margin')
+        }
+    })
+
     function onSelectCategory(categoryUrl) {
         setSelectedCategory(categoryUrl)
     }
@@ -36,9 +48,12 @@ export function NavBar() {
 
         return scrollDistance
     }
+
+
     const LeftNavIcon = (
         <div
             style={{
+                marginTop:'-12px',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -75,6 +90,7 @@ export function NavBar() {
     const RightNavIcon = (
         <div
             style={{
+                marginTop:'-12px',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -110,8 +126,8 @@ export function NavBar() {
     )
 
     return (
-        <section className="flex sss main-layout">
-            <span className="left-icon__list ">{LeftNavIcon}</span>
+        <section className="flex navBar-container main-layout">
+            <span className="left-icon__list main-layout">{LeftNavIcon}</span>
             <section className="category-list main-layout" ref={categoryListRef}>
                 {categories.map((category) => (
                     <div
@@ -119,13 +135,13 @@ export function NavBar() {
 
                         className={`category-item ${category.url === selectedCategory ? 'selected' : ''}`}
                         onClick={() => onSelectCategory(category.url)}>
-                        <img className="icon24  clr-secondary text-grey" src={`/img/categories/${category.url}.png`} alt={category.name} />
+                        <img  className="icon24  clr-secondary text-grey" src={`/img/categories/${category.url}.png`} alt={category.name} />
                         <p className="category-name fs12">{category.name}</p>
 
                     </div>
-                ))}
+                ))}  //! every stay i click history (Wishlists)
             </section>
-                <span className="right-icon__list">{RightNavIcon}</span>
+                <span className="right-icon__list main-layout">{RightNavIcon}</span>
         </section>
     )
 }
