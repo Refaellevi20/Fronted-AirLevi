@@ -5,7 +5,6 @@ import { useSelector } from "react-redux"
 
 export function NavBar({ setFilteredStays }) {
     const categories = filterService.getPopularCategories()
-    // const [filteredStays, setFilteredStays] = useState([])
     // const types = filterService.getTypes()
     const categoryListRef = useRef(null)
     const [selectedCategory, setSelectedCategory] = useState(null)
@@ -14,7 +13,7 @@ export function NavBar({ setFilteredStays }) {
     const categoryList = document.querySelector('.navBar-container')
     window.addEventListener('scroll', () => {
         if (!categoryList) return
-    
+
         if (window.scrollY > 0) {
             categoryList.classList.add('scrolling')
         } else {
@@ -42,7 +41,7 @@ export function NavBar({ setFilteredStays }) {
 
         const containerWidth = categoryListRef.current.offsetWidth
         const totalCategories = categories.length
-        const scrollDistance = containerWidth / totalCategories*50
+        const scrollDistance = containerWidth / totalCategories * 50
 
         return scrollDistance
     }
@@ -51,12 +50,12 @@ export function NavBar({ setFilteredStays }) {
         setSelectedCategory(categoryUrl)
         const filtered = stays.filter(stay => stay.labels.includes(categoryUrl))
         setFilteredStays(filtered)
-      }
+    }
 
     const LeftNavIcon = (
         <div
             style={{
-                marginTop:'-12px',
+                marginTop: '-12px',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -93,7 +92,7 @@ export function NavBar({ setFilteredStays }) {
     const RightNavIcon = (
         <div
             style={{
-                marginTop:'-12px',
+                marginTop: '-12px',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -137,14 +136,14 @@ export function NavBar({ setFilteredStays }) {
 
                         className={`category-item ${category.url === selectedCategory ? 'selected' : ''}`}
                         onClick={() => onSelectCategory(category.url)}>
-                        <img  className="icon24  clr-secondary text-grey" src={`/img/categories/${category.url}.png`} alt={category.name} />
+                        <img className="icon24  clr-secondary text-grey" src={`/img/categories/${category.url}.png`} alt={category.name} />
                         <p className="category-name fs12">{category.name}</p>
 
                     </div>
                 ))}  //! every stay i click history (Wishlists)
             </section>
-                <span className="right-icon__list main-layout">{RightNavIcon}</span>
-                {/* <div className='btn-container button-style__navBar' >
+            <span className="right-icon__list main-layout">{RightNavIcon}</span>
+            {/* <div className='btn-container button-style__navBar' >
             <img className='filter-bar-btn-img' src={filterIcon} alt='Icon' />{' '}
             Filters
         </div> */}

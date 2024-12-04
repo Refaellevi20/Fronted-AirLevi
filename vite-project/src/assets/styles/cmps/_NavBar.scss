@@ -50,9 +50,7 @@
 
     .category-list {
         margin: 12px 0 0px;
-
     }
-
 }
 
 .category-list {
@@ -66,10 +64,8 @@
     color: #6A6A6A;
     padding: 4px 0px;
     margin: 10px 0px 12px;
-
     line-height: 2.875;
     z-index: 10;
-
 
     img {
         background-color: unset;
@@ -84,6 +80,10 @@
 
         &.selected {
             border-bottom: 2px solid #000;
+        }
+
+        &:hover {
+            color: #000;
         }
     }
 
@@ -124,22 +124,5 @@
         justify-items: center;
      
     }
-
-
-    // img.clr-secondary{
-    //     color: #6A6A6A ;
-    // }
-  
-
 }
-
-
-// .left-icon__list {
-//     display: flex;
-//     text-align: center;
-//     align-items: center;
-//     justify-content: center;
-//     justify-items: center;
-// }
-
 

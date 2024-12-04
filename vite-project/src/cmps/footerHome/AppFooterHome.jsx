@@ -32,8 +32,8 @@ export function AppFooterHome() {
                             <h1 className="pointer underline" onClick={openModal} >Support & resources </h1>
                             <IoIosArrowDown style={{ fontSize: '0.875em', marginLeft: '0.2em',cursor:'pointer' }} />
                             <Modal isOpen={isModalOpen} onClose={closeModal}>
-                                <div style={{ position: 'relative', background: '#fff', padding: '20px', borderRadius: '10px' }}>
-                                    <div style={{ padding: '20px' }}>
+                                <div style={{ position: 'relative', background: '#fff', padding: '0 20px', borderRadius: '10px' }}>
+                                    <div style={{ padding: '10px' }}>
                                         {/* <IoMdClose style={{ position: 'absolute', top: '10px', left: '10px', cursor: 'pointer' }} onClick={closeModal} /> */}
                                     </div>
                                     <section className="section-wrapper">
