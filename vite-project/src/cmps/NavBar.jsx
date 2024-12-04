@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from "react"
 import { filterService } from "../services/filter.service"
 import filterIcon from '/filter.svg'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from "react-redux"
 
-export function NavBar({ currCategory = 'none' }) {
+export function NavBar({ setFilteredStays }) {
     const categories = filterService.getPopularCategories()
-    const [filteredStays, setFilteredStays] = useState([])
-    const types = filterService.getTypes()
+    // const [filteredStays, setFilteredStays] = useState([])
+    // const types = filterService.getTypes()
     const categoryListRef = useRef(null)
     const [selectedCategory, setSelectedCategory] = useState(null)
-    let stays = useSelector(storeState => storeState.stayModule.stays)
+    const stays = useSelector((storeState) => storeState.stayModule.stays)
 
     const categoryList = document.querySelector('.navBar-container')
     window.addEventListener('scroll', () => {
@@ -22,14 +22,6 @@ export function NavBar({ currCategory = 'none' }) {
             categoryList.classList.remove('margin')
         }
     })
-
-    function onSelectCategory(categoryUrl) {
-        setSelectedCategory(categoryUrl)
-
-        const category = categories.find(c => c.url === categoryUrl)
-        const filtered = stays.filter(stay => stay.labels.includes(categoryUrl))
-        setFilteredStays(filtered)
-    }
 
     function scrollLeft() {
         if (categoryListRef.current) {
@@ -55,6 +47,11 @@ export function NavBar({ currCategory = 'none' }) {
         return scrollDistance
     }
 
+    function onSelectCategory(categoryUrl) {
+        setSelectedCategory(categoryUrl)
+        const filtered = stays.filter(stay => stay.labels.includes(categoryUrl))
+        setFilteredStays(filtered)
+      }
 
     const LeftNavIcon = (
         <div
@@ -151,18 +148,6 @@ export function NavBar({ currCategory = 'none' }) {
             <img className='filter-bar-btn-img' src={filterIcon} alt='Icon' />{' '}
             Filters
         </div> */}
-         <div className="stays-list">
-                {filteredStays.length > 0 ? (
-                    filteredStays.map((stay) => (
-                        <div key={stay._id} className="stay-item">
-                            <img src={stay.imgUrls[0]} alt={stay.name} />
-                            <p>{stay.name}</p>
-                        </div>
-                    ))
-                ) : (
-                    <p>No stays available for this category</p>
-                )}
-            </div>
         </section>
     )
 }

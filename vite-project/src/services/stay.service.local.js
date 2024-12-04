@@ -13,6 +13,7 @@ export const stayService = {
   remove,
   getEmptyStay,
   getAmenitiesList,
+  getDefaultFilter,
 }
 
 _createStays()
@@ -33,6 +34,13 @@ async function query(filterBy) {
     })
   }
   return stays
+}
+
+// const defaultFilter = getDefaultFilter()
+// console.log(defaultFilter)
+
+function getDefaultFilter() {
+  return { labels: 'Luxe' }
 }
 
 async function getAllStays() {

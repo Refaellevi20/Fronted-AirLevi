@@ -1,3 +1,5 @@
+import { stayService } from "../../services/stay.service.local"
+
 export const SET_STAYS = 'SET_STAYS'
 export const SAVE_STAYS = 'SAVE_STAYS'
 export const TOGGLE_LIKE_STAY = 'LIKE_STAYS'
@@ -6,13 +8,14 @@ export const UPDATE_STAYS = 'UPDATE_STAYS'
 export const SET_IS_LOADING = 'SET_IS_LOADING'
 export const SET_LABELS = 'SET_LABELS'
 export const UNDO_TOGGLE_LIKE_STAY = 'UNDO_LIKE_STAY'
-
+export const SET_FILTER_BY = 'SET_FILTER_BY'
 
 const initialState = {
   stays: [],
   labels: [],
   lastLikedStay: null,
   isLoading: false,
+  filterBy: stayService.getDefaultFilter(),
 }
 
 export function stayReducer(state = initialState, action) {
@@ -28,11 +31,13 @@ export function stayReducer(state = initialState, action) {
     case UPDATE_STAYS:
       stays = state.stays.map(stay => (stay._id === action.stay._id) ? action.stay : stay)
       return { ...state, stays }
+      case SET_FILTER_BY:
+        return { ...state, filterBy: action.val }
     case REMOVE_STAYS:
       stays = state.stays.filter((stay) => stay._id !== action.stayId)
       return { ...state, stays }
     case SET_LABELS:
-      return { ...state, labels: action.labels }
+        return { ...state, filterBy: action.filterBy }
     case TOGGLE_LIKE_STAY:
       const likedStay = state.stays.find(stay => stay._id === action.stayId)
       if (!!likedStay.likedByUsers.find(user => user._id === action.user._id)) {

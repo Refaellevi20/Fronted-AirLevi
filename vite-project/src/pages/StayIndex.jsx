@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
@@ -12,6 +12,7 @@ export function StayIndex() {
   const [searchParams, setSearchParams] = useSearchParams()
   const stays = useSelector((storeState) => storeState.stayModule.stays)
   const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
+  const [filteredStays, setFilteredStays] = useState([])
 
   const filterBy = {
     category: searchParams.get('category'),
@@ -22,7 +23,10 @@ export function StayIndex() {
 
   useEffect(() => {
     if (!stays || !stays.length) loadStays(filterBy)
-  }, [searchParams])
+      else {
+        setFilteredStays(stays)
+      }
+  }, [stays,searchParams])
 
   function handleChange({ field, value }) {
     setSearchParams((prevFilter) => ({ ...prevFilter, [field]: value }))
@@ -30,11 +34,13 @@ export function StayIndex() {
 
   return (
     <section>
-      <NavBar />
-    <section style={{ position: 'relative' }}>
-      {!!stays && <StayList stays={stays} />}
-      <AppFooterHome />
-    </section>
+      <NavBar setFilteredStays={setFilteredStays} />
+      <section style={{ position: 'relative' }}>
+        {!!filteredStays.length && <StayList stays={filteredStays} />}
+        {filteredStays.length === 0 && <p>No stays available for the selected category</p>}
+        {/* {!!stays && <StayList stays={stays} />} */}
+        <AppFooterHome />
+      </section>
     </section>
   )
 }
