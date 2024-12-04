@@ -242,7 +242,7 @@ function _createDemoStays() {
         'Waterfront',
         'Beachfront',
       ],
-      labels: ['national-parks'],
+      labels: ["national-parks","Chief's kitchens","Luxe"],
   
       host: {
         _id: 'u101',

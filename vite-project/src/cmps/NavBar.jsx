@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "react"
 import { filterService } from "../services/filter.service"
+import filterIcon from '/filter.svg'
+import { useDispatch, useSelector } from 'react-redux'
 
-export function NavBar() {
+export function NavBar({ currCategory = 'none' }) {
     const categories = filterService.getPopularCategories()
+    const [filteredStays, setFilteredStays] = useState([])
     const types = filterService.getTypes()
-    // const [selectedType, setSelectedType] = useState(null)
-    // const [location, setLocation] = useState({})
     const categoryListRef = useRef(null)
     const [selectedCategory, setSelectedCategory] = useState(null)
+    let stays = useSelector(storeState => storeState.stayModule.stays)
 
     const categoryList = document.querySelector('.navBar-container')
     window.addEventListener('scroll', () => {
@@ -23,6 +25,10 @@ export function NavBar() {
 
     function onSelectCategory(categoryUrl) {
         setSelectedCategory(categoryUrl)
+
+        const category = categories.find(c => c.url === categoryUrl)
+        const filtered = stays.filter(stay => stay.labels.includes(categoryUrl))
+        setFilteredStays(filtered)
     }
 
     function scrollLeft() {
@@ -57,8 +63,8 @@ export function NavBar() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: '24px',
-                height: '24px',
+                width: '32px',
+                height: '32px',
                 border: '1px solid rgb(0 0 0 / 0.3)',
                 borderRadius: '50%',
                 backgroundColor: 'white',
@@ -94,8 +100,8 @@ export function NavBar() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: '24px',
-                height: '24px',
+                width: '32px',
+                height: '32px',
                 border: '1px solid rgb(0 0 0 / 0.3)',
                 borderRadius: '50%',
                 backgroundColor: 'white',
@@ -122,7 +128,6 @@ export function NavBar() {
                 ></path>
             </svg>
         </div>
-
     )
 
     return (
@@ -142,6 +147,22 @@ export function NavBar() {
                 ))}  //! every stay i click history (Wishlists)
             </section>
                 <span className="right-icon__list main-layout">{RightNavIcon}</span>
+                {/* <div className='btn-container button-style__navBar' >
+            <img className='filter-bar-btn-img' src={filterIcon} alt='Icon' />{' '}
+            Filters
+        </div> */}
+         <div className="stays-list">
+                {filteredStays.length > 0 ? (
+                    filteredStays.map((stay) => (
+                        <div key={stay._id} className="stay-item">
+                            <img src={stay.imgUrls[0]} alt={stay.name} />
+                            <p>{stay.name}</p>
+                        </div>
+                    ))
+                ) : (
+                    <p>No stays available for this category</p>
+                )}
+            </div>
         </section>
     )
 }
