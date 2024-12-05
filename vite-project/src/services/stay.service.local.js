@@ -141,7 +141,7 @@ function getAmenitiesList() {
     'Wifi',
   ]
 }
-function getEmptyStay() {
+function getEmptyStay(wishList = []) {
   return {
     _id: '',
     name: 'Magical Place',
@@ -157,6 +157,7 @@ function getEmptyStay() {
     summary: 'An imaginary place far far away',
     capacity: '',
     amenities: [],
+    wishList,
     labels: [''],
     host: {
       _id: '',
@@ -180,7 +181,7 @@ function getEmptyStay() {
 function _createDemoStays() {
   const DEMO_STAYS = [
     {
-      _id: uuidv4(),
+      _id: '234454sfdsrf',
       name: "Moshe's house",
       type: 'Entire home/apt',
       host_id: 'u101',
@@ -192,6 +193,7 @@ function _createDemoStays() {
         'http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436948/vgfxpvmcpd2q40qxtuv3.jpg',
       ],
       price: '82',
+      wishList: [],
       summary:
         'Moshe\'s house, stays under 7 night $38/res - Inquire about availability, I review then offer/approve if available :) - READ "The Space" for cleaning/etc AND brief explanation about timeshare reservations - Want guaranteed view for additional cost? Must be weekly rental, other restrictions - Wheelchair accessible / ADA, call resort directly to ensure U receive. If U need ADA U MUST inform us BEFORE booking.',
       capacity: '5',

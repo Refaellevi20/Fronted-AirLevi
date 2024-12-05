@@ -2,7 +2,7 @@ import { stayService } from '../../services/stay.service.local.js'
 import { userService } from '../../services/user.service.local.js'
 import { store } from '../store.js'
 
-import { REMOVE_STAYS, SAVE_STAYS, SET_STAYS, TOGGLE_LIKE_STAY, UNDO_TOGGLE_LIKE_STAY, UPDATE_STAYS, } from './stay.reducer'
+import { REMOVE_STAYS, SAVE_STAYS, SET_STAYS, TOGGLE_LIKE_STAY, UNDO_TOGGLE_LIKE_STAY, UPDATE_STAY, UPDATE_STAYS, } from './stay.reducer'
 
 import { LOADING_DONE, LOADING_START } from '../system.reducer'
 //  Load stays
@@ -70,21 +70,21 @@ export async function onLikeStayOptimistic(stayId) {
   }
 }
 
-// export async function updateStay(stay) {
-//   try {
-//       const savedStay = await stayService.save(stay)
-//       console.log('Updated stay action store:', savedStay)
-//       store.dispatch(getActionUpdateStay(savedStay))
-//       return savedStay
-//   } catch (err) {
-//       console.log('Cannot save stay', err)
-//       throw err
-//   }
-// }
+export function getActionUpdateStay(stay) {
+  return {
+      type: UPDATE_STAY,
+      stay
+  }
+}
 
-// export function getActionUpdatestay(stay) {
-//   return {
-//       type: UPDATE_STAYS,
-//       stay
-//   }
-// }
+export async function updateStay(stay) {
+  try {
+    const savedStay = await stayService.save(stay)
+    console.log('Updated stay action store:', savedStay)
+    store.dispatch(getActionUpdateStay(savedStay))
+    return savedStay
+  } catch (err) {
+    console.log('Cannot save stay', err)
+    throw err
+  }
+}

@@ -9,7 +9,7 @@ export const SET_IS_LOADING = 'SET_IS_LOADING'
 export const SET_LABELS = 'SET_LABELS'
 export const UNDO_TOGGLE_LIKE_STAY = 'UNDO_LIKE_STAY'
 export const SET_FILTER_BY = 'SET_FILTER_BY'
-
+export const UPDATE_STAY = 'UPDATE_STAY'
 const initialState = {
   stays: [],
   labels: [],
@@ -24,6 +24,9 @@ export function stayReducer(state = initialState, action) {
   switch (action.type) {
     case SET_STAYS:
       return { ...state, stays: action.stays }
+      case UPDATE_STAY:
+        stays = state.stays.map(stay => (stay._id === action.stay._id) ? action.stay : stay)
+        return { ...state, stays }
     case SET_IS_LOADING:
       return { ...state, isLoading: action.isLoading }
     case SAVE_STAYS:

@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
-import { useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { StayList } from '../cmps/stay/StayList'
 
 import { loadStays } from '../store/stay/stay.action'
 import { AppFooterHome } from '../cmps/footerHome/AppFooterHome'
 import { NavBar } from '../cmps/NavBar'
 
-export function StayIndex() {
+export function StayIndex({stay}) {
   const [searchParams, setSearchParams] = useSearchParams()
   const stays = useSelector((storeState) => storeState.stayModule.stays)
   const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
@@ -36,7 +36,7 @@ export function StayIndex() {
     <section>
       <NavBar setFilteredStays={setFilteredStays} />
       <section style={{ position: 'relative' }}>
-        {!!filteredStays.length && <StayList stays={filteredStays} />}
+        {!!filteredStays.length && <StayList stays={filteredStays}/>}
         {filteredStays.length === 0 && <p>No stays available for the selected category</p>}
         {/* {!!stays && <StayList stays={stays} />} */}
         <AppFooterHome />
