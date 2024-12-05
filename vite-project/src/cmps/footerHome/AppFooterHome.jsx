@@ -16,7 +16,7 @@ export function AppFooterHome() {
                 <div className="flex top-border__footer">
                     <div className="footer-p">
                         <div className="flex-start flex">
-                            <p>© 2024 Airbnb, Inc. · Terms · Sitemap ·</p>
+                            <p>© 2024 AirLevi, Inc. · Terms · Sitemap ·</p>
                         </div>
                         <div className="flex media1">
                             <p>Privacy · Your Privacy Choices</p>

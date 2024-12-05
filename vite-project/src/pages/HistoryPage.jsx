@@ -17,6 +17,7 @@ export function HistoryPage() {
 
   return (
     <div>
+      <Link to="/wishlist">Go to Wishlist</Link>
       <h2>Your Stay History</h2>
       <ul className="card-grid stay-list clean-list">
         {uniqueHistory.map((stay) => (

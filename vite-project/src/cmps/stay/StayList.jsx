@@ -12,7 +12,9 @@ export function StayList({ stays }) {
     const searchStr = utilService.setAnyBlankParamsWithDefaults(
       currLocation.search
     )
-    navigate(`/stay/${stayId}${searchStr}`)
+    const url = `/stay/${stayId}${searchStr}`
+    //* Open the URL in a new tab
+    window.open(url, '_blank', 'noopener,noreferrer')
   }
 
   return (

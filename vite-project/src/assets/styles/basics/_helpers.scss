@@ -32,6 +32,9 @@
   .fs30 {
     font-size: rem(30px);
   }
+  .fs32 {
+    font-size: rem(32px);
+  }
   
   // flex helpers
   
@@ -129,4 +132,8 @@
 
 .underline:hover{
 text-decoration: underline;
+}
+
+.heart-img:hover {
+  animation: heartbeat 1s infinite; 
 }

@@ -15,17 +15,17 @@
     .btn-container {
         display: flex;
         align-items: center;
-        
-        @include for-mobile-layout {
-          display: none !important;
-        }
-      }
-      
-      .filter-bar-btn-img {
-        width: 14px;
-      }
 
-      .button-style__navBar {
+        @include for-mobile-layout {
+            display: none !important;
+        }
+    }
+
+    .filter-bar-btn-img {
+        width: 14px;
+    }
+
+    .button-style__navBar {
         height: 42px;
         width: 30px;
         text-align: center;
@@ -122,7 +122,46 @@
         align-items: center;
         justify-content: center;
         justify-items: center;
-     
     }
 }
 
+.scale-on__hover:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+@media screen and (min-width: 1440px) {
+    .main-layout__navBar {
+        padding: 0px 80px 0px 0px !important;
+    }
+}
+
+@media screen and (min-width: 985px) and (max-width: 1440px) {
+    .main-layout__navBar {
+        padding: 0px 40px 0px 0px !important;
+    }
+}
+
+@media screen and (max-width: 985px) {
+    .main-layout__navBar {
+        padding: 0px 24px 0px 0px !important;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .main-layout__navBar2 {
+        padding: 0px 0px 0px 80px !important;
+    }
+}
+
+@media screen and (min-width: 985px) and (max-width: 1440px) {
+    .main-layout__navBar2 {
+        padding: 0px 0px 0px 40px !important;
+    }
+}
+
+@media screen and (max-width: 985px) {
+    .main-layout__navBar2 {
+        padding: 0px 0px 0px 24px !important;
+    }
+}

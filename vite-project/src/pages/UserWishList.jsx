@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
+import { IoIosArrowBack } from "react-icons/io";
 
 import { StayPreview } from '../cmps/stay/StayPreview'
 import { loadStays } from '../store/stay/stay.action'
@@ -52,20 +53,11 @@ function UserWishList() {
   }
 
   const wishListStays = stays.filter((stay) => stay.wishList && stay.wishList.length > 0)
-
+  // Wishlists
   return (
     <div className="wish-list main-layout">
-      <Link to="/">back</Link>
-      <h1 style={{ marginTop: '23px' }}>My list</h1>
-      <p style={{ marginTop: '23px', fontSize: '1.4rem' }}>
-        Organize your go-to freelancers and favorite services into
-      </p>
-      <p style={{ marginTop: '-13px', fontSize: '1.4rem' }}>
-        custom lists you can easily access and share with your team.
-      </p>
-      <h3 style={{ marginTop: '10px', fontSize: '1.2rem' }}>
-        You have {wishListStays.length} {wishListStays.length === 1 ? 'stay' : 'stays'} in the wishlist.
-      </h3>
+      <Link to="/" ><IoIosArrowBack /></Link>
+      <h1 style={{ marginTop: '23px' }} className='fs32'>Play 2024</h1>
       <ul className="card-grid stay-list clean-list">
         {wishListStays.length > 0 ? (
           wishListStays.map((stay) => (

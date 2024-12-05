@@ -4,6 +4,7 @@ import { stayService } from "../services/stay.service.local"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { StayLoader } from "./StayLoader"
 import { useHistory } from "../CustomHook/StayHistory"
+import { AppFooterDetails } from "../cmps/detailsFooter/DetailsFooter"
 
 export function StayDetails() {
   const [stay, setStay] = useState(null)
@@ -48,8 +49,7 @@ export function StayDetails() {
         </>
       )}
       <Link to="/history">Go to History</Link>
-      <Link to="/wishlist">Go to Wishlist</Link>
-
+      <AppFooterDetails />
     </section>
   )
 }

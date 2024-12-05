@@ -5,22 +5,45 @@ import { useSelector } from "react-redux"
 
 export function NavBar({ setFilteredStays }) {
     const categories = filterService.getPopularCategories()
-    // const types = filterService.getTypes()
     const categoryListRef = useRef(null)
+    const [isAtStart, setIsAtStart] = useState(true)
+    const [isAtEnd, setIsAtEnd] = useState(false)
     const [selectedCategory, setSelectedCategory] = useState(null)
     const stays = useSelector((storeState) => storeState.stayModule.stays)
 
     const categoryList = document.querySelector('.navBar-container')
-    window.addEventListener('scroll', () => {
-        if (!categoryList) return
 
-        if (window.scrollY > 0) {
-            categoryList.classList.add('scrolling')
-        } else {
-            categoryList.classList.remove('scrolling')
-            categoryList.classList.remove('margin')
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!categoryListRef.current) return
+            const scrollLeft = categoryListRef.current.scrollLeft
+            const maxScrollLeft = categoryListRef.current.scrollWidth - categoryListRef.current.clientWidth
+
+            setIsAtStart(scrollLeft === 0)
+            setIsAtEnd(scrollLeft === maxScrollLeft)
         }
-    })
+
+        window.addEventListener('scroll', () => {
+            if (categoryList) {
+                if (window.scrollY > 0) {
+                    categoryList.classList.add('scrolling')
+                } else {
+                    categoryList.classList.remove('scrolling')
+                    categoryList.classList.remove('margin')
+                }
+            }
+        })
+
+        if (categoryListRef.current) {
+            categoryListRef.current.addEventListener('scroll', handleScroll)
+        }
+
+        return () => {
+            if (categoryListRef.current) {
+                categoryListRef.current.removeEventListener('scroll', handleScroll)
+            }
+        }
+    }, [])
 
     function scrollLeft() {
         if (categoryListRef.current) {
@@ -37,7 +60,7 @@ export function NavBar({ setFilteredStays }) {
     }
 
     function calculateScrollDistance() {
-        if (!categoryListRef.current) return 400 //* default
+        if (!categoryListRef.current) return 400
 
         const containerWidth = categoryListRef.current.offsetWidth
         const totalCategories = categories.length
@@ -54,6 +77,7 @@ export function NavBar({ setFilteredStays }) {
 
     const LeftNavIcon = (
         <div
+        className={`scale-on__hover`}
             style={{
                 marginTop: '-12px',
                 display: 'flex',
@@ -65,9 +89,10 @@ export function NavBar({ setFilteredStays }) {
                 borderRadius: '50%',
                 backgroundColor: 'white',
                 zIndex: '5',
-                cursor: "pointer",
+                cursor: isAtStart ? 'default' : 'pointer',
+                opacity: isAtStart ? 0.0 : 1,
             }}
-            onClick={scrollLeft}
+            onClick={isAtStart ? null : scrollLeft}
         >
             <svg
                 viewBox="0 0 18 18"
@@ -78,7 +103,7 @@ export function NavBar({ setFilteredStays }) {
                     width: '12px',
                     height: '12px',
                     fill: 'currentcolor',
-                    cursor: 'pointer',
+                    cursor: isAtStart ? 'default' : 'pointer',
                 }}
             >
                 <path
@@ -91,6 +116,7 @@ export function NavBar({ setFilteredStays }) {
 
     const RightNavIcon = (
         <div
+        className={`scale-on__hover`}
             style={{
                 marginTop: '-12px',
                 display: 'flex',
@@ -102,9 +128,10 @@ export function NavBar({ setFilteredStays }) {
                 borderRadius: '50%',
                 backgroundColor: 'white',
                 zIndex: '5',
-                cursor: "pointer",
+                cursor: isAtEnd ? 'default' : 'pointer', 
+                opacity: isAtEnd ? 0.0 : 1,
             }}
-            onClick={scrollRight}
+            onClick={isAtEnd ? null : scrollRight}
         >
             <svg
                 viewBox="0 0 18 18"
@@ -115,7 +142,7 @@ export function NavBar({ setFilteredStays }) {
                     width: '12px',
                     height: '12px',
                     fill: "currentcolor",
-                    cursor: "pointer",
+                    cursor: isAtEnd ? 'default' : 'pointer',
                 }}
             >
                 <path
@@ -128,25 +155,24 @@ export function NavBar({ setFilteredStays }) {
 
     return (
         <section className="flex navBar-container main-layout">
-            <span className="left-icon__list main-layout">{LeftNavIcon}</span>
+            <span className="left-icon__list main-layout__navBar2">
+                {LeftNavIcon}
+            </span>
             <section className="category-list main-layout" ref={categoryListRef}>
                 {categories.map((category) => (
                     <div
                         key={category.url}
-
                         className={`category-item ${category.url === selectedCategory ? 'selected' : ''}`}
-                        onClick={() => onSelectCategory(category.url)}>
+                        onClick={() => onSelectCategory(category.url)}
+                    >
                         <img className="icon24  clr-secondary text-grey" src={`/img/categories/${category.url}.png`} alt={category.name} />
                         <p className="category-name fs12">{category.name}</p>
-
                     </div>
-                ))}  //! every stay i click history (Wishlists)
+                ))}
             </section>
-            <span className="right-icon__list main-layout">{RightNavIcon}</span>
-            {/* <div className='btn-container button-style__navBar' >
-            <img className='filter-bar-btn-img' src={filterIcon} alt='Icon' />{' '}
-            Filters
-        </div> */}
+            <span className="right-icon__list main-layout__navBar">
+                {RightNavIcon}
+            </span>
         </section>
     )
 }
