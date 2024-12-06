@@ -15,29 +15,54 @@
         background-color: white;
         padding: 20px;
         border-radius: 8px;
-        display: flex;
-        flex-direction: column;
+        display: grid;
         gap: 10px;
+        // grid-template-rows: auto 1fr auto;
+        // justify-items: center;
+        align-items: start;
+        overflow-y: auto;
     }
 
     button {
-        padding: 10px;
-        margin: 5px;
+        min-height: 3.4375em;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-rows: repeat(5);
+        min-width: 11.25em;
+        padding: 9px 12px;
+        margin: 0px;
         border: none;
-        background-color: #007bff;
-        color: white;
         cursor: pointer;
         border-radius: 5px;
+        background: transparent;
+        text-align: start;
+    }
+
+    h3 {
+        font-size: rem(20px);
     }
 
     button:hover {
-        background-color: #0056b3;
+        background-color: #f0f0f0;
+    }
+
+    button:focus {
+        border: 1px solid black;
+    }
+
+    button.selected {
+        border: 1px solid black;
     }
 
     .close-modal {
         background-color: red;
         margin-top: 10px;
+        color: white;
+        align-self: end;
     }
+
+    // .close-modal:focus {
+    //     border: 1px solid black; /* Apply focus border for the close button */
+    // }
 
     .close-modal:hover {
         background-color: darkred;
