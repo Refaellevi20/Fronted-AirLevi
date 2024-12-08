@@ -40,11 +40,13 @@
 
   @include for-mobile-layout {
     padding: 0;
+
     &.app-header .logo,
     &.app-header .nav-menu {
       display: none;
     }
   }
+
   @include for-max-narrow-layout {
     padding: 0;
   }
@@ -61,6 +63,7 @@
 
   @include for-mobile-layout {
     padding: 0 $mobile-layout-padding;
+
     &.app-header .logo,
     &.app-header .nav-menu {
       display: none;
@@ -79,6 +82,7 @@
 .full-header {
   padding: 0 24px;
 }
+
 .shadow-bottom {
   border-bottom: 1px solid rgb(228, 228, 228);
   box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 4px;
@@ -111,4 +115,8 @@
   @media (min-width: $grid-break-point-5) {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
+}
+
+.main-layout-footer__details {
+  padding: 0 12px;
 }

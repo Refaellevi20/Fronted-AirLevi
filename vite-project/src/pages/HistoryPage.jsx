@@ -1,13 +1,18 @@
 // src/pages/HistoryPage.jsx
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from '../CustomHook/StayHistory';
 import { StayPreview } from '../cmps/stay/StayPreview';
 import { Link } from 'react-router-dom';
+import { HiXMark } from "react-icons/hi2";
 
 export function HistoryPage() {
   const { history } = useHistory()
+  const [isVisible, setIsVisible] = useState(true)
 
+  function handleRemove() {
+    setIsVisible(false)
+  }
   if (history.length === 0) {
     return <div>No stays in history yet!</div>
   }
@@ -16,10 +21,29 @@ export function HistoryPage() {
     .map(id => history.find(stay => stay._id === id))
 
   return (
-    <div>
-      <Link to="/wishlist">Go to Wishlist</Link>
-      <h2>Your Stay History</h2>
-      <ul className="card-grid stay-list clean-list">
+    <div className='main-layout'>
+      <h2>wishlist</h2>
+      <div className="card-grid__history">
+        {isVisible && (
+          <Link to="/wishlist" className="stay-list-item">
+            <HiXMark
+              className="remove-icon"
+              onClick={(ev) => {
+                ev.preventDefault()
+                handleRemove()
+              }}
+            />
+            <img
+              src="./img/gray_heart.png"
+              alt="heart-wish"
+              className="img heart__history fs18"
+            />
+          </Link>
+        )}
+      </div>
+      <p style={{ marginBottom: '120px' }}></p>
+      <h2 className='history-txt__header'>Your Stay History</h2>
+      <ul className="card-grid stay-history clean-list">
         {uniqueHistory.map((stay) => (
           <li key={stay._id} className="stay-preview stay-list-item">
             <StayPreview stay={stay} />

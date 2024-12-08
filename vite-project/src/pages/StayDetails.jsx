@@ -33,6 +33,7 @@ export function StayDetails() {
   }
 
   return (
+    <section>
     <section className="secondary-layout">
       {!stay && <StayLoader />}
       {stay && (
@@ -49,6 +50,7 @@ export function StayDetails() {
         </>
       )}
       <Link to="/history">Go to History</Link>
+    </section>
       <AppFooterDetails />
     </section>
   )

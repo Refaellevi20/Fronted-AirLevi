@@ -3,7 +3,7 @@ import { StayPreview } from './StayPreview'
 // import { useModal } from '../../customHooks/useModal'
 import { utilService } from '../../services/util.service'
 
-export function StayList({ stays }) {
+export function StayList({ stays,currency }) {
   const navigate = useNavigate()
   // const { openModal, Modal } = useModal()
   const currLocation = useLocation()
@@ -30,7 +30,7 @@ export function StayList({ stays }) {
               key={stay._id}
               onClick={() => handleClick(stay._id)}
               className='stay-list-item'>
-              <StayPreview stay={stay}/>
+              <StayPreview stay={stay} currency={currency}/>
             </li>
           )
         })}

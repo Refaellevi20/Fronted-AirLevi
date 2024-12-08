@@ -21,7 +21,12 @@ body {
     // color: #62646a;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     // margin: 0 0 0.6em;
     // display: inline;
 }
@@ -30,7 +35,7 @@ img {
     width: 100%;
     aspect-ratio: 1/1;
     object-fit: cover;
-  }
+}
 
 p {
     margin: 0
@@ -48,9 +53,13 @@ a:hover {
 body[dir="rtl"] {
     direction: rtl;
     text-align: right;
-  }
-  
-  body[dir="ltr"] {
+}
+
+body[dir="ltr"] {
     direction: ltr;
     text-align: left;
-  }
+}
+
+.history-txt__header{
+    // margin-bottom: -20px;
+}

@@ -19,11 +19,16 @@
 @import "cmps/ModalLanguage";
 @import "cmps/AppFooterDetails";
 
+//& modals / cmps
+@import "cmps/modals/LanguageModal";
+@import "cmps/modals/CurrencyModal";
+
 //& details / cmps
 @import "cmps/details/ImgUseGrid";
 
 //& page
 @import "pages/StayDetailes";
+@import "pages/HistoryPage";
 
 
 

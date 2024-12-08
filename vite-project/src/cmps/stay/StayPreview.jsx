@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import { PreviewImageSlider } from '../slide/PreviewImageSlider'
 import { PreviewInfo } from './PreviewInfo'
 
-export function StayPreview({ stay }) {
+export function StayPreview({ stay,currency }) {
   const user = useSelector((state) => state.userModule.user)
   const imgUrls = stay.imgUrls
   const { price, reviews, type, capacity } = stay
@@ -17,7 +17,7 @@ export function StayPreview({ stay }) {
         stayId={stay._id}
         stay={stay}
       />
-      <PreviewInfo info={info} />
+      <PreviewInfo info={info} currency={currency}/>
     </article>
   )
 }

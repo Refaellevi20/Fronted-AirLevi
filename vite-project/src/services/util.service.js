@@ -74,7 +74,7 @@ function makeLorem(size = 100) {
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min)
   max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min + 1)) + min //The maximum is inclusive and the minimum is inclusive
+  return Math.floor(Math.random() * (max - min + 1)) + min 
 }
 
 function randomPastTime() {
@@ -105,20 +105,19 @@ function loadFromStorage(key) {
   return data ? JSON.parse(data) : undefined
 }
 
-function formatCurrency(num) {
-  const numFormat = Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+function formatCurrency(num, currency) {
+  const numFormat = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: currency,
   })
   return numFormat.format(num)
-} //! toFix + strong (usa)
+} //* toFix + strong (usa) usUse for now (using laberiy)
 
 function totalDays(startDate, endDate) {
   const diffTime = Math.abs(endDate - startDate)
-  return Math.ceil(diffTime / (1000 * 60 * 60 * 24)) //! on need those func i can use the laberiy momnt
+  return Math.ceil(diffTime / (1000 * 60 * 60 * 24)) //* on need those func i can use the laberiy momnt
 
 }
-
 
 function formattedDate(timeStamp) {
   const date = new Date(timeStamp)

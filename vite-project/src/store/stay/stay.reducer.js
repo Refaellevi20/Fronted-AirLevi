@@ -10,12 +10,15 @@ export const SET_LABELS = 'SET_LABELS'
 export const UNDO_TOGGLE_LIKE_STAY = 'UNDO_LIKE_STAY'
 export const SET_FILTER_BY = 'SET_FILTER_BY'
 export const UPDATE_STAY = 'UPDATE_STAY'
+export const SET_CURRENCY = 'SET_CURRENCY'
+
 const initialState = {
   stays: [],
   labels: [],
   lastLikedStay: null,
   isLoading: false,
   filterBy: stayService.getDefaultFilter(),
+  currency: 'USD',
 }
 
 export function stayReducer(state = initialState, action) {
@@ -24,6 +27,9 @@ export function stayReducer(state = initialState, action) {
   switch (action.type) {
     case SET_STAYS:
       return { ...state, stays: action.stays }
+      case SET_CURRENCY:
+        // console.log('Setting currency to', action.currency)
+        return { ...state, currency: action.currency }
       case UPDATE_STAY:
         stays = state.stays.map(stay => (stay._id === action.stay._id) ? action.stay : stay)
         return { ...state, stays }
