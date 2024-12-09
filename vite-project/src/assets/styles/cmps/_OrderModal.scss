@@ -1,0 +1,303 @@
+.order-modal {
+  position: sticky;
+  top: 130px;
+
+  .lower-rate-container {
+    padding: 1.5rem;
+    border: 1px solid $clr-border;
+    border-radius: 12px;
+    margin-left: 18.333333333333332%;
+    margin-top: 1.5rem;
+    max-width: 400px;
+
+    .lower-rate {
+      line-height: 1.25rem;
+
+      .lower-rate-txt {
+        padding-right: 1rem;
+
+        .lower-price-txt {
+          margin-right: 0.5rem;
+          font-family: cereal-Bold;
+        }
+      }
+
+      .rate-tag-img {
+        display: block;
+        height: 2rem;
+        width: 2rem;
+        fill: $clr-brand;
+        stroke: currentColor;
+      }
+    }
+  }
+}
+
+.order-modal-form {
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 32px;
+  margin-left: 18.333333333333332%;
+  border: 1px solid $clr-border;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+  max-width: 400px;
+
+  &>* {
+    width: unset;
+  }
+
+  .order-form-header {
+    justify-content: space-between;
+
+    .order-price {
+      font-weight: 600;
+      line-height: 1.25rem;
+      font-size: 1.25rem;
+    }
+
+    .order-night {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    .order-rating-review {
+      font-size: 14px;
+      font-weight: 600;
+      align-items: center;
+
+      span {
+        padding-left: 4px;
+      }
+
+      .stay-rating {
+        color: $clr-text-lighter;
+        text-decoration: underline;
+        line-height: 1.125rem;
+        font-weight: 400;
+        padding-left: 4px;
+
+      }
+    }
+  }
+
+  .picker-container {
+    position: relative;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid $clr-border-dark;
+    width: 103%;
+
+    .date-picker-header {
+      display: flex;
+      flex-direction: column;
+      padding-inline-start: 20px;
+      padding-top: 10px;
+
+      h4 {
+        font-size: rem(22px);
+        // font-family: 'cereal-Book';
+      }
+
+      h5 {
+        font-size: rem(14px);
+        color: $clr-text-secondary;
+      }
+    }
+
+    .date-picker-modal {
+      @extend .container;
+      position: absolute;
+      right: -30px;
+      top: -22px;
+      z-index: 2;
+      background-color: $clr-white;
+
+      .date-picker-modal-btns {
+        display: flex;
+        justify-content: flex-end;
+        gap: 14px;
+        margin-inline-end: 22px;
+      }
+
+      .reset-dates-btn {
+        text-decoration: underline;
+        font-family: cereal-medium;
+        font-size: rem(14px);
+        color: $clr-text-primary;
+      }
+
+      .close-dates-btn button {
+        font-family: cereal-book;
+        font-size: rem(14px);
+        padding: 8px 16px;
+        margin-right: 0px;
+
+        &:hover {
+          background-color: $clr-black;
+        }
+      }
+
+
+    }
+
+    // calender
+    .rdrCalendarWrapper {
+      padding-top: 20px;
+
+      .rdrMonthAndYearWrapper {
+        position: absolute;
+        right: 28px;
+        left: 25px;
+      }
+
+      .rdrMonthAndYearPickers {
+        display: none;
+      }
+
+      .rdrMonthName {
+        text-align: center;
+        color: $clr-text-primary;
+        font-size: 1rem;
+        font-family: cereal-medium;
+      }
+
+    }
+
+    .order-heading {
+      font-size: 0.625rem;
+      font-family: cereal-medium;
+      text-transform: uppercase;
+    }
+
+    .order-sub-heading {
+      font-size: rem(14px);
+    }
+
+    .dates-selection {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+
+
+      &.active {
+        border-radius: 8px;
+        z-index: 3;
+        border: 2px solid $clr-black;
+      }
+
+      .check-out {
+        border-left: 1px solid $clr-border-dark;
+      }
+
+      .picker {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        padding: 6px 12px 10px;
+        width: 50%;
+        font-size: 0.625em;
+
+      }
+    }
+
+    .guest-picker {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 7px 12px;
+      width: 100%;
+      border-top: 1px solid $clr-border-dark;
+      position: relative;
+
+      .drawer-arrow-icon {
+        position: absolute;
+        top: 30%;
+        right: 13px;
+      }
+
+      .guest-btn {
+        text-align: left;
+      }
+
+      .guest-select-container-small {
+        border-radius: 4px;
+        background: $clr-white;
+        box-shadow: rgb(0 0 0 / 15%) 0px 2px 6px, rgb(0 0 0 / 7%) 0px 0px 0px 1px;
+        box-sizing: border-box;
+        margin-bottom: 16px;
+        padding: 16px;
+        position: absolute;
+        text-align: left;
+        top: 55px;
+        z-index: 999;
+        left: 0px;
+        width: 135%;
+
+        .guest-select-list {
+          max-width: 100%;
+        }
+
+        .guest-select-row {
+          margin: 24px 0;
+        }
+
+        .guest-select-row:first-child {
+          margin-top: 8px;
+          margin-bottom: 24px;
+        }
+
+      }
+    }
+  }
+
+  .order-details {
+    gap: 25px;
+    flex-direction: column;
+
+    .no-charge-msg {
+      text-align: center;
+      padding-top: 1rem;
+    }
+
+    .prices {
+      grid-template-columns: 1fr 1fr;
+      padding-bottom: 15px;
+      border-bottom: 1px solid $clr-border-dark;
+      gap: 10px;
+      font-size: 0.9rem;
+      width: 140%; //! here
+      //! createAt +modal style
+
+       
+
+      &>*:nth-child(odd) {
+        text-decoration: underline;
+      }
+
+      &>*:nth-child(even) {
+        justify-self: end;
+      }
+    }
+
+    @media (max-width: 1300px) {
+      .prices {
+        width: 100% ;
+      }
+      }
+
+    .total {
+      font-weight: 600;
+      color: $clr-svg-imgs;
+      font-family: cereal-Bold;
+    }
+  }
+}
+
+.order-confirmation-modal {
+  top: 50%;
+  left: 50%;
+  border: solid 2px black;
+}

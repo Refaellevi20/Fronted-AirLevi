@@ -1,0 +1,45 @@
+
+.guest-select-row {
+        color: $clr-text-primary;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        padding-right: 4px;
+    }
+
+    .guest-select-label-header{
+            font-size: rem(16px) ;
+            line-height: 20px;
+            font-family: cereal-medium;
+            padding-bottom: em(6px);
+    }
+
+    .guest-select-label-sub-header {
+        font-size: rem(14px);
+        line-height: 18px;
+        font-family: cereal-regular;
+        color: $clr-text-secondary;
+    }
+
+    a {
+        font-size: inherit;
+        font-family: inherit;
+        font-style: inherit;
+        font-variant: inherit;
+        line-height: inherit;
+        appearance: none;
+        background: transparent;
+        border: 0px;
+        cursor: pointer;
+        margin: 0px;
+        padding: 0px;
+        user-select: auto;
+        color: $clr-text-secondary ;
+        text-decoration: underline;
+        border-radius: 4px;
+        font-family: cereal-medium;
+        text-align: inherit;
+        outline: none;
+    }

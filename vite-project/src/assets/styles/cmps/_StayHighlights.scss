@@ -1,0 +1,25 @@
+.stay-highlights {
+padding: 3px 0;
+    .highlight-img {
+        display: block;
+        height: 1.5rem;
+        width: 1.5rem;
+        color: #222222;
+        fill: currentColor;
+    }
+
+    .highlight-txt {
+        margin-left: 1rem;
+        padding-bottom: 1rem;
+
+        h3 {
+            font-size: 1rem;
+        }
+
+        p {
+            font-size: em(14px, 16px);
+            color: $clr-text-lighter;
+            line-height: 1.3;
+        }
+    }
+}

@@ -24,6 +24,7 @@ export function AppFooterHome() {
         i18n.changeLanguage(lang)
         setIsModalOpen(false)
     }  //! modal layout 40px 40px 12px and mobile
+    //! wish list edit style 
 
 
 

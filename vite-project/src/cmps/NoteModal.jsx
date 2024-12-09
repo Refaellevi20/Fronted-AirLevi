@@ -33,6 +33,7 @@ export function NoteModal({ isOpen, onClose, onSave, existingNote }) {
   if (!isOpen) return null
 
   return (
+    <div className='note-modal'>
     <div className="modal-overlay">
       <div className="modal-content">
         <button className="close-button" onClick={onClose}>X</button>
@@ -48,6 +49,7 @@ export function NoteModal({ isOpen, onClose, onSave, existingNote }) {
           <button onClick={handleClear}>Clear</button>
         </div>
       </div>
+    </div>
     </div>
   )
 }

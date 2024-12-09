@@ -1,0 +1,212 @@
+.details-modal {
+    .modal {
+        transform: translate(-50%, -50%);
+        max-height: 93%;
+
+        .close-modal-btn-container {
+            margin-bottom: 10px;
+            float: none;
+        }
+
+    }
+
+}
+
+.all-amenities {
+    // padding-top: 1rem;
+    // padding-left: 1.5rem;
+    // padding-right: 1.5rem;
+    padding: 24px 24px 40px;
+
+    // width: 800px !important;
+    li {
+        border-bottom: 1px solid #DDDDDD;
+    }
+
+    max-height: 80vh;
+    // min-width: 740vw;
+    overflow-x: auto;
+
+    @include for-max-narrow-layout {
+        max-height: 60vh;
+    }
+
+    .amenities-header {
+
+        h3 {
+            font-weight: unset;
+            font-size: 1.5rem;
+            line-height: 1.625rem;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+
+}
+
+.amenities-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    overflow: auto;
+
+    @media (min-width: 1132px) {
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    li {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        width: 100%;
+
+        @media (min-width: 1132px) {
+            width: 48%;
+        }
+    }
+
+    .amenity-img {
+        width: 1.625rem;
+        height: 1.625rem;
+        margin-right: 1rem;
+    }
+
+    .amenity-name {
+        font-size: 1rem;
+        line-height: 1.25rem;
+        padding-top: 0.25rem;
+    }
+
+    // .sds {
+    //     width: 48px;
+    //     cursor: pointer;
+    // }
+}
+
+div.rev-btn.show-all-amenities {
+    height: 48px;
+    text-align: center;
+    color: #222222;
+    width: 295px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    &:hover {
+        background-color: #f0f0f0;
+    }
+}
+
+@media screen and (max-width: 745px) {
+    div.rev-btn.show-all-amenities {
+        height: 48px;
+        text-align: center;
+        color: #222222;
+        width: 100%;
+        cursor: pointer;
+    }
+}
+
+.amenities-modal__container {
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 715px;
+            position: relative;
+
+            .modal-close-btn {
+                cursor: pointer;
+                background: transparent;
+                padding: 0 24px 0 ;
+                border: none;
+              }
+
+            textarea {
+                width: 100%;
+                height: 150px;
+                padding: 10px;
+                margin-top: 10px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+            }
+
+            .modal-buttons {
+                margin-top: 10px;
+                display: flex;
+                justify-content: space-between;
+
+                button {
+                    padding: 10px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #ddd;
+                    }
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .amenities-container {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        overflow: hidden;
+        // @media (min-width: 1132px) {
+        //     // flex-wrap: wrap;
+        //     // flex-direction: row;
+        //     // justify-content: space-between;
+        // }
+
+        li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            padding: 24px 0;
+            margin: 0;
+            width: 715px;
+
+            // @media (min-width: 1132px) {
+            //     width: 48%;
+            // }
+        }
+
+        .amenity-img {
+            width: 1.625rem;
+            height: 1.625rem;
+            margin-right: 1rem;
+        }
+
+        .amenity-name {
+            font-size: 1rem;
+            line-height: 1.25rem;
+            padding-top: 0.25rem;
+        }
+
+        // .sds {
+        //     width: 48px;
+        //     cursor: pointer;
+        // }
+    }
+}

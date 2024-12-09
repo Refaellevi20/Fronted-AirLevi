@@ -1,121 +1,139 @@
 .flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 // Font Sizes
 .fs12 {
-    font-size: rem(12px); 
+  font-size: rem(12px);
+}
+
+.fs14 {
+  font-size: rem(14px);
+}
+
+.fs16 {
+  font-size: rem(16px);
+}
+
+.fs17 {
+  font-size: rem(17px);
+}
+
+.fs18 {
+  font-size: rem(18px);
+}
+
+.fs20 {
+  font-size: rem(20px);
+}
+
+.fs22 {
+  font-size: rem(22px);
+}
+
+.fs24 {
+  font-size: rem(24px);
+}
+
+.fs28 {
+  font-size: rem(28px);
+}
+
+.fs30 {
+  font-size: rem(30px);
+}
+
+.fs32 {
+  font-size: rem(32px);
+}
+
+// flex helpers
+
+.flex {
+  display: flex;
+
+  >*.full {
+    flex: 1;
   }
-  
-  .fs14 {
-    font-size: rem(14px);
+
+  &.column {
+    flex-direction: column;
   }
-  
-  .fs18 {
-    font-size: rem(18px);
+
+  &.justify-center {
+    justify-content: center;
   }
-  
-  .fs20 {
-    font-size: rem(20px);
+
+  &.align-center {
+    align-items: center;
   }
-  
-  .fs24 {
-    font-size: rem(24px);
+
+  &.justify-between {
+    justify-content: space-between;
   }
-  
-  .fs28 {
-    font-size: rem(28px);
-  }
-  
-  .fs30 {
-    font-size: rem(30px);
-  }
-  .fs32 {
-    font-size: rem(32px);
-  }
-  
-  // flex helpers
-  
-  .flex {
-    display: flex;
-  
-    > *.full {
-      flex: 1;
-    }
-  
-    &.column {
-      flex-direction: column;
-    }
-  
-    &.justify-center {
-      justify-content: center;
-    }
-  
-    &.align-center {
-      align-items: center;
-    }
-  
-    &.justify-between {
-      justify-content: space-between;
-    }
-  }
-  
-  .clean-button {
-    background: none;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-  }
-  
-  .grid {
-    display: grid;
-  }
-  
-  //Design helpers
-  
-  .border-buttom {
-    border-bottom: 1px solid $clr-border;
-  }
-  
-  // helpers
-  .square-ratio {
-    @include aspect-ratio(1, 1);
-  }
-  
-  .almost-square-ratio {
-    @include aspect-ratio(20, 19);
-  }
-  
-  .video-ratio {
-    @include aspect-ratio(16, 9);
-  }
-  
-  .portrait-ratio {
-    @include aspect-ratio(9, 16);
-  }
-  
-  // icon
-  .icon24 {
-    height: 24px;
-    width: 24px;
-  }
-  
-  // text
-  .text-bold {
-    // font-family: cereal-Medium;
-  }
-  
-  .ellipsis {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  
-   @media (max-width: 785px) {
+}
+
+.flex1 {
+  display: flex;
+  align-items: center;
+}
+
+.clean-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.grid {
+  display: grid;
+}
+
+//Design helpers
+
+.border-buttom {
+  border-bottom: 1px solid $clr-border;
+}
+
+// helpers
+.square-ratio {
+  @include aspect-ratio(1, 1);
+}
+
+.almost-square-ratio {
+  @include aspect-ratio(20, 19);
+}
+
+.video-ratio {
+  @include aspect-ratio(16, 9);
+}
+
+.portrait-ratio {
+  @include aspect-ratio(9, 16);
+}
+
+// icon
+.icon24 {
+  height: 24px;
+  width: 24px;
+}
+
+// text
+.text-bold {
+  // font-family: cereal-Medium;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media (max-width: 785px) {
   .revers-flex__media {
     display: flex;
     flex-direction: column-reverse;
@@ -126,16 +144,16 @@
   position: fixed;
 }
 
-.pointer{
+.pointer {
   cursor: pointer;
 }
 
-.underline:hover{
-text-decoration: underline;
+.underline:hover {
+  text-decoration: underline;
 }
 
 .heart-img:hover {
-  animation: heartbeat 1s infinite; 
+  animation: heartbeat 1s infinite;
 }
 
 .modal-overlay {
@@ -157,4 +175,18 @@ text-decoration: underline;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.space-txt {
+  padding-left: 5px;
+}
+
+.underline-no__hover {
+  text-decoration: underline;
+}
+
+.container {
+  border: 1px solid $clr-border;
+  border-radius: $border-radius;
+  padding: 1rem;
 }

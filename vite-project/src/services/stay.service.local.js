@@ -162,6 +162,7 @@ function getEmptyStay(wishList = []) {
     host: {
       _id: '',
       fullname: '',
+      sortName:'',
       imgUrl: '',
     },
     loc: {
@@ -193,6 +194,12 @@ function _createDemoStays() {
         'http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436948/vgfxpvmcpd2q40qxtuv3.jpg',
       ],
       price: '82',
+      details: {
+        guests: '6',
+        bedroom:'2',
+        bed:'4',
+        bath:'2',
+      },
       wishList: [],
       summary:
         'Moshe\'s house, stays under 7 night $38/res - Inquire about availability, I review then offer/approve if available :) - READ "The Space" for cleaning/etc AND brief explanation about timeshare reservations - Want guaranteed view for additional cost? Must be weekly rental, other restrictions - Wheelchair accessible / ADA, call resort directly to ensure U receive. If U need ADA U MUST inform us BEFORE booking.',
@@ -253,11 +260,11 @@ function _createDemoStays() {
         'Beachfront',
       ],
       labels: ["national-parks","Chief's kitchens","Luxe"],
-  
       host: {
         _id: 'u101',
         fullname: 'Muki Host',
-        imgUrl: 'https://robohash.org/mukihost',
+        createAt: 2563564560000,        sortName:'Muki',
+        imgUrl: "https://cdn.pixabay.com/photo/2021/07/01/02/01/avatar-6377965_960_720.png",
       },
       loc: {
         country: 'Portugal',
@@ -445,6 +452,12 @@ function _createDemoStays() {
         'http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436993/yzxnnw83e9qyas022au4.jpg',
       ],
       price: 30,
+      details: {
+        guests: '8',
+        bedroom:'3',
+        bed:'6',
+        bath:'4',
+      },
       summary:
         "Chambre dans un bel appartement moderne avec balcon, ascenseur et terrasse. Private room in a beautiful modern apartment  with balcony, elevator and patio. La chambre est fermée avec une lit double. Vous aurez accès à une salle de bain avec une douche, terrasse. L'appartement est climatisé.  Votre chambre est équipé d'une connexion Wi-Fi illimité. Vous serez proche du centre ville, au pied du pont Jacques Cartier et à distance de marche de toutes les commodités (métro, supermarché, pharmacie",
       capacity: 2,
@@ -466,7 +479,8 @@ function _createDemoStays() {
       host: {
         _id: 'u101',
         fullname: 'Muki Host',
-        imgUrl: 'https://robohash.org/mukihost',
+        sortName:'Muki',
+        imgUrl: 'https://cdn.pixabay.com/photo/2016/11/21/16/01/woman-1846127_960_720.jpg',
       },
       loc: {
         country: 'Canada',
@@ -564,6 +578,12 @@ function _createDemoStays() {
         'http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437308/p80ndulkcghpcfsnvjdo.jpg',
       ],
       price: 65,
+      details: {
+        guests: '4',
+        bedroom:'3',
+        bed:'8',
+        bath:'4',
+      },
       summary:
         'O apartamento fica perto de arte e cultura e dos mais belos monumentos da cidade. Belos jardins e paisagens da cidade e do rio Douro ficam perto e podem ser apreciadas.  Existem restaurantes típicos e de comida internacional ao redor do apartamento.   O espaço fica numa rua típica da cidade, cheia da sua magia e magnetismo e é muito pratico e confortável. O espaço é excelente para quem pretende visitar e conhecer a zona histórica e turística do Porto. Transportes públicos ficam próximos.',
       capacity: 4,
@@ -622,7 +642,8 @@ function _createDemoStays() {
       host: {
         _id: 'u101',
         fullname: 'Muki Host',
-        imgUrl: 'https://robohash.org/mukihost',
+        sortName:'Muki',
+        imgUrl: 'https://robohash.org/mukihost?set=set4',
       },
       loc: {
         country: 'Portugal',
@@ -973,6 +994,12 @@ function _createDemoStays() {
         'http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436855/khyvb5q3yzcqaoscuppz.jpg',
       ],
       price: 79,
+      details: {
+        guests: '5',
+        bedroom:'2',
+        bed:'3',
+        bath:'2',
+      },
       summary:
         'A spacious, art-filled one-bedroom apartment near the express train (28 minutes to Times Square) and a Citibike station. Sample Bed-Stuy life at a nearby French restaurant,  a sunny Haitian cafe, a boutique grocery and more. We do NOT discriminate based on race, religion or sexual orientation.',
       capacity: 2,
@@ -998,6 +1025,7 @@ function _createDemoStays() {
       host: {
         _id: '622f3402e36c59e6164fac46',
         fullname: 'Shaila & Alex',
+        sortName:'Alex',
         imgUrl:
           'https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/female/47.jpg',
       },
@@ -1386,6 +1414,12 @@ function _createDemoStays() {
         'http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436571/fvqbazrysqpymjlhhdqu.jpg',
       ],
       price: 40,
+      details: {
+        guests: '5',
+        bedroom:'2',
+        bed:'3',
+        bath:'2',
+      },
       summary:
         'Mi piso está en el centro de Barcelona. Cerca del metro, las ramblas, los museos, el Portal del Ángel, Plaza Cataluña. Mi alojamiento es bueno para turistas, aventureros, y viajeros de negocios....y tiene ascensor.',
       capacity: 2,
@@ -1403,6 +1437,7 @@ function _createDemoStays() {
       host: {
         _id: '622f3407e36c59e6164fbdae',
         fullname: 'Marián',
+        sortName:'Marián',
         imgUrl:
           'https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/male/40.jpg',
       },
@@ -1466,6 +1501,12 @@ function _createDemoStays() {
         'http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436852/y3scgbn8d6evumdpwdp4.jpg',
       ],
       price: 25,
+      details: {
+        guests: '7',
+        bedroom:'4',
+        bed:'12',
+        bath:'2',
+      },
       summary:
         'Lit room with balcony. The apartment is in the center, just meters from the Palau de la Musica Catalana. Well connected, a few minutes from Las Ramblas and the Born. Very close to the beach and Ciutadella Park',
       capacity: 2,
@@ -1490,6 +1531,7 @@ function _createDemoStays() {
       host: {
         _id: '622f3404e36c59e6164fb63a',
         fullname: 'Isabel',
+        sortName:'Isabel',
         imgUrl:
           'https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/female/9.jpg',
       },
@@ -1877,6 +1919,12 @@ function _createDemoStays() {
         'http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436937/mkbcjfockxezgrvimska.jpg',
       ],
       price: 110,
+      details: {
+        guests: '6',
+        bedroom:'2',
+        bed:'3',
+        bath:'2',
+      },
       summary:
         'Welcome! Upgrades Added as of January 2018 This listing is located in the Spanish Harlem Section of Manhattan. I offer a cozy apartment that has great transportation in and out the city! The area has a lot of ethnic restaurants and a lot of local, active residents. This residence is great for a quick, inexpensive stay in New York whether its for business, travel, or personal purposes. I am glad to welcome all guests!',
       capacity: 3,
@@ -1910,6 +1958,7 @@ function _createDemoStays() {
       host: {
         _id: '622f3405e36c59e6164fb914',
         fullname: 'Kevin',
+        sortName:'Kevin',
         imgUrl:
           'https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/male/10.jpg',
       },
@@ -2297,6 +2346,12 @@ function _createDemoStays() {
         'http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436821/b4ejulqdhsvyseyfnfr0.jpg',
       ],
       price: 29,
+      details: {
+        guests: '8',
+        bedroom:'6',
+        bed:'7',
+        bath:'3',
+      },
       summary:
         'If the dates you wish are not available, we have other options in the same location. You can find them on my profile. My goal is for you to have your days with the most comfort i can propose. I want you to taste all the feelings in Porto, as our food, as our best places, our best pointviews. I just love to help you enjoying this beautiful city :)',
       capacity: 2,
@@ -2332,6 +2387,7 @@ function _createDemoStays() {
       host: {
         _id: '622f3401e36c59e6164fab5c',
         fullname: 'Apartments2Enjoy',
+        sortName:'Apart',
         imgUrl:
           'https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/male/48.jpg',
       },
@@ -2719,6 +2775,12 @@ function _createDemoStays() {
         'http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436553/hbkx9lwxjd0wabqk0bmo.jpg',
       ],
       price: 26,
+      details: {
+        guests: '8',
+        bedroom:'6',
+        bed:'9',
+        bath:'2',
+      },
       summary:
         'The neighbourhood is a quiet, family residential area, 20 minutes by bus from the historic center of Porto and 20 minutes from the beach (Matosinhos - where you may eat very GOOD fish!). You will love to stay in a very spacious, familiar and bright room, where you can enjoy a large and flowery garden, comfortable kitchen and laundry with washer and dryer machine. My space is good for couples, solo adventures, and business travelers!',
       capacity: 2,
@@ -2744,6 +2806,7 @@ function _createDemoStays() {
       host: {
         _id: '622f3404e36c59e6164fb54f',
         fullname: 'Patrícia Sousa Casimiro',
+        sortName:'Casimiro',
         imgUrl:
           'https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/male/12.jpg',
       },
@@ -2861,6 +2924,12 @@ function _createDemoStays() {
         'http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437040/oarfkdxx7gyyvcynvwko.jpg',
       ],
       price: 105,
+      details: {
+        guests: '5',
+        bedroom:'2',
+        bed:'3',
+        bath:'1',
+      },
       summary:
         'Welcome if you want to stay at a cozy flat with local experience.:) It is in the center of Istanbul.The neighborhood is safe and close to attractions.Transportation is easy. I will help you always.',
       capacity: 2,
@@ -2878,6 +2947,7 @@ function _createDemoStays() {
       host: {
         _id: '622f3402e36c59e6164fae4d',
         fullname: 'Nihat',
+        sortName:'Nihat',
         imgUrl:
           'https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/female/13.jpg',
       },

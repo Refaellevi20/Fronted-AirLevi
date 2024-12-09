@@ -60,17 +60,6 @@
     button.selected {
         border: 1px solid black;
     }
-
-    .close-modal {
-        background-color: red;
-        margin-top: 10px;
-        color: white;
-        align-self: end;
-    }
-
-    .close-modal:hover {
-        background-color: darkred;
-    }
 }
 
 @media (max-width: 1130px) {

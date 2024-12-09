@@ -1,0 +1,52 @@
+.counter-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: em(84px);
+    height: 32px;
+
+    button {
+        width: 32px;
+        height: 32px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        cursor: pointer;
+        display: inline-flex;
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+        text-decoration: none;
+        border: 1px solid $clr-border-dark;
+        color: $clr-text-secondary;
+        font-family: inherit;
+        outline: none;
+        touch-action: manipulation;
+        align-items: center;
+        justify-content: center;
+        background: $clr-white;
+        border-radius: 50%;
+
+        span {
+            height: 22px ;
+            width: 22px ;
+            padding: 5px ;
+        }
+
+        svg {
+            display: block;
+            color: inherit;
+            fill: none;
+            height: 12px;
+            width: 12px;
+            stroke: currentcolor;
+            stroke-width: 5.33333;
+            overflow: visible;
+        }
+        &:disabled {
+            cursor: not-allowed !important;
+            color: $clr-border;
+            border-color: $clr-border ;
+        }
+    }
+
+}

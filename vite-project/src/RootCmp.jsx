@@ -24,6 +24,9 @@ export function RootCmp() {
           <Route path="/history" element={<HistoryPage />} />
           {/* <Route path="/history/historyAll" element={<historyAllPage />} /> */}
           <Route path="/wishlist" element={<UserWishList />} />
+          <Route path="/payment" element={<stayPayment />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+
         </Routes>
       </main>
     </div>

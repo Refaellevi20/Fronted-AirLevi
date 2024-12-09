@@ -52,8 +52,8 @@ export function PreviewInfo({ info}) {
       </p>
       <p className='text-grey'>{info.type}</p>
       <p className='text-grey'>
-        {/$/.test(url.pathname) && 'Ogu 1 - Ogu 20'}
-        {/stay$/.test(url.pathname) && 'Ogu 1 - Ogu 20'}
+        {/$/.test(url.pathname) && ' Feb 1 - Feb 20'}
+        {/stay$/.test(url.pathname) && ' Feb 1 - Feb 20'}
         {/* {/wishlist$/.test(url.pathname) && `${info.capacity} beds`} */}
       </p>
       <p className='text-bold'>
