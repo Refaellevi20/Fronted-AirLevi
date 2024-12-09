@@ -1,4 +1,4 @@
-export function ReviewItem({ review }) {
+export function ReviewPreview({ review }) {
     const { txt, rate, by } = review
   
     return (

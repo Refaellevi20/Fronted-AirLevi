@@ -1,26 +1,21 @@
 .stay-calendar-container {
-
     padding-top: 2rem;
     padding-bottom: 2rem;
-
 
     .date-picker-header {
 
         h4 {
             font-size: 1.5rem;
             font-family: 'cereal-Book';
-
         }
 
         h5 {
             color: $clr-text-lighter;
             font-family: 'cereal-regular';
         }
-
     }
 
     .rdrCalendarWrapper {
-
         width: 100%;
 
         .rdrNextPrevButton {
@@ -53,7 +48,6 @@
         }
 
     }
-
 
     .date-picker-modal-btns {
         text-decoration: underline !important;

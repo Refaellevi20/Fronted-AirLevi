@@ -13,6 +13,7 @@ import { OrderModal } from "./OrderModal"
 import { AllAmenities } from "../cmps/AllAmenities"
 import { AmenitiesList } from "../cmps/AmenitiesList"
 import { StayHighlights } from "../cmps/StayHighlights";
+import Reviews from "./Reviews";
 
 export function StayDetails() {
   const [stay, setStay] = useState(null)
@@ -117,6 +118,9 @@ export function StayDetails() {
           </div>
           <div className='stay-calendar'>
             <StayCalendar />
+          </div>
+          <div>
+          <Reviews reviews={stay.reviews}/>
           </div>
         </div>
         <div className="stay-card">
