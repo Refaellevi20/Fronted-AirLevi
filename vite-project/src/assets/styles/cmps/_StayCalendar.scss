@@ -1,0 +1,65 @@
+.stay-calendar-container {
+
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+
+    .date-picker-header {
+
+        h4 {
+            font-size: 1.5rem;
+            font-family: 'cereal-Book';
+
+        }
+
+        h5 {
+            color: $clr-text-lighter;
+            font-family: 'cereal-regular';
+        }
+
+    }
+
+    .rdrCalendarWrapper {
+
+        width: 100%;
+
+        .rdrNextPrevButton {
+            background-color: transparent;
+        }
+
+        .rdrMonthName {
+            font-size: 1rem;
+            color: $clr-text-primary;
+            text-align: center;
+            font-family: 'cereal-Bold';
+        }
+
+
+        .rdrMonthAndYearWrapper {
+            min-width: minmax(500px,100vw);
+        }
+
+        .rdrMonthAndYearPickers {
+            display: none;
+        }
+
+        .rdrMonths {
+            min-width: 100%;
+        }
+
+        .rdrMonth {
+            min-width: 100% !important;
+            width: inherit;
+        }
+
+    }
+
+
+    .date-picker-modal-btns {
+        text-decoration: underline !important;
+        text-align: end;
+        font-family: 'cereal-regular';
+        font-size: em(14px, 16px);
+    }
+
+}
