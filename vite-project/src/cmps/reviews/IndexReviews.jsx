@@ -40,34 +40,34 @@ export function IndexReviews({ reviews }) {
     return (
 <div className="index-reviews">
   <div className="review-line">
-    <div className="text">{`Cleanliness`}</div>
-    <div className="rating">{avgRating.cleanliness}</div>
-    <div className="icon"><PiSprayBottle /></div>
+    <div className="text fs14">{`Cleanliness`}</div>
+    <div className="rating fs18">{avgRating.cleanliness}</div>
+    <div className="icon"><PiSprayBottle className='fs32'/></div>
   </div>
   <div className="review-line">
-    <div className="text">Communication</div>
-    <div className="rating">{avgRating.communication}</div>
-    <div className="icon"><HiOutlineChatBubbleBottomCenter /></div>
+    <div className="text fs14">Communication</div>
+    <div className="rating fs18">{avgRating.communication}</div>
+    <div className="icon"><HiOutlineChatBubbleBottomCenter className='fs32'/></div>
   </div>
   <div className="review-line">
-    <div className="text">Check-in</div>
-    <div className="rating">{avgRating['check-in']}</div>
-    <div className="icon"><IoKeyOutline /></div>
+    <div className="text fs14">Check-in</div>
+    <div className="rating fs18">{avgRating['check-in']}</div>
+    <div className="icon"><IoKeyOutline className='fs32'/></div>
   </div>
   <div className="review-line">
-    <div className="text">Accuracy</div>
-    <div className="rating">{avgRating.accuracy}</div>
-    <div className="icon"><IoIosCheckmarkCircleOutline /></div>
+    <div className="text fs14">Accuracy</div>
+    <div className="rating fs18">{avgRating.accuracy}</div>
+    <div className="icon"><IoIosCheckmarkCircleOutline className='fs32'/></div>
   </div>
   <div className="review-line">
-    <div className="text">Location</div>
-    <div className="rating">{avgRating.location}</div>
-    <div className="icon"><CiMap /></div>
+    <div className="text fs14">Location</div>
+    <div className="rating fs18">{avgRating.location}</div>
+    <div className="icon"><CiMap className='fs32'/></div>
   </div>
   <div className="review-line">
-    <div className="text">Value</div>
-    <div className="rating">{avgRating.value}</div>
-    <div className="icon"><SlTag /></div>
+    <div className="text fs14">Value</div>
+    <div className="rating fs18">{avgRating.value}</div>
+    <div className="icon"><SlTag className='fs32'/></div>
   </div>
 </div>
 
