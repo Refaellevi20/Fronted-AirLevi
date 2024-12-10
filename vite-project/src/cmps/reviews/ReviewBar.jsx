@@ -1,31 +1,61 @@
-export function ReviewBar({ userReviews }) {
-    const stars = getStarsCount()
+import { PrgoressBar } from "../progress-bar" 
 
-    function getStarsCount() {
-        if (!userReviews) return
-        const accInit = { count: [0, 0, 0, 0, 0, 0], sumCount: 0 }
-        const stars = userReviews.reduce((acc, review) => {
-            const { rate } = review
+export function ReviewBar({ reviews }) {
+    let starsCount = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
 
-            if (rate) {
-                const rateFloor = Math.floor(rate)
-                acc.sumCount++
-                acc.count[rateFloor]++
-            }
+    reviews.forEach(review => {
+        const avgRating = Object.values(review.rate).reduce((a, b) => a + b, 0) / Object.keys(review.rate).length;
 
-            return acc
-        }, accInit)
-        return stars
-    }
+        if (avgRating >= 4.5) {
+            starsCount[5]++
+        } else if (avgRating >= 4) {
+            starsCount[4]++
+        } else if (avgRating >= 3) {
+            starsCount[3]++
+        } else if (avgRating >= 2) {
+            starsCount[2]++
+        } else {
+            starsCount[1]++
+        }
+    })
 
-    return <div className="review-bars">
-        {stars.count.slice(1).map((count, idx) =>
-            <div className="review-bars-container" key={idx}>
-                <div >{`${idx + 1} Stars`}</div>
-                <div className="review-rate-bar">
-                    <span className="percent" style={{ padding:'10px 10px 0px 6px',width: `${(count / stars.sumCount) * 100}%` }}></span>
-                </div>
-                <span>{`(${count})`}</span>
-            </div>)}
-    </div>
+    return (
+        <section className="reviews-bar grid ">
+        <p className="fs12">Overall rating</p>
+        <span className="progress-bar flex review-line">
+            <PrgoressBar progress={starsCount[5]} />
+            <span style={{ marginLeft: '0.5rem' }}>
+                {/* {starsCount[5]} review{starsCount[5] !== 1 ? 's' : ''} */}
+            </span>
+        </span>
+        {/* <p>4 Stars</p> */}
+        <span className="progress-bar flex">
+            <PrgoressBar progress={starsCount[4]} />
+            <span style={{ marginLeft: '0.5rem' }}>
+                {/* {starsCount[4]} {starsCount[4] !== 1 ? 's' : ''} */}
+            </span>
+        </span>
+        {/* <p>3 Stars</p> */}
+        <span className="progress-bar flex">
+            <PrgoressBar progress={starsCount[3]} />
+            <span style={{ marginLeft: '0.5rem' }}>
+                {/* {starsCount[3]} review{starsCount[3] !== 1 ? 's' : ''} */}
+            </span>
+        </span>
+        {/* <p>2 Stars</p> */}
+        <span className="progress-bar flex">
+            <PrgoressBar progress={starsCount[2]} />
+            <span style={{ marginLeft: '0.5rem' }}>
+                {/* {starsCount[2]} review{starsCount[2] !== 1 ? 's' : ''} */}
+            </span>
+        </span>
+        {/* <p>1 Star</p> */}
+        <span className="progress-bar flex">
+            <PrgoressBar progress={starsCount[1]} />
+            <span style={{ marginLeft: '0.5rem' }}>
+                {/* {starsCount[1]} review{starsCount[1] !== 1 ? 's' : ''} */}
+            </span>
+        </span>
+    </section>
+    )
 }

@@ -1,0 +1,44 @@
+.reviews-bar {
+    // grid-template: repeat(3, 1fr)/repeat(4, 1fr);
+    gap: 10px;
+    align-items: center;
+    width: calc(100% / 7);
+    height: 102px;
+
+    @include for-max-narrow-layout {
+        grid-template: repeat(6, 1fr)/repeat(1, 1fr);
+        // padding-top: 1rem;
+        padding: 1rem 4rem 0 4rem;
+
+        @include for-mobile-layout {
+            padding: 2rem 1rem 0 1rem;
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .progress-bar {
+        overflow: hidden;
+        font-size: .75em;
+        height: min-content;
+        align-items: center;
+        font-weight: 600;
+
+
+        progress {
+            font-size: 1em;
+            height: 4px;
+            border-radius: 40px;
+            margin-inline-end: 6px;
+
+            &::-webkit-progress-value {
+                background-color: $clr-text-primary;
+            }
+        }
+
+    }
+
+
+}

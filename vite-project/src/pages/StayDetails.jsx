@@ -14,8 +14,10 @@ import { AllAmenities } from "../cmps/AllAmenities"
 import { AmenitiesList } from "../cmps/AmenitiesList"
 import { StayHighlights } from "../cmps/StayHighlights";
 import Reviews from "./Reviews";
+import { ReviewBar } from "../cmps/reviews/ReviewBar";
+import { IndexReviews } from "../cmps/reviews/IndexReviews";
 
-export function StayDetails() {
+export function StayDetails({ reviews }) {
   const [stay, setStay] = useState(null)
   const { stayId } = useParams()
   const navigate = useNavigate()
@@ -135,6 +137,10 @@ export function StayDetails() {
         </div>
       </div>
       <div className="secondary-layout">
+        <section className="flex1">
+      <ReviewBar reviews={stay.reviews} />
+      <IndexReviews reviews={reviews} />
+      </section>
           <Reviews reviews={stay.reviews}/>
           </div>
       <AppFooterDetails />

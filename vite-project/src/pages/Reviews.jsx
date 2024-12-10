@@ -33,8 +33,6 @@ function Reviews({ reviews }) {
 
     return (
         <div className="reviews">
-            <ReviewBar userReviews={reviews} />
-            <IndexReviews reviews={reviews} />
             <div className="reviews-list">
                 {reviews.map((review) => (
                     <ReviewPreview key={review.id} review={review} />
