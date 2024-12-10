@@ -52,10 +52,11 @@ const dateToCancel = utilService.ShortFormattedDate(checkInDate - (1000 * 60 * 6
             </div>
         }
         {isMoreThanFiveDays &&
-            <div className="free-cancelation highlight flex">
+            <div className="free-cancelation highlight flex1">
                 <img src={highlightMap["Free cancelation"]} className="highlight-img" alt="highlightImg" />
                 <div className="highlight-txt great-checkin-txt">
                     <h3><span>Free cancellation </span><span>before {dateToCancel}</span></h3>
+                    <p>Bring your pets along for the stay.</p>
                 </div>
             </div>
         }

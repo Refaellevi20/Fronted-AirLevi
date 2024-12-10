@@ -1,4 +1,10 @@
 import React from 'react'
+import { IoKeyOutline } from "react-icons/io5";
+import { HiOutlineChatBubbleBottomCenter } from "react-icons/hi2";
+import { PiSprayBottle } from "react-icons/pi";
+import { CiMap } from "react-icons/ci";
+import { SlTag } from "react-icons/sl";
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
 export function IndexReviews({ reviews }) {
     function calculateAverageRating() {
@@ -32,15 +38,39 @@ export function IndexReviews({ reviews }) {
     const avgRating = calculateAverageRating()
     
     return (
-        <div className="index-reviews">
-            <div className="avg-rating">
-                <span>Cleanliness: {avgRating.cleanliness}</span>
-                <span>Communication: {avgRating.communication}</span>
-                <span>Check-in: {avgRating['check-in']}</span>
-                <span>Accuracy: {avgRating.accuracy}</span>
-                <span>Location: {avgRating.location}</span>
-                <span>Value: {avgRating.value}</span>
-            </div>
-        </div>
+<div className="index-reviews">
+  <div className="review-line">
+    <div className="text">{`Cleanliness`}</div>
+    <div className="rating">{avgRating.cleanliness}</div>
+    <div className="icon"><PiSprayBottle /></div>
+  </div>
+  <div className="review-line">
+    <div className="text">Communication</div>
+    <div className="rating">{avgRating.communication}</div>
+    <div className="icon"><HiOutlineChatBubbleBottomCenter /></div>
+  </div>
+  <div className="review-line">
+    <div className="text">Check-in</div>
+    <div className="rating">{avgRating['check-in']}</div>
+    <div className="icon"><IoKeyOutline /></div>
+  </div>
+  <div className="review-line">
+    <div className="text">Accuracy</div>
+    <div className="rating">{avgRating.accuracy}</div>
+    <div className="icon"><IoIosCheckmarkCircleOutline /></div>
+  </div>
+  <div className="review-line">
+    <div className="text">Location</div>
+    <div className="rating">{avgRating.location}</div>
+    <div className="icon"><CiMap /></div>
+  </div>
+  <div className="review-line">
+    <div className="text">Value</div>
+    <div className="rating">{avgRating.value}</div>
+    <div className="icon"><SlTag /></div>
+  </div>
+</div>
+
+      
     )
 }

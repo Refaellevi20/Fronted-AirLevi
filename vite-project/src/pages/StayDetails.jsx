@@ -119,9 +119,7 @@ export function StayDetails() {
           <div className='stay-calendar'>
             <StayCalendar />
           </div>
-          <div>
-          <Reviews reviews={stay.reviews}/>
-          </div>
+          
         </div>
         <div className="stay-card">
           {/* <StayCard stay={stay} /> */}
@@ -136,6 +134,9 @@ export function StayDetails() {
           </div>
         </div>
       </div>
+      <div className="secondary-layout">
+          <Reviews reviews={stay.reviews}/>
+          </div>
       <AppFooterDetails />
     </section>
   )
