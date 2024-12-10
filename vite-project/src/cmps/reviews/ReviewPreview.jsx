@@ -1,26 +1,34 @@
-export function ReviewPreview({ review }) {
-    const { txt, rate, by } = review
-  
-    return (
-      <div className="review-card" style={{ border: '1px solid #ddd', padding: '10px', marginBottom: '10px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <img
-            src={by.imgUrl}
-            alt={`${by.fullname}'s avatar`}
-            style={{ width: '50px', height: '50px', borderRadius: '50%' }}
-          />
-          <h4>{by.fullname}</h4>
-        </div>
-        <p>{txt}</p>
-        <div style={{ display: 'flex', gap: '15px', marginTop: '10px', fontSize: '0.9rem' }}>
-          <span>Cleanliness: {rate.cleanliness}</span>
-          <span>Communication: {rate.communication}</span>
-          <span>Check-in: {rate['check-in']}</span>
-          <span>Accuracy: {rate.accuracy}</span>
-          <span>Location: {rate.location}</span>
-          <span>Value: {rate.value}</span>
-        </div>
-      </div>
-    )
-  }
-  
+import { useState } from "react"
+
+export function ReviewPreview({ reviewsToDisplay, MAX_LENGTH = 100 }) {
+  const [expanded, setExpanded] = useState(Array(reviewsToDisplay.length).fill(false))
+
+  const handleExpand = (index) => {
+      const newExpanded = [...expanded]
+      newExpanded[index] = !newExpanded[index]
+      setExpanded(newExpanded) //~ change to acordian better writing
+  } //! here acordion
+
+  if (!reviewsToDisplay || !Array.isArray(reviewsToDisplay)) return <div>Loading...</div>
+
+  return (
+      <div className="reviews-list grid">
+          {reviewsToDisplay.map((review, index) => (
+              <div className="review-prev flex" key={index}>
+                  <div className="mini-user-details grid">
+                      <img src={review.by.imgUrl} alt={review.by.fullname} className="mini-user-img" />
+                      <p className="review-fullname">{review.by.fullname}</p>
+                      {/* <span>pen 2024</span> //! here createAt */}
+                      {/* <span className="review-createdAt">{reviewsToDisplay.createdAt}</span> */}
+                  </div>
+                  <p>{expanded[index] ? review.txt : review.txt.substring(0, MAX_LENGTH)}</p>
+                  {review.txt.length > MAX_LENGTH &&
+                  <button className="show-more" onClick={() => handleExpand(index)}>
+                      {expanded[index] ? <><span>{'< '}</span><span className="underline">Show less</span> </> : <> <span className="underline">Show more</span> <span>{'>'}</span></>}
+                  </button>}
+              </div>
+          ))
+          }
+      </div >
+  )
+}
