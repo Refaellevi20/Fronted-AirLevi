@@ -18,6 +18,7 @@ import { ReviewBar } from "../cmps/reviews/ReviewBar";
 import { IndexReviews } from "../cmps/reviews/IndexReviews";
 import { SecondaryHeader } from "../cmps/details/SecondaryHeader";
 import { ReviewPreview } from "../cmps/reviews/ReviewPreview";
+import useOnScreen from '../customHooks/useOnScreen.js'
 
 export function StayDetails({ reviews }) {
   const [stay, setStay] = useState(null)
@@ -29,6 +30,8 @@ export function StayDetails({ reviews }) {
   const [openTab, setOpenTab] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
   const [component, setComponent] = useState(null);
+  const imgGridVisible = useOnScreen(imgGridRef, '0px')
+  const reserveBtnVisible = useOnScreen(reserveBtnRef, '-34px')
 
   const amenitiesToDisplay = stay?.amenities?.slice(0, 10)
   const reviewsToDisplay = stay?.reviews?.slice(0, 6)
@@ -75,14 +78,15 @@ export function StayDetails({ reviews }) {
           <>
             <SecondaryHeader
               stay={stay}
-              //  reserveBtnVisible={reserveBtnVisible}
+              imgGridVisible={imgGridVisible}
+               reserveBtnVisible={reserveBtnVisible}
               setOpenTab={setOpenTab}
             />
             <section className="revers-flex__media">
               <div className="controller-layout__details">
                 <h1 id="stay-top" className="stay-top">{stay.name}</h1>
               </div>
-              <div id="Photos" className="sss">
+              <div className="sss">
                 <ImgUseGrid
                   id="Photos"
                   imgsToDisplay={imgsToDisplay}
@@ -132,18 +136,16 @@ export function StayDetails({ reviews }) {
           </div>
 
         </div>
-        <div className="stay-card">
-          {/* <StayCard stay={stay} /> */}
-
-          <div className='stay-review-order'>
+        {/* <div className="stay-card">
+          <div className='stay-review-order'> */}
             <OrderModal
               stay={stay}
               openTab={openTab}
               setOpenTab={setOpenTab}
               reserveBtnRef={reserveBtnRef}
             />
-          </div>
-        </div>
+          {/* </div>
+        </div> */}
       </div>
       <div className="secondary-layout">
         <section id="reviews" className="flex1">

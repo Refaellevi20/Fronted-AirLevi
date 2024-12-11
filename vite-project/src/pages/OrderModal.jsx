@@ -7,10 +7,6 @@ import { GuestSelect } from '../cmps/GuestSelect.jsx'
 import { OrderDetails } from '../cmps/details/OrderDetails.jsx'
 import { utilService } from '../services/util.service.js'
 
-
-
-
-
 export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
   const [searchParams, setSearchParams] = useSearchParams()
   const [refVisible, setRefVisible] = useState(false)

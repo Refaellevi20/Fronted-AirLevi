@@ -1,7 +1,7 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { utilService } from "../../services/util.service";
 
-export function SecondaryHeader({ stay }) {
+export function SecondaryHeader({ stay,reserveBtnVisible,setOpenTab,imgGridVisible }) {
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
 
@@ -33,7 +33,7 @@ export function SecondaryHeader({ stay }) {
     }
 
     return (
-        <div className='secondary-header-container'>
+        <div className='secondary-header-container'  style={{ display: imgGridVisible ? 'none' : 'block' }}>
             <div className={'secondary-header secondary-layout'} >
                 <div className='anchor-links'>
                     <a className='anchor-link' href='#stay-top' >Photos</a>
@@ -41,7 +41,7 @@ export function SecondaryHeader({ stay }) {
                     <a className='anchor-link' href='#location' >Location</a>
                     <a className='anchor-link' href='#reviews' >reviews</a>
                 </div>
-                <div className='book-it-details'>
+                <div className='book-it-details' style={{ display: reserveBtnVisible ? 'none' : 'flex' }}>
                     <header className='order-form-header'>
                         <h4><span className="price">${(Math.round(stay.price)).toLocaleString()}</span> night</h4>
                         <div className='order-rating-review flex'>
