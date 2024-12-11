@@ -5,6 +5,8 @@
     width: em(84px);
     height: 32px;
 
+    
+
     button {
         width: 32px;
         height: 32px;
@@ -25,6 +27,11 @@
         justify-content: center;
         background: $clr-white;
         border-radius: 50%;
+
+        // .counter-container:last-child {
+
+        //     margin-left: 81px;
+        // }//! here pets
 
         span {
             height: 22px ;

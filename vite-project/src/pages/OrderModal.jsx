@@ -97,18 +97,18 @@ export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
     }
   }, [])
 
-  console.log(reserveBtnRef.current)
-  console.log('dgfd');
+  // console.log(reserveBtnRef.current)
+  // console.log('dgfd');
   
 
   return (
     <section className='order-modal'>
          {/* <div className="modal-overlay" onClick={handleOverlayClick}></div> */}
       <div className='order-modal-form flex' ref={modalRef}>
-        <header className='order-form-header flex'>
-          <h4>
-            <span className="order-price">${(Math.round(stay.price)).toLocaleString()}</span>
-            <span className="order-night" style={{ fontFamily: 'cereal-Book' }}> night</span>
+        <header className='order-form-header' style={{marginBottom:'24px'}}>
+          <h4 className='top-card__details'>
+            <span className="order-price fs22">${(Math.round(stay.price)).toLocaleString()}</span>
+            <span className="order-night fs16" style={{ fontFamily: 'cereal-Book' }}> night</span>
           </h4>
         </header>
 

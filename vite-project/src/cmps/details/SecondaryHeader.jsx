@@ -1,5 +1,6 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { utilService } from "../../services/util.service";
+import { BtnSquareColorRed } from "../buttons ui/btn-square-color";
 
 export function SecondaryHeader({ stay,reserveBtnVisible,setOpenTab,imgGridVisible }) {
     const [searchParams] = useSearchParams()
@@ -53,7 +54,19 @@ export function SecondaryHeader({ stay,reserveBtnVisible,setOpenTab,imgGridVisib
                             </div>
                         </div>
                     </header>
+                    {orderParams.checkIn && orderParams.checkOut && (
+                        <BtnSquareColorRed onClick={onClickReserve} children={'Reserve'} />
+                    )}
 
+                    {(!orderParams.checkIn || !orderParams.checkOut) && (
+                        <BtnSquareColorRed
+                            onClick={() => {
+                                setOpenTab('checkIn')
+
+                            }}
+                            children={<a href="#stay-mid">Check availability</a>}
+                        />
+                    )}
                 </div>
             </div>
         </div>

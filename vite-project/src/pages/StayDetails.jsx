@@ -32,8 +32,9 @@ export function StayDetails({ reviews }) {
   const [openTab, setOpenTab] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
   const [component, setComponent] = useState(null);
-  const imgGridVisible = useOnScreen(imgGridRef, '0px')
+  // const imgGridVisible = useOnScreen(imgGridRef, '-20px')
   const reserveBtnVisible = useOnScreen(reserveBtnRef, '-34px')
+
   const imgsToDisplay = stay?.imgUrls?.slice(0, 5)
   const amenitiesToDisplay = stay?.amenities?.slice(0, 10)
   const reviewsToDisplay = stay?.reviews?.slice(0, 6)
@@ -80,7 +81,7 @@ export function StayDetails({ reviews }) {
           <>
             <SecondaryHeader
               stay={stay}
-              imgGridVisible={imgGridVisible}
+              // imgGridVisible={imgGridVisible}
                reserveBtnVisible={reserveBtnVisible}
               setOpenTab={setOpenTab}
             />
@@ -90,7 +91,6 @@ export function StayDetails({ reviews }) {
               </div>
               <div className="sss">
                 <ImgUseGrid
-                  id="Photos"
                   imgsToDisplay={imgsToDisplay}
                   onOpenStayGallery={onOpenStayGallery}
                 />
