@@ -154,7 +154,7 @@ export function StayDetails({ reviews }) {
           <Reviews reviews={stay.reviews} />
         </div>
         <div
-          className='stay-rating'
+          className='stay-rating controller-layout__details'
           onClick={() =>
             openModal(
               <ReviewPreview
@@ -163,8 +163,8 @@ export function StayDetails({ reviews }) {
               />
             )
           }>
-          <div className="controller-layout__details">
-            {stay.reviews.length} reviews
+          <div className=" show-all-details btn-reviews__details">
+           <p className="">{stay.reviews.length} reviews</p> 
           </div>
         </div>
       </div>
