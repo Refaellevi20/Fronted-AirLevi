@@ -109,6 +109,12 @@
   padding: 48px 0;
 }
 
-.avr-reviews__details{
+.avr-reviews__details {
   padding-bottom: 24px;
+}
+
+@media screen and (max-width: 745px) {
+  .order-modal {
+    display: none;
+  }
 }

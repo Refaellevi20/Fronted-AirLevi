@@ -1,0 +1,31 @@
+.details-app-footer {
+  padding-bottom: 0px !important;
+  border-top: solid 1px $clr-border;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: $clr-white;
+  // margin-bottom: -100px;
+  z-index: 999;
+
+  @include for-normal-layout {
+    display: none !important;
+  }
+
+  .stay-mobile-footer {
+    flex-direction: row;
+    padding: 0.8rem 1rem 0.2rem;
+    bottom: 0;
+    width: 100%;
+    justify-content: space-between;
+
+    .footer-btn{
+        transform: translate(-7px, 10px);
+    }
+  }
+}
+
+.footer-guest-view {
+  padding-left: 1rem;
+  transform: translate(0px, -5px);
+}

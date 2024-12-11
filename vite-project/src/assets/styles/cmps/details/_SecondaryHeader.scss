@@ -1,4 +1,4 @@
-.secondary-header-container{
+.secondary-header-container {
     position: fixed;
     background-color: $clr-white;
     width: 100%;
@@ -16,9 +16,10 @@
         right: 0;
         left: 0;
     }
+
     @include for-max-narrow-layout {
         display: none !important;
-      }
+    }
 }
 
 .secondary-header {
@@ -64,36 +65,43 @@
         align-items: center;
         flex-grow: 1;
         justify-content: flex-end;
-        gap:16px;
+        gap: 16px;
         white-space: nowrap;
-        .order-form-header{
+
+        .order-form-header {
             display: grid;
-            h4{
+
+            h4 {
                 font-family: cereal-book;
                 font-size: 14px;
             }
-            h4>span{
-                font-family: cereal-medium;
+
+            h4>span {
+                font-family: cereal-medium; //! here perper myself for the fonts
                 font-size: 16px;
             }
-            .order-rating-review{
-            font-size: 12px;
-            font-family: cereal-medium;
+
+            .order-rating-review {
+                font-size: 12px;
             }
-            .order-rating-review>*:not(:last-child){
+
+            .order-rating-review>*:not(:last-child) {
                 padding-inline-end: 6px;
             }
-            .stay-rating{
+
+            .stay-rating {
                 text-decoration: underline;
                 color: $clr-text-lighter;
             }
         }
+
         button {
             min-width: 0px;
             max-width: min-content;
             max-height: 48px;
             font-family: cereal-book;
         }
+
         a {
             text-decoration: none;
             color: inherit;

@@ -20,6 +20,7 @@ import { SecondaryHeader } from "../cmps/details/SecondaryHeader";
 import { ReviewPreview } from "../cmps/reviews/ReviewPreview";
 import useOnScreen from '../CustomHook/useOnScreen';
 import { RatingReview2 } from "../cmps/RatingReview2";
+import { StayMobileFooter } from "../cmps/details/StayNobileFooter";
 
 
 export function StayDetails({ reviews }) {
@@ -197,7 +198,12 @@ export function StayDetails({ reviews }) {
           </div>
         </div>
       </div>
+      <div >
       <AppFooterDetails />
+      </div>
+      <div className='details-app-footer'>
+        {stay && <StayMobileFooter stay={stay} setOpenTab={setOpenTab} />} //! here that is on the appFooter
+      </div>
     </section>
   )
 }

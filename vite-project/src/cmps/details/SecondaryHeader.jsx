@@ -2,7 +2,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { utilService } from "../../services/util.service";
 import { BtnSquareColorRed } from "../buttons ui/btn-square-color";
 
-export function SecondaryHeader({ stay,reserveBtnVisible,setOpenTab,imgGridVisible }) {
+export function SecondaryHeader({ stay, reserveBtnVisible, setOpenTab, imgGridVisible }) {
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
 
@@ -32,9 +32,9 @@ export function SecondaryHeader({ stay,reserveBtnVisible,setOpenTab,imgGridVisib
         })
         navigate(`/book/stay/${stay._id}?${paramsToSet}`)
     }
-
+    //! here the useRef not working well (on the name)
     return (
-        <div className='secondary-header-container'  style={{ display: imgGridVisible ? 'none' : 'block' }}>
+        <div className='secondary-header-container' style={{ display: imgGridVisible ? 'none' : 'block' }}>
             <div className={'secondary-header secondary-layout'} >
                 <div className='anchor-links'>
                     <a className='anchor-link' href='#stay-top' >Photos</a>
