@@ -36,7 +36,7 @@ export function GuestSelect({ onSetField, guests }) {
     },
     {
         label: 'Pets',
-        subLabel: <a href="">Bringing a Service Animal?</a>,
+        subLabel: <a href="">Bringing a Service  Animal?</a>, //! here on size page + open modal
         field: 'pets'
     }
 ]
