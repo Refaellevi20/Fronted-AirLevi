@@ -58,7 +58,7 @@
 
 .stay-card {
   // flex: 0 0 auto;
-  width: 40% ;
+  width: 40%;
 }
 
 .details-house {
@@ -101,4 +101,10 @@
   justify-content: center;
   align-items: center;
   display: flex;
+}
+
+.controller-Reviews-details__stay {
+  border-top: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD;
+  padding: 48px 0;
 }

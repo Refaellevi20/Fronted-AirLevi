@@ -18,8 +18,8 @@ import { ReviewBar } from "../cmps/reviews/ReviewBar";
 import { IndexReviews } from "../cmps/reviews/IndexReviews";
 import { SecondaryHeader } from "../cmps/details/SecondaryHeader";
 import { ReviewPreview } from "../cmps/reviews/ReviewPreview";
-// import useOnScreen from '../customHooks/useOnScreen.js'
 import  useOnScreen  from '../CustomHook/useOnScreen';
+import { RatingReview } from "../cmps/RatingReview";
 
 
 export function StayDetails({ reviews }) {
@@ -38,6 +38,7 @@ export function StayDetails({ reviews }) {
   const imgsToDisplay = stay?.imgUrls?.slice(0, 5)
   const amenitiesToDisplay = stay?.amenities?.slice(0, 10)
   const reviewsToDisplay = stay?.reviews?.slice(0, 6)
+
 
   useEffect(() => {
     loadStay()
@@ -149,8 +150,10 @@ export function StayDetails({ reviews }) {
           {/* </div>
         </div> */}
       </div>
+        {/* <RatingReview reviews={stay.reviews} /> */}
       <div className="secondary-layout">
-        <section id="reviews" className="flex1">
+        <section id="reviews" className="flex1 controller-Reviews-details__stay">
+
           <ReviewBar reviews={stay.reviews} />
           <IndexReviews reviews={reviews} />
         </section>

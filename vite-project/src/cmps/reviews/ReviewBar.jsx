@@ -1,6 +1,7 @@
 import { PrgoressBar } from "../progress-bar" 
+import { RatingReview } from "../RatingReview";
 
-export function ReviewBar({ reviews }) {
+export function ReviewBar({ reviews,stay }) {
     let starsCount = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
 
     reviews.forEach(review => {
@@ -56,6 +57,7 @@ export function ReviewBar({ reviews }) {
                 {/* {starsCount[1]} review{starsCount[1] !== 1 ? 's' : ''} */}
             </span>
         </span>
+                {/* <RatingReview /> */}
     </section>
     )
 }

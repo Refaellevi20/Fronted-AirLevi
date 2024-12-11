@@ -1,7 +1,5 @@
 import { FaStar } from 'react-icons/fa'
 
-
-
 export function RatingReview({ reviews }) {
 
     function calcAvgReview(reviews) {
