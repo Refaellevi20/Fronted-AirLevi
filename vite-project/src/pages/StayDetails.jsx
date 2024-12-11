@@ -70,20 +70,20 @@ export function StayDetails({ reviews }) {
     console.log('open gallery')
   }
 
-  function calcAvgReview(reviews) {
-    let total = 0
-    let count = 0
+  // function calcAvgReview(reviews) {
+  //   let total = 0
+  //   let count = 0
 
-    reviews.forEach(review => {
-      total += Object.values(review.rate).reduce((a, b) => a + b, 0)
-      count += Object.keys(review.rate).length
-    })
+  //   reviews.forEach(review => {
+  //     total += Object.values(review.rate).reduce((a, b) => a + b, 0)
+  //     count += Object.keys(review.rate).length
+  //   })
 
-    return +(total / count).toFixed(2)
-  }
+  //   return +(total / count).toFixed(2)
+  // }
 
-  const reviewCount = stay.reviews ? stay.reviews.length : 0
-  const avgRating = stay.reviews ? calcAvgReview(stay.reviews) : 0
+  // const reviewCount = stay.reviews ? stay.reviews.length : 0
+  // const avgRating = stay.reviews ? calcAvgReview(stay.reviews) : 0
 
 
   if (!stay) {
@@ -170,9 +170,9 @@ export function StayDetails({ reviews }) {
         <section id="reviews" className=" controller-Reviews-details__stay">
           <div className="flex1 avr-reviews__details">
            <RatingReview2 reviews={stay.reviews} />
-            <span className='fs26'>
+            {/* <span className='fs26'>
             ·{reviewCount} review{reviewCount !== 1 ? 's' : ''}
-            </span>
+            </span> */}  //! here sometimes problom for no reasen 
           </div>
           <div className="flex1">
             <ReviewBar reviews={stay.reviews} />
