@@ -7,7 +7,7 @@ import { SlTag } from "react-icons/sl";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { ReviewBar } from './ReviewBar';
 
-export function IndexReviews({ reviews,stay }) {
+export function IndexReviews({ reviews }) {
     function calculateAverageRating() {
         if (!reviews || reviews.length === 0) return {}
 
@@ -25,7 +25,7 @@ export function IndexReviews({ reviews,stay }) {
         reviews.forEach((review) => {
             const { rate } = review
             Object.keys(rate).forEach((key) => {
-                initialRating[key] += rate[key]
+                initialRating[key] += rate[key] || 0
             })
         })
 
@@ -35,8 +35,8 @@ export function IndexReviews({ reviews,stay }) {
 
         return initialRating
     }
-
     const avgRating = calculateAverageRating()
+    console.log('Average Ratings:', avgRating)
 
     return (
         <div className="index-reviews">
@@ -47,7 +47,7 @@ export function IndexReviews({ reviews,stay }) {
             </div>
             <div className="review-line">
                 <div className="text fs14">Communication</div>
-                <div className="rating fs18">{avgRating.communication}</div>
+                <div className="rating fs18">{avgRating.communication || 'No Data'}</div>
                 <div className="icon"><HiOutlineChatBubbleBottomCenter className='fs32' /></div>
             </div>
             <div className="review-line">

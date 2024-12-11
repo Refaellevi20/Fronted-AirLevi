@@ -7,6 +7,7 @@ import { GuestSelect } from '../cmps/GuestSelect.jsx'
 import { OrderDetails } from '../cmps/details/OrderDetails.jsx'
 import { utilService } from '../services/util.service.js'
 import { BtnSquareColorRed } from '../cmps/buttons ui/btn-square-color.jsx'
+import { LowerRate } from '../cmps/details/LowerRate.jsx'
 
 export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -199,6 +200,7 @@ export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
           </section>
         {/* </div> */}
       </div>
+      <LowerRate />
     </section>
   )
 }

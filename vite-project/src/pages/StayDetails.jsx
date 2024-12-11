@@ -149,13 +149,17 @@ export function StayDetails({ reviews }) {
             />
           {/* </div>
         </div> */}
+        
       </div>
-        {/* <RatingReview reviews={stay.reviews} /> */}
       <div className="secondary-layout">
-        <section id="reviews" className="flex1 controller-Reviews-details__stay">
-
+        <section id="reviews" className=" controller-Reviews-details__stay">
+       <div>
+        <RatingReview reviews={stay.reviews}/>
+        </div>
+        <div className="flex1">
           <ReviewBar reviews={stay.reviews} />
           <IndexReviews reviews={reviews} />
+          </div>
         </section>
         <div className="controller-layout__details">
           <Reviews reviews={stay.reviews} />
