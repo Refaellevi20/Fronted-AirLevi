@@ -31,7 +31,7 @@ export function SecondaryHeader({ stay }) {
         })
         navigate(`/book/stay/${stay._id}?${paramsToSet}`)
     }
-    
+
     return (
         <div className='secondary-header-container'>
             <div className={'secondary-header secondary-layout'} >
@@ -53,20 +53,6 @@ export function SecondaryHeader({ stay }) {
                             </div>
                         </div>
                     </header>
-
-                    {/* {orderParams.checkIn && orderParams.checkOut && (
-                        <BtnSquareColor onClick={onClickReserve} children={'Reserve'} />
-                    )}
-
-                    {(!orderParams.checkIn || !orderParams.checkOut) && (
-                        <BtnSquareColor
-                            onClick={() => {
-                                setOpenTab('checkIn')
-
-                            }}
-                            children={<a href="#stay-mid">Check availability</a>}
-                        />
-                    )} */}
 
                 </div>
             </div>

@@ -72,19 +72,19 @@ export function StayDetails({ reviews }) {
       <section className="">
         {!stay && <StayLoader />}
         {!!stay && (
-             <>
-             <SecondaryHeader
-               stay={stay}
+          <>
+            <SecondaryHeader
+              stay={stay}
               //  reserveBtnVisible={reserveBtnVisible}
-               setOpenTab={setOpenTab}
-             />  
+              setOpenTab={setOpenTab}
+            />
             <section className="revers-flex__media">
               <div className="controller-layout__details">
                 <h1 id="stay-top" className="stay-top">{stay.name}</h1>
               </div>
               <div id="Photos" className="sss">
                 <ImgUseGrid
-                id="Photos"
+                  id="Photos"
                   imgsToDisplay={imgsToDisplay}
                   onOpenStayGallery={onOpenStayGallery}
                 />
@@ -150,19 +150,23 @@ export function StayDetails({ reviews }) {
           <ReviewBar reviews={stay.reviews} />
           <IndexReviews reviews={reviews} />
         </section>
-        <Reviews reviews={stay.reviews} />
+        <div className="controller-layout__details">
+          <Reviews reviews={stay.reviews} />
+        </div>
         <div
-                    className='stay-rating'
-                    onClick={() =>
-                      openModal(
-                        <ReviewPreview
-                          reviewsToDisplay={reviewsToDisplay}
-                          key={reviewsToDisplay.id}
-                        />
-                      )
-                    }>
-                    {stay.reviews.length} reviews
-                  </div>
+          className='stay-rating'
+          onClick={() =>
+            openModal(
+              <ReviewPreview
+                reviewsToDisplay={reviewsToDisplay}
+                key={reviewsToDisplay.id}
+              />
+            )
+          }>
+          <div className="controller-layout__details">
+            {stay.reviews.length} reviews
+          </div>
+        </div>
       </div>
       <AppFooterDetails />
     </section>
