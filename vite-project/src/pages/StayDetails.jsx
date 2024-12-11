@@ -16,6 +16,8 @@ import { StayHighlights } from "../cmps/StayHighlights";
 import Reviews from "./Reviews";
 import { ReviewBar } from "../cmps/reviews/ReviewBar";
 import { IndexReviews } from "../cmps/reviews/IndexReviews";
+import { SecondaryHeader } from "../cmps/details/SecondaryHeader";
+import { ReviewPreview } from "../cmps/reviews/ReviewPreview";
 
 export function StayDetails({ reviews }) {
   const [stay, setStay] = useState(null)
@@ -29,6 +31,7 @@ export function StayDetails({ reviews }) {
   const [component, setComponent] = useState(null);
 
   const amenitiesToDisplay = stay?.amenities?.slice(0, 10)
+  const reviewsToDisplay = stay?.reviews?.slice(0, 6)
 
   useEffect(() => {
     loadStay()
@@ -66,16 +69,22 @@ export function StayDetails({ reviews }) {
 
   return (
     <section className="">
-      <section className="secondary-layout">
+      <section className="">
         {!stay && <StayLoader />}
-        {stay && (
-          <>
+        {!!stay && (
+             <>
+             <SecondaryHeader
+               stay={stay}
+              //  reserveBtnVisible={reserveBtnVisible}
+               setOpenTab={setOpenTab}
+             />  
             <section className="revers-flex__media">
               <div className="controller-layout__details">
-                <h1 className="stay-top">{stay.name}</h1>
+                <h1 id="stay-top" className="stay-top">{stay.name}</h1>
               </div>
-              <div className="sss">
+              <div id="Photos" className="sss">
                 <ImgUseGrid
+                id="Photos"
                   imgsToDisplay={imgsToDisplay}
                   onOpenStayGallery={onOpenStayGallery}
                 />
@@ -92,8 +101,8 @@ export function StayDetails({ reviews }) {
           <DetailsHouse stay={stay} />
           <HostedSmallDetails host={stay.host} />
           <div className='stay-highlights border-buttom'>
-                    <StayHighlights />
-                  </div>
+            <StayHighlights />
+          </div>
           <div>
             <div id="amenities" className="stay-amenities border-bottom">
               <h4 className="subheading">What this place offers</h4>
@@ -121,7 +130,7 @@ export function StayDetails({ reviews }) {
           <div className='stay-calendar'>
             <StayCalendar />
           </div>
-          
+
         </div>
         <div className="stay-card">
           {/* <StayCard stay={stay} /> */}
@@ -137,12 +146,24 @@ export function StayDetails({ reviews }) {
         </div>
       </div>
       <div className="secondary-layout">
-        <section className="flex1">
-      <ReviewBar reviews={stay.reviews} />
-      <IndexReviews reviews={reviews} />
-      </section>
-          <Reviews reviews={stay.reviews}/>
-          </div>
+        <section id="reviews" className="flex1">
+          <ReviewBar reviews={stay.reviews} />
+          <IndexReviews reviews={reviews} />
+        </section>
+        <Reviews reviews={stay.reviews} />
+        <div
+                    className='stay-rating'
+                    onClick={() =>
+                      openModal(
+                        <ReviewPreview
+                          reviewsToDisplay={reviewsToDisplay}
+                          key={reviewsToDisplay.id}
+                        />
+                      )
+                    }>
+                    {stay.reviews.length} reviews
+                  </div>
+      </div>
       <AppFooterDetails />
     </section>
   )
