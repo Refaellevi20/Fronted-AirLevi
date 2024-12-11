@@ -42,7 +42,7 @@ export function IndexReviews({ reviews }) {
         <div className="index-reviews">
             <div className="review-line">
                 <div className="text fs14">{`Cleanliness`}</div>
-                <div className="rating fs18">{avgRating.cleanliness}</div>
+                <div className="rating fs18">{avgRating.cleanliness || 'No Data'}</div>
                 <div className="icon"><PiSprayBottle className='fs32' /></div>
             </div>
             <div className="review-line">
@@ -52,24 +52,25 @@ export function IndexReviews({ reviews }) {
             </div>
             <div className="review-line">
                 <div className="text fs14">Check-in</div>
-                <div className="rating fs18">{avgRating['check-in']}</div>
+                <div className="rating fs18">{avgRating['check-in'] || 'No Data'}</div>
                 <div className="icon"><IoKeyOutline className='fs32' /></div>
             </div>
             <div className="review-line">
                 <div className="text fs14">Accuracy</div>
-                <div className="rating fs18">{avgRating.accuracy}</div>
+                <div className="rating fs18">{avgRating.accuracy || 'No Data'}</div>
                 <div className="icon"><IoIosCheckmarkCircleOutline className='fs32' /></div>
             </div>
             <div className="review-line">
                 <div className="text fs14">Location</div>
-                <div className="rating fs18">{avgRating.location}</div>
+                <div className="rating fs18">{avgRating.location || 'No Data'}</div>
                 <div className="icon"><CiMap className='fs32' /></div>
             </div>
             <div className="review-line">
                 <div className="text fs14">Value</div>
-                <div className="rating fs18">{avgRating.value}</div>
+                <div className="rating fs18">{avgRating.value || 'No Data'}</div> 
                 <div className="icon"><SlTag className='fs32' /></div>
             </div>
         </div>
     )
 }
+//! here for now data

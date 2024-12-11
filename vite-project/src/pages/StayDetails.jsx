@@ -18,8 +18,8 @@ import { ReviewBar } from "../cmps/reviews/ReviewBar";
 import { IndexReviews } from "../cmps/reviews/IndexReviews";
 import { SecondaryHeader } from "../cmps/details/SecondaryHeader";
 import { ReviewPreview } from "../cmps/reviews/ReviewPreview";
-import  useOnScreen  from '../CustomHook/useOnScreen';
-import { RatingReview } from "../cmps/RatingReview";
+import useOnScreen from '../CustomHook/useOnScreen';
+import { RatingReview2 } from "../cmps/RatingReview2";
 
 
 export function StayDetails({ reviews }) {
@@ -31,7 +31,7 @@ export function StayDetails({ reviews }) {
   const imgGridRef = useRef()
   const [openTab, setOpenTab] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
-  const [component, setComponent] = useState(null);
+  const [component, setComponent] = useState(null)
   // const imgGridVisible = useOnScreen(imgGridRef, '-20px')
   const reserveBtnVisible = useOnScreen(reserveBtnRef, '-34px')
 
@@ -70,6 +70,22 @@ export function StayDetails({ reviews }) {
     console.log('open gallery')
   }
 
+  function calcAvgReview(reviews) {
+    let total = 0
+    let count = 0
+
+    reviews.forEach(review => {
+      total += Object.values(review.rate).reduce((a, b) => a + b, 0)
+      count += Object.keys(review.rate).length
+    })
+
+    return +(total / count).toFixed(2)
+  }
+
+  const reviewCount = stay.reviews ? stay.reviews.length : 0
+  const avgRating = stay.reviews ? calcAvgReview(stay.reviews) : 0
+
+
   if (!stay) {
     return <StayLoader />
   }
@@ -83,7 +99,7 @@ export function StayDetails({ reviews }) {
             <SecondaryHeader
               stay={stay}
               // imgGridVisible={imgGridVisible}
-               reserveBtnVisible={reserveBtnVisible}
+              reserveBtnVisible={reserveBtnVisible}
               setOpenTab={setOpenTab}
             />
             <section className="revers-flex__media">
@@ -141,24 +157,26 @@ export function StayDetails({ reviews }) {
         </div>
         {/* <div className="stay-card">
           <div className='stay-review-order'> */}
-            <OrderModal
-              stay={stay}
-              openTab={openTab}
-              setOpenTab={setOpenTab}
-              reserveBtnRef={reserveBtnRef}
-            />
-          {/* </div>
+        <OrderModal
+          stay={stay}
+          openTab={openTab}
+          setOpenTab={setOpenTab}
+          reserveBtnRef={reserveBtnRef}
+        />
+        {/* </div>
         </div> */}
-        
       </div>
       <div className="secondary-layout">
         <section id="reviews" className=" controller-Reviews-details__stay">
-       <div>
-        <RatingReview reviews={stay.reviews}/>
-        </div>
-        <div className="flex1">
-          <ReviewBar reviews={stay.reviews} />
-          <IndexReviews reviews={reviews} />
+          <div className="flex1 avr-reviews__details">
+           <RatingReview2 reviews={stay.reviews} />
+            <span className='fs26'>
+            ·{reviewCount} review{reviewCount !== 1 ? 's' : ''}
+            </span>
+          </div>
+          <div className="flex1">
+            <ReviewBar reviews={stay.reviews} />
+            <IndexReviews reviews={reviews} />
           </div>
         </section>
         <div className="controller-layout__details">
@@ -175,7 +193,7 @@ export function StayDetails({ reviews }) {
             )
           }>
           <div className=" show-all-details btn-reviews__details">
-           <p className="">{stay.reviews.length} reviews</p> 
+            <p className="">{stay.reviews.length} reviews</p>
           </div>
         </div>
       </div>

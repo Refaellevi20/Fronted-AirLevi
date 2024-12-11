@@ -22,7 +22,7 @@ export function ReviewBar({ reviews,stay }) {
 
     return (
         <section className="reviews-bar grid ">
-        <p className="fs12">Overall rating</p>
+        <p className="fs14">Overall rating</p>
         <span className="progress-bar flex review-line">
             <PrgoressBar progress={starsCount[5]} />
             <span style={{ marginLeft: '0.5rem' }}>
