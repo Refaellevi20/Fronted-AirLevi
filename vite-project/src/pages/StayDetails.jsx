@@ -18,21 +18,23 @@ import { ReviewBar } from "../cmps/reviews/ReviewBar";
 import { IndexReviews } from "../cmps/reviews/IndexReviews";
 import { SecondaryHeader } from "../cmps/details/SecondaryHeader";
 import { ReviewPreview } from "../cmps/reviews/ReviewPreview";
-import useOnScreen from '../customHooks/useOnScreen.js'
+// import useOnScreen from '../customHooks/useOnScreen.js'
+import  useOnScreen  from '../CustomHook/useOnScreen';
+
 
 export function StayDetails({ reviews }) {
   const [stay, setStay] = useState(null)
   const { stayId } = useParams()
   const navigate = useNavigate()
-  const imgsToDisplay = stay?.imgUrls?.slice(0, 5)
   const { addStayToHistory } = useHistory()
   const reserveBtnRef = useRef()
+  const imgGridRef = useRef()
   const [openTab, setOpenTab] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
   const [component, setComponent] = useState(null);
   const imgGridVisible = useOnScreen(imgGridRef, '0px')
   const reserveBtnVisible = useOnScreen(reserveBtnRef, '-34px')
-
+  const imgsToDisplay = stay?.imgUrls?.slice(0, 5)
   const amenitiesToDisplay = stay?.amenities?.slice(0, 10)
   const reviewsToDisplay = stay?.reviews?.slice(0, 6)
 

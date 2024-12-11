@@ -6,6 +6,7 @@ import { DateSelect } from '../cmps/DateSelect.jsx'
 import { GuestSelect } from '../cmps/GuestSelect.jsx'
 import { OrderDetails } from '../cmps/details/OrderDetails.jsx'
 import { utilService } from '../services/util.service.js'
+import { BtnSquareColorRed } from '../cmps/buttons ui/btn-square-color.jsx'
 
 export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -96,6 +97,10 @@ export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
     }
   }, [])
 
+  console.log(reserveBtnRef.current)
+  console.log('dgfd');
+  
+
   return (
     <section className='order-modal'>
          {/* <div className="modal-overlay" onClick={handleOverlayClick}></div> */}
@@ -162,10 +167,26 @@ export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
           </div>
         </section>
 
-        {/* Reserve/CheckAvailability Button */}
-        <div>
-          <div className='reserve-btns-ref' ref={el => { reserveBtnRef.current = el; setRefVisible(!!el) }}></div>
-          
+        {/* <div> */}
+          <div className="parent-container">
+        <div className='reserve-btns-ref' ref={el => { reserveBtnRef.current = el; setRefVisible(!!el) }}></div>
+          {orderParams.checkIn && orderParams.checkOut && (
+            <BtnSquareColorRed onClick={onClickReserve} children={'Reserve'} />
+          )}
+          {(!orderParams.checkIn || !orderParams.checkOut) && (
+            <BtnSquareColorRed
+              onClick={() => {
+                setOpenTab('checkIn')
+              }}
+              children={
+                <>
+                  Check Availability
+                  <p>sfr</p>
+                </>
+              }
+            />   
+          )}    
+          </div>      
           <section className='order-details flex'>
             {orderParams.checkIn && orderParams.checkOut && (
               <OrderDetails
@@ -176,7 +197,7 @@ export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
             )}
 
           </section>
-        </div>
+        {/* </div> */}
       </div>
     </section>
   )

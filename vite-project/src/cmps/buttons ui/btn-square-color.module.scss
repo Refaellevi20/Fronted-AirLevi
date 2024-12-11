@@ -1,0 +1,54 @@
+@import "../../assets/styles/setup/_functions.scss";
+
+.btnSquareColorRed {
+    padding: 13px 7vw;
+    width: 100%;
+    min-width: em(200px);
+    flex: 1;
+
+    background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
+    --mouse-x: 92;
+    --mouse-y: 73;
+
+    background-image: radial-gradient(circle, rgb(255, 56, 92) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%);
+    background-size: 200% 200%;
+
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+
+    color: rgb(255, 255, 255);
+    font-family: cereal-Medium;
+    font-size: 1rem;
+    line-height: 20px;
+}
+
+.btnSquareColorRed:active {
+    animation: press 1s forwards;
+    transition: .3s;
+}
+
+
+@keyframes press {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(.96);
+    }
+
+    60% {
+        transform: scale(.96);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.parent-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
