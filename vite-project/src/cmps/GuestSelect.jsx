@@ -1,18 +1,33 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Counter } from "./Counter"
 import { HiXMark } from "react-icons/hi2";
 
 export function GuestSelect({ onSetField, guests, closeModal }) {
     const [isServiceAnimalModalOpen, setIsServiceAnimalModalOpen] = useState(false)
+    const modalRefPets = useRef(null)
 
-    function openServiceAnimalModal(event) {
-        event.preventDefault()
+    function openServiceAnimalModal(ev) {
+        ev.preventDefault()
         setIsServiceAnimalModalOpen(true)
       }
   
     function closeServiceAnimalModal() {
       setIsServiceAnimalModalOpen(false)
     }
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+          if (modalRefPets.current && !modalRefPets.current.contains(event.target)) {
+            closeServiceAnimalModal()
+          }
+        }
+    
+        document.addEventListener('mousedown', handleClickOutside)
+    
+        return () => {
+          document.removeEventListener('mousedown', handleClickOutside)
+        }
+      }, [])
 
     function handleChange(field, value) {
         if (value <= 0) value = 0
@@ -70,7 +85,7 @@ export function GuestSelect({ onSetField, guests, closeModal }) {
             <p onClick={closeModal} className="close-modal">Close</p>
             {isServiceAnimalModalOpen && (
                 <div className="service-animal-modal modal-overlay">
-                    <div className="modal-content">
+                    <div className="modal-content" ref={modalRefPets}>
                     <button className='fs22' onClick={closeServiceAnimalModal}><HiXMark /></button> //! here style here
                        <img src="https://a0.muscache.com/pictures/adafb11b-41e9-49d3-908e-049dfd6934b6.jpg"></img>
                         <h3>Service animals</h3>
