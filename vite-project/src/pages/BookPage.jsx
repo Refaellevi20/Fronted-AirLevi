@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useParams, useNavigate } from 'react-router-dom'
 
-import { stayService } from '../services/stay.service.local.js' 
+import { stayService } from '../services/stay.service.local.js'
 import { utilService } from '../services/util.service.js'
 import { orderService } from '../services/order.service.local.js'
 
@@ -24,10 +24,17 @@ export function BookPage() {
   const user = useSelector((state) => state.userModule.user)
   const [isBooked, setIsBooked] = useState(false)
   const { stay, order } = info || {}
+  const [currentStep, setCurrentStep] = useState(localStorage.getItem('currentStep') || 'details')
+
 
   useEffect(() => {
     loadInfo()
   }, [])
+
+  useEffect(() => {
+    // Store current step in localStorage whenever it changes
+    localStorage.setItem('currentStep', currentStep);
+  }, [currentStep]);
 
   async function loadInfo() {
     try {
@@ -94,14 +101,15 @@ export function BookPage() {
     try {
       await orderService.save(orderToSet)
       setIsBooked(true)
+      // setCurrentStep('payment')
       console.log('isBooked', isBooked)
     } catch (err) {
       console.log('Had issues in booking', err)
     }
-    const timeout = setTimeout(() => {
-      navigate('/stay')
-    }, 3000)
-    return () => clearTimeout(timeout)
+    // const timeout = setTimeout(() => {
+    //   navigate('/stay')
+    // }, 3000)
+    // return () => clearTimeout(timeout)
   }
 
   function getGuestsSubHeading() {
@@ -153,6 +161,8 @@ export function BookPage() {
             />
           </div>
           <div>
+            {/* {currentStep !== 'payment' && !isBooked && <h2>Request to book</h2>}
+            {currentStep === 'payment' && <h2>Proceed to Payment</h2>} */}
             {!isBooked && <h2>Request to book</h2>}
             {isBooked && (
               <div className='success-title flex1'>
@@ -222,7 +232,7 @@ export function BookPage() {
                       Review Trips
                     </BtnSquareColorRed>
                   )}
-                  <div style={{display:'flex'}} className='success-txt'>
+                  <div style={{ display: 'flex' }} className='success-txt'>
                     <div className='icon-svg'>
                       <img
                         src={greenCheck}
@@ -238,7 +248,7 @@ export function BookPage() {
           </section>
 
           <section className='summary-card'>
-            <div style={{display:'flex'}} className='stay-details border-buttom'>
+            <div style={{ display: 'flex' }} className='stay-details border-buttom'>
               <img
                 className='stay-img'
                 src={stay.imgUrls[0]}
@@ -248,12 +258,12 @@ export function BookPage() {
                 <div>
                   <h4 className='stay-name'>{stay.name}</h4>
                   <h4 className='stay-type'>{stay.type}</h4>
-                  <div style={{display:'flex'}}>
-                  <RatingReview reviews={stay.reviews} /> //! RatingReview3
-                  <span className='reviews fs14'>
-                    ({stay.reviews.length}
-                    <span className='avg-rating-reviews fs14'> reviews</span>)
-                  </span>
+                  <div style={{ display: 'flex' }}>
+                    <RatingReview reviews={stay.reviews} /> //! RatingReview3
+                    <span className='reviews fs14'>
+                      ({stay.reviews.length}
+                      <span className='avg-rating-reviews fs14'> reviews</span>)
+                    </span>
                   </div>
                 </div>
                 {/* <div style={{display:'flex'}} className='rating-review'>
@@ -279,8 +289,8 @@ export function BookPage() {
 
             <div className='price-details'>
               <h3 className='price-details-header'>Price details</h3>
-              <div style={{display:'flex'}} className='cost-breakdown'>
-                <div style={{display:'flex'}} className='cost-details border-buttom'>
+              <div style={{ display: 'flex' }} className='cost-breakdown'>
+                <div style={{ display: 'flex' }} className='cost-details border-buttom'>
                   <div className='base-cost flex justify-between'>
                     <span className='cost-calc'>
                       ${stay.price.toLocaleString()} x {order.totalDays} nights
@@ -304,6 +314,40 @@ export function BookPage() {
                 </div>
               </div>
             </div>
+            {/* <div className='air-cover flex1 border-buttom'>
+              <p className='air-cover-p'>
+                This stay is covered by Airbnb’s Guest Refund Policy
+              </p>
+            </div> */}
+            {/* {user ? (
+              <div>
+                {currentStep === 'details' && (
+                  <BtnSquareColorRed
+                    title="Request to Book"
+                    onClick={onAddOrder}
+                  />
+                )}
+                {currentStep === 'payment' && (
+                  <div className="payment">
+                    <h3>Proceed with payment</h3>
+                    <BtnSquareColorRed
+                      title="Confirm Payment"
+                      onClick={() => {
+                        onGoToTrip()
+                      }}
+                    /> //! here later maybe
+                  </div>
+                )}
+                <BtnSquareColorRed onClick={onAddOrder}>
+                  Confirm
+                </BtnSquareColorRed>
+              </div>
+            ) : (
+              <div>
+                <h3 className="login-msg">Please login to book</h3>
+                <LoginSignup />
+              </div>
+            )} */}
           </section>
         </main>
       </section>
