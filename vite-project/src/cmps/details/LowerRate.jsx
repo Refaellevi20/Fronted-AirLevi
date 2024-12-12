@@ -1,6 +1,14 @@
+import { useState } from 'react'
+import { convertCurrency } from '../../services/currency'
 import rateTag from '/rate-tag.svg'
+import { useSelector } from 'react-redux';
 
 export function LowerRate() {
+
+    const [priceDifference, setPriceDifference] = useState(42)
+    const currencyCode = useSelector((state) => state.stayModule.currency)
+    const { convertedAmount, currencySymbol } = convertCurrency(priceDifference, currencyCode)
+  
     return (
         <section className="lower-rate-container">
             <div className="lower-rate flex">
@@ -9,7 +17,7 @@ export function LowerRate() {
                         Lower price.
                     </span>
                     <span>
-                        Your dates are $42 less than the avg. nightly rate of the last 60 days.  //! here format
+                        Your dates are {currencySymbol}{convertedAmount.toFixed(2)} less than the avg. nightly rate of the last 60 days.  //! here format
                     </span>
                 </div>
                 <div className="rate-img-container">
