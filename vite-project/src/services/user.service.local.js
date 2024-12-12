@@ -10,6 +10,7 @@ export const userService = {
   signup,
   login,
   logout,
+  getById,
   updateUser,
   getUsers,
   getEmptyCredentials,
@@ -22,6 +23,11 @@ async function get(userId) {
 
 function remove(userId) {
   return storageService.remove(USER_KEY, userId)
+}
+
+async function getById(userId) {
+  const user = await storageService.get('user', userId)
+  return user
 }
 
 async function signup(credentials) {

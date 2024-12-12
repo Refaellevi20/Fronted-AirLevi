@@ -10,7 +10,7 @@ import { updateStay } from '../../store/stay/stay.action'
 
 export function PreviewImageSlider({ imgUrls,stay }) {
   const user = useSelector((state) => state.userModule.user)
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   // const [heart, setHeart] = useState(false)
   // const [host, setHost] = useState(null)
   const [heart, setHeart] = useState(stay?.wishList && stay.wishList.length > 0)
@@ -33,12 +33,20 @@ export function PreviewImageSlider({ imgUrls,stay }) {
         setHeart(true)
       }
 
-      dispatch(updateStay(updatedStay))
+      (updateStay(updatedStay))
     } catch (err) {
       console.error('Failed to update wishlist:', err)
     }
   }
-  // 
+//! dispach remove from (updateStay(updatedStay)) here
+  // function onWishListStay(stayId) {
+  //   if (!user) {
+  //     openModal(<LoginSignup />)
+  //   } else {
+  //     toggleCheck(ev) 
+  //   }
+  // }
+  //! home footer on middle size + here user (login)
   return (
     <div className='image-slider almost-square-ratio'>
       <span className="heart">
