@@ -8,6 +8,7 @@ import { UserMsg } from './cmps/UserMsg'
 import { StayDetails } from './pages/StayDetails'
 import { HistoryPage } from './pages/HistoryPage'
 import UserWishList from './pages/UserWishList'
+import { BookPage } from './pages/BookPage'
 
 
 export function RootCmp() {
@@ -22,6 +23,7 @@ export function RootCmp() {
           <Route path='/stay' element={<StayIndex />} /> 
           <Route path="/stay/:stayId" element={<StayDetails />} />
           <Route path="/history" element={<HistoryPage />} />
+          <Route element={<BookPage />} path='/book/stay/:stayId' />
           {/* <Route path="/history/historyAll" element={<historyAllPage />} /> */}
           <Route path="/wishlist" element={<UserWishList />} />
           <Route path="/payment" element={<stayPayment />} />

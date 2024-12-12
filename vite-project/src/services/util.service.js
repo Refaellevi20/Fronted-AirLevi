@@ -1,3 +1,5 @@
+import moment from "moment"
+
 export const utilService = {
   makeId,
   makeLorem,
@@ -119,15 +121,23 @@ function totalDays(startDate, endDate) {
 
 }
 
+// function formattedDate(timeStamp) {
+//   const date = new Date(timeStamp)
+//   return String(date.getDate()).padStart(2, '0') + "/" + String((date.getMonth() + 1)).padStart(2,'0') + "/" + date.getFullYear()
+// }
+
 function formattedDate(timeStamp) {
-  const date = new Date(timeStamp)
-  return String(date.getDate()).padStart(2, '0') + "/" + String((date.getMonth() + 1)).padStart(2,'0') + "/" + date.getFullYear()
+  return moment(timeStamp).format("DD/MM/YYYY")
 }
 
 function ShortFormattedDate(timeStamp) {
-  const date = new Date(timeStamp)
-  return date.toLocaleDateString('en-US', {month: 'short', day: 'numeric'})
+  return moment(timeStamp).format("MMM D")
 }
+
+// function ShortFormattedDate(timeStamp) {
+//   const date = new Date(timeStamp)
+//   return date.toLocaleDateString('en-US', {month: 'short', day: 'numeric'})
+// }
 
 
 function objectToSearchParams(obj) {
