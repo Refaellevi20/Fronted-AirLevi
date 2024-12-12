@@ -13,7 +13,7 @@ export function OrderDetails({ checkIn, checkOut, stay }) {
         <p className="no-charge-msg fs14" style={{ textAlign: 'center',padding:'0',marginTop:'16px' }}>You won't be charged yet</p>
         <div className="prices grid">
             <p>${(stay.price).toLocaleString()} x {totalStay} nights</p>
-            <p>${totalPriceBefore.toLocaleString()}</p>
+            <p>${totalPriceBefore.toLocaleString()}</p> //! here format
             <p>Service fee</p>
             <p>${(Math.round(SERVICE_FEE * totalStay)).toLocaleString()}</p>
         </div>

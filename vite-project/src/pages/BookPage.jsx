@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux'
 import { AppLogo } from '../cmps/app-logo.jsx'
 import { BtnSquareColorRed } from '../cmps/buttons ui/btn-square-color.jsx'
 import { RatingReview } from '../cmps/RatingReview.jsx'
+import { LoginSignup } from '../cmps/LoginSignup.jsx'
 
 
 export function BookPage() {
@@ -50,7 +51,7 @@ export function BookPage() {
       infants: +params.get('infants') || 0,
       pets: +params.get('pets') || 0,
     }
-    
+
     const totalStayPrice = +(
       stayToSet.price * utilService.totalDays(startDate, endDate)
     ).toFixed(2)
@@ -97,6 +98,10 @@ export function BookPage() {
     } catch (err) {
       console.log('Had issues in booking', err)
     }
+    const timeout = setTimeout(() => {
+      navigate('/stay')
+    }, 3000)
+    return () => clearTimeout(timeout)
   }
 
   function getGuestsSubHeading() {
@@ -202,7 +207,7 @@ export function BookPage() {
                   ) : (
                     <div>
                       <h3 className='login-msg'>Please login to book</h3>
-                    {/* //* if there is no login */}
+                      <LoginSignup />
                     </div>
                   )}
                 </>
