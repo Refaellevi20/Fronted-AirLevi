@@ -98,10 +98,7 @@ export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
     }
   }, [])
 
-  // console.log(reserveBtnRef.current)
-  // console.log('dgfd');
   
-
   return (
     <section className='order-modal'>
          {/* <div className="modal-overlay" onClick={handleOverlayClick}></div> */}
