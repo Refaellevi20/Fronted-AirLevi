@@ -1,6 +1,5 @@
 .stay-calendar-container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+   padding: 48px 0px;
 
     .date-picker-header {
 
@@ -16,7 +15,7 @@
     }
 
     .rdrCalendarWrapper {
-        width: 100%;
+        width: 90%;
 
         .rdrNextPrevButton {
             background-color: transparent;
@@ -31,7 +30,7 @@
 
 
         .rdrMonthAndYearWrapper {
-            min-width: minmax(500px,100vw);
+            min-width: minmax(00px,100vw);
         }
 
         .rdrMonthAndYearPickers {
@@ -45,6 +44,14 @@
         .rdrMonth {
             min-width: 100% !important;
             width: inherit;
+        }
+
+        .rdrDays {
+            // height: 90%;
+        }
+
+        .rdrDayNumber{
+            // width: 160px;
         }
 
     }
