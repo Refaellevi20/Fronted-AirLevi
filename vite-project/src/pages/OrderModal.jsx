@@ -14,7 +14,11 @@ export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
   const [refVisible, setRefVisible] = useState(false)
   const navigate = useNavigate()
   const modalRef = useRef(null)
+//   const [isModalOpen, setIsModalOpen] = useState(true)
 
+//   function closeModal() {
+//     setIsModalOpen(false)
+// } //* unnessery for now
 
   const orderParams = {
     checkIn: searchParams.get('checkIn')
