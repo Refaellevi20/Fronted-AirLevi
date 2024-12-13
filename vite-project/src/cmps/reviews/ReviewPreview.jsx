@@ -3,7 +3,7 @@ import { LongTxtReviews } from '../LongTxtReviews'
 import Modal from '../Modal'
 import moment from 'moment'
 
-export function ReviewPreview({ reviewsToDisplay, MAX_LENGTH = 100 }) {
+export function ReviewPreview({ reviewsToDisplay, MAX_LENGTH = 200 }) {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [reviewsForModal, setReviewsForModal] = useState([])
 

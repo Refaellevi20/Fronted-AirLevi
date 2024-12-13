@@ -3,7 +3,7 @@ import { ReviewPreview } from '../cmps/reviews/ReviewPreview'
 
 
 function Reviews({ reviews }) {
-    const MAX_LENGTH = 50
+    const MAX_LENGTH = 100
 
     console.log('reviews all', reviews)
     

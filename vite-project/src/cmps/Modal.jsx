@@ -40,6 +40,8 @@ function Modal({ closeModal, reviews }) {
         maxHeight: '80%',
         overflowY: 'auto',
         position: 'relative',
+        border: '2px solid #ddd', // Add border here
+        boxSizing: 'border-box',
     }
 
     const closeButtonStyle = {
@@ -48,6 +50,12 @@ function Modal({ closeModal, reviews }) {
         right: '10px',
         fontSize: '24px',
         cursor: 'pointer',
+    }
+
+    const scrollableContentStyle = {
+        maxHeight: 'calc(100% - 40px)', // Ensure that the content is within the padding area
+        overflowY: 'auto', // Enable scrolling if the content exceeds the available height
+        paddingRight: '10px', // Prevent content from getting clipped by the scrollbar
     }
 
     const allReviewsStyle = {
@@ -76,7 +84,7 @@ function Modal({ closeModal, reviews }) {
             <div style={modalContentStyle}>
                 <span style={closeButtonStyle} onClick={closeModal}>&times;</span>
                 <h2>All Reviews</h2>
-                <div style={allReviewsStyle}>
+                <div style={scrollableContentStyle}>
                     {reviews.map((review, index) => (
                         <div key={index} style={reviewItemStyle}>
                             <div style={miniUserDetailsStyle}>
