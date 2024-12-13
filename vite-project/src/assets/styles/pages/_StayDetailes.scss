@@ -163,3 +163,25 @@
     padding: 0 60px;
   }
 }
+
+.stay-map {
+  padding-bottom: 18px;
+
+  @include for-max-narrow-layout {
+    padding-inline: em(24px, 16px);
+  }
+
+  h1 {
+    font-size: rem(22px);
+    font-family: cereal-book;
+    padding-bottom: 24px;
+    padding-top: 30px;
+  }
+
+  h3 {
+    font-size: rem(16px);
+    font-family: cereal-book;
+    padding-bottom: 24px;
+    padding-top: 24px;
+  }
+}

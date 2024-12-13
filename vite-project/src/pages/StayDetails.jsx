@@ -23,7 +23,14 @@ import { RatingReview2 } from "../cmps/RatingReview2";
 import { StayMobileFooter } from "../cmps/details/StayNobileFooter";
 import Gallery from "../cmps/buttons ui/image-grid";
 import Modal from "../cmps/Modal";
+import { StayMap } from "../cmps/StayMap";
 
+const randomTextOptions = [
+  "Lexington, Kentucky is the second-largest city in Kentucky next to Louisville, and is located in the heart of the Bluegrass region. Lexington is known as the 'Horse Capital of the World,' since it is home to the Kentucky Horse Park, Keeneland race course and the Red Mile race course.",
+  "Lexington, Kentucky is famous for its rich history in horse racing and breeding. The city is home to several historical sites, including the Mary Todd Lincoln House, and hosts many annual events.",
+  "The city of Lexington, Kentucky, is an urban hub in the midst of the Bluegrass region. Known for its stunning horse farms and thoroughbred racing, it offers a blend of Southern charm and modern amenities.",
+  "Nestled in the heart of Kentucky, Lexington offers a perfect mix of scenic views, cultural history, and outdoor activities. It's a city that embraces both tradition and innovation."
+]
 
 export function StayDetails({ reviews }) {
   const [stay, setStay] = useState(null)
@@ -40,11 +47,15 @@ export function StayDetails({ reviews }) {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
   const [reviewsForModal, setReviewsForModal] = useState([])
   const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [randomText, setRandomText] = useState(getRandomText);
 
   const imgsToDisplay = stay?.imgUrls?.slice(0, 5)
   const amenitiesToDisplay = stay?.amenities?.slice(0, 10)
   const reviewsToDisplay = stay?.reviews?.slice(0, 6)
 
+  useEffect(() => {
+    setRandomText(getRandomText()) //! for now random (data needs)
+  }, [stay])
 
   useEffect(() => {
     loadStay()
@@ -119,7 +130,11 @@ export function StayDetails({ reviews }) {
 
   // const reviewCount = stay.reviews ? stay.reviews.length : 0
   // const avgRating = stay.reviews ? calcAvgReview(stay.reviews) : 0
-
+ 
+  function getRandomText() {
+    const randomIndex = Math.floor(Math.random() * randomTextOptions.length);
+    return randomTextOptions[randomIndex];
+  }
 
   if (!stay) {
     return <StayLoader />
@@ -243,6 +258,14 @@ export function StayDetails({ reviews }) {
       </div>
       {/* <div style={{ position: 'relative' }}></div> */}
       <div >
+        <div className='stay-map border-buttom secondary-layout'>
+          <h1>Where you'll be</h1>
+          <StayMap stay={stay} />
+          <h3 className='stay-location-name'>
+            {stay.loc.country}, {stay.loc.city}
+          </h3>
+          <p>{randomText}</p>
+        </div>
         <AppFooterDetails />
       </div>
       <div className='details-app-footer'>
@@ -252,4 +275,3 @@ export function StayDetails({ reviews }) {
   )
 }
 
- 

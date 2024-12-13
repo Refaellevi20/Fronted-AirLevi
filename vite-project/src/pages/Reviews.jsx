@@ -1,11 +1,8 @@
 import React from 'react'
 import { ReviewPreview } from '../cmps/reviews/ReviewPreview'
 
-
 function Reviews({ reviews }) {
     const MAX_LENGTH = 100
-
-    console.log('reviews all', reviews)
     
     return (
         <div className="all-reviews">
