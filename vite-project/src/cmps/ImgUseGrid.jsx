@@ -22,7 +22,7 @@ export function ImgUseGrid({ imgsToDisplay, onOpenStayGallery }) {
                     position: 'absolute',
                     bottom: '10px',
                     right: '110px',
-                    background: 'rgba(255, 255, 255, 0.8)',
+                    background: 'rgba(255, 255, 255, 1)',
                     padding: '7px 15px',
                     borderRadius: '5px',
                     border: '1px solid #222222',
