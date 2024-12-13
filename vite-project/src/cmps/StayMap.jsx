@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import GoogleMapReact from 'google-map-react';
 import { AiFillHome } from "react-icons/ai";
+import { FaUser } from "react-icons/fa"
+
 export function StayMap({ stay }) {
     const { lat, lng } = stay.loc
     const [coordinates, setCoordinates] = useState({ lat, lng })

@@ -20,3 +20,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+frontend/node_modules
+# Ignore API key in the code
+.env
