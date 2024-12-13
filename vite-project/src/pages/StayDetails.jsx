@@ -21,6 +21,7 @@ import { ReviewPreview } from "../cmps/reviews/ReviewPreview";
 import useOnScreen from '../CustomHook/useOnScreen';
 import { RatingReview2 } from "../cmps/RatingReview2";
 import { StayMobileFooter } from "../cmps/details/StayNobileFooter";
+import Gallery from "../cmps/buttons ui/image-grid";
 
 
 export function StayDetails({ reviews }) {
@@ -35,6 +36,7 @@ export function StayDetails({ reviews }) {
   const [component, setComponent] = useState(null)
   // const imgGridVisible = useOnScreen(imgGridRef, '-20px')
   const reserveBtnVisible = useOnScreen(reserveBtnRef, '-34px')
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false)
 
   const imgsToDisplay = stay?.imgUrls?.slice(0, 5)
   const amenitiesToDisplay = stay?.amenities?.slice(0, 10)
@@ -44,6 +46,20 @@ export function StayDetails({ reviews }) {
   useEffect(() => {
     loadStay()
   }, [])
+
+  //^ becouse i have the scroll of the page too
+  //^ becouse i did 100% modal (all the page)
+  useEffect(() => { 
+    if (isGalleryOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [isGalleryOpen])
 
   async function loadStay() {
     try {
@@ -69,6 +85,11 @@ export function StayDetails({ reviews }) {
 
   function onOpenStayGallery() {
     console.log('open gallery')
+    setIsGalleryOpen(true)
+  }
+
+  function onCloseStayGallery() {
+    setIsGalleryOpen(false)
   }
 
   // function calcAvgReview(reviews) {
@@ -112,6 +133,19 @@ export function StayDetails({ reviews }) {
                   imgsToDisplay={imgsToDisplay}
                   onOpenStayGallery={onOpenStayGallery}
                 />
+                {isGalleryOpen && (
+                <div className="modal-gallery">
+                    <div className="modal-content__gallery">
+                      <div className='flex gallery-txt'>
+                        <button className="btn-close" onClick={onCloseStayGallery}>
+                        <HiXMark className="fs24"/>
+                        </button>
+                        <h2>Gallery</h2>
+                        </div>
+                        <Gallery />
+                    </div>
+                </div>
+            )}
               </div>
             </section>
           </>
@@ -170,10 +204,10 @@ export function StayDetails({ reviews }) {
       <div className="secondary-layout">
         <section id="reviews" className=" controller-Reviews-details__stay">
           <div className="flex1 avr-reviews__details">
-           <RatingReview2 reviews={stay.reviews} />
+            <RatingReview2 reviews={stay.reviews} />
             {/* <span className='fs26'>
             ·{reviewCount} review{reviewCount !== 1 ? 's' : ''}
-            </span> */}  //! here sometimes problom for no reasen 
+            </span> */}  //! here sometimes problom for no reasen
           </div>
           <div className="flex1">
             <ReviewBar reviews={stay.reviews} />
@@ -199,7 +233,7 @@ export function StayDetails({ reviews }) {
         </div>
       </div>
       <div >
-      <AppFooterDetails />
+        <AppFooterDetails />
       </div>
       <div className='details-app-footer'>
         {stay && <StayMobileFooter stay={stay} setOpenTab={setOpenTab} />} //! here that is on the appFooter

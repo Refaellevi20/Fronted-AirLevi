@@ -65,6 +65,7 @@ async function remove(stayId) {
   return storageService.remove(STORAGE_KEY, stayId)
 }
 
+
 function getAmenitiesList() {
   return [
     'Air conditioning',
