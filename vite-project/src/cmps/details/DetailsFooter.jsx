@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TbWorld } from 'react-icons/tb'
 import { ImFacebook2 } from "react-icons/im";
 import { FaTwitterSquare } from "react-icons/fa";
@@ -17,6 +17,30 @@ export function AppFooterDetails() {
     const [isModalOpenMoney, setIsModalOpenMoney] = useState(false)
     const dispatch = useDispatch()
     const currency = useSelector(state => state.stayModule.currency)
+
+    useEffect(() => { 
+        if (isModalOpen) {
+          document.body.style.overflow = 'hidden'
+        } else {
+          document.body.style.overflow = 'auto'
+        }
+    
+        return () => {
+          document.body.style.overflow = 'auto'
+        }
+      }, [isModalOpen])
+
+    useEffect(() => { 
+        if (isModalOpenMoney) {
+          document.body.style.overflow = 'hidden'
+        } else {
+          document.body.style.overflow = 'auto'
+        }
+    
+        return () => {
+          document.body.style.overflow = 'auto'
+        }
+      }, [isModalOpenMoney])
 
     function changeLanguage(lang) {
         i18n.changeLanguage(lang)

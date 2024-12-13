@@ -22,6 +22,7 @@ import useOnScreen from '../CustomHook/useOnScreen';
 import { RatingReview2 } from "../cmps/RatingReview2";
 import { StayMobileFooter } from "../cmps/details/StayNobileFooter";
 import Gallery from "../cmps/buttons ui/image-grid";
+import Modal from "../cmps/Modal";
 
 
 export function StayDetails({ reviews }) {
@@ -37,6 +38,8 @@ export function StayDetails({ reviews }) {
   // const imgGridVisible = useOnScreen(imgGridRef, '-20px')
   const reserveBtnVisible = useOnScreen(reserveBtnRef, '-34px')
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
+  const [reviewsForModal, setReviewsForModal] = useState([])
+  const [modalIsOpen, setModalIsOpen] = useState(false)
 
   const imgsToDisplay = stay?.imgUrls?.slice(0, 5)
   const amenitiesToDisplay = stay?.amenities?.slice(0, 10)
@@ -49,7 +52,7 @@ export function StayDetails({ reviews }) {
 
   //^ becouse i have the scroll of the page too
   //^ becouse i did 100% modal (all the page)
-  useEffect(() => { 
+  useEffect(() => {
     if (isGalleryOpen) {
       document.body.style.overflow = 'hidden'
     } else {
@@ -90,6 +93,16 @@ export function StayDetails({ reviews }) {
 
   function onCloseStayGallery() {
     setIsGalleryOpen(false)
+  }
+
+  function openModal() {
+    setReviewsForModal(reviewsToDisplay)
+    setModalIsOpen(true)
+  }
+
+  function closeModal() {
+    setModalIsOpen(false)
+    setReviewsForModal([])
   }
 
   // function calcAvgReview(reviews) {
@@ -134,18 +147,18 @@ export function StayDetails({ reviews }) {
                   onOpenStayGallery={onOpenStayGallery}
                 />
                 {isGalleryOpen && (
-                <div className="modal-gallery">
+                  <div className="modal-gallery">
                     <div className="modal-content__gallery">
                       <div className='flex gallery-txt'>
                         <button className="btn-close" onClick={onCloseStayGallery}>
-                        <HiXMark className="fs24"/>
+                          <HiXMark className="fs24" />
                         </button>
                         <h2>Gallery</h2>
-                        </div>
-                        <Gallery />
+                      </div>
+                      <Gallery />
                     </div>
-                </div>
-            )}
+                  </div>
+                )}
               </div>
             </section>
           </>
@@ -217,21 +230,18 @@ export function StayDetails({ reviews }) {
         <div className="controller-layout__details">
           <Reviews reviews={stay.reviews} />
         </div>
-        <div //* to fix 
-          className='stay-rating controller-layout__details'
-          onClick={() =>
-            openModal(
-              <ReviewPreview
-                reviewsToDisplay={reviewsToDisplay}
-                key={reviewsToDisplay.id}
-              />
-            )
-          }>
-          <div className=" show-all-details btn-reviews__details">
+        <div className="stay-rating controller-layout__details">
+          <div onClick={openModal} className=" show-all-details btn-reviews__details">
             <p className="">{stay.reviews.length} reviews</p>
-          </div>
+          </div>  {modalIsOpen && (
+            <Modal closeModal={closeModal} reviews={reviewsForModal} />
+          )}
         </div>
+        <div>
+        </div>
+        {/* </div> */}
       </div>
+      {/* <div style={{ position: 'relative' }}></div> */}
       <div >
         <AppFooterDetails />
       </div>
@@ -241,3 +251,5 @@ export function StayDetails({ reviews }) {
     </section>
   )
 }
+
+ 
