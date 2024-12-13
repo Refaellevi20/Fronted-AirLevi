@@ -119,6 +119,12 @@
   }
 }
 
+@media screen and (max-width: 785px) {
+  div.flex1.gallery-img {
+    display: none !important;
+  }
+}
+
 .modal-gallery {
   position: fixed;
   top: 0;
@@ -145,7 +151,7 @@
     background: transparent;
     border: none;
     padding: 0;
-    outline: none; 
+    outline: none;
     cursor: pointer;
   }
 
@@ -157,4 +163,3 @@
     padding: 0 60px;
   }
 }
-
