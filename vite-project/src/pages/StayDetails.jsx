@@ -217,7 +217,7 @@ export function StayDetails({ reviews }) {
         <div className="controller-layout__details">
           <Reviews reviews={stay.reviews} />
         </div>
-        <div
+        <div //* to fix 
           className='stay-rating controller-layout__details'
           onClick={() =>
             openModal(

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 export function LongTxtReviews({ txt, length, onShowMoreClick }) {
-    const [isShowMore, setShowMore] = useState(false);
+    const [isShowMore, setShowMore] = useState(false)
 
     function getTxtToShow(txt, length) {
-        return (txt.length < length || isShowMore) ? txt : txt.substring(0, length + 1) + '...';
+        return (txt.length < length || isShowMore) ? txt : txt.substring(0, length + 1) + '...'
     }
 
     function onToggleLongTxt() {
@@ -21,5 +21,5 @@ export function LongTxtReviews({ txt, length, onShowMoreClick }) {
                 </button>
             )}
         </article>
-    );
+    )
 }

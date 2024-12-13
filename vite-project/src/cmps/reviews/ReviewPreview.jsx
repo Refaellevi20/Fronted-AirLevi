@@ -39,7 +39,7 @@ export function ReviewPreview({ reviewsToDisplay, MAX_LENGTH = 200 }) {
                 onShowMoreClick={openModal}
               />
             </div>
-          );
+          )
         })}
       </div>
 
