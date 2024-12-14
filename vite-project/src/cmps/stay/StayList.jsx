@@ -7,6 +7,7 @@ export function StayList({ stays,currency }) {
   const navigate = useNavigate()
   // const { openModal, Modal } = useModal()
   const currLocation = useLocation()
+  // const [isSearchActive, setIsSearchActive] = useState(false)
 
   const handleClick = (stayId) => {
     const searchStr = utilService.setAnyBlankParamsWithDefaults(
@@ -23,7 +24,12 @@ export function StayList({ stays,currency }) {
         {' '}
         <Modal />
       </div> */}
-      <ul className='card-grid stay-list clean-list main-layout '>
+          {/* <ul
+        className={`card-grid stay-list clean-list main-layout ${isSearchActive ? 'search-active' : ''
+          }`}
+      ></ul> */}
+      <ul
+       className='card-grid stay-list clean-list main-layout '>
         {stays.map((stay) => {
           return (
             <li

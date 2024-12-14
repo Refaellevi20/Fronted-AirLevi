@@ -28,12 +28,7 @@ export async function removeUser(userId) {
 export async function login(credentials) {
   try {
     const user = await userService.login(credentials)
-    store.dispatch({
-      type: SET_USER,
-      user,
-    })
-
-    console.log('user:', user)
+    store.dispatch({ type: SET_USER,user, })
     return user
   } catch (err) {
     console.log('Cannot login', err)
@@ -44,10 +39,7 @@ export async function login(credentials) {
 export async function signup(credentials) {
   try {
     const user = await userService.signup(credentials)
-    store.dispatch({
-      type: SET_USER,
-      user,
-    })
+    store.dispatch({type: SET_USER,user, })
     return user
   } catch (err) {
     console.log('Cannot signup', err)
@@ -58,10 +50,7 @@ export async function signup(credentials) {
 export async function updateUser(user) {
   try {
     const updatedUser = await userService.updateUser(user)
-    store.dispatch({
-      type: SET_USER,
-      user: updatedUser,
-    })
+    store.dispatch({ type: SET_USER,user: updatedUser, })
     return updatedUser
   } catch (err) {
     console.log('Cannot update user', err)
@@ -72,13 +61,8 @@ export async function updateUser(user) {
 export async function logout() {
   try {
     await userService.logout()
-    store.dispatch({
-      type: SET_USER,
-      user: null,
-    })
-    store.dispatch({
-      type: CLEAR_NOTIFICATIONS,
-    })
+    store.dispatch({type: SET_USER,user: null,})
+    store.dispatch({type: CLEAR_NOTIFICATIONS,}) //* notifications to the correct user
   } catch (err) {
     console.log('Cannot logout', err)
     throw err

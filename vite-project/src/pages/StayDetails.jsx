@@ -258,7 +258,7 @@ export function StayDetails({ reviews }) {
       </div>
       {/* <div style={{ position: 'relative' }}></div> */}
       <div >
-        <div className='stay-map border-buttom secondary-layout'>
+        <div className='stay-map secondary-layout'>
           <h1>Where you'll be</h1>
           <StayMap stay={stay} />
           <h3 className='stay-location-name'>

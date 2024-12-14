@@ -1,0 +1,151 @@
+.header-container{
+  position: fixed;
+    top: 0;
+    left: 0;
+  // position: sticky;
+  z-index: 100;
+  width: 100% !important;
+
+  &:has(.secondary-layout) {
+    position: relative;
+    overflow-y: inherit;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 80px;
+    right:0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid $clr-border;
+    z-index: -1;
+    transition: transform 250ms ease;
+    transform: initial;
+  }
+
+  &:has(.search-bars-open)::after {
+    transform: scaleY(5.5);
+    border-bottom: none;
+    transition: transform 250ms ease;
+  }
+
+  @media (min-width: $grid-break-point-3) {
+  &:has(.search-bars-open)::after {
+    transform: scaleY(3.2);
+    border-bottom: none;
+    transition: transform 250ms ease;
+  }
+}
+
+
+}
+
+
+@include for-max-narrow-layout{
+  .header-container{
+  padding: 0px 12px;
+  }
+}
+
+.app-header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: $clr-white;
+  // top: 0px;
+  width: 100%;
+  min-height: $header-height;
+
+
+
+
+  &:has(.search-bars-open) {
+    flex-wrap: wrap;
+  }
+
+  .header-logo-container {
+    display: flex;
+    // flex: 1 0 75px;
+    align-items: center;
+    height: 80px;
+    color: $clr-brand;
+    cursor: pointer;
+
+    @media (min-width: $grid-break-point-3) {
+      flex: 0 0 150px;
+    }
+
+    .AirLevi {
+      margin: 0;
+      display: none;
+
+      @media (min-width: $grid-break-point-3) {
+        display: block;
+      }
+    }
+  }
+
+  .header-search-bar-container {
+    display: flex;
+    flex-grow: 1;
+    // flex-basis: 850px;
+    min-height: 80px;
+    padding-top: 16px;
+    position: relative;
+
+    &:has(.search-bars-open) {
+      justify-self: flex-end;
+      order: 2;
+      flex-basis: 850px;
+
+      .rdrMonth{
+        width: 24rem;
+      }
+
+    }
+
+    @media (min-width: $grid-break-point-3) {
+      flex-grow: 1;
+      justify-content: center;
+
+      &:has(.search-bars-open) {
+        justify-content: flex-start;
+        order: 2;
+      }
+    }
+  }
+
+  .header-menu-container {
+    flex-grow: 1;
+    display: flex;
+    height: 80px;
+    justify-content: flex-end;
+    align-items: center;
+
+    @include for-mobile-layout {
+    // height: 0;
+    
+  }
+
+
+    @media (min-width: $grid-break-point-3) {
+      flex-grow: 0;
+
+      &:not(:has(.search-bars-open)) {
+        flex: 0 0 150px;
+      }
+    }
+  }
+
+  @media (min-width: $grid-break-point-3) {
+    &:has(.search-bars-open) {
+      flex-wrap: nowrap;
+
+      .header-menu-container {
+        order: 3;
+      }
+    }
+  }
+}

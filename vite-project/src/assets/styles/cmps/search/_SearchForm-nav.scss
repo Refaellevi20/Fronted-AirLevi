@@ -1,0 +1,52 @@
+.search-form-nav {
+    align-items: center;
+    display: flex;
+    height: 80px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.search-form-nav-item {
+    color: $clr-text-primary;
+    padding: 10px 16px;
+    border: none;
+
+    &:not(.active)>span {
+        position: relative;
+
+        &:hover {
+            opacity: 0.65;
+        }
+
+        &:hover::after {
+            transform: scaleX(1);
+            opacity: 0.65;
+        }
+
+        &::after {
+            background-color: currentcolor;
+            inset-inline: 0;
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+            content: '';
+            height: 2px;
+            position: absolute;
+            top: calc(100% + 8px);
+            width: 100%;
+        }
+    }
+
+    &.active>span {
+        position: relative;
+
+        &::after {
+            background-color: currentcolor;
+            inset-inline: 0;
+            content: '';
+            height: 2px;
+            position: absolute;
+            top: calc(100% + 8px);
+            width: 100%;
+        }
+    }
+}

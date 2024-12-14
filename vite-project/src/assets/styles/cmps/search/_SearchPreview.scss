@@ -1,0 +1,96 @@
+//ANIMATION
+.search-bars-open .search-preview {
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 250ms ease, opacity 100ms ease, visibility 0ms;
+}
+
+.search-preview {
+    padding-inline-start: 8px;
+    background-color: $clr-white;
+    border: 1px solid $clr-border;
+    border-radius: 40px;
+    box-shadow: 0 1px 2px #00000014, 0 4px 12px #0000000d;
+    transition: box-shadow 0.2s ease;
+    align-items: center;
+    color: $clr-text-primary;
+    display: inline-flex;
+    min-width: 348px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: transform 250ms ease, opacity 200ms ease 100ms, visibility 0ms 200ms;
+    white-space: nowrap;
+
+    &:has(.start-your-search) {
+        min-width: 300px;
+    }
+
+    button:first-child {
+        padding-left: 16px;
+        text-align: center;
+    }
+
+    &:hover {
+        box-shadow: 0 2px 4px #0000002e;
+    }
+
+    .splitter {
+        flex: 0 0 1px;
+        height: 24px;
+        width: 1px;
+        background-color: $clr-border;
+    }
+
+    button {
+        background: transparent;
+        cursor: pointer;
+        padding: 0;
+        text-align: inherit;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        margin: -1px;
+        line-break: strict;
+        min-width: 80px;
+        padding: 12px 16px;
+        font-size: 14px;
+        color: $clr-text-primary;
+        flex-grow: 1;
+    }
+
+    .search-anywhere,
+    .search-any-week {
+        font-family: cereal-medium;
+    }
+
+    .search-add-guests {
+        color: $clr-text-secondary;
+        margin-right: -8px;
+    }
+
+    .search-btn {
+        color: $clr-white;
+        background-color: $clr-brand;
+        border-radius: 50%;
+        padding: 10px;
+        margin: 7px 7px 7px 7px;
+        height: 32px;
+        min-width: 32px;
+        border: transparent;
+
+        svg {
+            display: block;
+            fill: none;
+            height: 12px;
+            width: 12px;
+            stroke: currentcolor;
+            stroke-width: 5.33333;
+            overflow: visible;
+        }
+    }
+
+    button.start-your-search {
+        width: 100%;
+        text-align: left;
+        font-family: cereal-medium;
+    }
+}

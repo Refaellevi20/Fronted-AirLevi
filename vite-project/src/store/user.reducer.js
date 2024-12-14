@@ -17,7 +17,6 @@ const initialState = {
     users: [],
     watchedUser: null,
     notifications: []
-
 }
 
 export function userReducer(state = initialState, action) {
@@ -41,7 +40,6 @@ export function userReducer(state = initialState, action) {
         case SET_WISH_LIST:
             newState = { ...state, user: { ...state.user, score: action.score } }
             break
-
         case NOTIFY:
             return { ...state, notifications: [...state.notifications, action.notification] }
         case REMOVE_NOTIFICATION:

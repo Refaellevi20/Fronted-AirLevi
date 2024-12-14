@@ -1,9 +1,14 @@
 .stay-list {
   display: grid;
   width: 100%;
-  margin-top: 102px;
+  margin-top: 202px;
   list-style-type: none;
   margin-bottom: 100px;
+
+  // &.search-active {
+  //   margin-top: 0;
+  // }
+
 
   &-item {
     cursor: pointer;
@@ -18,6 +23,10 @@
   }
 }
 
+
+// .stay-list.search-active {
+//   margin-top: 0 !important;
+// }
 
 .preview {
   text-align: left;
