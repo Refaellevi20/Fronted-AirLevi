@@ -77,9 +77,10 @@ export function NavBar({ setFilteredStays }) {
 
     const LeftNavIcon = (
         <div
-        className={`scale-on__hover`}
+            className={`scale-on__hover`}
             style={{
-                marginTop: '-12px',
+                position: 'absolute',
+                marginTop: '-17px',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -88,7 +89,7 @@ export function NavBar({ setFilteredStays }) {
                 border: '1px solid rgb(0 0 0 / 0.3)',
                 borderRadius: '50%',
                 backgroundColor: 'white',
-                zIndex: '5',
+                zIndex: '115',
                 cursor: isAtStart ? 'default' : 'pointer',
                 opacity: isAtStart ? 0.0 : 1,
             }}
@@ -116,9 +117,9 @@ export function NavBar({ setFilteredStays }) {
 
     const RightNavIcon = (
         <div
-        className={`scale-on__hover`}
+            className={`scale-on__hover`}
             style={{
-                marginTop: '-12px',
+                marginTop: '-10px',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -127,8 +128,8 @@ export function NavBar({ setFilteredStays }) {
                 border: '1px solid rgb(0 0 0 / 0.3)',
                 borderRadius: '50%',
                 backgroundColor: 'white',
-                zIndex: '5',
-                cursor: isAtEnd ? 'default' : 'pointer', 
+                zIndex: '115',
+                cursor: isAtEnd ? 'default' : 'pointer',
                 opacity: isAtEnd ? 0.0 : 1,
             }}
             onClick={isAtEnd ? null : scrollRight}
@@ -158,7 +159,7 @@ export function NavBar({ setFilteredStays }) {
             <span className="left-icon__list main-layout__navBar2">
                 {LeftNavIcon}
             </span>
-            <section className="category-list main-layout" ref={categoryListRef}>
+            <section className="category-list main-layout" ref={categoryListRef} style={{position:'relative'}}>
                 {categories.map((category) => (
                     <div
                         key={category.url}
