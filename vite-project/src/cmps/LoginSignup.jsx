@@ -4,6 +4,8 @@ import { ImgUploader } from './ImgUploader.jsx'
 import { showErrorMsg, showSuccessMsg  } from '../services/event-bus.service.js'
 import { login, signup } from '../store/user.actions'
 import { BtnSquareColorRed } from './buttons ui/btn-square-color.jsx'
+import { BtnLoginColorGold } from './buttons ui/btn-loginGust-color.jsx'
+import { BtnLoginColorHost } from './buttons ui/btn-loginHost-color.jsx'
 
 
 export function LoginSignup({ closeModal }) {
@@ -99,18 +101,18 @@ export function LoginSignup({ closeModal }) {
 
       )}
       <div className='demo-login-btns'>
-        <div onClick={() => {
+        <BtnLoginColorHost onClick={() => {
           credentials.username = 'host'
           onLogin()
         }}>
           DEMO: login as Shukiy Host
-        </div>
-        <div onClick={() => {
+        </BtnLoginColorHost>
+        <BtnLoginColorGold onClick={() => {
           credentials.username = 'guest'
           onLogin()
         }}>
           DEMO: login as baba Guest
-        </div>
+        </BtnLoginColorGold>
       </div>
       <div className='signup-section'>
         {isSignup && (

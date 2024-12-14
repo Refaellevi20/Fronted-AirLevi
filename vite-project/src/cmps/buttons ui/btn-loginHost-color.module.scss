@@ -1,0 +1,36 @@
+@import "../../assets/styles/setup/_functions.scss";
+
+.BtnLoginColorHost {
+    padding: 13px 7vw;
+    width: 100%;
+    min-width: em(200px);
+    flex: 1;
+
+    background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
+    --mouse-x: 92;
+    --mouse-y: 73;
+
+  background-image: radial-gradient(
+    circle,
+    rgb(72, 189, 255) 0%,        /* Bright Cyan */
+    rgb(0, 153, 255) 30%,        /* Blue */
+    rgb(0, 102, 204) 60%,        /* Darker Blue */
+    rgb(0, 76, 153) 100%         /* Deep Blue */
+  );
+  background-size: 200% 200%;
+  border-radius: 8px;
+  border: none;
+  text-align: center;
+
+  color: rgb(255, 255, 255);
+  font-family: cereal-Medium;
+  font-size: 1rem;
+  line-height: 20px;
+}
+
+.parent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

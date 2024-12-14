@@ -1,0 +1,59 @@
+@import "../../assets/styles/setup/_functions.scss";
+
+.BtnLoginColorGold {
+    padding: 13px 7vw;
+    width: 100%;
+    min-width: em(200px);
+    flex: 1;
+
+    background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
+    --mouse-x: 92;
+    --mouse-y: 73;
+
+    background-image: radial-gradient(circle,
+            rgba(255, 215, 0, 0.8) 0%,
+            rgba(255, 223, 63, 0.7) 27.5%,
+            rgba(255, 191, 0, 0.6) 40%,
+            rgba(240, 176, 50, 0.5) 57.5%,
+            rgba(218, 163, 24, 0.4) 75%,
+            rgba(236, 180, 36, 0.3) 100%);
+    background-size: 200% 200%;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+
+    color: rgb(255, 255, 255);
+    font-family: cereal-Medium;
+    font-size: 1rem;
+    line-height: 20px;
+}
+
+.BtnLoginColorGold:active {
+    animation: press 1s forwards;
+    transition: .3s;
+}
+
+
+@keyframes press {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(.96);
+    }
+
+    60% {
+        transform: scale(.96);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.parent-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
