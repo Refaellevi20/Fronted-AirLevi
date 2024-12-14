@@ -119,3 +119,12 @@ footer {
         }
     }
 }
+
+@media screen and (max-width: 1440px) {
+    footer {
+        .home-footer__container {
+            padding: 13px 40px 14px;
+
+        }
+    }
+}
