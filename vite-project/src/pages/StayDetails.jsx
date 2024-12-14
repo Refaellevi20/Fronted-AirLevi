@@ -24,6 +24,7 @@ import { StayMobileFooter } from "../cmps/details/StayNobileFooter";
 import Gallery from "../cmps/buttons ui/image-grid";
 import Modal from "../cmps/Modal";
 import { StayMap } from "../cmps/StayMap";
+import { AppHeader } from "../cmps/AppHeader";
 
 const randomTextOptions = [
   "Lexington, Kentucky is the second-largest city in Kentucky next to Louisville, and is located in the heart of the Bluegrass region. Lexington is known as the 'Horse Capital of the World,' since it is home to the Kentucky Horse Park, Keeneland race course and the Red Mile race course.",
@@ -40,6 +41,7 @@ export function StayDetails({ reviews }) {
   const reserveBtnRef = useRef()
   const imgGridRef = useRef()
   const [openTab, setOpenTab] = useState(null)
+  const [isOpenAmenities, setIsOpenAmenities] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [component, setComponent] = useState(null)
   // const imgGridVisible = useOnScreen(imgGridRef, '-20px')
@@ -86,13 +88,13 @@ export function StayDetails({ reviews }) {
     }
   }
 
-  function openModal(componentToOpen) {
+  function openModalAmenities(componentToOpen) {
     console.log('isOpen:', isOpen)
-    setIsOpen(true)
+    setIsOpenAmenities(true)
     setComponent(componentToOpen)
   }
 
-  function closeModal() {
+  function closeModalAmenities() {
     setIsOpen(false)
     setComponent(null)
   }
@@ -145,7 +147,12 @@ export function StayDetails({ reviews }) {
       <section className="">
         {!stay && <StayLoader />}
         {!!stay && (
+          
           <>
+          <div>
+              {/* <AppHeader className='main-layout stay-index' />  */}
+              {/*remove postion:fix by creating header2  */}
+              </div>
             <SecondaryHeader
               stay={stay}
               // imgGridVisible={imgGridVisible}
@@ -156,6 +163,7 @@ export function StayDetails({ reviews }) {
               <div className="controller-layout__details">
                 <h1 id="stay-top" className="stay-top">{stay.name}</h1>
               </div>
+              
               <div className="sss">
                 <ImgUseGrid
                   imgsToDisplay={imgsToDisplay}
@@ -196,17 +204,17 @@ export function StayDetails({ reviews }) {
               {stay.amenities.length > 10 && (
                 <div
                   className="rev-btn show-all-amenities  fs16"
-                  onClick={() => openModal(<AllAmenities amenities={stay.amenities} />)}
+                  onClick={() => openModalAmenities(<AllAmenities amenities={stay.amenities} />)}
                 >
                   Show all {stay.amenities.length} amenities
                 </div>
               )}
             </div>
-            {isOpen && (
+            {isOpenAmenities && (
               <section className="amenities-modal__container">
-                <div className="modal-overlay" onClick={closeModal}>
+                <div className="modal-overlay" onClick={closeModalAmenities}>
                   <div className="modal-content" onClick={(ev) => ev.stopPropagation()}>
-                    <button onClick={closeModal} className="modal-close-btn"> <HiXMark style={{ fontSize: '20px' }} /></button>
+                    <button onClick={closeModalAmenities} className="modal-close-btn"> <HiXMark style={{ fontSize: '20px' }} /></button>
                     {component}
                   </div>
                 </div>
