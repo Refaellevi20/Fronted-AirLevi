@@ -28,6 +28,9 @@
 @import "cmps/StayCalendar";
 @import "cmps/LongTxt";
 @import "cmps/StayMap";
+@import "cmps/AppHeader";
+@import "cmps/NavMenu";
+@import "cmps/LoginSignup";
 
 //& reveiws / cmps
 @import "cmps/reveiws/IndexReviews";
@@ -44,10 +47,17 @@
 @import "cmps/details/SecondaryHeader";
 @import "cmps/details/DetailsMobileFooter";
 
+//& search / cmps
+@import "cmps/search/SearchForm-nav";
+@import "cmps/search/SearchForm";
+@import "cmps/search/SearchPreview";
+@import "cmps/search/RegionSelect";
+
 //& page
 @import "pages/StayDetailes";
 @import "pages/HistoryPage";
 @import "pages/BookPage";
+@import "pages/StayIndex";
 
 
 

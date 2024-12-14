@@ -7,8 +7,9 @@ import { StayList } from '../cmps/stay/StayList'
 import { loadStays } from '../store/stay/stay.action'
 import { AppFooterHome } from '../cmps/footerHome/AppFooterHome'
 import { NavBar } from '../cmps/NavBar'
+import { AppHeader } from '../cmps/AppHeader'
 
-export function StayIndex({stay,currency}) {
+export function StayIndex({currency}) {
   const [searchParams, setSearchParams] = useSearchParams()
   const stays = useSelector((storeState) => storeState.stayModule.stays)
   const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
@@ -34,13 +35,22 @@ export function StayIndex({stay,currency}) {
 
   return (
     <section>
+      <div className="">
+       <AppHeader className='main-layout stay-index' />
+       {filteredStays.length === 0 ? (
+      <>
+        <NavBar setFilteredStays={setFilteredStays} />
+        <p style={{ marginTop: '200px' }}>No stays available for the selected category</p>
+      </>
+    ) : (
       <NavBar setFilteredStays={setFilteredStays} />
+    )}      </div>
       <section style={{ position: 'relative' }}>
+      {filterBy.location && <h4 className='main-layout'>Showing results for {filterBy.location}</h4>}
         {!!filteredStays.length && <StayList stays={filteredStays} currency={currency}/>}
-        {filteredStays.length === 0 && <p>No stays available for the selected category</p>}
-        {/* {!!stays && <StayList stays={stays} />} */}
         <AppFooterHome />
       </section>
     </section>
   )
 }
+

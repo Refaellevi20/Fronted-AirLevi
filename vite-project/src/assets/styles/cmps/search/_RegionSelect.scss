@@ -1,0 +1,47 @@
+.region-select-menu {
+    padding: 16px 8px 8px 0px;
+    margin: 12px 0px -16px 12px;
+
+    .heading {
+        font-size: rem(14px);
+        font-family: cereal-medium;
+        line-height: rem(18px);
+        margin: 0 0 28px 5px;
+    }
+
+    .region-grid {
+        column-gap: 5px;
+        display: grid;
+        grid-template-columns: repeat(3, min-content);
+        row-gap: 24px;
+        margin-bottom: 40px;
+    }
+
+    .region {
+        height: 158px;
+        width: 132px;
+
+        .region-name {
+            font-size: rem(14px);
+            line-height: rem(18px);
+            margin-top: 8px;
+        }
+    }
+
+    .region-btn {
+        height: 122px;
+        width: 122px;
+    }
+
+    img {
+        height: 100%;
+        width: 100%;
+        border-radius: 12px;
+        transition: border 0.15s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            border: 1px solid rgb(0, 0, 0);
+        }
+    }
+}
