@@ -1,0 +1,62 @@
+//! > * 
+//* mains all his children 
+//* for exsample 
+//* <div class="container">
+//* <div>ילד 1</div>
+//* <div>ילד 2</div>
+//* <div>ילד 3</div>
+//* </div>
+
+//^ .container > * {
+//^     padding: 10px;
+//^     background-color: lightgrey;
+//^   }
+  
+//!   all of them getting this backround
+
+//~ 2)
+
+//! :has
+//* means only the children with spesific class
+//* for exsample 
+
+//* <div class="card">
+//* <div class="icon"></div> 
+//* </div>
+//* <div class="card">
+//* <p class="sss">רגיל</p>
+//* </div>
+
+//^ .card:has(.sss) {
+//^     border: 2px solid blue;
+//^   }
+  
+//^   .card:has(.icon) {
+//^     border: 12px solid pink;
+//^   }
+
+ //! only the icon getting the color pink
+  //! and the same with the calss sss
+
+  //~ 3)
+
+
+//!   :before + :afters means what is going to be next and before
+
+//*   <button class="button">click here</button>
+
+  
+//^   .button::before {
+//^     content: '🔑';
+//^     margin-right: 8px;
+//^   }
+  
+//^   .button::after {
+//^     content: '✔';
+//^     margin-left: 8px;
+//^   }
+
+//! we will see the ✔ and after the text and then the 🔑
+
+
+//& i explained this becouse i used them a lot on the header 
