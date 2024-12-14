@@ -103,13 +103,13 @@ export function LoginSignup({ closeModal }) {
           credentials.username = 'host'
           onLogin()
         }}>
-          DEMO: login as Muki Host
+          DEMO: login as Shukiy Host
         </div>
         <div onClick={() => {
           credentials.username = 'guest'
           onLogin()
         }}>
-          DEMO: login as Puki Guest
+          DEMO: login as baba Guest
         </div>
       </div>
       <div className='signup-section'>

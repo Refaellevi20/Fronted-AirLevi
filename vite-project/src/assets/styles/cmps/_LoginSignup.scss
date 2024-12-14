@@ -1,0 +1,45 @@
+.login-page {
+    .login-signup-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 64px;
+        border-bottom: 1px solid $clr-border;
+        margin-bottom: 20px;
+
+        h1 {
+            font-family: cereal-bold;
+            font-size: rem(24px);
+            line-height: rem(20px);
+        }
+    }
+
+        input {
+            position: relative;
+            cursor: text;
+            display: flex;
+            min-height: 56px;
+            width: 100%;
+            margin: 0px;
+            padding: 0px 16px;
+            border: none;
+            color: $clr-text-primary;
+            background-color: $clr-white;
+            border-radius: 8px;
+            box-shadow: $clr-border 0px 0px 0px 1px inset;
+            font-family: cereal-book;
+            font-size: rem(16px);
+            line-height: 20px;
+            margin-bottom: 10px;
+        }
+
+    .sign-up-btn-container{
+        text-align: center;
+    }
+
+    .demo-login-btns {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+}
