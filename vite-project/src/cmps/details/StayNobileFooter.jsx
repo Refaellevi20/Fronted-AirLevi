@@ -1,5 +1,5 @@
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import { utilService } from '../../services/util.service' 
+import { utilService } from '../../services/util.service'
 import { RatingReview } from '../RatingReview'
 import { BtnSquareColorRed } from '../buttons ui/btn-square-color'
 
@@ -22,7 +22,7 @@ export function StayMobileFooter({ stay, setOpenTab }) {
       pets: +searchParams.get('pets') || 0,
     },
   }
-
+  //! maybe moment later
   const CheckIndate = utilService.ShortFormattedDate(orderParams.checkIn)
   const CheckOutdate = utilService.ShortFormattedDate(orderParams.checkOut)
 
@@ -43,13 +43,13 @@ export function StayMobileFooter({ stay, setOpenTab }) {
     const totalGuests = adults + children
     if (totalGuests === 1) return '1 guest'
     return totalGuests + ' guests'
-  }
+  } //! no need
 
   return (
     <>
-      <div className={'stay-mobile-footer flex1'}>
+      <div className={'stay-mobile-footer flex1 '}>
         <div className='book-it-details'>
-          <h4>
+          <h4 className='underline-no__hover'>
             <span className='price'>
               ${Math.round(stay.price).toLocaleString()}
             </span>{' '}
@@ -61,16 +61,15 @@ export function StayMobileFooter({ stay, setOpenTab }) {
             </div>
           )}
           {(orderParams.checkIn || orderParams.checkOut) && (
-            <div className='order-rating-review flex'>
+            <div className='order-rating-review flex fs12'>
               <span>{CheckIndate}</span>
               <span>-</span>
               <span>{CheckOutdate}</span>
             </div>
           )}
         </div>
-
         {orderParams.checkIn && orderParams.checkOut && (
-          <div className='footer-btn'>
+          <div className='footer-btn' style={{ marginTop: '-18px', marginLeft: '15px' }}>
             <BtnSquareColorRed onClick={onClickReserve} children={'Reserve'} />
           </div>
         )}
@@ -90,7 +89,7 @@ export function StayMobileFooter({ stay, setOpenTab }) {
           </div>
         )}
       </div>
-      <div className='footer-guest-view'>{getGuestCount()}</div>
+      {/* <div className='footer-guest-view'>{getGuestCount()}</div> */}
     </>
   )
 }

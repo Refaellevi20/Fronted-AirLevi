@@ -1,11 +1,10 @@
 .details-app-footer {
-  padding-bottom: 0px !important;
+  padding-bottom: 0 !important;
   border-top: solid 1px $clr-border;
   position: fixed;
   bottom: 0;
   width: 100%;
   background-color: $clr-white;
-  // margin-bottom: -100px;
   z-index: 999;
 
   @include for-normal-layout {
@@ -14,18 +13,17 @@
 
   .stay-mobile-footer {
     flex-direction: row;
-    padding: 0.8rem 1rem 0.2rem;
-    bottom: 0;
-    width: 100%;
+    padding: 16px 24px;
     justify-content: space-between;
 
-    .footer-btn{
-        transform: translate(-7px, 10px);
+    .footer-btn {
+      transform: translate(-7px, 10px);
     }
   }
 }
 
-.footer-guest-view {
-  padding-left: 1rem;
-  transform: translate(0px, -5px);
+@media screen and (max-width: 745px) {
+  .main-content {
+    padding-bottom: 85px;
+  }
 }
