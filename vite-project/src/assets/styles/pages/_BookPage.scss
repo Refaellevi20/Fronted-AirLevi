@@ -63,7 +63,6 @@
         flex-direction: column-reverse;
     }
 
-
     .order-details {
         min-width: 40%;
         flex-direction: column;
@@ -111,9 +110,7 @@
                 font-size: 1rem;
                 font-weight: unset;
             }
-
         }
-
     }
 
     .order-user {
@@ -143,9 +140,7 @@
                 margin: 0;
             }
         }
-
     }
-
 
 }
 
@@ -157,7 +152,6 @@
     height: fit-content;
     min-height: 40%;
     padding-bottom: 40px !important;
-
 
     @include for-max-narrow-layout {
         border: none;
@@ -308,4 +302,9 @@
             }
         }
     }
+}
+
+.calcAvgReview-reviews {
+    margin-top: -2.5px;
+    margin-left: 2px;
 }

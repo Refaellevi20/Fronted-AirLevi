@@ -11,7 +11,7 @@ import greenCheck from '/greenCheck.svg'
 import { useSelector } from 'react-redux'
 import { AppLogo } from '../cmps/app-logo.jsx'
 import { BtnSquareColorRed } from '../cmps/buttons ui/btn-square-color.jsx'
-import { RatingReview } from '../cmps/RatingReview.jsx'
+import { RatingReview3 } from '../cmps/RatingReview3.jsx'
 import { LoginSignup } from '../cmps/LoginSignup.jsx'
 
 
@@ -47,6 +47,7 @@ export function BookPage() {
     }
   }
 
+  //! moment later
   function loadOrder(stayToSet) {
     const SERVICE_FEE = 11.2
     const startDate = +params.get('checkIn') || Date.now()
@@ -151,7 +152,7 @@ export function BookPage() {
         </div>
       </header>
       <section className='main-layout secondary-layout'>
-        <header className='booking-title flex1'>
+        <header className='booking-title flex1 secondary-layout'>
           <div className='icon-svg'>
             <img
               src={arrowLeftImg}
@@ -176,7 +177,7 @@ export function BookPage() {
             )}
           </div>
         </header>
-        <main className='order-content flex justify-between'>
+        <main className='order-content flex justify-between secondary-layout'>
           <section className='order-details flex1'>
             <div className=''>
               <div className='rare-find flex1 justify-between'>
@@ -259,10 +260,9 @@ export function BookPage() {
                   <h4 className='stay-name'>{stay.name}</h4>
                   <h4 className='stay-type'>{stay.type}</h4>
                   <div style={{ display: 'flex' }}>
-                    <RatingReview reviews={stay.reviews} /> //! RatingReview3
-                    <span className='reviews fs14'>
-                      ({stay.reviews.length}
-                      <span className='avg-rating-reviews fs14'> reviews</span>)
+                    <RatingReview3 reviews={stay.reviews} /> 
+                    <span className='reviews calcAvgReview-reviews fs14'>
+                      ({stay.reviews.length})
                     </span>
                   </div>
                 </div>
