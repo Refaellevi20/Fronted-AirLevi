@@ -5,6 +5,7 @@ import { AppLogo } from '../cmps/app-logo'
 import { NavMenu } from './nav-menu'
 import { REMOVE_NOTIFICATION } from '../store/user.reducer'
 import { loadOrders } from '../store/order.action'
+import { TripList } from '../cmps/trip-list/TripList'
 
 export function TripPage() {
   const loggedinUser = useSelector((storeState) => storeState.userModule.user)
@@ -33,6 +34,15 @@ export function TripPage() {
           <NavMenu />
         </div>
       </header>
+      {orders && (
+        <section className='trip-page secondary-layout'>
+          <div className='hero'>
+            <h2>Welcome back, {loggedinUser.fullname}</h2>
+          </div>
+          <h3>Your trips</h3>
+          <TripList orders={orders} isLoading={isLoading} />
+        </section>
+      )}
     </section>
   )
 }
