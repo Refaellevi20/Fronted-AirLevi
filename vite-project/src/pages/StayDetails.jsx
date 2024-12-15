@@ -54,7 +54,9 @@ export function StayDetails({ reviews }) {
 
   const imgsToDisplay = stay?.imgUrls?.slice(0, 5)
   const amenitiesToDisplay = stay?.amenities?.slice(0, 10)
-  const reviewsToDisplay = stay?.reviews?.slice(0, 6)
+  const reviewsToDisplay = stay?.reviews?.slice(0, 6) ///! here is the problom
+  const reviewsToAll = stay?.reviews || []
+
 
   useEffect(() => {
     setRandomText(getRandomText()) //! for now random (data needs)
@@ -110,7 +112,7 @@ export function StayDetails({ reviews }) {
   }
 
   function openModal() {
-    setReviewsForModal(reviewsToDisplay)
+    setReviewsForModal(reviewsToAll)
     setModalIsOpen(true)
   }
 
@@ -237,14 +239,19 @@ export function StayDetails({ reviews }) {
           </div>
         </section>
         <div className="controller-layout__details">
-          <Reviews reviews={stay.reviews} />
+          <Reviews  reviews={reviewsToDisplay}/>
         </div>
-        <div className="stay-rating controller-layout__details">
+        <div className="stay-rating controller-layout__details stay-rating__details">
           <div onClick={openModal} className=" rev-btn show-all-amenities fs16 border-reviews__details">
             <p className="">{stay.reviews.length} reviews</p>
-          </div>  {modalIsOpen && (
+          </div>
+            {modalIsOpen && (
             <Modal closeModal={closeModal} reviews={reviewsForModal} />
           )}
+          {/* <p className="">{reviewsForModal} reviews</p>
+          </div>  {modalIsOpen && (
+            <Modal closeModal={closeModal} reviews={reviewsToAll} /> */}
+
         </div>
         <div>
         </div>
@@ -261,7 +268,7 @@ export function StayDetails({ reviews }) {
           <p>{randomText}</p>
         </div>
         <div className="main-content">
-        <AppFooterDetails />
+          <AppFooterDetails />
         </div>
       </div>
       <div className='details-app-footer'>

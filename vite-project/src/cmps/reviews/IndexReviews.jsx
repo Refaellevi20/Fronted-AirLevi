@@ -8,10 +8,11 @@ import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { ReviewBar } from './ReviewBar';
 
 export function IndexReviews({ reviews }) {
+    console.log('Reviews:', reviews)
     function calculateAverageRating() {
         if (!reviews || reviews.length === 0) return {}
 
-        const initialRating = { //! it is not right finish it later +style
+        const initialRating = {
             cleanliness: 0,
             communication: 0,
             'check-in': 0,
@@ -21,20 +22,24 @@ export function IndexReviews({ reviews }) {
         }
 
         const totalReviews = reviews.length
-
-        reviews.forEach((review) => {
-            const { rate } = review
-            Object.keys(rate).forEach((key) => {
+        console.log(totalReviews)
+        
+    
+        reviews.forEach(({ rate }) => {
+            Object.keys(initialRating).forEach((key) => {
                 initialRating[key] += rate[key] || 0
             })
         })
-
+    
         Object.keys(initialRating).forEach((key) => {
             initialRating[key] = (initialRating[key] / totalReviews).toFixed(1)
         })
-
+    
+        console.log(initialRating)
+        
         return initialRating
     }
+
     const avgRating = calculateAverageRating()
     console.log('Average Ratings:', avgRating)
 
