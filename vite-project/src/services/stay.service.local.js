@@ -263,9 +263,9 @@ function _createDemoStays() {
       labels: ["national-parks", "Chief's kitchens", "Luxe"],
       host: {
         _id: 'u101',
-        fullname: 'Muki Host',
+        fullname: 'shukiyHost',
         createAt: 2563564560000,
-        sortName: 'Muki',
+        sortName: 'shukiy',
         imgUrl: "https://cdn.pixabay.com/photo/2021/07/01/02/01/avatar-6377965_960_720.png",
       },
       loc: {
@@ -489,8 +489,8 @@ function _createDemoStays() {
       labels: ['campers', 'trending'],
       host: {
         _id: 'u101',
-        fullname: 'Muki Host',
-        sortName: 'Muki',
+        fullname: 'shukiyHost',
+        sortName: 'shukiy',
         imgUrl: 'https://cdn.pixabay.com/photo/2016/11/21/16/01/woman-1846127_960_720.jpg',
       },
       loc: {
@@ -652,9 +652,9 @@ function _createDemoStays() {
       labels: ['ski'],
       host: {
         _id: 'u101',
-        fullname: 'Muki Host',
-        sortName: 'Muki',
-        imgUrl: 'https://robohash.org/mukihost?set=set4',
+        fullname: 'shukiyHost',
+        sortName: 'shukiy',
+        imgUrl: 'https://robohash.org/shukiyhost?set=set4',
       },
       loc: {
         country: 'Portugal',

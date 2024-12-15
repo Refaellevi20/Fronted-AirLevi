@@ -1,0 +1,66 @@
+.trip-page {
+  h2 {
+    padding-top: 64px;
+    font-size: 32px;
+  }
+
+  h3 {
+    padding-top: 64px;
+    font-size: 26px;
+    font-family: cereal-Medium;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+    text-align: start;
+
+    tr:nth-child(odd) {
+      background: $clr-white;
+    }
+    tr:nth-child(even) {
+      background: hsl(0, 0%, 95%);
+    }
+
+    th {
+      background: hsl(0, 0%, 92%);
+      text-align: start;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-family: cereal-Bold;
+      color: $clr-text-secondary;
+      padding-inline: 0.5em;
+      padding-block: 0.8em;
+    }
+
+    td {
+      padding-inline: 0.5em;
+      padding-block: 0.2em;
+    }
+
+    th:nth-child(2),
+    td:nth-child(2) {
+      width: 200px;
+    }
+
+    th:nth-child(3),
+    td:nth-child(3) {
+      width: 130px;
+    }
+    th:nth-child(4),
+    td:nth-child(4) {
+      width: 120px;
+    }
+    th:nth-child(5),
+    td:nth-child(5) {
+      width: 130px;
+      color: hsl(0deg, 0%, 44%);
+      font-family: cereal-medium;
+    }
+    th:nth-child(6),
+    td:nth-child(6) {
+      width: 140px;
+      padding-left: 20px;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { TableSkeleton } from '../TableSkeleton'
 import { Trip } from './trip'
 
 export function TripList({ orders, isLoading }) {
@@ -15,6 +16,7 @@ export function TripList({ orders, isLoading }) {
           </tr>
         </thead>
         <tbody>
+          {isLoading && <TableSkeleton />}
           {!isLoading &&
             orders.map((order) => (
               <tr key={order._id}>

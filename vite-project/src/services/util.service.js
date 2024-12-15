@@ -15,7 +15,8 @@ export const utilService = {
   objectToSearchParams,
   getTimeStampXDaysAgo,
   getTimeStampXDaysFromNow,
-  setAnyBlankParamsWithDefaults
+  setAnyBlankParamsWithDefaults,
+  formatCurrency2
 }
 
 function makeId(length = 6) {
@@ -120,6 +121,15 @@ function totalDays(startDate, endDate) {
   return Math.ceil(diffTime / (1000 * 60 * 60 * 24)) //* on need those func i can use the laberiy momnt
 
 }
+
+function formatCurrency2(num) {
+  const numFormat = Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  })
+  return numFormat.format(num)
+}
+
 
 // function formattedDate(timeStamp) {
 //   const date = new Date(timeStamp)

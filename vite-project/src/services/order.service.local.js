@@ -72,7 +72,7 @@ function getEmptyOrder(
 function _createdDemoOrders() {
   let DEMO_ORDERS = [
     {
-      _id: 'o1225',
+      _id: 'o12251',
       hostId: 'u101',
       buyer: {
         _id: 'u102',

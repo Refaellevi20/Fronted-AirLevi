@@ -25,9 +25,3 @@ export function HostedSmallDetails({ host }) {
         </section>
     )
 }
-
-// host: {
-//     _id: 'u101',
-//     fullname: 'Muki Host',
-//     imgUrl: 'https://robohash.org/mukihost',
-//   },

@@ -12,9 +12,9 @@ export function NavMenu() {
   const user = useSelector((storeState) => storeState.userModule.user)
   const navigate = useNavigate()
   const notifications = useSelector((storeState) => storeState.userModule.notifications)
-    
-
-  // console.log('notifications',notifications)
+  const [navbarOpen, setNavbarOpen] = useState(false)
+  const { closeModal, openModal, Modal } = useModal()
+  const elNav = useRef()
 
   async function onLogout() {
     try {
@@ -30,11 +30,7 @@ export function NavMenu() {
     navigate('/newStay')
   }
 
-  const [navbarOpen, setNavbarOpen] = useState(false)
-  const { closeModal, openModal, Modal } = useModal()
-  const elNav = useRef()
-
-  const handleToggle = () => {
+  function handleToggle(){
     setNavbarOpen((prev) => !prev)
   }
 

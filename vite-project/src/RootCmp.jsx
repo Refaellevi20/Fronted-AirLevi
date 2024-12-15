@@ -10,10 +10,10 @@ import { HistoryPage } from './pages/HistoryPage'
 import UserWishList from './pages/UserWishList'
 import { BookPage } from './pages/BookPage'
 import { TripPage } from './pages/TripPage'
+import { OrderPage } from './pages/OrderPage'
 
 
 export function RootCmp() {
-
 
   return (
     <div className="main-container full">
@@ -27,6 +27,7 @@ export function RootCmp() {
           <Route element={<BookPage />} path='/book/stay/:stayId' />
           {/* <Route path="/history/historyAll" element={<historyAllPage />} /> */}
           <Route path="/wishlist" element={<UserWishList />} />
+          <Route path="/hosting/orders" element={<OrderPage />} />
           <Route element={<TripPage />} path='/trip' />
           <Route path="/payment" element={<stayPayment />} />
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}

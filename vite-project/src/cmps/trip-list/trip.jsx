@@ -1,54 +1,59 @@
 
 import { updateOrder } from '../../store/order.action'
-import { utilService } from '../../services/util.service'
+import { utilService } from '../../services/util.service';
+import { convertCurrency } from "../../services/currency"
 
 import moment from 'moment'
+import { useSelector } from 'react-redux'
 export function Trip({ order }) {
-  if (!order) return 
+  if (!order) return
 
   function cancelOrder() {
     console.log('cancel order')
     updateOrder({ ...order, status: 'canceled' })
   }
 
-  console.log('order.stay:', order.stay)
+  const currency = useSelector((state) => state.stayModule.currency)
 
-
-  console.log('order.stay:', order.stay)
-  
-  // Parse the start and end dates using Moment.js
+  // Calculate the total price (multiplying price per day by the number of days)
   const startDate = moment(order.startDate)
   const endDate = moment(order.endDate)
-  
-  // Check if the dates are in the same month
-  const sameMonth = startDate.isSame(endDate, 'month')
-  
-  // Calculate the total days between the dates
   const days = endDate.diff(startDate, 'days')
-  
-  console.log('Same month:', sameMonth)
-  console.log('Total days:', days)
-  
+
+  // Multiply the stay price by days
+  const totalPrice = order.stay.price * days
+
+  // Convert the total price based on the selected currency
+  const { convertedAmount: convertedTotalPrice, currencySymbol } = convertCurrency(totalPrice, currency)
+
+  function cancelOrder() {
+    console.log('cancel order')
+    updateOrder({ ...order, status: 'canceled' })
+  }
+
   return (
     <>
       <td>
-        <p>user host</p>
+        <p>user host </p>
       </td>
       <td>
         <p>dcvf</p>
       </td>
       <td>
-      <p>format time</p>
+        <p>format time</p>
       </td>
       <td className='text-bold'>
+        <p>
+        {currencySymbol} {convertedTotalPrice.toFixed(2)}
+                </p>
         {/* {(order.stay.price * days)} */}
       </td>
       <td>
-        {order.status === 'pending'  }
-        {order.status === 'approved' }
-        {order.status === 'canceled' }
+        {order.status === 'pending'}
+        {order.status === 'approved'}
+        {order.status === 'canceled'}
         {order.status === 'completed'}
-        {order.status === 'rejected' } {order.status}
+        {order.status === 'rejected'} {order.status}
       </td>
       <td>
         <div onClick={() => cancelOrder()}>Cancel</div>
