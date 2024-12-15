@@ -96,7 +96,7 @@ export function StayDetails({ reviews }) {
   }
 
   function closeModalAmenities() {
-    setIsOpen(false)
+    setIsOpenAmenities(false)
     setComponent(null)
   }
 
@@ -118,21 +118,6 @@ export function StayDetails({ reviews }) {
     setModalIsOpen(false)
     setReviewsForModal([])
   }
-
-  // function calcAvgReview(reviews) {
-  //   let total = 0
-  //   let count = 0
-
-  //   reviews.forEach(review => {
-  //     total += Object.values(review.rate).reduce((a, b) => a + b, 0)
-  //     count += Object.keys(review.rate).length
-  //   })
-
-  //   return +(total / count).toFixed(2)
-  // }
-
-  // const reviewCount = stay.reviews ? stay.reviews.length : 0
-  // const avgRating = stay.reviews ? calcAvgReview(stay.reviews) : 0
 
   function getRandomText() {
     const randomIndex = Math.floor(Math.random() * randomTextOptions.length);
