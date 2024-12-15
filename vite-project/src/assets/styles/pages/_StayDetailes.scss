@@ -212,10 +212,7 @@
 
 }
 
-// @media screen and (max-width: 745px) {
-// .info-details-house__container {
-//   .fs18 {
-// font-size: 16px;
-//   }
-// }
-// }
+.border-reviews__details {
+  border: 1px solid #222222;
+  border-radius: 4px;
+}

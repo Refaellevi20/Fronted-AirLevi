@@ -240,7 +240,7 @@ export function StayDetails({ reviews }) {
           <Reviews reviews={stay.reviews} />
         </div>
         <div className="stay-rating controller-layout__details">
-          <div onClick={openModal} className=" show-all-details btn-reviews__details">
+          <div onClick={openModal} className=" rev-btn show-all-amenities fs16 border-reviews__details">
             <p className="">{stay.reviews.length} reviews</p>
           </div>  {modalIsOpen && (
             <Modal closeModal={closeModal} reviews={reviewsForModal} />
@@ -260,10 +260,12 @@ export function StayDetails({ reviews }) {
           </h3>
           <p>{randomText}</p>
         </div>
+        <div className="main-content">
         <AppFooterDetails />
+        </div>
       </div>
       <div className='details-app-footer'>
-        {stay && <StayMobileFooter stay={stay} setOpenTab={setOpenTab} />} //! here that is on the appFooter
+        {stay && <StayMobileFooter stay={stay} setOpenTab={setOpenTab} />}
       </div>
     </section>
   )
