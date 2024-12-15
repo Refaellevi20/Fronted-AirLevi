@@ -185,8 +185,37 @@
   }
 }
 
-  .spaced-point {
-    margin: 0 5px;
-    font-size: 20px;
-    line-height: 1;
+.spaced-point {
+  margin: 0 5px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+@media screen and (max-width: 745px) {
+
+
+  // .container-details__split {
+  //   display: none;
+  // }
+
+ 
+
+  .stay-card {
+    // flex: 0 0 auto;
+    width: 0%;
   }
+
+  .details-house {
+    // flex: 0 0 auto;
+    width: 100%;
+  }
+
+}
+
+// @media screen and (max-width: 745px) {
+// .info-details-house__container {
+//   .fs18 {
+// font-size: 16px;
+//   }
+// }
+// }
