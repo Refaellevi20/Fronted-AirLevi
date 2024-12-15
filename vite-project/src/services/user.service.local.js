@@ -82,11 +82,11 @@ function _createUsers() {
     const users = [
       {
         _id: 'u101',
-        fullname: 'Muki Host',
-        imgUrl: 'https://robohash.org/mukihost',
+        fullname: 'shukiy Host',
+        imgUrl: 'https://robohash.org/shukiyhost',
         username: 'host',
         password: 'secret',
-        isOwner: true, // OPTIONAL
+        isOwner: true, 
         likedStays: [{ _id: '622f337a75c7d36e498aaaf8' }],
       },
       {

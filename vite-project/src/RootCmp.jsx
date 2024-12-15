@@ -9,6 +9,7 @@ import { StayDetails } from './pages/StayDetails'
 import { HistoryPage } from './pages/HistoryPage'
 import UserWishList from './pages/UserWishList'
 import { BookPage } from './pages/BookPage'
+import { TripPage } from './pages/TripPage'
 
 
 export function RootCmp() {
@@ -26,6 +27,7 @@ export function RootCmp() {
           <Route element={<BookPage />} path='/book/stay/:stayId' />
           {/* <Route path="/history/historyAll" element={<historyAllPage />} /> */}
           <Route path="/wishlist" element={<UserWishList />} />
+          <Route element={<TripPage />} path='/trip' />
           <Route path="/payment" element={<stayPayment />} />
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
 
