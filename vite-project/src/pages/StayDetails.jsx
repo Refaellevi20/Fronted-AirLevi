@@ -25,6 +25,7 @@ import Gallery from "../cmps/buttons ui/image-grid";
 import Modal from "../cmps/Modal";
 import { StayMap } from "../cmps/StayMap";
 import { AppHeader } from "../cmps/AppHeader";
+import { CalcAvgReview } from "../cmps/calcAvgReview";
 
 const randomTextOptions = [
   "Lexington, Kentucky is the second-largest city in Kentucky next to Louisville, and is located in the heart of the Bluegrass region. Lexington is known as the 'Horse Capital of the World,' since it is home to the Kentucky Horse Park, Keeneland race course and the Red Mile race course.",
@@ -132,7 +133,7 @@ export function StayDetails({ reviews }) {
 
   // const reviewCount = stay.reviews ? stay.reviews.length : 0
   // const avgRating = stay.reviews ? calcAvgReview(stay.reviews) : 0
- 
+
   function getRandomText() {
     const randomIndex = Math.floor(Math.random() * randomTextOptions.length);
     return randomTextOptions[randomIndex];
@@ -147,12 +148,12 @@ export function StayDetails({ reviews }) {
       <section className="">
         {!stay && <StayLoader />}
         {!!stay && (
-          
+
           <>
-          <div>
+            <div>
               {/* <AppHeader className='main-layout stay-index' />  */}
               {/*remove postion:fix by creating header2  */}
-              </div>
+            </div>
             <SecondaryHeader
               stay={stay}
               // imgGridVisible={imgGridVisible}
@@ -163,7 +164,7 @@ export function StayDetails({ reviews }) {
               <div className="controller-layout__details">
                 <h1 id="stay-top" className="stay-top">{stay.name}</h1>
               </div>
-              
+
               <div className="sss">
                 <ImgUseGrid
                   imgsToDisplay={imgsToDisplay}
@@ -189,7 +190,7 @@ export function StayDetails({ reviews }) {
         <section>
         </section>
       </section>
-      <Link to="/history">Go to History</Link>
+      {/* <Link to="/history">Go to History</Link> */}
       <div className="controller-layout__details container-details__split secondary-layout">
         <div className="details-house">
           <DetailsHouse stay={stay} />
@@ -241,9 +242,9 @@ export function StayDetails({ reviews }) {
         <section id="reviews" className=" controller-Reviews-details__stay">
           <div className="flex1 avr-reviews__details">
             <RatingReview2 reviews={stay.reviews} />
-            {/* <span className='fs26'>
-            ·{reviewCount} review{reviewCount !== 1 ? 's' : ''}
-            </span> */}  //! here sometimes problom for no reasen
+            <p><em></em></p>
+            <p className="spaced-point">·</p>
+            <CalcAvgReview stay={stay} />
           </div>
           <div className="flex1">
             <ReviewBar reviews={stay.reviews} />

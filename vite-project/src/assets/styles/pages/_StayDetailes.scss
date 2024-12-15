@@ -9,7 +9,6 @@
     }
   }
 
-
   &>* {
     margin-top: 18px;
   }
@@ -185,3 +184,9 @@
     padding-top: 24px;
   }
 }
+
+  .spaced-point {
+    margin: 0 5px;
+    font-size: 20px;
+    line-height: 1;
+  }
