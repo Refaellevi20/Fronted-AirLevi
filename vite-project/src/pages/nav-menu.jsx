@@ -6,6 +6,7 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/user.actions'
 import { LoginSignup } from '../cmps/LoginSignup' 
 import { useModal } from '../customHook/useModal.jsx'
+import { MenuHeader } from '../cmps/menuHeader.jsx'
 
 export function NavMenu() {
   const user = useSelector((storeState) => storeState.userModule.user)
@@ -45,6 +46,7 @@ export function NavMenu() {
           <div className='notificaiton-badge'>{notifications.length}</div>
         )}
         <div className='menu-btn'>
+        <MenuHeader />
           <div />
           <div className='menu-avatar'>
             {user?.imgUrl ? (
@@ -70,7 +72,7 @@ export function NavMenu() {
               <Link to='/wishlist'>Wishlist</Link>
               <Link to='/user/Messages'>Messages</Link>
               <Link to='/history'>history</Link>
-              {user.isOwner && <Link to='/hosting/order'>View Orders</Link>}
+              {user.isOwner && <Link to='/hosting/orders'>View Orders</Link>}
               <button onClick={onAddStay}>
                 {user.isOwner ? 'Add Another Stay' : 'Become a host (Add stay)'}
               </button>
