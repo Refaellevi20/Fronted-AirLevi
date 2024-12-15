@@ -5,6 +5,7 @@ import { convertCurrency } from "../../services/currency"
 
 import moment from 'moment'
 import { useSelector } from 'react-redux'
+import { OrderStatus } from '../OrderStatus';
 export function Trip({ order }) {
   if (!order) return
 
@@ -13,18 +14,20 @@ export function Trip({ order }) {
     updateOrder({ ...order, status: 'canceled' })
   }
 
-  const currency = useSelector((state) => state.stayModule.currency)
+  const currency = useSelector((state) => state.stayModule.currency);
 
-  // Calculate the total price (multiplying price per day by the number of days)
-  const startDate = moment(order.startDate)
-  const endDate = moment(order.endDate)
-  const days = endDate.diff(startDate, 'days')
+  // Ensure startDate and endDate are in ISO format if needed
+  const startDate = moment(order.startDate, "YYYY/MM/DD");
+  const endDate = moment(order.endDate, "YYYY/MM/DD");
+
+  // Calculate the total days
+  const days = endDate.diff(startDate, 'days');
 
   // Multiply the stay price by days
-  const totalPrice = order.stay.price * days
+  const totalPrice = order.stay.price * days;
 
   // Convert the total price based on the selected currency
-  const { convertedAmount: convertedTotalPrice, currencySymbol } = convertCurrency(totalPrice, currency)
+  const { convertedAmount: convertedTotalPrice, currencySymbol } = convertCurrency(totalPrice, currency);
 
   function cancelOrder() {
     console.log('cancel order')
@@ -43,17 +46,10 @@ export function Trip({ order }) {
         <p>format time</p>
       </td>
       <td className='text-bold'>
-        <p>
-        {currencySymbol} {convertedTotalPrice.toFixed(2)}
-                </p>
-        {/* {(order.stay.price * days)} */}
+        <p>{currencySymbol} {convertedTotalPrice.toFixed(2)}</p> 
       </td>
       <td>
-        {order.status === 'pending'}
-        {order.status === 'approved'}
-        {order.status === 'canceled'}
-        {order.status === 'completed'}
-        {order.status === 'rejected'} {order.status}
+      <OrderStatus status={order.status} />
       </td>
       <td>
         <div onClick={() => cancelOrder()}>Cancel</div>
