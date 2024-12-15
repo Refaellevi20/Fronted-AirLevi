@@ -45,7 +45,7 @@ export function StayDetails({ reviews }) {
   const [isOpenAmenities, setIsOpenAmenities] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [component, setComponent] = useState(null)
-  // const imgGridVisible = useOnScreen(imgGridRef, '-20px')
+  const imgGridVisible = useOnScreen(imgGridRef, '-0')
   const reserveBtnVisible = useOnScreen(reserveBtnRef, '-34px')
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
   const [reviewsForModal, setReviewsForModal] = useState([])
@@ -143,7 +143,7 @@ export function StayDetails({ reviews }) {
             </div>
             <SecondaryHeader
               stay={stay}
-              // imgGridVisible={imgGridVisible}
+              imgGridVisible={imgGridVisible}
               reserveBtnVisible={reserveBtnVisible}
               setOpenTab={setOpenTab}
             />
@@ -248,10 +248,6 @@ export function StayDetails({ reviews }) {
             {modalIsOpen && (
             <Modal closeModal={closeModal} reviews={reviewsForModal} />
           )}
-          {/* <p className="">{reviewsForModal} reviews</p>
-          </div>  {modalIsOpen && (
-            <Modal closeModal={closeModal} reviews={reviewsToAll} /> */}
-
         </div>
         <div>
         </div>
@@ -260,7 +256,7 @@ export function StayDetails({ reviews }) {
       {/* <div style={{ position: 'relative' }}></div> */}
       <div >
         <div className='stay-map secondary-layout'>
-          <h1>Where you'll be</h1>
+          <h1 id="location">Where you'll be</h1>
           <StayMap stay={stay} />
           <h3 className='stay-location-name'>
             {stay.loc.country}, {stay.loc.city}

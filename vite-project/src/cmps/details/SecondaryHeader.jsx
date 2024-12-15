@@ -1,11 +1,12 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { utilService } from "../../services/util.service";
 import { BtnSquareColorRed } from "../buttons ui/btn-square-color";
-
-export function SecondaryHeader({ stay, reserveBtnVisible, setOpenTab, imgGridVisible }) {
+import { useEffect, useState } from "react";
+import { useScrollPosition } from "../../CustomHook/useScrollPosition"
+export function SecondaryHeader({ stay, reserveBtnVisible, setOpenTab }) {
     const [searchParams] = useSearchParams()
     const navigate = useNavigate()
-
+    const scrolled = useScrollPosition(500)
     const orderParams = {
         checkIn: searchParams.get('checkIn')
             ? new Date(+searchParams.get('checkIn'))
@@ -32,9 +33,9 @@ export function SecondaryHeader({ stay, reserveBtnVisible, setOpenTab, imgGridVi
         })
         navigate(`/book/stay/${stay._id}?${paramsToSet}`)
     }
-    //! here the useRef not working well (on the name)
+
     return (
-        <div className='secondary-header-container' style={{ display: imgGridVisible ? 'none' : 'block' }}>
+        <div className='secondary-header-container' style={{ display: scrolled ? 'block' : 'none' }}>
             <div className={'secondary-header secondary-layout'} >
                 <div className='anchor-links'>
                     <a className='anchor-link' href='#stay-top' >Photos</a>
@@ -57,12 +58,10 @@ export function SecondaryHeader({ stay, reserveBtnVisible, setOpenTab, imgGridVi
                     {orderParams.checkIn && orderParams.checkOut && (
                         <BtnSquareColorRed onClick={onClickReserve} children={'Reserve'} />
                     )}
-
                     {(!orderParams.checkIn || !orderParams.checkOut) && (
                         <BtnSquareColorRed
                             onClick={() => {
                                 setOpenTab('checkIn')
-
                             }}
                             children={<a href="#stay-mid">Check availability</a>}
                         />

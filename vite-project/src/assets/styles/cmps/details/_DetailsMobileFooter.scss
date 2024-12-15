@@ -7,9 +7,13 @@
   background-color: $clr-white;
   z-index: 999;
 
-  @include for-normal-layout {
-    display: none !important;
-  }
+  // @include for-normal-layout {
+  //   display: none !important;
+  // }
+
+  // @include for-narrow-layout {
+  //   display: none !important;
+  // }
 
   .stay-mobile-footer {
     flex-direction: row;
@@ -25,5 +29,10 @@
 @media screen and (max-width: 745px) {
   .main-content {
     padding-bottom: 85px;
+  }
+}
+@media screen and (min-width: 745px) {
+  .details-app-footer{
+    display: none !important;
   }
 }

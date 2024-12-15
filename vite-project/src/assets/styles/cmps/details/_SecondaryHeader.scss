@@ -17,10 +17,17 @@
         left: 0;
     }
 
-    @include for-max-narrow-layout {
-        display: none !important;
-    }
+    // @include for-max-narrow-layout {
+    //     display: none !important;
+    // }
 }
+
+@media screen and (max-width: 745px) {
+    .secondary-header-container{
+      display: none !important;
+    }
+  }
+  
 
 .secondary-header {
     height: 100%;

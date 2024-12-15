@@ -28,6 +28,12 @@
     }
 }
 
+@mixin for-middle-layout {
+    @media (min-width: calc($narrow-breakpoint + 40px)) {
+        @content;
+    }
+}
+
 @mixin for-wide-layout {
     @media (min-width: calc($normal-breakpoint + 40px)) {
         @content;
