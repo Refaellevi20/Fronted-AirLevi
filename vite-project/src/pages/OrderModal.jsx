@@ -183,7 +183,6 @@ export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
               children={
                 <>
                   Check Availability
-                  <p>sfr</p>
                 </>
               }
             />   

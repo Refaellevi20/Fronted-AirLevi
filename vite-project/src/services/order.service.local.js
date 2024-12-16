@@ -1,7 +1,5 @@
 import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
-// import { stayService } from './stay.service.local.js'
-// import { userService } from './user.service.js'
 
 export const orderService = {
   query,
@@ -53,8 +51,6 @@ function getEmptyOrder(
     _id: null,
     hostId: null,
     buyer: {
-      // _id: userService.getLoggedinUser()._id,
-      // fullname: userService.getLoggedinUser().fullname
       _id: '',
       fullname: '',
       imgUrl: '',
@@ -121,7 +117,7 @@ function _createdDemoOrders() {
         loc: {},
       },
       msgs: [],
-      status: 'pending', // pending, approved
+      status: 'pending', 
     },
     {
       _id: 'o1223',
@@ -132,8 +128,8 @@ function _createdDemoOrders() {
         imgURL: 'https://robohash.org/pukiguest',
       },
       totalPrice: 160,
-      startDate: '2025/10/15',
-      endDate: '2025/10/17',
+      startDate: '2023/10/12',
+      endDate: '2023/3/8',
       guests: {
         adults: 2,
         kids: 1,
@@ -147,7 +143,7 @@ function _createdDemoOrders() {
         loc: {},
       },
       msgs: [],
-      status: 'pending', // pending, approved
+      status: 'pending',
     },
   ]
   utilService.saveToStorage(

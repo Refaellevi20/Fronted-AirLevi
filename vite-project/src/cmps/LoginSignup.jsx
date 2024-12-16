@@ -73,7 +73,7 @@ export function LoginSignup({ closeModal }) {
   return (
     <div className='login-page'>
       <header className='login-signup-header'>
-        <h1>Login in or sign up</h1>
+        {/* <h1>Login in or sign up</h1> */}
       </header>
       {!isSignup && (
         <form className='login-form' onSubmit={onLogin}>

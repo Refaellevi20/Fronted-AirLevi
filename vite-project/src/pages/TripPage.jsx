@@ -10,10 +10,12 @@ import { TripList } from '../cmps/trip-list/TripList'
 export function TripPage() {
   const loggedinUser = useSelector((storeState) => storeState.userModule.user)
   const orders = useSelector((storeState) => storeState.orderModule.orders).sort((a, b) => b.startDate - a.startDate)
-  const isLoading = useSelector((storeState) => storeState.systemModule.isLoading )
+  const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
  
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  // console.log('s',s)
 
   useEffect(() => {
     loadOrders({ userId: loggedinUser._id })
@@ -24,7 +26,7 @@ export function TripPage() {
   if (!loggedinUser) navigate('/stay')
   return (
     <section>
-      <header className='app-header secondary-layout flex space-between'>
+      <header className='app-header secondary-layout flex' style={{justifyContent:'space-between'}}>
         <div className='header-logo-container'>
           <AppLogo />
         </div>
