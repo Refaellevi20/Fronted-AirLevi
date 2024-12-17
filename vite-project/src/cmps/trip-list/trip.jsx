@@ -61,33 +61,45 @@ import { OrderStatus } from '../OrderStatus'
 
 
 export function Trip({ order }) {
-  if (!order) return null
+  const currency = useSelector((state) => state.stayModule.currency)
 
   function cancelOrder() {
     console.log('cancel order')
     updateOrder({ ...order, status: 'canceled' })
   }
 
-  const currency = useSelector((state) => state.stayModule.currency)
+  console.log("Order Object:", order)
 
-  const startDate = moment(order.startDate, "YYYY/MM/DD")
-  const endDate = moment(order.endDate, "YYYY/MM/DD")
+  //* Try to parse the dates without a specific format (moment can infer the format)
+  const startDate = moment(order.startDate)
+  const endDate = moment(order.endDate)
 
-  console.log("Start Date Valid:", startDate.isValid(), "End Date Valid:", endDate.isValid())
+  //* Check if the dates are valid
+  const startDateValid = startDate.isValid()
+  const endDateValid = endDate.isValid()
+
+  console.log("Start Date Valid:", startDateValid, "End Date Valid:", endDateValid)
   console.log("Start Date:", startDate.format(), "End Date:", endDate.format())
 
-  const days = startDate.isValid() && endDate.isValid() ? endDate.diff(startDate, 'days') : 0
+  //* Calculate the number of days if both dates are valid
+  const days = startDateValid && endDateValid ? endDate.diff(startDate, 'days') : 0
   console.log("Calculated Days:", days)
 
-  const pricePerDay = parseFloat(order.stay.price)
+  //* Check if price exists in order.stay, if not set a default value
+  const pricePerDay = order.stay?.price > 0 ? order.stay?.price : 100 // Default to 100 if no price is available
   console.log("Price Per Day:", pricePerDay)
 
-  const totalPrice = !isNaN(pricePerDay) && days > 0 ? pricePerDay * days : 0
+  //* Calculate total price, ensure it is valid
+  const totalPrice = pricePerDay > 0 && days > 0 ? pricePerDay * days : 0
   console.log("Total Price:", totalPrice)
 
-  // Currency conversion
+  //* Currency conversion
   const { convertedAmount = 0, currencySymbol = '$' } = convertCurrency(totalPrice, currency)
   console.log("Converted Amount:", convertedAmount, "Currency Symbol:", currencySymbol)
+
+  //* Date formatting for display
+  const formattedStartDate = startDate.format('MMM D, YYYY')
+  const formattedEndDate = endDate.format('MMM D, YYYY')
 
   return (
     <>
@@ -99,15 +111,18 @@ export function Trip({ order }) {
         {/* <p>{order.stay.host || 'No description'}</p> */} 
       </td>
       <td>
-        <p>
-          {startDate.isValid() && endDate.isValid()
-            ? `${endDate.format('DD/MM/YYYY')}`
-            : 'Invalid Dates'}
-        </p>
-      </td>
+      {startDateValid && endDateValid ? (
+        <>
+          <span>{formattedStartDate}- {formattedEndDate}</span>
+        </>
+      ) : (
+        'Invalid Dates'
+      )}
+    </td>
       <td className='text-bold'>
-        <p>{currencySymbol} {totalPrice > 0 ? convertedAmount.toFixed(2) : '0.00'}</p>
-      </td>
+      <div>
+           {currencySymbol} {totalPrice > 0 ? convertedAmount.toFixed(2) : '0.00'}
+          </div>      </td>
       <td>
         <OrderStatus status={order.status} />
       </td>
