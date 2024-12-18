@@ -1,4 +1,5 @@
 import { Order } from './Order'
+// import { TableLoader } from './table-loader'
 
 export function OrderList({ orders, isLoading }) {
   return (
@@ -15,6 +16,7 @@ export function OrderList({ orders, isLoading }) {
           </tr>
         </thead>
         <tbody>
+        {/* {isLoading && <StayLoader />} */}
          {!isLoading && orders.reverse().map((order) => (
             <tr key={order._id}>
               <Order order={order} />

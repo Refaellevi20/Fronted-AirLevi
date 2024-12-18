@@ -24,17 +24,17 @@ export function BookPage() {
   const user = useSelector((state) => state.userModule.user)
   const [isBooked, setIsBooked] = useState(false)
   const { stay, order } = info || {}
-  const [currentStep, setCurrentStep] = useState(localStorage.getItem('currentStep') || 'details')
+  // const [currentStep, setCurrentStep] = useState(localStorage.getItem('currentStep') || 'details')
 
 
   useEffect(() => {
     loadInfo()
   }, [])
 
-  useEffect(() => {
-    // Store current step in localStorage whenever it changes
-    localStorage.setItem('currentStep', currentStep);
-  }, [currentStep]);
+  // useEffect(() => {
+  //   // Store current step in localStorage whenever it changes
+  //   localStorage.setItem('currentStep', currentStep);
+  // }, [currentStep]);
 
   async function loadInfo() {
     try {
@@ -103,7 +103,7 @@ export function BookPage() {
       await orderService.save(orderToSet)
       setIsBooked(true)
       // setCurrentStep('payment')
-      console.log('isBooked', isBooked)
+      console.log('isBooked has been sent', isBooked)
     } catch (err) {
       console.log('Had issues in booking', err)
     }

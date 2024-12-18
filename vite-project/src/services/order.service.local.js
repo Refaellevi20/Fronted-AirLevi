@@ -1,5 +1,8 @@
 import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
+import { v4 as uuidv4 } from 'uuid'
+
+const STORAGE_KEY = 'orders'
 
 export const orderService = {
   query,
@@ -8,7 +11,6 @@ export const orderService = {
   save,
   getEmptyOrder,
 }
-const STORAGE_KEY = 'orders'
 
 _createOrders()
 
@@ -40,7 +42,7 @@ async function save(order) {
     return storageService.post(STORAGE_KEY, order)
   }
 }
-
+//! here testing
 function getEmptyOrder(
   startDate = null,
   endDate = null,
@@ -51,9 +53,10 @@ function getEmptyOrder(
     _id: null,
     hostId: null,
     buyer: {
-      _id: '',
-      fullname: '',
-      imgUrl: '',
+      _id: uuidv4(), //! here uuid
+      // _id: '',
+      fullname: 'baba',
+      imgUrl: "https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg",
     },
     totalPrice: 0,
     startDate,
