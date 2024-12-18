@@ -1,0 +1,148 @@
+.host-menu {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+}
+
+.menu-link {
+  font-size: 16px;
+  padding: 10px 16px;
+  line-height: 18px;
+
+  font-family: cereal-Bold;
+  color: $clr-text-secondary;
+  text-decoration: none;
+
+  &.active {
+    color: $clr-text-primary;
+  }
+}
+
+.order-page {
+  h2 {
+    padding-top: 64px;
+    font-size: 32px;
+  }
+  h3 {
+    padding-top: 64px;
+    font-size: 26px;
+    font-family: cereal-Medium;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+    text-align: start;
+
+    th {
+      text-align: start;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-family: cereal-Bold;
+      color: $clr-text-secondary;
+      padding-inline: 0.5em;
+      padding-block: 0.8em;
+    }
+
+    td {
+      padding-inline: 0.5em;
+      padding-block: 0.2em;
+    }
+    tr:nth-child(odd) {
+      background: $clr-white;
+    }
+    tr:nth-child(even) {
+      background: hsl(0, 0%, 95%);
+    }
+    th {
+      background: hsl(0, 0%, 92%);
+    }
+
+    th:nth-child(1),
+    td:nth-child(1) {
+      width: 190px;
+    }
+
+    th:nth-child(2),
+    td:nth-child(2) {
+      width: 120px;
+    }
+    th:nth-child(4),
+    td:nth-child(4) {
+      width: 90px;
+    }
+    th:nth-child(5),
+    td:nth-child(5) {
+      width: 120px;
+    }
+    th:nth-child(6),
+    td:nth-child(6) {
+      width: 264px;
+    }
+
+    .order-status {
+      color: $clr-text-secondary;
+      font-family: cereal-medium;
+    }
+
+    .action-btns > * {
+      display: inline-block;
+      margin-left: 15px;
+    }
+    button {
+      display: flex;
+      flex: 1;
+      background-color: $clr-white;
+    }
+
+    button:first-child {
+      color: #28a745;
+      background-image: none;
+      border-color: #28a745;
+
+      &:hover {
+        color: #fff;
+        background-color: #28a745;
+        border-color: #28a745;
+      }
+
+      &.disable {
+        color: $clr-text-secondary;
+        border-color: $clr-text-secondary;
+        background-color: $clr-hover-bg;
+      }
+    }
+
+    button:last-child {
+      color: #dc3545;
+      background-image: none;
+      border-color: #dc3545;
+
+      &:hover {
+        color: #fff;
+        background-color: #dc3545;
+        border-color: #dc3545;
+      }
+
+      &.disable {
+        color: $clr-text-secondary;
+        border-color: $clr-text-secondary;
+        background-color: $clr-hover-bg;
+      }
+    }
+  }
+}
+
+.dashboard-page {
+  h2 {
+    padding-top: 64px;
+    font-size: 32px;
+  }
+  h3 {
+    padding-top: 64px;
+    font-size: 26px;
+    font-family: cereal-Medium;
+  }
+}
