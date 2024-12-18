@@ -253,7 +253,7 @@ export function BookPage() {
               <img
                 className='stay-img'
                 src={stay.imgUrls[0]}
-                alt='staypreview'
+                alt='stay-preview'
               />
               <div className='stay-desc flex justify-between'>
                 <div>
@@ -286,7 +286,6 @@ export function BookPage() {
                 />
               </p>
             </div>
-
             <div className='price-details'>
               <h3 className='price-details-header'>Price details</h3>
               <div style={{ display: 'flex' }} className='cost-breakdown'>
@@ -302,7 +301,6 @@ export function BookPage() {
                     <span>${order.totalFees.toLocaleString()}</span>
                   </div>
                 </div>
-
                 <div className='total-container'>
                   <div className='cost-total flex justify-between'>
                     <span>
@@ -314,40 +312,6 @@ export function BookPage() {
                 </div>
               </div>
             </div>
-            {/* <div className='air-cover flex1 border-buttom'>
-              <p className='air-cover-p'>
-                This stay is covered by Airbnb’s Guest Refund Policy
-              </p>
-            </div> */}
-            {/* {user ? (
-              <div>
-                {currentStep === 'details' && (
-                  <BtnSquareColorRed
-                    title="Request to Book"
-                    onClick={onAddOrder}
-                  />
-                )}
-                {currentStep === 'payment' && (
-                  <div className="payment">
-                    <h3>Proceed with payment</h3>
-                    <BtnSquareColorRed
-                      title="Confirm Payment"
-                      onClick={() => {
-                        onGoToTrip()
-                      }}
-                    /> //! here later maybe
-                  </div>
-                )}
-                <BtnSquareColorRed onClick={onAddOrder}>
-                  Confirm
-                </BtnSquareColorRed>
-              </div>
-            ) : (
-              <div>
-                <h3 className="login-msg">Please login to book</h3>
-                <LoginSignup />
-              </div>
-            )} */}
           </section>
         </main>
       </section>

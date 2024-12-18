@@ -2,10 +2,10 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { AppLogo } from '../cmps/app-logo' 
-import { NavMenu } from './nav-menu'
 import { REMOVE_NOTIFICATION } from '../store/user.reducer'
 import { loadOrders } from '../store/order.action'
 import { TripList } from '../cmps/trip-list/TripList'
+import { NavMenu } from './nav-menu'
 
 export function TripPage() {
   const loggedinUser = useSelector((storeState) => storeState.userModule.user)

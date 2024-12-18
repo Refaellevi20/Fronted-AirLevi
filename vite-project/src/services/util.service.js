@@ -16,7 +16,6 @@ export const utilService = {
   getTimeStampXDaysAgo,
   getTimeStampXDaysFromNow,
   setAnyBlankParamsWithDefaults,
-  formatCurrency2
 }
 
 function makeId(length = 6) {
@@ -108,13 +107,13 @@ function loadFromStorage(key) {
   return data ? JSON.parse(data) : undefined
 }
 
-function formatCurrency(num, currency) {
-  const numFormat = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: currency,
-  })
-  return numFormat.format(num)
-} //* toFix + strong (usa) usUse for now (using laberiy)
+// function formatCurrency(num, currency) {
+//   const numFormat = new Intl.NumberFormat('en-US', {
+//       style: 'currency',
+//       currency: currency,
+//   })
+//   return numFormat.format(num)
+// } //* toFix + strong (usa) usUse for now (using laberiy)
 
 function totalDays(startDate, endDate) {
   const diffTime = Math.abs(endDate - startDate)
@@ -122,7 +121,7 @@ function totalDays(startDate, endDate) {
 
 }
 
-function formatCurrency2(num) {
+function formatCurrency(num) {
   const numFormat = Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',

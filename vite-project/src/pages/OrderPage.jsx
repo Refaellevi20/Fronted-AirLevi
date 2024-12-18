@@ -10,12 +10,8 @@ export function OrderPage() {
   const user = useSelector((storeState) => storeState.userModule.user)
   const loggedinUser = useSelector((storeState) => storeState.userModule.user)
   const dispatch = useDispatch()
-  const orders = useSelector(
-    (storeState) => storeState.orderModule.orders
-  ).filter((order) => order.hostId === user._id)
-  const isLoading = useSelector(
-    (storeState) => storeState.systemModule.isLoading
-  )
+  const orders = useSelector((storeState) => storeState.orderModule.orders).filter((order) => order.hostId === user._id)
+  const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
 
   useEffect(() => {
     loadOrders()

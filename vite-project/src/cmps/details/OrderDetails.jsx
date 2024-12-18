@@ -9,7 +9,7 @@ export function OrderDetails({ checkIn, checkOut, stay }) {
     const serviceFee = Math.round(SERVICE_FEE * totalStay)
     const totalPriceAfter = totalPriceBefore + serviceFee
 
-    const currency = useSelector((state) => state.stayModule.currency);
+    const currency = useSelector((state) => state.stayModule.currency)
     const { convertedAmount: convertedTotalPrice, currencySymbol } = convertCurrency(totalPriceAfter, currency);
 
     return (
