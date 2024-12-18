@@ -56,6 +56,7 @@ function getEmptyOrder(
       _id: uuidv4(), //! here uuid
       // _id: '',
       fullname: 'baba',
+      // imgUrl,
       imgUrl: "https://cdn.pixabay.com/photo/2017/02/16/23/10/smile-2072907_960_720.jpg",
     },
     totalPrice: 0,
@@ -79,6 +80,7 @@ function _createdDemoOrders() {
         imgURL: 'https://robohash.org/pukiguest',
       },
       totalPrice: 160,
+      price:20,
       startDate: '2025/10/15',
       endDate: '2025/10/17',
       guests: {
@@ -94,7 +96,7 @@ function _createdDemoOrders() {
         loc: {},
       },
       msgs: [],
-      status: 'pending', // pending, approved
+      status: 'pending',
     },
     {
       _id: 'o1225',
@@ -130,7 +132,7 @@ function _createdDemoOrders() {
         fullname: 'Puki guest',
         imgURL: 'https://robohash.org/pukiguest',
       },
-      totalPrice: 160,
+      totalPrice: 360,
       startDate: '2023/10/12',
       endDate: '2023/3/8',
       guests: {

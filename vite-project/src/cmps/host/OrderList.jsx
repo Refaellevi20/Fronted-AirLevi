@@ -17,7 +17,7 @@ export function OrderList({ orders, isLoading }) {
         </thead>
         <tbody>
         {/* {isLoading && <StayLoader />} */}
-         {!isLoading && orders.reverse().map((order) => (
+         { orders.reverse().map((order) => (
             <tr key={order._id}>
               <Order order={order} />
             </tr>

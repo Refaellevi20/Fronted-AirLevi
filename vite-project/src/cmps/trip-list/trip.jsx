@@ -121,6 +121,7 @@ export function Trip({ order }) {
     </td>
       <td className='text-bold'>
       <div>
+      {(order.totalPrice)}
            {currencySymbol} {totalPrice > 0 ? convertedAmount.toFixed(2) : '0.00'}
           </div>      </td>
       <td>
