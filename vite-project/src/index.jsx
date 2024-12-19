@@ -6,8 +6,8 @@ import { Provider } from 'react-redux'
 
 // import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 
-import { store } from './store/store' 
-import { RootCmp } from './RootCmp'
+import { store } from './store/store.js' 
+import { RootCmp } from './RootCmp.jsx'
 import './services/i18n.js'
 
 import './assets/styles/main.scss'

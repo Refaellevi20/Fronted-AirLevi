@@ -4,7 +4,7 @@ import filterIcon from '/filter.svg'
 import { useSelector } from "react-redux"
 
 export function NavBar({ setFilteredStays }) {
-    const categories = filterService.getPopularCategories()
+    const categories = filterService.getCategories()
     const categoryListRef = useRef(null)
     const [isAtStart, setIsAtStart] = useState(true)
     const [isAtEnd, setIsAtEnd] = useState(false)

@@ -6,7 +6,6 @@ import { Slider } from '../slider/slider'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateStay } from '../../store/stay/stay.action'
 // import { saveStay, updateStay } from '../../store/stay/stay.action'
-// import { userService } from '../../services/user.service.local'
 
 export function PreviewImageSlider({ imgUrls,stay }) {
   const user = useSelector((state) => state.userModule.user)

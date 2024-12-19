@@ -1,4 +1,4 @@
-import { stayService } from "../../services/stay.service.local"
+import { stayService } from "../../services/stay.service"
 
 export const SET_STAYS = 'SET_STAYS'
 export const SAVE_STAYS = 'SAVE_STAYS'

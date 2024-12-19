@@ -40,7 +40,7 @@ async function query(filterBy) {
 // console.log(defaultFilter)
 
 function getDefaultFilter() {
-  return { labels: 'Luxe' }
+  return { labels: '' }
 }
 
 async function getAllStays() {
