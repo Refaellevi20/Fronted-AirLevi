@@ -14,7 +14,6 @@ import { BtnSquareColorRed } from '../cmps/buttons ui/btn-square-color.jsx'
 import { RatingReview3 } from '../cmps/RatingReview3.jsx'
 import { LoginSignup } from '../cmps/LoginSignup.jsx'
 
-
 export function BookPage() {
   const navigate = useNavigate()
   const { stayId } = useParams()
@@ -24,17 +23,10 @@ export function BookPage() {
   const user = useSelector((state) => state.userModule.user)
   const [isBooked, setIsBooked] = useState(false)
   const { stay, order } = info || {}
-  // const [currentStep, setCurrentStep] = useState(localStorage.getItem('currentStep') || 'details')
-
 
   useEffect(() => {
     loadInfo()
   }, [])
-
-  // useEffect(() => {
-  //   // Store current step in localStorage whenever it changes
-  //   localStorage.setItem('currentStep', currentStep);
-  // }, [currentStep]);
 
   async function loadInfo() {
     try {
