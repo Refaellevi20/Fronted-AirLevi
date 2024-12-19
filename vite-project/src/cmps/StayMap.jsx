@@ -16,7 +16,7 @@ export function StayMap({ stay }) {
         </div>
     )
 
-    const handleClick = ({ lat, lng }) => {
+    function handleClick ({ lat, lng }){
         setCoordinates({ lat, lng })
     }
 

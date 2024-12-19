@@ -4,9 +4,10 @@ export function ImgUseGrid({ imgsToDisplay, onOpenStayGallery }) {
     return (
         <div className="secondary-layout" style={{ position: 'relative' }}>
             <div
+                onClick={onOpenStayGallery}
                 style={{ padding: 0 }}
                 id="Photos"
-                className="images-container stay-imgs grid full"
+                className="images-container specific-image stay-imgs grid full"
             >
                 {imgsToDisplay.map((img, index) => (
                     <img key={index} src={img} alt="stay-img" />

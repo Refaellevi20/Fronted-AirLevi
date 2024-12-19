@@ -135,7 +135,6 @@ export function StayDetails({ reviews }) {
       <section className="">
         {!stay && <StayLoader />}
         {!!stay && (
-
           <>
             <div>
               {/* <AppHeader className='main-layout stay-index' />  */}
@@ -148,8 +147,10 @@ export function StayDetails({ reviews }) {
               setOpenTab={setOpenTab}
             />
             <section className="revers-flex__media">
-              <div className="controller-layout__details">
+              <div>
+              <div className="controller-layout__details secondary-layout">
                 <h1 id="stay-top" className="stay-top">{stay.name}</h1>
+              </div>
               </div>
 
               <div className="sss">
