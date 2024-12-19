@@ -10,6 +10,7 @@ const style = {
   lineHeight: 'initial',
   cursor: 'pointer',
 }
+
 export function AppLogo() {
   const navigate = useNavigate()
   return (
