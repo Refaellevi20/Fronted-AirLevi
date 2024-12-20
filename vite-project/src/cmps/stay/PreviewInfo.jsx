@@ -52,7 +52,7 @@ export function PreviewInfo({ info}) {
       </p>
       <p className='text-grey'>{info.type}</p>
       <p className='text-grey'>
-        {/$/.test(url.pathname) && ' Feb 1 - Feb 20'}
+        {/$/.test(url.pathname)}
         {/stay$/.test(url.pathname) && ' Feb 1 - Feb 20'}
         {/* {/wishlist$/.test(url.pathname) && `${info.capacity} beds`} */}
       </p>

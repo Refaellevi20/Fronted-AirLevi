@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useParams, useNavigate } from 'react-router-dom'
 
-import { stayService } from '../services/stay.service.js'
+import { stayService } from '../services/stay.service.local.js'
 import { utilService } from '../services/util.service.js'
-import { orderService } from '../services/order.service.js'
+import { orderService } from '../services/order.service.local.js'
 
 import arrowLeftImg from '/arrow-left.svg'
 import rareDiamond from '/rare-diamond.svg'

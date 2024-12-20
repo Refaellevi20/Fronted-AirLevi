@@ -1,6 +1,6 @@
 import { httpService } from './http.service'
 import { storageService } from './async-storage.service'
-import { userService } from './user.service'
+import { userService } from './user.service.local'
 
 
 export const reviewService = {
@@ -22,7 +22,6 @@ async function remove(reviewId) {
 
 async function add({txt, aboutUserId}) {
   // const addedReview = await httpService.post(`review`, {txt, aboutUserId})
-  
   const aboutUser = await userService.getById(aboutUserId)
 
   const reviewToAdd = {

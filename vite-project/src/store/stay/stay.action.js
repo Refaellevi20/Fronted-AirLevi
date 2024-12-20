@@ -1,5 +1,5 @@
-import { stayService } from '../../services/stay.service.js'
-import { userService } from '../../services/user.service.js'
+import { stayService } from '../../services/stay.service.local.js'
+import { userService } from '../../services/user.service.local.js'
 import { store } from '../store.js'
 
 import { REMOVE_STAYS, SAVE_STAYS, SET_CURRENCY, SET_STAYS, TOGGLE_LIKE_STAY, UNDO_TOGGLE_LIKE_STAY, UPDATE_STAY, UPDATE_STAYS, } from './stay.reducer'

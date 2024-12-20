@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { HiXMark } from "react-icons/hi2";
 import { ImgUseGrid } from "../cmps/ImgUseGrid"
-import { stayService } from "../services/stay.service"
+import { stayService } from "../services/stay.service.local"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { StayLoader } from "./StayLoader"
 import { useHistory } from "../CustomHook/StayHistory"
@@ -22,7 +22,7 @@ import useOnScreen from '../CustomHook/useOnScreen';
 import { RatingReview2 } from "../cmps/RatingReview2";
 import { StayMobileFooter } from "../cmps/details/StayNobileFooter";
 import Gallery from "../cmps/buttons ui/image-grid";
-import Modal from "../cmps/Modal";
+import ModalReviews from "../cmps/ModalReviews";
 import { StayMap } from "../cmps/StayMap";
 import { AppHeader } from "../cmps/AppHeader";
 import { CalcAvgReview } from "../cmps/calcAvgReview";
@@ -54,13 +54,26 @@ export function StayDetails({ reviews }) {
 
   const imgsToDisplay = stay?.imgUrls?.slice(0, 5)
   const amenitiesToDisplay = stay?.amenities?.slice(0, 10)
-  const reviewsToDisplay = stay?.reviews?.slice(0, 6) ///! here is the problom
+  // const reviewsToDisplay = stay?.reviews?.slice(0, 6) //! here for now mobile
+  const [reviewsToDisplay, setReviewsToDisplay] = useState(stay?.reviews?.slice(0, 6) || [])
   const reviewsToAll = stay?.reviews || []
 
 
   useEffect(() => {
-    setRandomText(getRandomText()) //! for now random (data needs)
-  }, [stay])
+    const updateReviewsToDisplay = () => {
+      if (window.innerWidth <= 950) {
+        setReviewsToDisplay(stay?.reviews?.slice(0, 3) || [])
+      } else {
+        setReviewsToDisplay(stay?.reviews?.slice(0, 6) || [])
+      }
+    }
+
+    updateReviewsToDisplay()
+
+    window.addEventListener('resize', updateReviewsToDisplay);
+
+    return () => window.removeEventListener('resize', updateReviewsToDisplay);
+  }, [stay?.reviews])
 
   useEffect(() => {
     loadStay()
@@ -148,9 +161,9 @@ export function StayDetails({ reviews }) {
             />
             <section className="revers-flex__media">
               <div>
-              <div className="controller-layout__details secondary-layout">
-                <h1 id="stay-top" className="stay-top">{stay.name}</h1>
-              </div>
+                <div className="controller-layout__details secondary-layout">
+                  <h1 id="stay-top" className="stay-top">{stay.name}</h1>
+                </div>
               </div>
 
               <div className="sss">
@@ -240,14 +253,17 @@ export function StayDetails({ reviews }) {
           </div>
         </section>
         <div className="controller-layout__details">
-          <Reviews  reviews={reviewsToDisplay}/>
+          <Reviews reviews={reviewsToDisplay} />
         </div>
         <div className="stay-rating controller-layout__details stay-rating__details">
           <div onClick={openModal} className=" rev-btn show-all-amenities fs16 border-reviews__details">
             <p className="">{stay.reviews.length} reviews</p>
+            
           </div>
-            {modalIsOpen && (
-            <Modal closeModal={closeModal} reviews={reviewsForModal} />
+          {modalIsOpen && (
+            <>
+              <ModalReviews closeModal={closeModal} reviews={reviewsForModal} stay={stay}/>
+            </>
           )}
         </div>
         <div>

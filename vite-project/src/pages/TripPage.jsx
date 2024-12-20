@@ -15,8 +15,6 @@ export function TripPage() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  // console.log('s',s)
-
   useEffect(() => {
     loadOrders({ userId: loggedinUser._id })
     dispatch({ type: REMOVE_NOTIFICATION, notificationType: 'order' })

@@ -1463,6 +1463,7 @@ function _createDemoStays() {
       reviews: [
         {
           id: 'bRirt8',
+          createAt: 1718491576472,
           txt: "Host: Marian gave us a warm welcome and treated us kindly from the very beginning. She offered us help, told us what to visit and even put water, milk and orange juice in the fridge! We could have breakfast at her place which was perfect because she has a little sweet balcony! \r\nLocation: calmly situated in a side street, very near to the Placa Catalunya, the Rambla and the gothic area of Barcelona (very beautiful:)) so you have the old cultural center as well as all the restaurants and bars just nearby.\r\nHouse/Room: the appartment is not a huge, but I think you have everything you need (beautiful sitting room, balcony, kitchen) in it. You have to share the appartment with Marian so pay attention and don't be too loud in the evening!!\r\ndisadvantage: the heat is terrible in summer and there is no air-condition..\r\n\r\nI would overall recommend it to everybody!! But if you want to party and stay up late, take a hostel or another appartment.",
           rate: {
             cleanliness: 4.8,
@@ -1471,10 +1472,16 @@ function _createDemoStays() {
             accuracy: 4.6,
             location: 5,
             value: 4.7,
+            loc: {
+              country: 'Spain',
+              city: 'Barcelona',
+              address: 'Barcelona, Catalunya, Spain',
+            },
           },
           by: {
             _id: '622f3407e36c59e6164fbebb',
             fullname: 'Rafaela',
+            createAt: 1718491576472,
             imgUrl:
               'https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/female/48.jpg',
           },
@@ -1493,6 +1500,8 @@ function _createDemoStays() {
           by: {
             _id: '622f3403e36c59e6164faf56',
             fullname: 'Pauline',
+            address: 'Barcelona, Catalonia, Spain',
+            createAt: 1718491576472,
             imgUrl:
               'https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/male/62.jpg',
           },

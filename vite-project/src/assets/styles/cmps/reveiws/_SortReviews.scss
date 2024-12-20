@@ -1,0 +1,52 @@
+.select-wrapper {
+    max-width: 5.502em;
+    // padding: 4px 12px;
+    // height: 34px ;
+    border-radius: 2em;
+    cursor: pointer;
+    
+    .sortSelected {
+        cursor: pointer;
+    }
+}
+
+.sortReviews {
+    padding: 8px 12px;
+    border-radius: 2em;
+    cursor: pointer;
+}
+
+
+
+.select-wrapper { //! here not working
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.sortReviews {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+
+    &::after {
+        content: '▼';
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        transition: transform 0.2s ease;
+    }
+
+    &:focus {
+        border-color: #222222;
+        outline: none;
+
+        &::after {
+            content: '▲';
+            transform: translateY(-50%) rotate(180deg);
+        }
+    }
+}

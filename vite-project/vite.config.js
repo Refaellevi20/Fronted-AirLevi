@@ -8,4 +8,7 @@ export default defineConfig({
     outDir: '../backend-AirBnb/public',
     emptyOutDir: true,
   },
+  server: {
+    hmr: true,
+  },
 })

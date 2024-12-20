@@ -11,7 +11,7 @@ export const orderService = {
     removeOrderMsg
 }
 
-window.us = orderService
+// window.us = orderService
 
 async function query(filterBy = { stayId: '' }) {
     //should maybe be in body?

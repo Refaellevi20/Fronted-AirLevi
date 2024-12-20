@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
-import { userService } from '../services/user.service.js' 
+import { userService } from '../services/user.service.local.js'
 import { ImgUploader } from './ImgUploader.jsx'
-import { showErrorMsg, showSuccessMsg  } from '../services/event-bus.service.js'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 import { login, signup } from '../store/user.actions'
 import { BtnSquareColorRed } from './buttons ui/btn-square-color.jsx'
 import { BtnLoginColorGold } from './buttons ui/btn-loginGust-color.jsx'
 import { BtnLoginColorHost } from './buttons ui/btn-loginHost-color.jsx'
-
 
 export function LoginSignup({ closeModal }) {
   const [credentials, setCredentials] = useState({
@@ -57,7 +56,7 @@ export function LoginSignup({ closeModal }) {
     if (ev) ev.preventDefault()
     if (!credentials.username || !credentials.password || !credentials.fullname)
       return
-      if (!credentials.imgUrl) {credentials.imgUrl='https://robohash.org/mat.png?size=50x50&set=set1'}
+    if (!credentials.imgUrl) { credentials.imgUrl = 'https://robohash.org/mat.png?size=50x50&set=set1' }
     signup(credentials)
     clearState()
   }
@@ -78,27 +77,26 @@ export function LoginSignup({ closeModal }) {
       {!isSignup && (
         <form className='login-form' onSubmit={onLogin}>
           <input
-                        type="text"
-                        name="username"
-                        value={credentials.username}
-                        placeholder="Username"
-                        onChange={handleChange}
-                        required
-                        autoFocus
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        value={credentials.password}
-                        placeholder="Password"
-                        onChange={handleChange}
-                        required
-                    />
+            type="text"
+            name="username"
+            value={credentials.username}
+            placeholder="Username"
+            onChange={handleChange}
+            required
+            autoFocus
+          />
+          <input
+            type="password"
+            name="password"
+            value={credentials.password}
+            placeholder="Password"
+            onChange={handleChange}
+            required
+          />
           <BtnSquareColorRed>
             Login
           </BtnSquareColorRed>
         </form>
-
       )}
       <div className='demo-login-btns'>
         <BtnLoginColorHost onClick={() => {
