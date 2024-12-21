@@ -8,7 +8,7 @@ import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { ReviewBar } from './ReviewBar';
 
 export function IndexReviews({ reviews }) {
-    console.log('Reviews:', reviews)
+    // console.log('Reviews:', reviews)
     function calculateAverageRating() {
         if (!reviews || reviews.length === 0) return {}
 
@@ -22,7 +22,7 @@ export function IndexReviews({ reviews }) {
         }
 
         const totalReviews = reviews.length
-        console.log(totalReviews)
+        // console.log(totalReviews)
         
     
         reviews.forEach(({ rate }) => {
@@ -41,7 +41,7 @@ export function IndexReviews({ reviews }) {
     }
 
     const avgRating = calculateAverageRating()
-    console.log('Average Ratings:', avgRating)
+    // console.log('Average Ratings:', avgRating)
 
     return (
         <div className="index-reviews">

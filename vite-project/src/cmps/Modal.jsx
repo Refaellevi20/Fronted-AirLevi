@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 //^ i enter here the style because i have too many modals
 //^ and i did not think before i started
 //^ and i could do one modal that will be container for the most of my modals
 //^ because almost all the modal are the same style
-function Modal({ closeModal, reviews }) {
+function Modal({ closeModal, reviews,focusedReview  }) {
+    const focusedRef = useRef(null)
     const handleModalClick = (ev) => {
         if (ev.target === ev.currentTarget) {
             closeModal()
@@ -12,12 +13,18 @@ function Modal({ closeModal, reviews }) {
     }
 
     useEffect(() => {
-        document.body.style.overflow = 'hidden'
-        
-        return () => {
-            document.body.style.overflow = 'auto'
+        document.body.style.overflow = 'hidden';
+    
+        if (focusedReview && focusedRef.current) {
+          // Scroll smoothly to the focused review
+          focusedRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-    }, [])  //! hidden scroll here
+    
+        return () => {
+          document.body.style.overflow = 'auto';
+        };
+      }, [focusedReview]);
+
 
     const modalStyle = {
         position: 'fixed',
@@ -85,8 +92,10 @@ function Modal({ closeModal, reviews }) {
                 <span style={closeButtonStyle} onClick={closeModal}>&times;</span>
                 <h2>All Reviews</h2>
                 <div style={scrollableContentStyle}>
-                    {reviews.map((review, index) => (
-                        <div key={index} style={reviewItemStyle}>
+                    {reviews.map((review) => (
+                        <div key={review.id}
+                        ref={focusedReview?.id === review.id ? focusedRef : null}
+                        style={reviewItemStyle}>
                             <div style={miniUserDetailsStyle}>
                                 <img src={review.by.imgUrl} alt={review.by.fullname} style={miniUserImgStyle} />
                                 <p>{review.by.fullname}</p>

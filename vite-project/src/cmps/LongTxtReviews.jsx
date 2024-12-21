@@ -10,6 +10,7 @@ export function LongTxtReviews({ txt, length, onShowMoreClick }) {
     function onToggleLongTxt() {
         // setShowMore(prevLongTxtShown => !prevLongTxtShown)
         if (!isShowMore) onShowMoreClick()
+            
     }
 
     return (

@@ -1,0 +1,33 @@
+.index-reviews2 {
+    .text {
+      margin-right: -30px ;
+      // familay
+      // justify-content: flex-start
+    }
+  
+    .rating {
+      color: #333;
+      margin-left: auto !important;
+    }
+  
+    .icon {
+      font-size: 1.5em;
+      color: #666 ;
+      margin-top: 10px;
+    }
+  
+    .separator {
+      font-size: 30px;
+      color: #000;
+    }
+  }
+  
+  @media screen and (max-width: 745px) {
+    .reviews-bar,
+    .index-reviews {
+      display: none;
+    }
+    .controller-Reviews-details__stay {
+      display: none;
+    }
+  }

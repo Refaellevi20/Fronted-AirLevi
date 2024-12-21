@@ -25,8 +25,8 @@ export function DetailsHouse({ stay }) {
         <section className='info-details-house__container'>
             <div className=''>
                 <div className='flex1'>
-                    <h2 className="fs22">{stay?.loc?.address || "Location not available"}</h2>
-                    <h2 className="fs22 space-txt">{stay.type}</h2>
+                    <h2 className="fs22 type-details">{stay?.loc?.address || "Location not available"}</h2>
+                    <h2 className="fs22 space-txt type-details">{stay.type}</h2>
                 </div>
                 <ul style={{ listStyle: 'none', padding: 0, display: 'flex', gap: '5px' }}>
                     <li className='fs18 info-details__house'>{stay.details.guests} Guests · </li>

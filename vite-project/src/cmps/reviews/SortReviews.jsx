@@ -30,15 +30,17 @@ function SortReviews({ setFilteredReviews, reviews }) {
     }
 
     return (
-        <section style={{padding:'20px', cursor:'pointer'}} >
-        <div class="select-wrapper">
-            <select id="sortReviews" className="sortReviews" onChange={handleSortChange}>
-               <option className='pointer mostRecent sortSelected' value="mostRecent"><span className='sortSelected'> Most Recent</span></option>  //! here
-                <option className='pointer highestRated sortSelected' value="highestRated">Highest Rated</option>
-                <option className='pointer lowestRated sortSelected' value="lowestRated">Lowest Rated</option>
-            </select>
+        <section style={{padding:'20px 0', cursor:'pointer'}}>
+        <div className="select-wrapper">
+          <select id="sortReviews" className="sortReviews" onChange={handleSortChange}>
+            <option className='pointer mostRecent sortSelected' value="mostRecent">
+              <span className='sortSelected'>Most Recent</span>
+            </option>
+            <option className='pointer highestRated sortSelected' value="highestRated">Highest Rated</option>
+            <option className='pointer lowestRated sortSelected' value="lowestRated">Lowest Rated</option>
+          </select>
         </div>
-        </section>
+      </section>
     )
 }
 
