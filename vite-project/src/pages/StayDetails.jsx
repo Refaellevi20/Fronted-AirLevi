@@ -26,6 +26,7 @@ import ModalReviews from "../cmps/ModalReviews";
 import { StayMap } from "../cmps/StayMap";
 import { AppHeader } from "../cmps/AppHeader";
 import { CalcAvgReview } from "../cmps/calcAvgReview";
+import { ModalSize } from "../CustomHook/useModalSize";
 
 const randomTextOptions = [
   "Lexington, Kentucky is the second-largest city in Kentucky next to Louisville, and is located in the heart of the Bluegrass region. Lexington is known as the 'Horse Capital of the World,' since it is home to the Kentucky Horse Park, Keeneland race course and the Red Mile race course.",
@@ -92,6 +93,20 @@ export function StayDetails({ reviews }) {
       document.body.style.overflow = 'auto'
     }
   }, [isGalleryOpen])
+
+
+  useEffect(() => {
+    if (isOpenAmenities) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [isOpenAmenities])
+
 
   async function loadStay() {
     try {
@@ -216,7 +231,7 @@ export function StayDetails({ reviews }) {
               <section className="amenities-modal__container">
                 <div className="modal-overlay" onClick={closeModalAmenities}>
                   <div className="modal-content" onClick={(ev) => ev.stopPropagation()}>
-                    <button onClick={closeModalAmenities} className="modal-close-btn"> <HiXMark style={{ fontSize: '20px' }} /></button>
+                    <ModalSize closeModal={closeModalAmenities} className="modal-close-btn" />
                     {component}
                   </div>
                 </div>

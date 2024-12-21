@@ -3,10 +3,11 @@ import { MdKeyboardArrowLeft } from 'react-icons/md'
 import { HiXMark } from 'react-icons/hi2'
 
 interface ModalSizeProps {
+    className?: string
     closeModal: () => void
 }
 
-export function ModalSize({ closeModal }: ModalSizeProps) {
+export function ModalSize({ closeModal,className }: ModalSizeProps) {
     const [isSmallScreen, setIsSmallScreen] = useState<boolean>(window.innerWidth < 745)
 
     useEffect(() => {
@@ -21,7 +22,7 @@ export function ModalSize({ closeModal }: ModalSizeProps) {
     }, [])
 
     return (
-        <span className="close-button" onClick={closeModal}>
+        <span className='pointer' onClick={closeModal}>
             {isSmallScreen ? <MdKeyboardArrowLeft /> : <HiXMark />}
         </span>
     )

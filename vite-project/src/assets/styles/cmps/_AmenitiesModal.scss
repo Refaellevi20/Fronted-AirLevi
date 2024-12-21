@@ -23,12 +23,12 @@
         border-bottom: 1px solid #DDDDDD;
     }
 
-    max-height: 80vh;
+    // max-height: 80vh;
     // min-width: 740vw;
-    overflow-x: auto;
+    overflow-y: auto;
 
     @include for-max-narrow-layout {
-        max-height: 60vh;
+        // max-height: 60vh;
     }
 
     .amenities-header {
@@ -122,21 +122,23 @@ div.rev-btn.show-all-amenities {
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 100;
+        z-index: 1000;
 
         .modal-content {
             background-color: white;
             padding: 20px;
             border-radius: 8px;
             width: 715px;
+            height: 90%;
             position: relative;
+            overflow-y: auto;
 
             .modal-close-btn {
                 cursor: pointer;
                 background: transparent;
-                padding: 0 24px 0 ;
+                padding: 0 24px 0;
                 border: none;
-              }
+            }
 
             textarea {
                 width: 100%;
@@ -173,11 +175,7 @@ div.rev-btn.show-all-amenities {
         flex-direction: column;
         align-items: start;
         overflow: hidden;
-        // @media (min-width: 1132px) {
-        //     // flex-wrap: wrap;
-        //     // flex-direction: row;
-        //     // justify-content: space-between;
-        // }
+
 
         li {
             list-style: none;
@@ -203,11 +201,22 @@ div.rev-btn.show-all-amenities {
             line-height: 1.25rem;
             padding-top: 0.25rem;
         }
-
-        // .sds {
-        //     width: 48px;
-        //     cursor: pointer;
-        // }
     }
 }
 
+@media screen and (max-width: 745px) {
+    .modal-content {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .amenities-modal__container {
+        .modal-content {
+            border-radius: 0 !important;
+        }
+    }
+
+    .all-amenities {
+        padding: 20px 0 0 0 ;
+    }
+}

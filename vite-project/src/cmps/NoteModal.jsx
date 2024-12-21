@@ -18,14 +18,14 @@ export function NoteModal({ isOpen, onClose, onSave, existingNote }) {
     }
   }
 
-  const handleSave = () => {
+ function handleSave(){
     if (note.trim()) {
       onSave(note)
       setNote('') 
     }
   }
 
-  const handleClear = () => {
+  function handleClear() {
     setNote('')
     setError('')
   }
@@ -36,8 +36,8 @@ export function NoteModal({ isOpen, onClose, onSave, existingNote }) {
     <div className='note-modal'>
     <div className="modal-overlay">
       <div className="modal-content">
-        <button className="close-button" onClick={onClose}>X</button>
-        <h2>{existingNote ? 'Edit Note' : 'Add Note'}</h2>
+        <button className="close-button pointer" onClick={onClose}>X</button>
+        <h2 className='pointer'>{existingNote ? 'Edit Note' : 'Add Note'}</h2> //! here pointer
         <textarea
           value={note}
           onChange={handleChange}
