@@ -11,6 +11,7 @@ import UserWishList from './pages/UserWishList'
 import { BookPage } from './pages/BookPage'
 import { TripPage } from './pages/TripPage'
 import { OrderPage } from './pages/OrderPage'
+import { MessagesPage } from './pages/MessagesPage'
 
 
 export function RootCmp() {
@@ -30,6 +31,8 @@ export function RootCmp() {
           <Route path="/hosting/orders" element={<OrderPage />} />
           <Route element={<TripPage />} path='/trip' />
           <Route path="/payment" element={<stayPayment />} />
+          {/* <Route element={<MessagesPage />} path='/user/inbox' /> */}
+
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
 
         </Routes>
