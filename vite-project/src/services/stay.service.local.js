@@ -179,7 +179,6 @@ function getEmptyStay(wishList = []) {
   }
 }
 
-//PVT
 function _createDemoStays() {
   const DEMO_STAYS = [
     {

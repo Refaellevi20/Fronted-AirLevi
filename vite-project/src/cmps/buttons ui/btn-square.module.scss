@@ -1,0 +1,53 @@
+.btnSquare {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    padding: 13px 23px;
+
+    background-color: #FFFFFF;
+
+    border-color: #222222;
+    border-radius: 8px;
+    border-width: 1px;
+    border-style: solid;
+
+    text-align: center;
+
+    color: #222222;
+    font-family: cereal-Medium;
+    font-size: 1rem;
+    line-height: 20px;
+
+    transition: box-shadow 0.2s ease, transform 0.1s ease;
+    .btnSquare:hover {
+        background-color: #F7F7F7;
+        border-color: #000000;
+    }
+    
+    .btnSquare:active {
+        animation: press 1s forwards;
+        transition: .3s;
+    }
+    
+    
+    @keyframes press {
+        0% {
+            transform: scale(1);
+        }
+    
+        40% {
+            transform: scale(.96);
+        }
+    
+        60% {
+            transform: scale(.96);
+        }
+    
+        100% {
+            transform: scale(1);
+        }
+    }
+}
+

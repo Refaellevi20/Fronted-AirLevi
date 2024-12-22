@@ -50,17 +50,19 @@
 //   )
 // }
 
-
+import React from 'react'
 import { updateOrder } from '../../store/order.action'
 import { utilService } from '../../services/util.service'
 import { convertCurrency } from "../../services/currency"
 import moment from 'moment'
 import { useSelector } from 'react-redux'
 import { OrderStatus } from '../OrderStatus'
-// import { StayTable } from '../StayTable'
+import { StayTable } from '../host/StayTable'
+import { StayHosTable } from '../host/StayHosTable'
+import { HostedSmallDetails } from '../details/HostedSmallDetails'
 
 
-export function Trip({ order }) {
+export function Trip({ order,stay }) {
   const currency = useSelector((state) => state.stayModule.currency)
 
   function cancelOrder() {
@@ -78,36 +80,38 @@ export function Trip({ order }) {
   const startDateValid = startDate.isValid()
   const endDateValid = endDate.isValid()
 
-  console.log("Start Date Valid:", startDateValid, "End Date Valid:", endDateValid)
-  console.log("Start Date:", startDate.format(), "End Date:", endDate.format())
+  // console.log("Start Date Valid:", startDateValid, "End Date Valid:", endDateValid)
+  // console.log("Start Date:", startDate.format(), "End Date:", endDate.format())
 
   //* Calculate the number of days if both dates are valid
   const days = startDateValid && endDateValid ? endDate.diff(startDate, 'days') : 0
-  console.log("Calculated Days:", days)
+  // console.log("Calculated Days:", days)
 
   //* Check if price exists in order.stay, if not set a default value
   const pricePerDay = order.stay?.price > 0 ? order.stay?.price : 100 //! here is the problom Default to 100 if no price is available
-  console.log("Price Per Day:", pricePerDay)
+  // console.log("Price Per Day:", pricePerDay)
 
   //* Calculate total price, ensure it is valid
   const totalPrice = pricePerDay > 0 && days > 0 ? pricePerDay * days : 0
-  console.log("Total Price:", totalPrice)
+  // console.log("Total Price:", totalPrice)
 
   //* Currency conversion
   const { convertedAmount = 0, currencySymbol = '$' } = convertCurrency(totalPrice, currency)
-  console.log("Converted Amount:", convertedAmount, "Currency Symbol:", currencySymbol)
+  // console.log("Converted Amount:", convertedAmount, "Currency Symbol:", currencySymbol)
 
   //* Date formatting for display
   const formattedStartDate = startDate.format('MMM D, YYYY')
-  const formattedEndDate = endDate.format('MMM D, YYYY')
+  const formattedEndDate = endDate.format('MMM D, YYYY h:mm:ss A')
 
   return (
     <>
       <td>
-      {/* <StayTable stay={order.stay || 'Unknown Host'} /> */}
+                  {/* <HostedSmallDetails host={stay.host} /> */}
+        
+      <StayTable stay={order.stay || 'Unknown Host'} />
       </td>
       <td>
-      {/* {StayHosTable} */}
+      <StayHosTable stay={order.stay}/>
         {/* <p>{order.stay.host || 'No description'}</p> */} 
       </td>
       <td>
@@ -121,7 +125,7 @@ export function Trip({ order }) {
     </td>
       <td className='text-bold'>
       <div>
-      {(order.totalPrice)}
+      {/* {(order.totalPrice)} */}
            {currencySymbol} {totalPrice > 0 ? convertedAmount.toFixed(2) : '0.00'}
           </div>      </td>
       <td>
@@ -134,61 +138,3 @@ export function Trip({ order }) {
   )
 }
 
-// import React from 'react'
-
-// export function Trip({ order }) {
-//   if (!order || !order.stay) {
-//     return (
-//       <tr>
-//         <td colSpan="5">Invalid order or stay information</td>
-//       </tr>
-//     )
-//   }
-
-//   const { stay, startDate, endDate } = order
-
-//   const formattedStartDate = startDate
-//     ? new Date(startDate).toLocaleDateString('en-US', { day: 'numeric', month: 'short' })
-//     : 'N/A'
-//   const formattedEndDate = endDate
-//     ? new Date(endDate).toLocaleDateString('en-US', { day: 'numeric', month: 'short' })
-//     : 'N/A'
-
-//   const startDateObj = startDate ? new Date(startDate) : null
-//   const endDateObj = endDate ? new Date(endDate) : null
-
-//   const days =
-//     startDateObj && endDateObj
-//       ? Math.ceil((endDateObj - startDateObj) / (1000 * 60 * 60 * 24))
-//       : 0
-
-//   const pricePerNight = stay.price || 0
-//   const totalPrice = pricePerNight * days
-
-//   //^ Debugging 
-//   console.log('Stay:', stay)
-//   console.log('Price per night:', pricePerNight)
-//   console.log('Start Date:', startDateObj)
-//   console.log('End Date:', endDateObj)
-//   console.log('Days:', days)
-//   console.log('Total Price:', totalPrice)
-//   return (
-//     <tr>
-//       <td>{stay.name || 'Unknown Stay'}</td>
-
-//       <td>{stay.host || 'Unknown Host'}</td>
-
-//       <td>
-//         {formattedStartDate} - {formattedEndDate}
-//       </td>
-
-//       <td className="text-bold">
-//         {totalPrice.toLocaleString()}
-//       </td>
-
-//       <td>
-//         <span>{order.status || 'No Status'}</span>
-//       </td>
-//     </tr>
-//   )
-// }

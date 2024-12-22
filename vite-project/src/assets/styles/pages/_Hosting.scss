@@ -62,24 +62,28 @@
 
     th:nth-child(1),
     td:nth-child(1) {
-      width: 190px;
+      width: 200px;
     }
 
     th:nth-child(2),
     td:nth-child(2) {
-      width: 120px;
+      width: 200px;
     }
     th:nth-child(4),
     td:nth-child(4) {
-      width: 90px;
+      width: 200px;
+    }
+    th:nth-child(3),
+    td:nth-child(3) {
+      width: 200px;
     }
     th:nth-child(5),
     td:nth-child(5) {
-      width: 120px;
+      width: 200px;
     }
     th:nth-child(6),
     td:nth-child(6) {
-      width: 264px;
+      width: 265px;
     }
 
     .order-status {
@@ -88,7 +92,7 @@
     }
 
     .action-btns > * {
-      display: inline-block;
+      display: flex;
       margin-left: 15px;
     }
     button {
@@ -145,4 +149,31 @@
     font-size: 26px;
     font-family: cereal-Medium;
   }
+}
+
+//* not necery to do it like that
+//* that is not the right way i know
+.pointer.complete {
+  color: #0000FF !important;
+  background-image: none !important;
+  border-color: #0000FF !important;
+}
+
+.pointer.complete:hover {
+  color: #fff !important;
+  background-color: #0000FF !important;
+  border-color: #0000FF !important;
+}
+
+.pointer.complete.disable {
+  color: #696969 !important; 
+  border-color: #696969 !important; 
+  background-color: #f0f0f0 !important; 
+}
+
+.pointer.complete[disabled] {
+  color: #696969 !important;
+  background-color: #f0f0f0 !important;
+  border-color: #696969 !important;
+  cursor: not-allowed !important;
 }

@@ -11,7 +11,7 @@ import UserWishList from './pages/UserWishList'
 import { BookPage } from './pages/BookPage'
 import { TripPage } from './pages/TripPage'
 import { OrderPage } from './pages/OrderPage'
-import { MessagesPage } from './pages/MessagesPage'
+// import { MessagesPage } from './pages/MessagesPage'
 
 
 export function RootCmp() {

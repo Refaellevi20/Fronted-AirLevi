@@ -34,11 +34,9 @@
 // }
 
 export function StayTable({stay}) {
-    const {
-        name,
-        imgUrls,
-        loc: { city, address },
-    } = stay || {}
+    const { name = 'Unknown Name',  imgUrls = '',   loc: { city = 'Unknown City', address = 'Unknown Address' } = {}, } = stay || {};
+
+  
 
     console.log(address, 'addresss')
     console.log(city, 'city')
@@ -46,13 +44,16 @@ export function StayTable({stay}) {
     return (
         <div>
             <div>
-                <img src={imgUrls} alt='stay-img' />
+                <img src={imgUrls || 'http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436912/xle8ueqxjeazbs4bp09p.jpg'}
+                 alt='stay-img' 
+                style={{ width: '50px', height: '50px'}}
+                />
             </div>
-            <div>
+            {/* <div>
                 <h4>
                     <span>{city || address}</span>
                 </h4>
-            </div>
+            </div> */}
             <div>
                 <span>{name}</span>
             </div>
