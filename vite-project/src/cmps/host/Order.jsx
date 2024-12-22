@@ -38,7 +38,7 @@ export function Order({ order }) {
   //  console.log("Calculated Days:", days)
  
    //* Check if price exists in order.stay, if not set a default value
-   const pricePerDay = order.stay?.price > 0 ? order.stay?.price : 100 //! here is the problom Default to 100 if no price is available
+   const pricePerDay = order.stay?.price > 0 ? order.stay?.price : 80 //! here is the problom Default to 100 if no price is available
   //  console.log("Price Per Day:", pricePerDay)
  
    //* Calculate total price, ensure it is valid

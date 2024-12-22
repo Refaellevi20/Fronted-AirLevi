@@ -69,6 +69,7 @@ export function NavMenu() {
               <Link to='/user/Messages'>Messages</Link>
               <Link to='/history'>history</Link>
               {user.isOwner && <Link to='/hosting/orders'>View Orders</Link>}
+              {user.isOwner && <Link to='/hosting/orders/dashboard'>Dashboard</Link>}
               <button onClick={onAddStay}>
                 {user.isOwner ? 'Add Another Stay' : 'Become a host (Add stay)'}
               </button>

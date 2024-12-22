@@ -5,7 +5,7 @@ import { REMOVE_NOTIFICATION } from '../store/user.reducer'
 import { AppLogo } from '../cmps/app-logo'
 import { NavMenu } from './nav-menu'
 import { OrderList } from '../cmps/host/OrderList'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 export function OrderPage() {
   // const user = useSelector((storeState) => storeState.userModule.user)
@@ -21,10 +21,11 @@ export function OrderPage() {
     dispatch({ type: REMOVE_NOTIFICATION, notificationType: 'order' })
   }, [loggedinUser])
 
+
   if (!loggedinUser) navigate('/stay')
   return (
-    <div className='secondary-layout order-page'>
-       <header className='app-header flex space-between'>
+    <div className='order-page'>
+       <header className='app-header flex'>
         <div className='header-logo-container'>
           <AppLogo />
         </div>
