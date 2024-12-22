@@ -17,7 +17,7 @@ export default function LanguageModal({ isOpen, onClose, selectedLanguage, onLan
         <div className="modal-overlay" onClick={(ev) => ev.target.classList.contains('modal-overlay') && onClose()}>
           <div className="modal">
             <h3 onClick={onClose}><HiXMark style={{ cursor: 'pointer' }} /></h3>
-            <h2 style={{ textAlign: 'start' }} className='txt-language'>Choose a language and region</h2>
+            <h2 style={{ textAlign: 'start' }} className='txt-language border-top'>Choose a language and region</h2>
             <section className='grid-buttons'>
               {/* <div className='footer-language__container'> */}
                 <button

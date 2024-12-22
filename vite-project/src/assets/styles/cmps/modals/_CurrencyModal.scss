@@ -12,18 +12,20 @@
         justify-content: center;
         align-items: center;
         overflow: hidden;
+        z-index: 10500;
     }
 
     .modal {
         background-color: white;
         padding: 20px;
         border-radius: 8px;
-        display: grid;
+        // display: grid;
         gap: 10px;
-        max-height: 90%;
-        width: 75%;
+        height: 90%;
+        max-width: em(830px);
         align-items: start;
         overflow-y: auto;
+        z-index: 1000;
     }
 
     .grid-buttons {
@@ -49,6 +51,7 @@
         font-size: rem(20px);
     }
 
+    //! the & not working here 
     button:hover {
         background-color: #f0f0f0;
     }
@@ -79,5 +82,18 @@
 }
 
 .currency-symbol {
-    font-size: 1.2em; 
+    font-size: 1.2em;
+}
+
+
+@media (max-width: 745px) {
+    .currency-modal-container {
+        .modal {
+
+            border-radius: 0;
+
+            height: 100%;
+            width: 100%;
+        }
+    }
 }

@@ -3,6 +3,7 @@ import currencySymbolMap from 'currency-symbol-map'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCurrency } from '../store/stay/stay.action'
 import { HiXMark } from "react-icons/hi2";
+import { ModalSize } from '../CustomHook/useModalSize';
 
 function CurrencyModal({ isOpen, onClose }) {
     const dispatch = useDispatch()
@@ -11,7 +12,10 @@ function CurrencyModal({ isOpen, onClose }) {
 
     const currencyCodes = [
         'USD', 'EUR', 'GBP', 'JPY', 'AUD', 'CAD', 'CHF', 'CNY', 'INR', 'MXN',
-        'BRL', 'ZAR', 'RUB', 'KRW', 'SGD', 'HKD', 'NZD', 'NOK', 'SEK', 'DKK'
+        'BRL', 'ZAR', 'RUB', 'KRW', 'SGD', 'HKD', 'NZD', 'NOK', 'SEK', 'DKK',
+        'THB', 'MYR', 'PHP', 'IDR', 'VND', 'PLN', 'CZK', 'HUF', 'TRY', 'AED',
+        'SAR', 'ILS', 'EGP', 'NGN', 'GHS', 'KES', 'TZS', 'UGX', 'PKR', 'BDT',
+        'LKR', 'MAD', 'CLP', 'COP', 'PEN', 'ARS', 'UAH', 'KZT', 'QAR', 'BHD'
     ]
 
     const supportedCurrencies = currencyCodes.map(code => ({
@@ -27,6 +31,59 @@ function CurrencyModal({ isOpen, onClose }) {
         onClose()
     }
 
+    const currencyDetails = {
+        USD: { name: 'United States Dollar', symbol: '$' },
+        EUR: { name: 'Euro', symbol: '€' },
+        GBP: { name: 'British Pound', symbol: '£' },
+        JPY: { name: 'Japanese Yen', symbol: '¥' },
+        AUD: { name: 'Australian Dollar', symbol: 'A$' },
+        CAD: { name: 'Canadian Dollar', symbol: 'C$' },
+        CHF: { name: 'Swiss Franc', symbol: 'CHF' },
+        CNY: { name: 'Chinese Yuan', symbol: '¥' },
+        INR: { name: 'Indian Rupee', symbol: '₹' },
+        MXN: { name: 'Mexican Peso', symbol: '$' },
+        BRL: { name: 'Brazilian Real', symbol: 'R$' },
+        ZAR: { name: 'South African Rand', symbol: 'R' },
+        RUB: { name: 'Russian Ruble', symbol: '₽' },
+        KRW: { name: 'South Korean Won', symbol: '₩' },
+        SGD: { name: 'Singapore Dollar', symbol: 'S$' },
+        HKD: { name: 'Hong Kong Dollar', symbol: 'HK$' },
+        NZD: { name: 'New Zealand Dollar', symbol: 'NZ$' },
+        NOK: { name: 'Norwegian Krone', symbol: 'kr' },
+        SEK: { name: 'Swedish Krona', symbol: 'kr' },
+        DKK: { name: 'Danish Krone', symbol: 'kr' },
+        THB: { name: 'Thai Baht', symbol: '฿' },
+        MYR: { name: 'Malaysian Ringgit', symbol: 'RM' },
+        PHP: { name: 'Philippine Peso', symbol: '₱' },
+        IDR: { name: 'Indonesian Rupiah', symbol: 'Rp' },
+        VND: { name: 'Vietnamese Dong', symbol: '₫' },
+        PLN: { name: 'Polish Zloty', symbol: 'zł' },
+        CZK: { name: 'Czech Koruna', symbol: 'Kč' },
+        HUF: { name: 'Hungarian Forint', symbol: 'Ft' },
+        TRY: { name: 'Turkish Lira', symbol: '₺' },
+        AED: { name: 'UAE Dirham', symbol: 'د.إ' },
+        SAR: { name: 'Saudi Riyal', symbol: '﷼' },
+        ILS: { name: 'Israeli Shekel', symbol: '₪' },
+        EGP: { name: 'Egyptian Pound', symbol: '£' },
+        NGN: { name: 'Nigerian Naira', symbol: '₦' },
+        GHS: { name: 'Ghanaian Cedi', symbol: '₵' },
+        KES: { name: 'Kenyan Shilling', symbol: 'KSh' },
+        TZS: { name: 'Tanzanian Shilling', symbol: 'TSh' },
+        UGX: { name: 'Ugandan Shilling', symbol: 'USh' },
+        PKR: { name: 'Pakistani Rupee', symbol: '₨' },
+        BDT: { name: 'Bangladeshi Taka', symbol: '৳' },
+        LKR: { name: 'Sri Lankan Rupee', symbol: 'Rs' },
+        MAD: { name: 'Moroccan Dirham', symbol: 'MAD' },
+        CLP: { name: 'Chilean Peso', symbol: '$' },
+        COP: { name: 'Colombian Peso', symbol: '$' },
+        PEN: { name: 'Peruvian Sol', symbol: 'S/' },
+        ARS: { name: 'Argentine Peso', symbol: '$' },
+        UAH: { name: 'Ukrainian Hryvnia', symbol: '₴' },
+        KZT: { name: 'Kazakhstani Tenge', symbol: '₸' },
+        QAR: { name: 'Qatari Riyal', symbol: 'ر.ق' },
+        BHD: { name: 'Bahraini Dinar', symbol: 'BD' },
+    }
+
     if (!isOpen) return null
 
     return (
@@ -38,10 +95,9 @@ function CurrencyModal({ isOpen, onClose }) {
                 }
             >
                 <div className="modal">
-                    <h4 onClick={onClose} className="">
-                        <HiXMark style={{ cursor: 'pointer' }} />
-                    </h4>
-                    <h2>Choose Currency</h2>
+                    <ModalSize closeModal={onClose} className="border-buttom" />
+                    {/* <p className="border-buttom"></p> */}
+                      <h2 className="border-top">Choose Currency</h2>
                     <section className='grid-buttons'>
                         {supportedCurrencies.map((currency) => (
                             <button
@@ -52,49 +108,9 @@ function CurrencyModal({ isOpen, onClose }) {
                                 }
                             >
                                 <div className="currency-name">
-                                    {currency.code === 'USD'
-                                        ? `United States dollar`
-                                        : currency.code === 'EUR'
-                                            ? `Euro`
-                                            : currency.code === 'GBP'
-                                                ? `British Pound`
-                                                : currency.code === 'JPY'
-                                                    ? `Japanese Yen`
-                                                    : currency.code === 'AUD'
-                                                        ? `Australian Dollar`
-                                                        : currency.code === 'CAD'
-                                                            ? `Canadian Dollar`
-                                                            : currency.code === 'CHF'
-                                                                ? `Swiss Franc`
-                                                                : currency.code === 'CNY'
-                                                                    ? `Chinese Yuan`
-                                                                    : currency.code === 'INR'
-                                                                        ? `Indian Rupee`
-                                                                        : currency.code === 'MXN'
-                                                                            ? `Mexican Peso`
-                                                                            : currency.code === 'BRL'
-                                                                                ? `Brazilian Real`
-                                                                                : currency.code === 'ZAR'
-                                                                                    ? `South African Rand`
-                                                                                    : currency.code === 'RUB'
-                                                                                        ? `Russian Ruble`
-                                                                                        : currency.code === 'KRW'
-                                                                                            ? `South Korean Won`
-                                                                                            : currency.code === 'SGD'
-                                                                                                ? `Singapore Dollar`
-                                                                                                : currency.code === 'HKD'
-                                                                                                    ? `Hong Kong Dollar`
-                                                                                                    : currency.code === 'NZD'
-                                                                                                        ? `New Zealand Dollar`
-                                                                                                        : currency.code === 'NOK'
-                                                                                                            ? `Norwegian Krone`
-                                                                                                            : currency.code === 'SEK'
-                                                                                                                ? `Swedish Krona`
-                                                                                                                : currency.code === 'DKK'
-                                                                                                                    ? `Danish Krone`                                                                                    : `${currency.name}`
-                                    }
+                                    {currencyDetails[currency.code]?.name || currency.name || 'Unknown Currency'}
                                     <div className="currency-symbol">
-                                        {currency.symbol}
+                                        {currencyDetails[currency.code]?.symbol || ''}
                                     </div>
                                 </div>
 

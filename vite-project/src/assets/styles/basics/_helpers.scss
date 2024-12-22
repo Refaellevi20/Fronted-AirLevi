@@ -103,6 +103,11 @@
   border-bottom: 1px solid $clr-border;
 }
 
+.border-top {
+  border-top: 1px solid $clr-border;
+  width: 100%;
+}
+
 // helpers
 .square-ratio {
   @include aspect-ratio(1, 1);
