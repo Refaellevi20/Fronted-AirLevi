@@ -7,18 +7,17 @@ import { StarRating } from '../StarRating'
 export function ReviewPreview({ reviewsToDisplay, MAX_LENGTH = 100 }) {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [reviewsForModal, setReviewsForModal] = useState([])
-  const [focusedReview, setFocusedReview] = useState(null)
 
   function openModal(review) {
     setReviewsForModal(reviewsToDisplay)
-    setFocusedReview(review)
+    // setFocusedReview(review)
     setModalIsOpen(true)
   }
 
   function closeModal() {
     setModalIsOpen(false)
     setReviewsForModal([])
-    setFocusedReview(null)
+    // setFocusedReview(null)
   }
 
   if (!reviewsToDisplay || !Array.isArray(reviewsToDisplay)) return <div>Loading...</div>
@@ -48,13 +47,13 @@ export function ReviewPreview({ reviewsToDisplay, MAX_LENGTH = 100 }) {
               <LongTxtReviews
                 txt={review.txt}
                 length={MAX_LENGTH}
-                onShowMoreClick={() => openModal(review)} //! here focusedReview
+                onShowMoreClick={() => openModal(review)}
                 />
                 </div>
           )
         })}
       </div>
-      {modalIsOpen && <Modal closeModal={closeModal} reviews={reviewsForModal} review={focusedReview}/>}
+      {modalIsOpen && <Modal closeModal={closeModal} reviews={reviewsForModal} />}
     </>
   )
 }

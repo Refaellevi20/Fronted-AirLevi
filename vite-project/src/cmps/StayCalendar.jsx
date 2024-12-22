@@ -9,7 +9,6 @@ export function StayCalendar() {
     const [searchParams, setSearchParams] = useSearchParams()
     const [isGuestsOpen, setGuestModal] = useState(false)
 
-
     const orderParams = {
         checkIn: searchParams.get('checkIn')
             ? new Date(+searchParams.get('checkIn'))

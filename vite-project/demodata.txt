@@ -1,0 +1,409 @@
+"details": {
+    "guests": "6",
+    "bedroom": "2",
+    "bed": "4",
+    "bath": "2"
+  },
+    תשני את המפרים המקסימום זה 8 והמינימום זה 1
+  
+  
+
+ "labels": [
+   "OMG!",
+    "Amazing views",
+    "Trending",
+    "Bed & breakfasts",
+    "Chief's kitchens",
+    "Luxe",
+    "Mansions",
+    "Ski-in/out",
+    "Private rooms",
+    "Boats",
+    "Castles",
+    "Cabins",
+    "Amazing pools",
+    "Design",
+    "Countryside",
+    "Farms",
+    "Lakefront",
+    "Tiny homes",
+    "Off-the-grid",
+    "Beach",
+    "Beachfront",
+    "Tropical",
+    "Lake",
+    "Iconic cities",
+    "Historical homes",
+    "National parks",
+    "Play",
+    "Creative spaces",
+    "Desert",
+    "Yurts",
+    "Arctic",
+    "New",
+    "Vineyards",
+    "Caves",
+    "Earth homes",
+    "Treehouses",
+    "Houseboats",
+    "Camping",
+    "Top of the world",
+    "Grand pianos",
+    "A-frames",
+    "Cycladic homes",
+    "Surfing",
+    "Containers",
+    "Domes",
+    "Windmills",
+    "Trulli",
+    "Golfing",
+    "Barns",
+    "Towers",
+    "Ryokans",
+    "Adapted",
+    "Riads",
+    "Shepherd's hut",
+    "Hanoks",
+    "Dammusi",
+    "Casas particulares",
+    "Minsus",
+    "Campers",
+    "Skiing"],
+    שלכולם יהיה את זה פחות תורידי תעלי לפעמיים \
+  
+
+ ,
+    "host": {
+        "sortName": "Marián",
+      "_id": "622f3402e36c59e6164fac46",
+      "fullname": "Shaila & Alex",
+      "createAt": 2563564560000,
+      "imgUrl": "https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/female/47.jpg"
+    },
+ 
+ תוסיפי לכל host  "createAt": מספרים שאני יתן לך ,
++ sortName
+
+ "reviews": [
+      {
+        "_id": "cex3BQ",
+        "createAt":4444444444,
+        "txt": "I had a great experience working with Patty and Peter.  Both were very attentive in sorting out the booking details and following up directly when I had questions.  I rented a 2 bedroom unit at the Westin Villas  in Maui and both the unit and property was absolutely amazing.  I think we had the best unit on the resort complete with 2 outdoor patios with direct access  to  the  beach.  I would HIGHLY recommend renting with Patty and Peter.",
+        "rate": {
+          "cleanliness": 4.8,
+          "communication": 4.4,
+          "check-in": 4.8,
+          "accuracy": 2.7,
+          "location": 5,
+          "value": 4
+             "loc": { 
+            "country": "Spain",
+            "city": "Barcelona",
+            "address": "Barcelona, Catalunya, Spain",
+          }
+        },
+        "by": {
+          "_id": "622f3407e36c59e6164fc004",
+          "fullname": "Kiesha",
+          "createAt":4365465555
+         "address": "Barcelona, Catalonia, Spain",
+          "imgUrl": "https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/male/68.jpg"
+        }
+      },
+
++ loc + address
+createAt צריך להראות אז אני מאמין שצריך להוסיף רק  reviews  ככה כל אחד מה 
+
+
+createAt
+
+1612310400000 1
+1658275200000 2
+1870819200000 3
+1591747200000 4
+1891814400000 5
+1837641600000 6
+1642291200000 7
+1624320000000 8
+1691366400000 9
+1786924800000 10
+1838073600000 11
+1719619200000 12
+1826064000000 13
+1786579200000 14
+1750982400000 15
+1861920000000 16
+1609632000000 17
+1599091200000 18
+1609286400000 19
+1687392000000 20
+1865116800000 21
+1615161600000 22
+1592438400000 23
+1625616000000 24
+1634860800000 25
+1739836800000 26
+1629936000000 27
+1752969600000 28
+1712361600000 29
+1639267200000 30
+1830297600000 31
+1756512000000 32
+1844380800000 33
+1844380800000 34
+1736294400000 35
+1748995200000 36
+1609200000000 37
+1606608000000 38
+1667606400000 39
+1657670400000 40
+1796428800000 41
+1606953600000 42
+1876608000000 43
+1618790400000 44
+1846108800000 45
+1816041600000 46
+1714003200000 47
+1740096000000 48
+1726272000000 49
+1833840000000 50
+1706486400000 51
+1617926400000 52
+1780790400000 53
+1771545600000 54
+1820793600000 55
+1667174400000 56
+1797811200000 57
+1669766400000 58
+1582502400000
+1761436800000
+1629504000000
+1655683200000
+1808438400000
+1849910400000
+1754438400000
+1820966400000
+1882137600000
+1739923200000
+1609286400000
+1630022400000
+1809907200000
+1601856000000
+1685923200000
+1583452800000
+1578528000000
+1820620800000
+1840665600000
+1782172800000
+1769644800000
+1713571200000
+1840924800000
+1708905600000
+1732924800000
+1841356800000
+1772668800000
+1826409600000
+1881187200000
+1836345600000
+1888099200000
+1786233600000
+1884124800000
+1702857600000
+1835654400000
+1661385600000
+1811980800000
+1832371200000
+1821225600000
+1715731200000
+1866326400000
+1588723200000
+
+  "Paris, Île-de-France, France",
+  "New York, New York, United States",
+  "London, England, United Kingdom",
+  "Tokyo, Tokyo, Japan",
+  "Berlin, Berlin, Germany",
+  "Sydney, New South Wales, Australia",
+  "Rome, Lazio, Italy",
+  "Los Angeles, California, United States",
+  "Toronto, Ontario, Canada",
+  "Madrid, Madrid, Spain",
+  "Dubai, Dubai, United Arab Emirates",
+  "Shanghai, Shanghai, China",
+  "Moscow, Moscow, Russia",
+  "Mexico City, CDMX, Mexico",
+  "Buenos Aires, Buenos Aires, Argentina",
+  "São Paulo, São Paulo, Brazil",
+  "Cape Town, Western Cape, South Africa",
+  "Rio de Janeiro, Rio de Janeiro, Brazil",
+  "Singapore, Singapore, Singapore",
+  "Amsterdam, North Holland, Netherlands",
+  "Copenhagen, Capital Region, Denmark",
+  "Hong Kong, Hong Kong, China",
+  "Lagos, Lagos, Nigeria",
+  "Paris, Paris, France",
+  "Seoul, Seoul, South Korea",
+  "Bangkok, Bangkok, Thailand",
+  "Rome, Lazio, Italy",
+  "Madrid, Madrid, Spain",
+  "Los Angeles, California, United States",
+  "Singapore, Singapore, Singapore",
+  "Melbourne, Victoria, Australia",
+  "Toronto, Ontario, Canada",
+  "Berlin, Berlin, Germany",
+  "Moscow, Moscow, Russia",
+  "Stockholm, Stockholm County, Sweden",
+  "Vienna, Vienna, Austria",
+  "Hong Kong, Hong Kong, China",
+  "Dubai, Dubai, United Arab Emirates",
+  "Barcelona, Catalonia, Spain",
+  "Berlin, Berlin, Germany",
+  "New York, New York, United States",
+  "Oslo, Oslo, Norway",
+  "Vienna, Vienna, Austria",
+  "Brussels, Brussels-Capital Region, Belgium",
+  "Buenos Aires, Buenos Aires, Argentina",
+  "Santiago, Santiago, Chile",
+  "Rio de Janeiro, Rio de Janeiro, Brazil",
+  "San Francisco, California, United States",
+  "Singapore, Singapore, Singapore",
+  "Dublin, Leinster, Ireland",
+  "Rome, Lazio, Italy",
+  "London, England, United Kingdom",
+  "Bangkok, Bangkok, Thailand",
+  "Tokyo, Tokyo, Japan",
+  "Cape Town, Western Cape, South Africa",
+  "Zurich, Zurich, Switzerland",
+  "Lisbon, Lisbon, Portugal",
+  "Paris, Île-de-France, France",
+  "Helsinki, Uusimaa, Finland",
+  "Monaco, Monaco, Monaco",
+  "Lagos, Lagos, Nigeria",
+  "Toronto, Ontario, Canada",
+  "Brisbane, Queensland, Australia",
+  "Istanbul, Istanbul, Turkey",
+  "New York, New York, United States",
+  "Frankfurt, Hesse, Germany",
+  "Chicago, Illinois, United States",
+  "Los Angeles, California, United States",
+  "Munich, Bavaria, Germany",
+  "Athens, Attica, Greece",
+  "Stockholm, Stockholm County, Sweden",
+  "Shanghai, Shanghai, China",
+  "Sydney, New South Wales, Australia",
+  "Dubai, Dubai, United Arab Emirates",
+  "Seoul, Seoul, South Korea",
+  "Paris, Île-de-France, France",
+  "Vancouver, British Columbia, Canada",
+  "Zurich, Zurich, Switzerland",
+  "Rio de Janeiro, Rio de Janeiro, Brazil",
+  "Madrid, Madrid, Spain",
+  "Cape Town, Western Cape, South Africa",
+  "Melbourne, Victoria, Australia",
+  "London, England, United Kingdom",
+  "Berlin, Berlin, Germany",
+  "Tokyo, Tokyo, Japan",
+  "Moscow, Moscow, Russia",
+  "Buenos Aires, Buenos Aires, Argentina",
+  "São Paulo, São Paulo, Brazil",
+  "Mexico City, CDMX, Mexico",
+  "Rome, Lazio, Italy",
+  "Barcelona, Catalonia, Spain",
+  "New York, New York, United States",
+  "Lagos, Lagos, Nigeria",
+  "Shanghai, Shanghai, China",
+  "Buenos Aires, Buenos Aires, Argentina",
+  "Copenhagen, Capital Region, Denmark",
+  "Frankfurt, Hesse, Germany",
+  "Sydney, New South Wales, Australia",
+  "Helsinki, Uusimaa, Finland",
+  "Bangkok, Bangkok, Thailand",
+  "Paris, Île-de-France, France",
+  "Berlin, Berlin, Germany",
+  "Toronto, Ontario, Canada",
+  "Los Angeles, California, United States",
+  "Rome, Lazio, Italy",
+  "Dubai, Dubai, United Arab Emirates",
+  "Tokyo, Tokyo, Japan",
+  "Singapore, Singapore, Singapore",
+  "Lagos, Lagos, Nigeria",
+  "Chicago, Illinois, United States",
+  "San Francisco, California, United States",
+  "Barcelona, Catalonia, Spain",
+  "Rio de Janeiro, Rio de Janeiro, Brazil",
+  "Hong Kong, Hong Kong, China",
+  "Vienna, Vienna, Austria",
+  "Moscow, Moscow, Russia",
+  "Istanbul, Istanbul, Turkey",
+  "Los Angeles, California, United States",
+  "Berlin, Berlin, Germany",
+  "London, England, United Kingdom",
+  "New York, New York, United States",
+  "Cape Town, Western Cape, South Africa",
+  "Rio de Janeiro, Rio de Janeiro, Brazil",
+  "Paris, Île-de-France, France",
+  "Shanghai, Shanghai, China",
+  "Mexico City, CDMX, Mexico",
+  "Los Angeles, California, United States",
+  "Hong Kong, Hong Kong, China",
+  "Buenos Aires, Buenos Aires, Argentina",
+  "Berlin, Berlin, Germany",
+  "Lagos, Lagos, Nigeria",
+  "Singapore, Singapore, Singapore",
+  "Rome, Lazio, Italy",
+  "San Francisco, California, United States",
+  "Melbourne, Victoria, Australia",
+  "Sydney, New South Wales, Australia",
+  "London, England, United Kingdom",
+  "Tokyo, Tokyo, Japan",
+  "Seoul, Seoul, South Korea",
+  "Los Angeles, California, United States",
+  "Paris, Île-de-France, France",
+  "Berlin, Berlin, Germany",
+  "Rome, Lazio, Italy",
+  "Moscow, Moscow, Russia",
+  "Istanbul, Istanbul, Turkey",
+  "Hong Kong, Hong Kong, China",
+  "Singapore, Singapore, Singapore",
+  "Tokyo, Tokyo, Japan",
+  "Los Angeles, California, United States",
+  "Cape Town, Western Cape, South Africa",
+  "London, England, United Kingdom",
+  "Rio de Janeiro, Rio de Janeiro, Brazil",
+  "Berlin, Berlin, Germany",
+  "Paris, Île-de-France, France"
+]
+
+
+  1578412800000, 1607990400000, 1624627200000, 1652496000000, 1670668800000,
+  1704057600000, 1721932800000, 1744512000000, 1762828800000, 1782460800000,
+  1805491200000, 1835472000000, 1859356800000, 1882684800000, 1905820800000,
+  1621238400000, 1641392000000, 1690848000000, 1761292800000, 1837536000000,
+  1858454400000, 1642924800000, 1663977600000, 1707724800000, 1685337600000,
+  1724899200000, 1607049600000, 1597324800000, 1639574400000, 1680480000000,
+  1787011200000, 1817356800000, 1802649600000, 1776988800000, 1641283200000,
+  1638048000000, 1665820800000, 1723948800000, 1802822400000, 1633718400000,
+  1850294400000, 1592755200000, 1585200000000, 1827974400000, 1627161600000,
+  1653024000000, 1748380800000, 1615104000000, 1832928000000, 1852838400000,
+  1783296000000, 1675977600000, 1606598400000, 1605196800000, 1591353600000,
+  1691491200000, 1736409600000, 1773187200000, 1760563200000, 1617065600000,
+  1801612800000, 1855315200000, 1840195200000, 1643808000000, 1729065600000,
+  1617475200000, 1817072000000, 1581484800000, 1645632000000, 1863686400000,
+  1743561600000, 1684262400000, 1603910400000, 1698201600000, 1619068800000,
+  1794604800000, 1648790400000, 1867497600000, 1629907200000, 1741392000000,
+  1826928000000, 1646870400000, 1661164800000, 1862764800000, 1582262400000,
+  1770787200000, 1632268800000, 1824998400000, 1806124800000, 1704633600000,
+  1617392000000, 1743142400000, 1679251200000, 1599648000000, 1681008000000,
+  1648185600000, 1619510400000, 1677225600000, 1717660800000, 1620182400000,
+  1727052800000, 1628380800000, 1784246400000, 1860844800000, 1778380800000,
+  1621459200000, 1803945600000, 1855440000000, 1645459200000, 1719158400000,
+  1741478400000, 1759372800000, 1583625600000, 1655510400000, 1864243200000,
+  1746288000000, 1606070400000, 1623369600000, 1837488000000, 1797024000000,
+  1789632000000, 1626585600000, 1625635200000, 1787587200000, 1790678400000,
+  1642368000000, 1701187200000, 1776816000000, 1694073600000, 1864185600000,
+  1591075200000, 1612512000000, 1619520000000, 1605072000000, 1797427200000,
+  1656768000000, 1825123200000, 1804982400000, 1668652800000, 1603171200000,
+  1619788800000, 1747942400000, 1598313600000, 1837660800000, 1677225600000,
+  1609228800000, 1713321600000, 1731580800000, 1624588800000, 1623052800000
+
+building data to the database

@@ -34,12 +34,12 @@
 // }
 
 export function StayTable({stay}) {
-    const { name = 'Unknown Name',  imgUrls = '',   loc: { city = 'Unknown City', address = 'Unknown Address' } = {}, } = stay || {};
+    const { name = '',  imgUrls = ''} = stay || {}
 
   
 
-    console.log(address, 'addresss')
-    console.log(city, 'city')
+    // console.log(address, 'addresss')
+    // console.log(city, 'city')
 
     return (
         <div>
@@ -55,7 +55,7 @@ export function StayTable({stay}) {
                 </h4>
             </div> */}
             <div>
-                <span>{name}</span>
+                <span>{name || 'Private Island - Amazing View'}</span>
             </div>
         </div>
     )

@@ -1,4 +1,4 @@
-import { userService } from "../services/user.service.local"
+import { userService } from "../services/user.service"
 
 export const CHANGE_COUNT = 'CHANGE_COUNT'
 export const SET_USER = 'SET_USER'

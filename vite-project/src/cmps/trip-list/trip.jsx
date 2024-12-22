@@ -50,7 +50,7 @@
 //   )
 // }
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { updateOrder } from '../../store/order.action'
 import { utilService } from '../../services/util.service'
 import { convertCurrency } from "../../services/currency"
@@ -63,15 +63,21 @@ import { HostedSmallDetails } from '../details/HostedSmallDetails'
 
 
 export function Trip({ order,stay }) {
-  const currency = useSelector((state) => state.stayModule.currency)
+  const [currentOrder, setCurrentOrder] = useState(order);
+  const currency = useSelector((state) => state.stayModule.currency);
+
+  useEffect(() => {
+    // Re-fetch order if it changes externally (e.g., from a global store or context)
+    setCurrentOrder(order);
+  }, [order]);
 
   function cancelOrder() {
-    console.log('cancel order')
-    updateOrder({ ...order, status: 'canceled' })
+    console.log('cancel order');
+    // Update order status to 'canceled'
+    const updatedOrder = { ...currentOrder, status: 'canceled' };
+    setCurrentOrder(updatedOrder); // Update local state to trigger re-render
+    updateOrder(updatedOrder); // Update the global store
   }
-
-  console.log("Order Object:", order)
-
   //* Try to parse the dates without a specific format (moment can infer the format)
   const startDate = moment(order.startDate)
   const endDate = moment(order.endDate)
@@ -105,13 +111,20 @@ export function Trip({ order,stay }) {
 
   return (
     <>
-      <td>
-                  {/* <HostedSmallDetails host={stay.host} /> */}
-        
-      <StayTable stay={order.stay || 'Unknown Host'} />
+      <td>        
+      <StayTable stay={order.stay} />
       </td>
       <td>
-      <StayHosTable stay={order.stay}/>
+      <div>
+        <div className="flex">
+          <img
+            src={ 'https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/female/3.jpg'} 
+            alt="host-img"
+            style={{ width: '50px', height: '50px', borderRadius: '50%' }}
+          />
+          <h5>{'barba'}</h5>
+        </div>
+      </div>
         {/* <p>{order.stay.host || 'No description'}</p> */} 
       </td>
       <td>
@@ -129,7 +142,7 @@ export function Trip({ order,stay }) {
            {currencySymbol} {totalPrice > 0 ? convertedAmount.toFixed(2) : '0.00'}
           </div>      </td>
       <td>
-        <OrderStatus status={order.status} />
+        <OrderStatus status={currentOrder.status} />
       </td>
       <td>
         <div onClick={() => cancelOrder()}>Cancel</div>

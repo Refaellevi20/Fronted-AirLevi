@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { HiXMark } from "react-icons/hi2";
 import { ImgUseGrid } from "../cmps/ImgUseGrid"
-import { stayService } from "../services/stay.service.local"
+import { stayService } from "../services/stay.service"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { StayLoader } from "./StayLoader"
 import { useHistory } from "../CustomHook/StayHistory"

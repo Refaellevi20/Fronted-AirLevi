@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { utilService } from '../../services/util.service'
 import { updateOrder } from '../../store/order.action'
 import { GuestTable } from '../gust/GustTable'
@@ -15,12 +15,15 @@ export function Order({ order }) {
   const currency = useSelector((state) => state.stayModule.currency)
 
   function onUpdateOrderStatus(status) {
-    setOrderToEdit((prevOrder) => ({ ...prevOrder, status }))
-    updateOrder({ ...order, status })
+    const updatedOrder = { ...orderToEdit, status }
+    setOrderToEdit(updatedOrder)
+    updateOrder(updatedOrder) 
   }
 
-  console.log('orders', order);
-
+  useEffect(() => {
+    setOrderToEdit(order)
+  }, [order])
+  console.log('orders', order)
 
   //* Try to parse the dates without a specific format (moment can infer the format)
    const startDate = moment(order.startDate)
@@ -75,7 +78,7 @@ export function Order({ order }) {
       {currencySymbol} {totalPrice > 0 ? convertedAmount.toFixed(2) : '0.00'}
       </td>
       <td className="order-status">
-        <OrderStatus status={order.status} />
+        <OrderStatus status={orderToEdit.status} />
       </td>
       <td className='action-btns'>
         <ActionButtons orderToEdit={orderToEdit} onUpdateOrderStatus={onUpdateOrderStatus} />

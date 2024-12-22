@@ -12,7 +12,7 @@ import { BookPage } from './pages/BookPage'
 import { TripPage } from './pages/TripPage'
 import { OrderPage } from './pages/OrderPage'
 import { DashboardPage } from './pages/DashboardPage'
-// import { MessagesPage } from './pages/MessagesPage'
+import { MessagesPage } from './pages/MessagesPage'
 
 
 export function RootCmp() {
@@ -34,7 +34,7 @@ export function RootCmp() {
           <Route path="/payment" element={<stayPayment />} />
           <Route element={<DashboardPage />} path='/hosting/orders/dashboard' />
 
-          {/* <Route element={<MessagesPage />} path='/user/inbox' /> */}
+          <Route element={<MessagesPage />} path='user/Messages' />
 
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
 
