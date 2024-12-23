@@ -4,6 +4,7 @@ import { utilService } from '../../services/util.service'
 import EmojiModal from '../Emojis'
 import { socketService,SOCKET_EVENT_REMOVE_MSG, SOCKET_EMIT_SEND_MSG, SOCKET_EVENT_ADD_MSG, SOCKET_EMIT_SET_TOPIC, SOCKET_EMIT_USER_IS_TYPING, SOCKET_EVENT_USER_IS_TYPING, SOCKET_EMIT_REMOVE_MSG, } from '../../services/socket.service'
 import { EmojiSelector } from '../EmojiMsg'
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 export function ChatRoom({ order, loggedInUser }) {
     // console.log('order',order)
@@ -134,17 +135,16 @@ export function ChatRoom({ order, loggedInUser }) {
                 <img src={msg.by.imgUrl} alt={'avatar'} className="mini-user-img" />
             </div>
 
-            <div className="msg-name flex justify-between">
+            <div className="msg-name flex ">
                 {msg.by.fullname}
                 {loggedInUser?.fullname === msg.by.fullname && (
                     <button 
                         className="remove-msg-btn"
                         onClick={() => {
-                            console.log('Message being deleted:', msg); // Debug log
-                            handleRemoveMsg(msg._id);
+                            handleRemoveMsg(msg._id)
                         }}
                     >
-                        ×
+                       <RiDeleteBin6Line />
                     </button>
                 )}
             </div>
@@ -153,7 +153,6 @@ export function ChatRoom({ order, loggedInUser }) {
     </div>
 ))}
             {typingUser && <p>{typingUser} is typing...</p>}
-            <p>{new Date(msg.createdAt).toLocaleString()}</p>
 
 
         </section>

@@ -67,8 +67,8 @@ export function EmojiSelector({ onAddLine }) {
 
     //* Handle next page click
     function onNextPage(ev) {
-        ev.stopPropagation()
-        ev.preventDefault()
+        ev.stopPropagation() 
+        // ev.preventDefault() //! here next
         nextPage()
         setIsOpen(true)
          //* Keep the emoji selector open
@@ -76,7 +76,7 @@ export function EmojiSelector({ onAddLine }) {
 
     //* Handle previous page click
     function onPrevPage(ev) {
-        ev.preventDefault()
+        // ev.preventDefault() //! here
         ev.stopPropagation()
         prevPage()
         setIsOpen(true)
@@ -104,7 +104,7 @@ export function EmojiSelector({ onAddLine }) {
         <div className="emoji-select" onClick={onEmojiSelect}>
         <span className="emoji-btn" role="img" aria-label="emoji">😁</span>
         {isOpen && (
-            <div className="modal-overlay">
+            <div className="modal-overlay"  onClick={(ev) => ev.stopPropagation()}>
                 <div className="modal-content">
                     <div className="module-wrapper">
                         <div className="emojis-module grid">

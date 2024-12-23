@@ -1,13 +1,21 @@
+import { useSelector } from "react-redux"
 import { utilService } from "../../services/util.service"
 import { BtnSquare } from "../buttons ui/btn-square"
+import { convertCurrency } from "../../services/currency"
 
 export function ChatOrderDetails({ currOrder }) {
+    const currency = useSelector((state) => state.stayModule.currency)
+    const { convertedAmount = 0, currencySymbol = '$' } = convertCurrency(currOrder.totalPrice, currency)
 
     const checkInDate = utilService.formattedDate(currOrder.startDate)
     const checkOutDate = utilService.formattedDate(currOrder.startDate)
 
 
     const { stay, guests, } = currOrder
+
+ 
+       //* Currency conversion
+ 
 
     return (
         <>
@@ -52,7 +60,7 @@ export function ChatOrderDetails({ currOrder }) {
                         </div>
                         <div className="order-card-body__row price-row">
                             <p className="order-card__check">Total price:</p>
-                            <p className="order-card__checkInDate total-price">${currOrder.totalPrice.toLocaleString()}</p> //! here any kind of money
+                            <p className="order-card__checkInDate total-price"> {currencySymbol}{convertedAmount.toLocaleString()}</p> 
                         </div>
                     </div>
                 </div>

@@ -63,20 +63,18 @@ import { HostedSmallDetails } from '../details/HostedSmallDetails'
 
 
 export function Trip({ order,stay }) {
-  const [currentOrder, setCurrentOrder] = useState(order);
+  const [currentOrder, setCurrentOrder] = useState(order)
   const currency = useSelector((state) => state.stayModule.currency);
 
   useEffect(() => {
-    // Re-fetch order if it changes externally (e.g., from a global store or context)
-    setCurrentOrder(order);
-  }, [order]);
+    setCurrentOrder(order)
+  }, [order])
 
   function cancelOrder() {
-    console.log('cancel order');
-    // Update order status to 'canceled'
-    const updatedOrder = { ...currentOrder, status: 'canceled' };
-    setCurrentOrder(updatedOrder); // Update local state to trigger re-render
-    updateOrder(updatedOrder); // Update the global store
+    console.log('cancel order')
+    const updatedOrder = { ...currentOrder, status: 'canceled' }
+    setCurrentOrder(updatedOrder)
+    updateOrder(updatedOrder)
   }
   //* Try to parse the dates without a specific format (moment can infer the format)
   const startDate = moment(order.startDate)

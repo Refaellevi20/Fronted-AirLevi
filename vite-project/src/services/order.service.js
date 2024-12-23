@@ -8,7 +8,8 @@ export const orderService = {
     getById,
     getEmptyOrder,
     addOrderMsg,
-    removeOrderMsg
+    removeOrderMsg,
+    editOrderMsg
 }
 
 // window.us = orderService
@@ -42,6 +43,27 @@ async function addOrderMsg(orderId, msg) {
 // async function removeOrderMsg(orderId, msgId) {
 //     return await httpService.delete(`order/${orderId}/msg/${msgId}`)
 // }
+
+async function editOrderMsg(orderId, msgId, updatedTxt) {
+    try {
+        if (!orderId || !msgId || !updatedTxt) {
+            throw new Error('Missing required parameters for message edit')
+        }
+
+        const response = await httpService.put(`order/${orderId}/msg/${msgId}`, {
+            txt: updatedTxt
+        })
+        
+        if (!response) {
+            throw new Error('No response received from server')
+        }
+
+        return response
+    } catch (err) {
+        console.error('Failed to edit message:', err)
+        throw err
+    }
+}
 
 async function removeOrderMsg(req, res) {
     try {

@@ -86,3 +86,59 @@
     padding-top: 20px;
   }
 }
+
+.msg-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  button {
+    padding: 4px 12px;
+    border: 1px solid #ddd;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #484848;
+    font-size: 14px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #f7f7f7;
+      border-color: #c0c0c0;
+    }
+
+    &.save-btn {
+      background-color: #008489;
+      color: white;
+      border-color: #008489;
+
+      &:hover {
+        background-color: #006c70;
+      }
+    }
+
+    &.cancel-btn {
+      background-color: #fff;
+      color: #484848;
+      border-color: #ddd;
+
+      &:hover {
+        background-color: #f7f7f7;
+      }
+    }
+  }
+}
+
+.edit-msg-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #008489;
+  border-radius: 4px;
+  margin-top: 8px;
+  font-size: 14px;
+  
+  &:focus {
+    outline: none;
+    border-color: #006c70;
+  }
+}
