@@ -1,6 +1,10 @@
 import { utilService } from "../../services/util.service"
+import { OrderStatus } from "../OrderStatus"
 
 export function ChatOrderPreview({ order, onSetCurrOrder, currOrder, loggedInUser, }) {
+  
+  if (!order || !loggedInUser) return null
+
   const className =
     currOrder && currOrder._id === order._id
       ? 'chat-order-preview active'
@@ -41,15 +45,18 @@ export function ChatOrderPreview({ order, onSetCurrOrder, currOrder, loggedInUse
         <img src={contact.imgUrl} alt={'avatar'} className='mini-user-img' />
       </div>
       <div className='chat-order__details flex'>
-        <div className='chat-order__status flex '>
-        </div>
+       
 
         <div className='chat-order__name'>{contact.fullname}</div>
         <div className='chat-order__msg'>{orderMsg}</div>
 
         <div className='chat-mini__details'>
-          <span className={`chat-show__status`}>{order.status}</span>
-          {' \u2022 '}
+        <div className='chat-order__status flex '>
+        <OrderStatus status={order.status} />
+          {hours && minutes && (
+            <span className="chat-order__time">{`${hours}:${minutes}`}</span>
+          )}
+        </div>         
           <span className='chat-mini__booking'>
             {checkInDate}-{checkOutDate}
           </span>

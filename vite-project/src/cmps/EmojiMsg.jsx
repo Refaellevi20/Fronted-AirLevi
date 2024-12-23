@@ -104,7 +104,7 @@ export function EmojiSelector({ onAddLine }) {
         <div className="emoji-select" onClick={onEmojiSelect}>
         <span className="emoji-btn" role="img" aria-label="emoji">😁</span>
         {isOpen && (
-            <div className="modal-overlay"  onClick={(ev) => ev.stopPropagation()}>
+            <div className="modal-overlay" >
                 <div className="modal-content">
                     <div className="module-wrapper">
                         <div className="emojis-module grid">

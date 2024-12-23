@@ -10,12 +10,7 @@ export function ChatOrderDetails({ currOrder }) {
     const checkInDate = utilService.formattedDate(currOrder.startDate)
     const checkOutDate = utilService.formattedDate(currOrder.startDate)
 
-
     const { stay, guests, } = currOrder
-
- 
-       //* Currency conversion
- 
 
     return (
         <>

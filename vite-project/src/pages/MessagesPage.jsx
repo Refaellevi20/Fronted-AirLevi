@@ -6,24 +6,40 @@ import { ChatRoom } from '../cmps/chat/ChatRoom'
 import { AppLogo } from '../cmps/app-logo'
 import { NavMenu } from './nav-menu'
 import { loadOrders } from '../store/order.action'
+import { OrderSortMsg } from '../cmps/chat/OrderSortMsg'
 
 export function MessagesPage() {
   const orders = useSelector((storeState) => storeState.orderModule.orders)
-  const isLoading = useSelector(
-    (storeState) => storeState.systemModule.isLoading
-  )
+  const isLoading = useSelector( (storeState) => storeState.systemModule.isLoading )
   const loggedInUser = useSelector((storeState) => storeState.userModule.user)
   const [currOrder, setCurrOrder] = useState(null)
-  const notifications = useSelector(
-    (storeState) => storeState.userModule.notifications
-  )
+  const notifications = useSelector((storeState) => storeState.userModule.notifications )
   const dispatch = useDispatch()
   console.log(notifications)
+  // const [filteredOrders, setFilteredOrders] = useState(orders)
 
   useEffect(() => {
     loadOrders()
+    // setFilteredOrders(orders)
     dispatch({ type: 'REMOVE_NOTIFICATIONS', notificationType: 'msg' })
   }, [])
+
+//   useEffect(() => {
+//     if (orders && orders.length > 0) {
+//       setFilteredOrders(orders)
+//     }
+//   }, [orders])
+
+// const handleSort = (status) => {
+//   if (status === 'all') {
+//       setFilteredOrders(orders)
+//   } else {
+//       const filtered = orders.filter(order => {
+//           return order.status.toLowerCase() === status.toLowerCase()
+//       })
+//       setFilteredOrders(filtered)
+//   }
+// }
 
   function onSetCurrOrder(orderId) {
     const orderToSet = orders.find((order) => order._id === orderId)
@@ -51,6 +67,7 @@ export function MessagesPage() {
           <div className='inbox-column orders-list'>
             <div className='inbox-header all-orders'>
               <h2>Orders messages</h2>
+              {/* <OrderSortMsg onSort={handleSort} /> */}
             </div>
             {isLoading && (
               <div className='inbox-list'>

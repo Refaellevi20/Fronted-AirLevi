@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadOrders } from '../store/order.action'
 import { REMOVE_NOTIFICATION } from '../store/user.reducer'
@@ -8,14 +8,18 @@ import { OrderList } from '../cmps/host/OrderList'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 export function OrderPage() {
-  // const user = useSelector((storeState) => storeState.userModule.user)
+  const initialOrders = useSelector((storeState) =>   storeState.orderModule.orders.sort((a, b) => b.startDate - a.startDate))
+  const [orders, setOrders] = useState(initialOrders)
   const loggedinUser = useSelector((storeState) => storeState.userModule.user)
-  const orders = useSelector((storeState) => storeState.orderModule.orders).sort((a, b) => b.startDate - a.startDate)
   const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
  
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  const handleOrdersReorder = (reorderedOrders) => {
+      setOrders(reorderedOrders)
+
+  }
   useEffect(() => {
     loadOrders({ userId: loggedinUser._id })
     dispatch({ type: REMOVE_NOTIFICATION, notificationType: 'order' })
@@ -40,7 +44,7 @@ export function OrderPage() {
         <h2>Welcome back, {loggedinUser.fullname}</h2>
       </div>
       <h3>Orders</h3>
-      <OrderList orders={orders} isLoading={isLoading} />
+      <OrderList   onOrdersReorder={handleOrdersReorder} orders={orders} isLoading={isLoading} />
       </div>
     )}
     </div>
