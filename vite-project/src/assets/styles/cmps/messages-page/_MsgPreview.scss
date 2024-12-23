@@ -1,4 +1,3 @@
-
 .msg-full {
   &.outgoing-msg {
     display: grid;
@@ -45,9 +44,34 @@
   }
 
   .msg-name {
-    grid-area: name;
-    font-family: cereal-medium;
-    font-size: 1rem;
+    position: relative;
+
+    .remove-msg-btn {
+      opacity: 0;
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #666;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: #ff4444;
+      }
+    }
+  }
+//!!
+  &:hover {
+    .remove-msg-btn {
+      opacity: 1;
+    }
   }
 
   .msg-txt {

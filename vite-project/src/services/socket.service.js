@@ -7,7 +7,16 @@ export const SOCKET_EMIT_SET_TOPIC = 'chat-set-topic'
 export const SOCKET_EMIT_USER_IS_TYPING = 'set-user-is-typing'
 export const SOCKET_EVENT_USER_IS_TYPING = 'user-is-typing'
 
+export const SOCKET_EMIT_REMOVE_MSG = 'chat-remove-msg'
+export const SOCKET_EMIT_NEW_MSG = 'chat-new-msg'
+export const SOCKET_EVENT_REMOVE_MSG = 'chat-msg-removed'
+// export const SOCKET_EMIT_NEW_MSG = 'chat-new-msg'
 
+// export const SOCKET_EVENT_ORDER_ADDED = 'order-added'
+// export const SOCKET_EVENT_ORDER_FROM_YOU = 'order-from-you'
+// export const SOCKET_EVENT_TYPING = 'chat-add-typing';
+// export const SOCKET_EVENT_STOP_TYPING = 'chat-remove-typing';
+// export const SOCKET_EMIT_ORDER_WATCH = 'order-watch'
 
 export const SOCKET_EMIT_USER_WATCH = 'user-watch'
 export const SOCKET_EVENT_USER_UPDATED = 'user-updated'

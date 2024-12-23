@@ -39,9 +39,31 @@ async function addOrderMsg(orderId, msg) {
     return await httpService.post(`order/${orderId}/msg`, msg)
 }
 
-async function removeOrderMsg(orderId, msgId) {
-    return await httpService.delete(`order/${orderId}/msg/${msgId}`)
+// async function removeOrderMsg(orderId, msgId) {
+//     return await httpService.delete(`order/${orderId}/msg/${msgId}`)
+// }
+
+async function removeOrderMsg(req, res) {
+    try {
+        const { orderId, msgId } = req.params
+        const updatedOrder = await orderService.removeOrderMsg(orderId, msgId)
+        res.json(updatedOrder)
+    } catch (err) {
+        res.status(500).send({ err: 'Failed to remove message' })
+    }
 }
+
+// async function removeOrderMsg(orderId, msgId) {
+//     try {
+//         // Make sure this endpoint matches your backend route
+//         const updatedOrder = await httpService.delete(`order/${orderId}/msg/${msgId}`)
+//         return updatedOrder
+//     } catch (err) {
+//         console.error('Failed to remove message from server:', err)
+//         throw err
+//     }
+// }//!! in database
+
 
 function getEmptyOrder(
     startDate = null,

@@ -19,7 +19,7 @@ export const utilService = {
   formatCurrency2
 }
 
-function makeId(length = 6) {
+function makeId(length = 8) {
   var txt = ''
   var possible =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'

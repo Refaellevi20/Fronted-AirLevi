@@ -9,9 +9,9 @@ export function getActionRemoveOrder(orderId) {
   return { type: REMOVE_ORDER, orderId }
 }
 
- async (params) => {getActionAddOrder(params)
-  params.LOADING_DONE
- }
+//  async (params) => {getActionAddOrder(params)
+//   params.LOADING_DONE
+//  }
 
 export function getActionAddOrder(order) {
   return { type: ADD_ORDER, order }
