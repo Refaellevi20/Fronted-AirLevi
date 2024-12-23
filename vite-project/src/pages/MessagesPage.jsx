@@ -46,10 +46,8 @@ export function MessagesPage() {
       </header>
       </div>
 
-      {/* MAIN 3 Columns {orderList - messages - orderDetails} */}
       <div className='msg-main-container'>
         <div className='inbox-container'>
-          {/* Column 1 - Orders List/Select */}
           <div className='inbox-column orders-list'>
             <div className='inbox-header all-orders'>
               <h2>Orders messages</h2>
@@ -73,7 +71,6 @@ export function MessagesPage() {
             )}
           </div>
 
-          {/* Column 2 - Messages */}
           <div className='inbox-column messages'>
             <div className='chat-backdrop'>
               {isLoading && (
@@ -89,7 +86,6 @@ export function MessagesPage() {
             </div>
           </div>
 
-          {/* Column 3 - Order Details */}
           <div className='inbox-column order-details'>
             <div className='inbox-header'>
               <h2>Order details</h2>
