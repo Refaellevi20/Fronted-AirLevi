@@ -36,7 +36,6 @@ export function RootCmp() {
 
           <Route element={<MessagesPage />} path='user/Messages' />
 
-          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
 
         </Routes>
       </main>

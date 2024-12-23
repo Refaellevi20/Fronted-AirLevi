@@ -1,0 +1,127 @@
+.inbox-list-container {
+  flex: 1;
+  display: flex;
+  overflow: auto;
+
+  .chat-order-list {
+    min-height: -webkit-min-content;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    background-color: #f5f5f5; 
+    padding: 10px 0;
+  }
+}
+
+.chat-order-preview {
+  display: grid;
+  padding: 0.75rem 1rem;
+  grid-template-columns: 70px auto;
+  grid-template-rows: 30px auto;
+  grid-template-areas:
+    'chat-order-avatar chat-order-name'
+    'chat-order-avatar chat-order-name';
+  column-gap: 15px;
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #eef4fa;
+    transform: translateY(-3px);
+  }
+
+  &.active {
+    background-color: #dde9f7;
+    border-left: 4px solid #007bff;
+  }
+
+  .chat-order__avatar {
+    grid-area: chat-order-avatar;
+    align-self: center;
+
+    img {
+      border-radius: 50%; 
+      height: 100%;
+      width: 100%;
+      object-fit: cover; 
+      border: 2px solid #ddd; 
+    }
+  }
+
+  .chat-order__details {
+    grid-area: chat-order-name;
+    display: flex;
+    flex-direction: column;
+
+    .chat-order__status {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: #555;
+      text-transform: capitalize;
+      margin-bottom: 6px;
+
+      .chat-order__time {
+        font-size: 0.75rem;
+        color: #999;
+      }
+    }
+
+    .chat-order__name {
+      font-family: "Cereal Bold", sans-serif;
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .chat-order__msg {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #666;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      font-size: 0.9rem;
+      line-height: 1.4; 
+    }
+
+    .chat-show__status {
+      &.completed {
+        color: #28a745;
+        font-weight: bold;
+      }
+
+      &.pending {
+        color: #ffc107; 
+        font-weight: bold;
+      }
+
+      &.cancelled {
+        color: #dc3545; 
+        font-weight: bold;
+      }
+
+      &.rejected {
+        text-decoration: line-through;
+        color: #6c757d;
+      }
+    }
+
+    .chat-mini-details {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 6px;
+
+      .chat-mini-type {
+        font-size: 0.75rem;
+        font-style: italic;
+      }
+    }
+  }
+}

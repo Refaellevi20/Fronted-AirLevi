@@ -1,0 +1,88 @@
+
+.order-chat__details {
+  .order-summary__card {
+    background-color: white;
+    overflow: hidden;
+    transform: translateZ(20px);
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    padding: 0px 20px;
+    padding-right:24px;
+  
+  }
+  
+  .order-card__header {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .order-card-header__img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 24px;
+  }
+  
+  .order-card-header__text {
+    margin: 0px 1rem;
+    font-size: 20px;
+    margin: 0.5em 0px;
+    position: relative;
+    z-index: 1;
+    line-height: 23px;
+    font-family:cereal-book;
+    color: $clr-text-primary;
+  
+    .order-card-header__subtitle {
+        font-family: "cereal-regular";
+        font-size: 15px;
+        color: $clr-text-lighter;
+    }
+  }
+  
+  .order-card-body__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0px;
+    &.price-row{
+        justify-content: flex-end;
+        gap: 1rem;
+    }
+  }
+  
+  .order-card-body__col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  .order-card__check {
+    font-family:cereal-medium;
+    color: #333;
+  }
+  
+  .order-card__checkInDate {
+    font-weight: lighter;
+    &.total-price {
+        font-family: "cereal-Bold";
+        font-size: 1rem;
+    }
+  }
+  
+  .order-summary__actions{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+  }
+}
