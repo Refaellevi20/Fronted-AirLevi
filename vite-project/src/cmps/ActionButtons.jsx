@@ -24,7 +24,7 @@ export function ActionButtons({ orderToEdit, onUpdateOrderStatus }) {
             className={`pointer accept ${orderToEdit.status === "pending" ? "" : "disable"
               }`}
             style={{
-              cursor: orderToEdit.status === "pending" && !isCompleteClicked ? "" : "not-allowed", // Disable if Complete is clicked
+              cursor: orderToEdit.status === "pending" && !isCompleteClicked ? "" : "not-allowed",
             }}
             onClick={handleApprove}
             title="Approve order"
