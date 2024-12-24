@@ -11,4 +11,6 @@ export function Loader() {
             </div>
         </div>
     )
-}
+} 
+//! add  a max of word on messages + style 
+//! money on orders random
