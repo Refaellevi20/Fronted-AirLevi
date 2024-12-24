@@ -3,6 +3,7 @@ import { LongTxtReviews } from '../LongTxtReviews'
 import Modal from '../Modal'
 import moment from 'moment'
 import { StarRating } from '../StarRating'
+import { Loader } from '../Loader'
 
 export function ReviewPreview({ reviewsToDisplay, MAX_LENGTH = 100 }) {
   const [modalIsOpen, setModalIsOpen] = useState(false)
@@ -20,7 +21,7 @@ export function ReviewPreview({ reviewsToDisplay, MAX_LENGTH = 100 }) {
     // setFocusedReview(null)
   }
 
-  if (!reviewsToDisplay || !Array.isArray(reviewsToDisplay)) return <div>Loading...</div>
+  if (!reviewsToDisplay || !Array.isArray(reviewsToDisplay)) return <div><Loader /></div>
 
   return (
     <>

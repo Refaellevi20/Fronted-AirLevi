@@ -13,6 +13,7 @@ import { AppLogo } from '../cmps/app-logo.jsx'
 import { BtnSquareColorRed } from '../cmps/buttons ui/btn-square-color.jsx'
 import { RatingReview3 } from '../cmps/RatingReview3.jsx'
 import { LoginSignup } from '../cmps/LoginSignup.jsx'
+import { Loader } from '../cmps/Loader.jsx'
 
 export function BookPage() {
   const navigate = useNavigate()
@@ -135,7 +136,7 @@ export function BookPage() {
     navigate(-1)
   }
 
-  if (!info) return <div>Loading...</div>
+  if (!info) return <div><Loader /></div>
   return (
     <>
       <header className='app-header main-layout booking-header'>

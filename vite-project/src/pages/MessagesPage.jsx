@@ -7,6 +7,7 @@ import { AppLogo } from '../cmps/app-logo'
 import { NavMenu } from './nav-menu'
 import { loadOrders } from '../store/order.action'
 import { OrderSortMsg } from '../cmps/chat/OrderSortMsg'
+import { Loader } from '../cmps/Loader'
 
 export function MessagesPage() {
   const orders = useSelector((storeState) => storeState.orderModule.orders)
@@ -49,7 +50,6 @@ export function MessagesPage() {
 
   return (
     <section className='messages-page'>
-      {/* HEADER */}
       <div className='header-container'>
       <header className='app-header header-container flex'>
         <div className='header-logo-container'>
@@ -109,7 +109,7 @@ export function MessagesPage() {
             </div>
             {currOrder && (
               <div className='currorder-details'>
-                {isLoading && <div>Loading...</div>}
+                {isLoading && <div><Loader />.</div>}
                 {!isLoading && (
                   <>
                     <ChatOrderDetails currOrder={currOrder} />

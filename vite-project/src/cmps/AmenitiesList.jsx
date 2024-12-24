@@ -1,9 +1,10 @@
+import { Loader } from "./Loader"
 import { StayAmenity } from "./StayAmenity"
 
 
 export function AmenitiesList({amenitiesToDisplay}) {
 
-    if(!amenitiesToDisplay || !Array.isArray(amenitiesToDisplay))return <div>Loading...</div>
+    if(!amenitiesToDisplay || !Array.isArray(amenitiesToDisplay))return <div><Loader /></div>
     return (
         <ul className="amenities-container flex">
             {amenitiesToDisplay.map((amenity, index) => (
