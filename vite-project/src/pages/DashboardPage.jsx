@@ -37,6 +37,7 @@ export function DashboardPage() {
       <div className='dashboard'>
         <Dashboard payments={payments} paymentTrends={paymentTrends} />
       </div>
+      {/* <Chatbot /> */}
     </div>
   )
 }

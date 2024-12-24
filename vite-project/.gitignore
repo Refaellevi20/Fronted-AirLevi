@@ -23,4 +23,7 @@ dist-ssr
 
 frontend/node_modules
 # Ignore API key in the code
-.env
+.env.local
+.env.*.local
+# DON'T ignore .env in development
+!.env

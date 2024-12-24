@@ -27,6 +27,7 @@ import { StayMap } from "../cmps/StayMap";
 import { AppHeader } from "../cmps/AppHeader";
 import { CalcAvgReview } from "../cmps/calcAvgReview";
 import { ModalSize } from "../CustomHook/useModalSize";
+import { ChatBot } from './ChatBot';
 
 const randomTextOptions = [
   "Lexington, Kentucky is the second-largest city in Kentucky next to Louisville, and is located in the heart of the Bluegrass region. Lexington is known as the 'Horse Capital of the World,' since it is home to the Kentucky Horse Park, Keeneland race course and the Red Mile race course.",
@@ -301,6 +302,9 @@ export function StayDetails({ reviews }) {
       </div>
       <div className='details-app-footer'>
         {stay && <StayMobileFooter stay={stay} setOpenTab={setOpenTab} />}
+      </div>
+      <div className="">
+      <ChatBot />
       </div>
     </section>
   )
