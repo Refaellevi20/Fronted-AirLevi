@@ -1,0 +1,32 @@
+
+.trip-list-container {
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      
+      tr {
+        transition: background-color 0.2s ease;
+        
+        &:hover {
+          background-color: #f8f8f8;
+        }
+      }
+  
+      td {
+        padding: 16px;
+        border-bottom: 1px solid #eee;
+      }
+  
+      th {
+        padding: 16px;
+        text-align: left;
+        border-bottom: 2px solid #eee;
+      }
+    }
+  }
+  
+  .dragging {
+    cursor: grabbing !important;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  }
