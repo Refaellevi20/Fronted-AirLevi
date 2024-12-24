@@ -69,7 +69,6 @@ export default function GamesPage() {
                 snakeBody.push([foodX, foodY])
                 placeFood()
 
-                // Update scores using ref
                 scoreRef.current.current += 10
                 if (scoreRef.current.current > scoreRef.current.best) {
                     scoreRef.current.best = scoreRef.current.current
@@ -77,7 +76,6 @@ export default function GamesPage() {
                     showNewRecordMessage()
                 }
 
-                // Update state for display only
                 setCurrentScore(scoreRef.current.current)
                 setBestScore(scoreRef.current.best)
             }

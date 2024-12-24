@@ -26,13 +26,14 @@
         color: #fff;
         text-shadow: 0 0 10px rgba(255,255,255,0.3);
         z-index: 2;
+        text-align: center;
 
         .current-score, .best-score {
             padding: 0.5rem 1rem;
             background: rgba(0, 0, 0, 0.3);
             border-radius: 8px;
             min-width: 120px;
-            text-align: center;
+            text-align: center !important;
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             animation: scoreFloat 3s ease-in-out infinite;
@@ -129,13 +130,13 @@
 .new-record-popup {
     position: fixed;
     top: 30px;
-    left: 50%;
+    left: 40%;
     transform: translateX(-50%);
     background: linear-gradient(135deg, #ffd700, #ff9500);
     padding: 15px 25px;
     border-radius: 50px;
     display: flex;
-    align-items: center;
+    align-items: center ;
     gap: 12px;
     box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
     animation: slideDown 0.5s ease-out, float 2s ease-in-out infinite;
