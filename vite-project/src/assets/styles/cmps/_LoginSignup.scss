@@ -1,45 +1,222 @@
-.login-page {
-    .login-signup-header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 64px;
-        border-bottom: 1px solid $clr-border;
-        margin-bottom: 20px;
-
-        h1 {
-            font-family: cereal-bold;
-            font-size: rem(24px);
-            line-height: rem(20px);
-        }
-    }
-
-        input {
-            position: relative;
-            cursor: text;
+// .login-page {
+    .login__plus--signup {
+        padding: 2rem;
+        max-width: 400px;
+        margin: auto;
+        
+        .login-signup-header {
             display: flex;
-            min-height: 56px;
-            width: 100%;
-            margin: 0px;
-            padding: 0px 16px;
-            border: none;
-            color: $clr-text-primary;
-            background-color: $clr-white;
-            border-radius: 8px;
-            box-shadow: $clr-border 0px 0px 0px 1px inset;
-            font-family: cereal-book;
-            font-size: rem(16px);
-            line-height: 20px;
-            margin-bottom: 10px;
+            justify-content: center;
+            align-items: center;
+            min-height: 64px;
+            margin-bottom: 2rem;
+            position: relative;
+
+            h1 {
+                font-size: 1.8rem;
+                font-weight: bold;
+                color: #2c3e50;
+                position: relative;
+                
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 50px;
+                    height: 3px;
+                    background: linear-gradient(90deg, #ff385c, #ff385c);
+                    border-radius: 2px;
+                }
+            }
         }
 
-    .sign-up-btn-container{
-        text-align: center;
-    }
+        .login-form, .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
 
-    .demo-login-btns {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
+            input {
+                position: relative;
+                min-height: 56px;
+                width: 100%;
+                padding: 0 1rem;
+                border: 2px solid #e0e0e0;
+                border-radius: 12px;
+                background-color: #fff;
+                color: #2c3e50;
+                font-size: 1rem;
+                transition: all 0.3s ease;
+
+                &:invalid:not(:placeholder-shown) {
+                    border-color: #ff385c;
+                    background-color: rgba(255, 56, 92, 0.05);
+                }
+
+                &:valid {
+                    border-color: #4CAF50; 
+                    background-color: rgba(76, 175, 80, 0.05);
+                }
+
+                &:focus {
+                    border-color: #b4b4b4; 
+                    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+                    outline: none;
+                }
+
+                &::placeholder {
+                    color: #9ca3af;
+                }
+            }
+        }
+
+        .sing-up {
+            background: linear-gradient(45deg, #2196F3, #1976D2);  // Blue gradient
+            // Or alternatively:
+            // background: linear-gradient(45deg, #4CAF50, #388E3C);  // Green gradient
+            // background: linear-gradient(45deg, #9C27B0, #7B1FA2);  // Purple gradient
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);  // Matching shadow color
+            }
+            
+            &:active {
+                transform: translateY(0);
+                box-shadow: 0 2px 6px rgba(33, 150, 243, 0.2);
+            }
+        
+            &:disabled {
+                background: #cccccc;
+                cursor: not-allowed;
+                transform: none;
+                box-shadow: none;
+            }
+        }
+
+        .demo-login-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+
+            button {
+                width: 100%;
+                padding: 1rem;
+                border-radius: 12px;
+                font-weight: 600;
+                transition: transform 0.2s ease;
+
+                &:hover {
+                    transform: translateY(-2px);
+                }
+            }
+        }
+
+        .sign-up-btn-container {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+
+            .btn-link {
+                color: #ff385c;
+                font-weight: 600;
+                cursor: pointer;
+                padding: 0.5rem 1rem;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background-color: rgba(255, 56, 92, 0.1);
+                }
+            }
+        }
+
+        // Image uploader styles
+        .img-uploader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            border: 2px dashed #e0e0e0;
+            border-radius: 12px;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+
+            &:hover {
+                border-color: #ff385c;
+                background-color: rgba(255, 56, 92, 0.05);
+            }
+        }
+
+        // Animation for form switching
+        .signup-form, .login-form {
+            animation: slideUp 0.4s ease-out;
+        }
     }
+// }
+
+// Keyframes
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Media queries for responsiveness
+@media (max-width: 480px) {
+    .login-page .login__plus--signup {
+        padding: 1rem;
+        
+        .demo-login-btns {
+            flex-direction: column;
+        }
+    }
+}
+
+// Custom button styles
+.btn-square-color-red {
+    background: linear-gradient(45deg, #ff385c, #ff1f1f);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 56, 92, 0.3);
+    }
+}
+
+.btn-login-color-gold {
+    background: linear-gradient(45deg, #ffd700, #ffa500);
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.btn-login-color-host {
+    background: linear-gradient(45deg, #4a90e2, #357abd);
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }

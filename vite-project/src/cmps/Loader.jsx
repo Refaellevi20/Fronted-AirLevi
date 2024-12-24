@@ -12,5 +12,3 @@ export function Loader() {
         </div>
     )
 } 
-//! add  a max of word on messages + style 
-//^ games

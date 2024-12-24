@@ -22,7 +22,7 @@ export function StayMobileFooter({ stay, setOpenTab }) {
       pets: +searchParams.get('pets') || 0,
     },
   }
-  //! maybe moment later
+
   const CheckIndate = utilService.ShortFormattedDate(orderParams.checkIn)
   const CheckOutdate = utilService.ShortFormattedDate(orderParams.checkOut)
 

@@ -20,12 +20,12 @@ function Modal({ closeModal, reviews, stay }) {
     const [filteredReviews, setFilteredReviews] = useState(reviews)
   
 
-    const handleModalClick = (ev) => {
+    function handleModalClick(ev){
         if (ev.target === ev.currentTarget) {
             closeModal()
         }
     }
-    // 1125
+
     useEffect(() => {
         document.body.style.overflow = 'hidden'
 

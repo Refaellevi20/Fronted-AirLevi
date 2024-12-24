@@ -40,7 +40,6 @@ export function BookPage() {
     }
   }
 
-  //! moment later
   function loadOrder(stayToSet) {
     const SERVICE_FEE = 11.2
     const startDate = +params.get('checkIn') || Date.now()

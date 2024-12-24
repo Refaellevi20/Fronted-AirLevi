@@ -1,0 +1,124 @@
+.upload-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    border: 2px dashed #e0e0e0;
+    border-radius: 12px;
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+    position: relative;
+    margin: 1rem 0;
+
+    &:hover {
+        border-color: #ff385c;
+        background-color: rgba(255, 56, 92, 0.05);
+    }
+
+    img {
+        max-width: 200px;
+        max-height: 200px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        object-fit: cover;
+        animation: fadeIn 0.3s ease-out;
+    }
+
+    label {
+        cursor: pointer;
+        padding: 0.8rem 1.5rem;
+        background: linear-gradient(45deg, #ff385c, #ff1f1f);
+        color: white;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        text-align: center;
+        min-width: 150px;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 56, 92, 0.3);
+        }
+
+        &.uploading {
+            background: #666;
+            cursor: wait;
+            position: relative;
+            overflow: hidden;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 200%;
+                height: 100%;
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.2),
+                    transparent
+                );
+                animation: loading 1.5s infinite;
+            }
+        }
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+
+    .upload-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        color: #666;
+        font-size: 0.9rem;
+        text-align: center;
+
+        svg {
+            font-size: 2rem;
+            color: #ff385c;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes loading {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(50%);
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .upload-preview {
+        padding: 1rem;
+        
+        img {
+            max-width: 150px;
+            max-height: 150px;
+        }
+
+        label {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.8rem;
+        }
+    }
+}

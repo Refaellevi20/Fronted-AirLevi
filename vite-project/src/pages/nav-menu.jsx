@@ -7,6 +7,7 @@ import { logout } from '../store/user.actions'
 import { LoginSignup } from '../cmps/LoginSignup' 
 import { useModal } from '../customHook/useModal.jsx'
 import { MenuHeader } from '../cmps/menuHeader.jsx'
+import { useLoginModal } from '../CustomHook/useLoginModal.jsx'
 
 export function NavMenu() {
   const user = useSelector((storeState) => storeState.userModule.user)
@@ -15,6 +16,7 @@ export function NavMenu() {
   const [navbarOpen, setNavbarOpen] = useState(false)
   const { closeModal, openModal, Modal } = useModal()
   const elNav = useRef()
+  const { LoginModal, openLoginModal, closeLoginModal } = useLoginModal()
 
   async function onLogout() {
     try {
@@ -51,7 +53,9 @@ export function NavMenu() {
 
   return (
     <>
-      <Modal />
+     {/* <useLoginModal /> */}
+     <LoginModal />
+      {/* <Modal /> */}
       <nav className='nav-menu' onClick={handleToggle} ref={elNav}>
         {notifications.length > 0 && (
           <div className='notificaiton-badge'>{notifications.length}</div>
@@ -67,16 +71,14 @@ export function NavMenu() {
             )}
           </div>
         </div>
-        {navbarOpen &&
-          (!user ? (
-            <div className='menu-links'>
-              <Link
-                onClick={() =>
-                  openModal(<LoginSignup closeModal={closeModal} />)
-                }>
-                Log in
-              </Link>
-            </div>
+        {navbarOpen &&   (!user ? (
+             <div className='menu-links'>
+             <Link onClick={() => 
+                 openLoginModal(<LoginSignup closeModal={closeLoginModal} />)
+             }>
+                 Log in
+             </Link>
+         </div>
           ) : (
             <div className='menu-links'>
               <Link to='/trip'>Trips</Link>

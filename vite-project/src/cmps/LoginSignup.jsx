@@ -70,7 +70,7 @@ export function LoginSignup({ closeModal }) {
   }
 
   return (
-    <div className='login-page'>
+    <div className='login-page login__plus--signup'>
       <header className='login-signup-header'>
         {/* <h1>Login in or sign up</h1> */}
       </header>
@@ -83,6 +83,7 @@ export function LoginSignup({ closeModal }) {
             placeholder="Username"
             onChange={handleChange}
             required
+            minLength="3"
             autoFocus
           />
           <input
@@ -92,6 +93,7 @@ export function LoginSignup({ closeModal }) {
             placeholder="Password"
             onChange={handleChange}
             required
+            minLength="3"
           />
           <BtnSquareColorRed>
             Login
@@ -116,31 +118,35 @@ export function LoginSignup({ closeModal }) {
         {isSignup && (
           <form className='signup-form' onSubmit={onSignup}>
             <input
-              type='text'
-              name='fullname'
+              type="text"
+              name="fullname"
               value={credentials.fullname}
-              placeholder='Fullname'
+              placeholder="Fullname"
               onChange={handleChange}
               required
+              minLength="3"
             />
             <input
-              type='text'
-              name='username'
+              type="text"
+              name="username"
               value={credentials.username}
-              placeholder='Username'
+              placeholder="Username"
               onChange={handleChange}
               required
+              minLength="3"
+              autoFocus
             />
             <input
-              type='password'
-              name='password'
+              type="password"
+              name="password"
               value={credentials.password}
-              placeholder='Password'
+              placeholder="Password"
               onChange={handleChange}
               required
+              minLength="3"
             />
             <ImgUploader onUploaded={onUploaded} />
-            <button>Signup!</button>
+            <button className='sing-up'>Signup!</button>
           </form>
         )}
       </div>
