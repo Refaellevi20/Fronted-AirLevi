@@ -34,6 +34,21 @@ export function NavMenu() {
     setNavbarOpen((prev) => !prev)
   }
 
+  const GamesLink = () => {
+    const loggedInUser = useSelector((state) => state.userModule.user)
+    const orders = useSelector((state) => state.orderModule.orders)
+    
+    const hasValidOrder = orders?.some(order => 
+        order.buyerId === loggedInUser?._id && 
+        order.status === 'completed' && 
+        order.isPaid
+    )
+
+    if (!loggedInUser || !hasValidOrder) return null
+
+  }
+
+
   return (
     <>
       <Modal />
@@ -68,7 +83,8 @@ export function NavMenu() {
               <Link to='/wishlist'>Wishlist</Link>
               <Link to='/user/Messages'>Messages</Link>
               <Link to='/history'>history</Link>
-              {user.isOwner && <Link to='/hosting/orders'>View Orders</Link>}
+              <Link to='/gust/trip/games'>Time To Think</Link>
+              {user.isOwner && <Link to='/hosting/orders'>View orders</Link>}
               {user.isOwner && <Link to='/hosting/orders/dashboard'>Dashboard</Link>}
               <button onClick={onAddStay}>
                 {user.isOwner ? 'Add Another Stay' : 'Become a host (Add stay)'}

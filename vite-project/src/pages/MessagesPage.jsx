@@ -72,7 +72,7 @@ export function MessagesPage() {
             {isLoading && (
               <div className='inbox-list'>
                 <h1 style={{ textAlign: 'center', marginTop: '20px' }}>
-                  Loading...
+                 <Loader />
                 </h1>
               </div>
             )}

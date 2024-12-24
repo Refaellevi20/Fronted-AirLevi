@@ -1,0 +1,33 @@
+.flowers-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.floating-flower {
+    position: absolute;
+    animation: floatAcross linear forwards;
+    opacity: 0;
+}
+
+@keyframes floatAcross {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(calc(100vw + 100px), 100px) rotate(360deg);
+        opacity: 0;
+    }
+}

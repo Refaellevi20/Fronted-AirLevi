@@ -17,7 +17,7 @@ export function ChatRoom({ order, loggedInUser }) {
         setMsg((prevMsg) => ({ ...prevMsg, txt: prevMsg.txt + emoji }));
     }
 
-    const handleRemoveMsg = async (msgId) => {
+    async function handleRemoveMsg(msgId){
         try {
             // console.log('Starting message removal, msgId:', msgId)
             
@@ -68,11 +68,6 @@ export function ChatRoom({ order, loggedInUser }) {
         setTimeout(() => setTypingUser(null), 1500)
     }
 
-    const handleEmojiSelect = (emoji) => {
-        setMsg((prev) => ({ ...prev, txt: prev.txt + emoji.native }));
-        setEmojiPickerOpen(false)
-      }
-
       async function sendMsg(ev) {
         ev.preventDefault()
         scrollToBottom(chatRoomRef.current)
@@ -111,6 +106,33 @@ export function ChatRoom({ order, loggedInUser }) {
         setMsg(prevMsg => ({ ...prevMsg, [name]: value }))
         socketService.emit(SOCKET_EMIT_USER_IS_TYPING, loggedInUser?.fullname || 'guest')
     }
+
+    // function handleFormChange(ev){ //* only of textarae that is working but that is also coming with a lot of defulte style 
+    //     const { value } = ev.target
+    //     const MAX_WORDS_PER_LINE = 10
+        
+    //     const lines = value.split('\n')
+        
+    //     const formattedLines = lines.map(line => {
+    //         const words = line.split(' ').filter(word => word.trim())
+            
+    //         return words.reduce((acc, word, index) => {
+    //             if (index > 0 && index % MAX_WORDS_PER_LINE === 0) {
+    //                 return acc + '\n' + word
+    //             }
+    //             return acc + (index === 0 ? '' : ' ') + word
+    //         }, '')
+    //     })
+    
+    //     const formattedText = formattedLines.join('\n')
+    
+    //     setMsg(prevState => ({
+    //         ...prevState,
+    //         txt: formattedText
+    //     }))
+    
+    //     socketService.emit(SOCKET_EMIT_USER_IS_TYPING, loggedInUser.fullname)
+    // }
 
 
     const chatRoomRef = React.createRef()
