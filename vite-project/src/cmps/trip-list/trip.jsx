@@ -13,7 +13,7 @@ import { HostedSmallDetails } from '../details/HostedSmallDetails'
 
 export function Trip({ order,stay }) {
   const [currentOrder, setCurrentOrder] = useState(order)
-  const currency = useSelector((state) => state.stayModule.currency);
+  const currency = useSelector((state) => state.stayModule.currency)
 
   useEffect(() => {
     setCurrentOrder(order)
@@ -25,6 +25,8 @@ export function Trip({ order,stay }) {
     setCurrentOrder(updatedOrder)
     updateOrder(updatedOrder)
   }
+
+  
   //* Try to parse the dates without a specific format (moment can infer the format)
   const startDate = moment(order.startDate)
   const endDate = moment(order.endDate)
@@ -37,16 +39,28 @@ export function Trip({ order,stay }) {
   // console.log("Start Date:", startDate.format(), "End Date:", endDate.format())
 
   //* Calculate the number of days if both dates are valid
-  const days = startDateValid && endDateValid ? endDate.diff(startDate, 'days') : 0
+  const days = utilService.totalDays(order.startDate, order.endDate)
   // console.log("Calculated Days:", days)
+  function getRandomNumberWithFractions(min, max) {
+    return Math.random() * (max - min) + min
+  }
 
+  const randomNumWithFractions = getRandomNumberWithFractions(4, 9)
+  // console.log(randomNumWithFractions)
   //* Check if price exists in order.stay, if not set a default value
-  const pricePerDay = order.stay?.price > 0 ? order.stay?.price : 80 //! here is the problom Default to 100 if no price is available
+  const getPricePerDay = () => {
+    const stayPrice = order.stay?.price
+    if (!stayPrice) return 600 
+    if (stayPrice > 0 && stayPrice < 1000) return 600
+    if (stayPrice >= 1000) return 1200
+    return 600 // Fallback default
+  }
   // console.log("Price Per Day:", pricePerDay)
 
   //* Calculate total price, ensure it is valid
-  const totalPrice = pricePerDay > 0 && days > 0 ? pricePerDay * days : 0
-  // console.log("Total Price:", totalPrice)
+  const pricePerDay = getPricePerDay()
+  const totalPrice = randomNumWithFractions * pricePerDay
+    console.log("Total Price:", totalPrice)
 
   //* Currency conversion
   const { convertedAmount = 0, currencySymbol = '$' } = convertCurrency(totalPrice, currency)
@@ -86,7 +100,7 @@ export function Trip({ order,stay }) {
       <td className='text-bold'>
       <div>
       {/* {(order.totalPrice)} */}
-           {currencySymbol} {totalPrice > 0 ? convertedAmount.toFixed(2) : '0.00'}
+           {currencySymbol} {totalPrice > 0 ? convertedAmount : '0.00' }
           </div>      </td>
       <td>
         <OrderStatus status={currentOrder.status} />

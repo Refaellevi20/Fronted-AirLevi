@@ -21,7 +21,7 @@ export function OrderDetails({ checkIn, checkOut, stay }) {
                 </p>
                 {/* <p>{currencySymbol}{totalPriceBefore.toLocaleString()}</p> */}
                 <p>
-                    {currencySymbol} {convertedTotalPrice.toFixed(2)}
+                    {currencySymbol} {convertedTotalPrice}
                 </p>
                 <p>Service fee</p>
                 <p>

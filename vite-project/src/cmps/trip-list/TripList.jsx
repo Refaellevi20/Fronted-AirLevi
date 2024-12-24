@@ -1,7 +1,7 @@
 import { TableSkeleton } from '../TableSkeleton'
 import { Trip } from './trip'
 
-export function TripList({ orders, isLoading }) {
+export function TripList({ orders, isLoading,currOrder }) {
   return (
     <div>
       <table>
@@ -20,7 +20,7 @@ export function TripList({ orders, isLoading }) {
           {!isLoading &&
             orders.map((order) => (
               <tr key={order._id}>
-                <Trip order={order} />
+                <Trip order={order} currOrder={currOrder}/>
               </tr>
             ))}
         </tbody>

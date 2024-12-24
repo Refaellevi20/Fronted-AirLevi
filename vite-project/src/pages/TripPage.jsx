@@ -7,7 +7,7 @@ import { loadOrders } from '../store/order.action'
 import { TripList } from '../cmps/trip-list/TripList'
 import { NavMenu } from './nav-menu'
 
-export function TripPage() {
+export function TripPage({currOrder}) {
   const loggedinUser = useSelector((storeState) => storeState.userModule.user)
   const orders = useSelector((storeState) => storeState.orderModule.orders).sort((a, b) => b.startDate - a.startDate)
   const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
@@ -39,7 +39,7 @@ export function TripPage() {
             <h2>Welcome back, {loggedinUser.fullname}</h2>
           </div>
           <h3>Your trips</h3>
-          <TripList orders={orders} isLoading={isLoading} />
+          <TripList orders={orders} isLoading={isLoading} currOrder={currOrder}/>
         </section>
       )}
     </section>

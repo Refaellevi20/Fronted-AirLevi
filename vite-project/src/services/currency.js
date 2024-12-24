@@ -105,12 +105,20 @@ const currencySymbolMap = {
   BHD: '.د.ب'
 }
   
-  export const convertCurrency = (amount, currencyCode) => {
-    const rate = conversionRates[currencyCode] || 1
-    const symbol = currencySymbolMap[currencyCode] || '$'
-    return {
-      convertedAmount: amount * rate,
-      currencySymbol: symbol
-    }
+export function convertCurrency(amount = 0, currencyCode = 'USD') {
+  const rate = conversionRates[currencyCode] || 1
+  const symbol = currencySymbolMap[currencyCode] || '$'
+
+  const validAmount = typeof amount === 'number' && !isNaN(amount) ? amount : 0
+  const convertedAmount = validAmount * rate
+
+  const formattedAmount = convertedAmount.toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })
+
+  return {
+    convertedAmount: formattedAmount,
+    currencySymbol: symbol,
   }
-  
+}

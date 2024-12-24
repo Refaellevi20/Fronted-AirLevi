@@ -57,7 +57,7 @@ export function PreviewInfo({ info}) {
         {/* {/wishlist$/.test(url.pathname) && `${info.capacity} beds`} */}
       </p>
       <p className='text-bold'>
-      {currencySymbol} {convertedAmount.toFixed(2)}
+      {currencySymbol} {convertedAmount}
         <span > night</span>
       </p>
     </>

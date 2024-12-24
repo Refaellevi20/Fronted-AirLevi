@@ -90,7 +90,7 @@ span.emoji-btn {
 }
 
 /* Emoji Modal */
-.modal-overlay {
+.modal-overlay__emoji {
     position: fixed;
     bottom: 0;
     left: 0 ;
@@ -106,27 +106,29 @@ span.emoji-btn {
     padding-left: 10px;
 }
 
-.modal-content {
+.modal-content__emoji {
 
     background: rgb(236,180,250);
     background: linear-gradient(90deg, rgba(236,180,250,1) 9%, rgba(207,98,242,1) 23%, rgba(223,42,233,1) 46%, rgba(213,49,227,1) 66%, rgba(204,55,222,1) 82%, rgba(184,68,209,1) 97%);
     border-radius: 8px;
     position: relative;
     width: 300px;
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: red;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+    
 }
 
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: red;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
 
 @media screen and (max-width: 725px) {
     .emoji-select {

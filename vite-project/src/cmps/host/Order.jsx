@@ -75,7 +75,7 @@ export function Order({ order }) {
         <StayTable stay={order.stay} />
       </td>
       <td className='text-bold'>
-      {currencySymbol} {totalPrice > 0 ? convertedAmount.toFixed(2) : '0.00'}
+      {currencySymbol} {totalPrice > 0 ? convertedAmount : '0.00'}
       </td>
       <td className="order-status">
         <OrderStatus status={orderToEdit.status} />
