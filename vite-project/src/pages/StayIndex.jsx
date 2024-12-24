@@ -35,22 +35,30 @@ export function StayIndex({currency}) {
 
   return (
     <section>
-      <div className="">
-       <AppHeader className='main-layout stay-index' />
-       {filteredStays.length === 0 ? (
-      <>
-        <NavBar setFilteredStays={setFilteredStays} />
-        <p style={{ marginTop: '200px' }}>No stays available for the selected category</p>
-      </>
-    ) : (
+    <div className="">
+      <AppHeader className='main-layout stay-index' />
       <NavBar setFilteredStays={setFilteredStays} />
-    )}      </div>
-      <section style={{ position: 'relative' }}>
+    </div>
+    <section style={{ position: 'relative' }}>
       {filterBy.location && <h4 className='main-layout'>Showing results for {filterBy.location}</h4>}
-        {!!filteredStays.length && <StayList stays={filteredStays} currency={currency}/>}
-        <AppFooterHome />
-      </section>
+      {filteredStays.length === 0 ? (
+        <div className="no-results-container">
+          <div className="angry-emoji">😠</div>
+          <div className="message-container">
+            <p className="no-results-message">No stays available!</p>
+            <p className="sub-message">Try different filters...</p>
+          </div>
+          <div className="angry-cloud-container">
+            <div className="angry-cloud"></div>
+            <div className="lightning"></div>
+          </div>
+        </div>
+      ) : (
+        <StayList stays={filteredStays} currency={currency}/>
+      )}
+      <AppFooterHome />
     </section>
+  </section>
   )
 }
 
