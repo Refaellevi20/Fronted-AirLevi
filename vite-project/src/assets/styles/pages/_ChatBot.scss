@@ -1,7 +1,7 @@
 .chatbot-container {
     position: fixed;
     bottom: 100px;
-    z-index: 1000;
+    z-index: 99;
 
     @media (min-width: 1280px) {
         left: calc((96vw - 1280px) / 2 + 20px);
