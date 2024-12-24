@@ -40,13 +40,28 @@ export function Order({ order }) {
    const days = startDateValid && endDateValid ? endDate.diff(startDate, 'days') : 0
   //  console.log("Calculated Days:", days)
  
+  function getRandomNumberWithFractions(min, max) {
+    return Math.random() * (max - min) + min
+  }
+
+  const randomNumWithFractions = getRandomNumberWithFractions(4, 9)
+
    //* Check if price exists in order.stay, if not set a default value
-   const pricePerDay = order.stay?.price > 0 ? order.stay?.price : 80 //! here is the problom Default to 100 if no price is available
+  //  const pricePerDay = order.stay?.price > 0 ? order.stay?.price : 80 //! here is the problom Default to 100 if no price is available
   //  console.log("Price Per Day:", pricePerDay)
+
+  const getPricePerDay = () => {
+    const stayPrice = order.stay?.price
+    if (!stayPrice) return 600 
+    if (stayPrice > 0 && stayPrice < 1000) return 600
+    if (stayPrice >= 1000) return 1200
+    return 600 // Fallback default
+  }
  
    //* Calculate total price, ensure it is valid
-   const totalPrice = pricePerDay > 0 && days > 0 ? pricePerDay * days : 0
-  //  console.log("Total Price:", totalPrice)
+   const pricePerDay = getPricePerDay()
+   const totalPrice = randomNumWithFractions * pricePerDay
+     console.log("Total Price:", totalPrice)  //  console.log("Total Price:", totalPrice)
  
    //* Currency conversion
    const { convertedAmount = 0, currencySymbol = '$' } = convertCurrency(totalPrice, currency)

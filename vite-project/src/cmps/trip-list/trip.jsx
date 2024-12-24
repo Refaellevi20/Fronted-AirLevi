@@ -60,7 +60,7 @@ export function Trip({ order,stay }) {
   //* Calculate total price, ensure it is valid
   const pricePerDay = getPricePerDay()
   const totalPrice = randomNumWithFractions * pricePerDay
-    console.log("Total Price:", totalPrice)
+    // console.log("Total Price:", totalPrice)
 
   //* Currency conversion
   const { convertedAmount = 0, currencySymbol = '$' } = convertCurrency(totalPrice, currency)

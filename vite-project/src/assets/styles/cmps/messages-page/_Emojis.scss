@@ -5,8 +5,7 @@
     grid-template-rows: repeat(5, 20px);
     gap: 10px;
     // justify-content: center;
-    align-items: center;
-}
+    padding-left: 18px;}
 
 @media (max-width: 600px) {
     .emojis-module.grid {

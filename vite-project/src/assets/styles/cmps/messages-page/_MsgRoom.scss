@@ -1,0 +1,59 @@
+// .chat-txt-input {
+//     width: 95%;
+//     border: none;
+//     border-radius: 20px;  // Increased border radius for pill shape
+//     padding: 8px 12px;    // Adjusted padding
+//     font-size: 14px;
+//     background-color: #f0f2f5;
+//     resize: none;
+//     min-height: 36px;     // Adjusted to match input height
+//     max-height: 150px;
+//     overflow-y: auto;
+//     line-height: 1.4;
+//     margin: 0;            // Remove default textarea margins
+//     display: flex;        // Match input display
+//     align-items: center;  // Center text vertically
+//     font-family: inherit; // Match your app's font
+    
+//     &:focus {
+//         outline: none;
+//         background-color: #e4e6eb;
+//     }
+    
+//     &::placeholder {
+//         color: #65676b;
+//     }
+// }
+
+// .chat-form {
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     padding: 16px;
+//     gap: 8px;
+//     background-color: white;
+//     border-top: 1px solid #eee;
+    
+//     .chat-actions {
+//         position: absolute;
+//         right: 24px;
+//         display: flex;
+//         align-items: center;
+//         gap: 8px;
+//     }
+// }
+
+// .chat-txt-input {
+//     // Keep your existing styles
+//     white-space: pre-wrap;  // Add this to preserve line breaks
+//     overflow-wrap: break-word;  // Add this to handle long words
+//     overflow-y: auto;  // Add scrollbar when needed
+//     max-height: 100px;  // Limit height growth
+    
+//     // Optional: adjust height based on content
+//     &[data-has-content="true"] {
+//         height: auto;
+//         min-height: 36px;  // Your original height
+//     }
+// }
+

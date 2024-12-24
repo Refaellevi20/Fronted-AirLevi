@@ -160,7 +160,7 @@ export function ChatRoom({ order, loggedInUser }) {
         <div className='chat-input'>
             
             <form onSubmit={sendMsg} className="chat-input-form flex">
-<EmojiSelector onAddLine={handleAddLine} />
+<EmojiSelector onAddLine={handleAddLine} type="bottom"/>
                 <input
                     type="text" value={msg.txt} onChange={handleFormChange}
                     name="txt" autoComplete="off" className="chat-txt-input" />
