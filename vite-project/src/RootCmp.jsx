@@ -20,7 +20,6 @@ export function RootCmp() {
 
   return (
     <div className="main-container full">
-      <UserMsg />
       <main>
         <Routes>
         <Route path='/' element={<StayIndex />} />
@@ -37,10 +36,9 @@ export function RootCmp() {
           <Route element={<GamesPage />} path='/gust/trip/games' />
 
           <Route element={<MessagesPage />} path='user/Messages' />
-
-
         </Routes>
       </main>
+      <UserMsg />
     </div>
   )
 }

@@ -43,7 +43,7 @@ export function StayIndex({currency}) {
       {filterBy.location && <h4 className='main-layout'>Showing results for {filterBy.location}</h4>}
       {filteredStays.length === 0 ? (
         <div className="no-results-container">
-          <div className="angry-emoji">😠</div>
+          <div className="angry-emoji">😢</div>
           <div className="message-container">
             <p className="no-results-message">No stays available!</p>
             <p className="sub-message">Try different filters...</p>

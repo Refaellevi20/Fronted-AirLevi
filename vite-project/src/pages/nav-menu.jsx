@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import guest from '/guest.svg'
@@ -14,9 +14,25 @@ export function NavMenu() {
   const navigate = useNavigate()
   const notifications = useSelector((storeState) => storeState.userModule.notifications)
   const [navbarOpen, setNavbarOpen] = useState(false)
-  const { closeModal, openModal, Modal } = useModal()
-  const elNav = useRef()
   const { LoginModal, openLoginModal, closeLoginModal } = useLoginModal()
+  const navRef = useRef()
+
+  //* i could do customHooks to all of the modal 
+  //* with a lot of every kind of use ref
+  useEffect(() => {
+    function handleClickOutside(event) {
+        if (navRef.current && !navRef.current.contains(event.target)) {
+            setNavbarOpen(false)
+        }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    
+    return () => {
+        document.removeEventListener('mousedown', handleClickOutside)
+    }
+}, [])
+
 
   async function onLogout() {
     try {
@@ -50,13 +66,11 @@ export function NavMenu() {
 
   }
 
-
   return (
     <>
-     {/* <useLoginModal /> */}
      <LoginModal />
       {/* <Modal /> */}
-      <nav className='nav-menu' onClick={handleToggle} ref={elNav}>
+      <nav className='nav-menu' onClick={handleToggle}  ref={navRef}>
         {notifications.length > 0 && (
           <div className='notificaiton-badge'>{notifications.length}</div>
         )}
