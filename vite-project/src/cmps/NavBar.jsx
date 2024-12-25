@@ -2,6 +2,14 @@ import { useEffect, useRef, useState } from "react"
 import { filterService } from "../services/filter.service"
 import filterIcon from '/filter.svg'
 import { useSelector } from "react-redux"
+import { BsSliders } from "react-icons/bs";
+import { BtnSquareSecond } from './buttons ui/btn-square-second'
+
+const buttonStyle = {
+    height: '48px',
+    marginInlineStart: '24px',
+    fontSize: '12px',
+}
 
 export function NavBar({ setFilteredStays }) {
     const categories = filterService.getCategories()
@@ -74,6 +82,10 @@ export function NavBar({ setFilteredStays }) {
         const filtered = stays.filter(stay => stay.labels.includes(categoryUrl))
         setFilteredStays(filtered)
     }
+
+    function toggleSearchForm() {
+        document.querySelector('.search-bars').classList.toggle('search-bars-open')
+      }
 
     const LeftNavIcon = (
         <div
@@ -159,7 +171,7 @@ export function NavBar({ setFilteredStays }) {
             <span className="left-icon__list main-layout__navBar2">
                 {LeftNavIcon}
             </span>
-            <section className="category-list main-layout" ref={categoryListRef} style={{position:'relative'}}>
+            <section className="category-list main-layout" ref={categoryListRef} style={{ position: 'relative' }}>
                 {categories.map((category) => (
                     <div
                         key={category.url}
@@ -171,9 +183,17 @@ export function NavBar({ setFilteredStays }) {
                     </div>
                 ))}
             </section>
-            <span className="right-icon__list main-layout__navBar">
+            <span className="right-icon__list ">
                 {RightNavIcon}
             </span>
+            <div className='btn-container main-layout__navBar ' onClick={toggleSearchForm}>
+                <BtnSquareSecond style={buttonStyle} >
+                    <img className='filter-bar-btn__img' src={filterIcon} alt='Icon' />{' '}
+                    Filters
+                </BtnSquareSecond>
+            </div>
         </section>
     )
 }
+
+// 

@@ -89,7 +89,6 @@ export function checkEnvVariables() {
 //! acordion on sort 
 
 //! index header refresh header need to be fix 
-//! message border of the color of the status
+//~ message border of the color of the status (maybe)
 //! links
-//! login with email + fb + linking 
 //! the chatbot is on perpers not outclick 

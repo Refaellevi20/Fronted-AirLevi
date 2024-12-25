@@ -171,3 +171,35 @@
         padding: 0px 0px 0px 24px !important;
     }
 }
+
+.filter-button__navBar {
+    padding-left: 10px !important;
+}
+
+.filter-bar-btn__img {
+    width: 14px;
+  }
+
+  .only-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+
+    background-color: #FFFFFF;
+
+    border-color: hsl(0, 0%, 87%);
+    border-radius: 8px;
+    border-width: 1px;
+    border-style: solid;
+
+    text-align: center;
+
+    color: #222222;
+    font-family: cereal-Medium;
+    font-size: 1rem;
+    line-height: 20px;
+
+    transition: box-shadow 0.2s ease, transform 0.1s ease;
+  }

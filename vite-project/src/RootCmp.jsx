@@ -15,7 +15,7 @@ import { MessagesPage } from './pages/MessagesPage'
 import  GamesPage  from './pages/GamesPage' 
 import { Analytics } from './pages/Analytics'
 import { UserWishList } from './pages/UserWishList'
-import { debuggerService } from './services/debugger.service.js'
+import { debuggerService } from './services/Debugger.Service'
 
 export function RootCmp() {
   useEffect(() => {
@@ -23,7 +23,7 @@ export function RootCmp() {
     
     debuggerService.debug('user', 'User module initialized')
     debuggerService.warn('stay', 'Stay cache outdated')
-    debuggerService.error('order', 'Failed to process order')
+    debuggerService.error('order', 'Failed to process order',new Error('Payment failed'))
 
     return () => {
       debuggerService.info('system', 'Application shutting down')
