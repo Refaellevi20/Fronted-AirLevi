@@ -86,10 +86,12 @@ export function checkEnvVariables() {
 //         }
 //     }
 // }
+//! remove from wishlist without render
 
-//! fonts 
+//! fonts on footers
 //! links
 //! pay button style on the modal 
 //! index header refresh header need to be fix 
 //! message border of the color of the status
 //! login with email + fb + linking 
+//! the chatbot is on perpers not outclick 

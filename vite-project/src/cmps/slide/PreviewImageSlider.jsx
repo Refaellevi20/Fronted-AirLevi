@@ -1,18 +1,22 @@
 import { useEffect, useState } from 'react'
 import { Slider } from '../slider/slider'
 import { showSuccessMsg } from '../../services/event-bus.service'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { LoginSignup } from '../LoginSignup'
 import { useModal } from '../../customHook/useModal'
 import { useLoginModal } from '../../CustomHook/useLoginModal'
 import { Link } from 'react-router-dom'
+import { useWishlist } from '../../CustomHook/useWishlist'
 
 
-export function PreviewImageSlider({ imgUrls, stay }) {
+export function PreviewImageSlider({ imgUrls, stay,onWishlistUpdate }) {
     const [heart, setHeart] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const user = useSelector((state) => state.userModule.user)
     const { LoginModal, openLoginModal, closeLoginModal } = useLoginModal()
+    const dispatch = useDispatch()
+    const { removeFromWishlist } = useWishlist()
+
 
     useEffect(() => {
         if (user) {
@@ -57,13 +61,22 @@ export function PreviewImageSlider({ imgUrls, stay }) {
                 const newWishlist = userWishlist.filter(id => id !== stay._id)
                 localStorage.setItem(`wishlist_${user._id}`, JSON.stringify(newWishlist))
                 setHeart(false)
+                removeFromWishlist(stay._id)
                 showSuccessMsg('Removed from wishlist')
+
+                // Dispatch action to update global state
+               
             } else {
                 //* Add 
                 userWishlist.push(stay._id)
                 localStorage.setItem(`wishlist_${user._id}`, JSON.stringify(userWishlist))
                 setHeart(true)
                 showSuccessMsg('Added to wishlist')
+
+                // dispatch({ type: UPDATE_WISHLIST, wishlist: userWishlist })
+
+                // if (onWishlistUpdate) onWishlistUpdate(userWishlist)
+
             }
         } catch (err) {
             console.error('Failed to update wishlist:', err)
@@ -77,7 +90,7 @@ export function PreviewImageSlider({ imgUrls, stay }) {
         }
     }
 
-  
+
     //! dispach remove from (updateStay(updatedStay)) here
     function onWishListStay(stayId) {
         if (!user) {
@@ -91,8 +104,8 @@ export function PreviewImageSlider({ imgUrls, stay }) {
         <div className='image-slider almost-square-ratio'>
             <div className='click-outside login__modal--wrapper' onClick={handleModalClick}>
                 <LoginModal />
-            </div> 
-                 <span className="heart">
+            </div>
+            <span className="heart">
                 <div className="stay-heart__preview">
                     <button onClick={onHandleHeart}>
                         <img

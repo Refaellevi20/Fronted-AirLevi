@@ -11,6 +11,7 @@ export const UNDO_TOGGLE_LIKE_STAY = 'UNDO_LIKE_STAY'
 export const SET_FILTER_BY = 'SET_FILTER_BY'
 export const UPDATE_STAY = 'UPDATE_STAY'
 export const SET_CURRENCY = 'SET_CURRENCY'
+export const UPDATE_WISHLIST = 'UPDATE_WISHLIST'
 
 const initialState = {
   stays: [],
@@ -19,6 +20,7 @@ const initialState = {
   isLoading: false,
   filterBy: stayService.getDefaultFilter(),
   currency: 'USD',
+  wishlist: null
 }
 
 export function stayReducer(state = initialState, action) {
@@ -33,6 +35,11 @@ export function stayReducer(state = initialState, action) {
       case UPDATE_STAY:
         stays = state.stays.map(stay => (stay._id === action.stay._id) ? action.stay : stay)
         return { ...state, stays }
+        case UPDATE_WISHLIST:
+            return {
+                ...state,
+                wishlist: action.wishlist
+            }
     case SET_IS_LOADING:
       return { ...state, isLoading: action.isLoading }
     case SAVE_STAYS:
