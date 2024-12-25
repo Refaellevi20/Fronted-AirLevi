@@ -50,15 +50,15 @@ export function PreviewInfo({ info}) {
         <span className='text-bold ellipsis'>{info.location}</span>{' '}
         <RatingReview reviews={info.reviews} />
       </p>
-      <p className='text-grey'>{info.type}</p>
-      <p className='text-grey'>
+      <p className='text-grey__info'>{info.type}</p>
+      <p className='text-grey__info'>
         {/$/.test(url.pathname)}
         {/stay$/.test(url.pathname) && ' Feb 1 - Feb 20'}
         {/* {/wishlist$/.test(url.pathname) && `${info.capacity} beds`} */}
       </p>
       <p className='text-bold'>
       {currencySymbol} {convertedAmount}
-        <span > night</span>
+        <span style={{ fontFamily: 'cereal-Book' }}> night</span>
       </p>
     </>
   )

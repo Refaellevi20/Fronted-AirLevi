@@ -133,7 +133,11 @@
 
 // text
 .text-bold {
-  // font-family: cereal-Medium;
+  font-family: cereal-Medium;
+}
+
+.text-grey__info{
+  font-family:cereal-Book;
 }
 
 .ellipsis {
@@ -198,4 +202,24 @@
   border: 1px solid $clr-border;
   border-radius: $border-radius;
   padding: 1rem;
+}
+
+.ff-cr {
+  font-family: cereal-regular;
+}
+
+.ff-cbold {
+  font-family: cereal-Bold;
+}
+
+.ff-cbook {
+  font-family: cereal-Book;
+}
+
+.ff-cblack {
+  font-family: cereal-Black;
+}
+
+.ff-cm {
+  font-family: cereal-Medium;
 }
