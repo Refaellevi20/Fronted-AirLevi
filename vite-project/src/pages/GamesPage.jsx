@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { FlowersAnimation } from '../cmps/FlowersAnimation'
+import { AppLogo } from '../cmps/app-logo'
+import { NavMenu } from './nav-menu'
 
 export default function GamesPage() {
     const navigate = useNavigate()
@@ -113,23 +115,23 @@ export default function GamesPage() {
         const showNewRecordMessage = () => {
             const message = document.createElement('div')
             message.className = 'new-record-popup'
-            
+
             // Create inner elements for better styling
             const trophy = document.createElement('span')
             trophy.className = 'trophy-icon'
             trophy.textContent = '🏆'
-            
+
             const textContent = document.createElement('div')
             textContent.className = 'record-text'
             textContent.innerHTML = `
                 <span class="record-title">New Record!</span>
                 <span class="player-name">${loggedInUser.fullname}</span>
             `
-            
+
             message.appendChild(trophy)
             message.appendChild(textContent)
             document.body.appendChild(message)
-            
+
             setTimeout(() => {
                 message.classList.add('fade-out')
                 setTimeout(() => message.remove(), 500)
@@ -169,28 +171,39 @@ export default function GamesPage() {
     }
 
     return (
-        <div className="game-container">
-            <h1>Snake Game</h1>
-            <FlowersAnimation />
-            <div className="score-board">
-                <div className="current-score">Score: {currentScore}</div>
-                <div className="best-score">Best: {bestScore}</div>
-            </div>
-            <canvas ref={canvasRef} className="game-board" />
-            {gameOver && (
-                <div style={{ zIndex: '1000' }} className="game-over">
-                    <h2>Game Over!</h2>
-                    {currentScore === bestScore && (
-                        <div className="best-score-holder">
-                            {/* <span className="crown">👑</span> */}
-                            <span className="player-name">{loggedInUser.fullname}</span>
-
-                            <span className="title">New Champion! </span>
-                        </div>
-                    )}
-                    <button onClick={resetGame}>Play Again</button>
+        <div>
+            <header className='app-header secondary-layout flex' style={{ justifyContent: 'space-between' }}>
+                <div className='header-logo-container'>
+                    <AppLogo />
                 </div>
-            )}
+                <div className='spacer'></div>
+                <div className='header-menu-container'>
+                    <NavMenu />
+                </div>
+            </header>
+            <div className="game-container">
+                <h1>Snake Game</h1>
+                <FlowersAnimation />
+                <div className="score-board">
+                    <div className="current-score">Score: {currentScore}</div>
+                    <div className="best-score">Best: {bestScore}</div>
+                </div>
+                <canvas ref={canvasRef} className="game-board" />
+                {gameOver && (
+                    <div style={{ zIndex: '1000' }} className="game-over">
+                        <h2>Game Over!</h2>
+                        {currentScore === bestScore && (
+                            <div className="best-score-holder">
+                                {/* <span className="crown">👑</span> */}
+                                <span className="player-name">{loggedInUser.fullname}</span>
+
+                                <span className="title">New Champion! </span>
+                            </div>
+                        )}
+                        <button onClick={resetGame}>Play Again</button>
+                    </div>
+                )}
+            </div>
         </div>
     )
 }
