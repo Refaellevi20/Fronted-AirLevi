@@ -5,6 +5,7 @@ import { stayService } from '../services/stay.service.js'
 import { utilService } from '../services/util.service.js'
 import { orderService } from '../services/order.service.js'
 
+import { MdKeyboardArrowLeft } from 'react-icons/md'
 import arrowLeftImg from '/arrow-left.svg'
 import rareDiamond from '/rare-diamond.svg'
 import greenCheck from '/greenCheck.svg'
@@ -146,25 +147,28 @@ export function BookPage() {
       <section className='main-layout secondary-layout'>
         <header className='booking-title flex1 secondary-layout'>
           <div className='icon-svg'>
-            <img
+            {/* <img
               src={arrowLeftImg}
-              className='arrow-img'
+              className='arrow-img fs32'
               alt='arrowLeftImg'
               onClick={onGoBack}
-            />
+            /> */}
+            <MdKeyboardArrowLeft size={44} style={{ cursor: 'pointer' }} />
           </div>
           <div>
             {/* {currentStep !== 'payment' && !isBooked && <h2>Request to book</h2>}
             {currentStep === 'payment' && <h2>Proceed to Payment</h2>} */}
             {!isBooked && <h2>Request to book</h2>}
             {isBooked && (
-              <div className='success-title flex1'>
-                <img
-                  src={greenCheck}
-                  className='icon-svg greenCheck-img'
-                  alt='greenCheckImg'
-                />
-                <h2>Reservation success!</h2>
+              <div className="success-message-container">
+                <div className='success-title flex1'>
+                  <img
+                    src={greenCheck}
+                    className='icon-svg greenCheck-img'
+                    alt='Success'
+                  />
+                  <h2>Reservation success!</h2>
+                </div>
               </div>
             )}
           </div>
@@ -252,18 +256,12 @@ export function BookPage() {
                   <h4 className='stay-name'>{stay.name}</h4>
                   <h4 className='stay-type'>{stay.type}</h4>
                   <div style={{ display: 'flex' }}>
-                    <RatingReview3 reviews={stay.reviews} /> 
+                    <RatingReview3 reviews={stay.reviews} />
                     <span className='reviews calcAvgReview-reviews fs14'>
                       ({stay.reviews.length})
                     </span>
                   </div>
                 </div>
-                {/* <div style={{display:'flex'}} className='rating-review'>
-                  <span className='avg-rating'>
-                   
-                  </span>
-                 
-                </div> */}
               </div>
             </div>
 

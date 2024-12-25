@@ -45,13 +45,11 @@
         }
     }
 
-
-    .success-title {
-        align-items: center;
-        font-size: 2rem;
-    }
+    // .success-title {
+    //     align-items: center;
+    //     font-size: 2rem;
+    // }
 }
-
 
 .order-content {
     flex-direction: row;
@@ -308,3 +306,177 @@
     margin-top: -2.5px;
     margin-left: 2px;
 }
+
+// Mobile-only styles (max-width: 600px)
+@media (max-width: 600px) {
+    .booking-title {
+      padding: 16px 0;
+      
+      h2 {
+        font-size: 22px;
+      }
+  
+      .icon-svg {
+        width: 24px;
+        margin-right: 8px;
+      }
+    }
+  
+    .order-content {
+      flex-direction: column-reverse;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding: 0 16px;
+  
+      .order-details {
+        width: 100%;
+  
+        .rare-find {
+          padding: 16px;
+          margin-bottom: 24px;
+  
+          h4 {
+            font-size: 16px;
+          }
+  
+          .rare-host {
+            font-size: 14px;
+          }
+  
+          .diamond-img {
+            width: 20px;
+            margin-right: 8px;
+          }
+        }
+  
+        .trip-details {
+          .your-trip {
+            font-size: 20px;
+            margin-bottom: 16px;
+          }
+  
+          .trip-subheader,
+          .trip-details-data {
+            font-size: 14px;
+          }
+  
+          & > * {
+            padding-bottom: 16px;
+          }
+        }
+      }
+    }
+  
+    .summary-card {
+      border: none;
+      padding: 16px 0;
+      margin: 0;
+      width: 100%;
+  
+      .stay-details {
+        margin-bottom: 16px;
+        
+        .stay-img {
+          width: 96px;
+          height: 72px;
+          margin-bottom: 0;
+        }
+  
+        .stay-desc {
+          padding-left: 12px;
+  
+          .stay-name {
+            font-size: 15px;
+            margin-bottom: 4px;
+          }
+  
+          .stay-type {
+            font-size: 13px;
+            margin-bottom: 4px;
+          }
+        }
+      }
+  
+      .air-cover {
+        padding-bottom: 16px;
+        
+        img {
+          width: 72px;
+          height: 14px;
+        }
+  
+        .air-cover-text {
+          font-size: 14px;
+        }
+      }
+  
+      .price-details {
+        .price-details-header {
+          font-size: 20px;
+          padding: 16px 0;
+        }
+  
+        .cost-breakdown {
+          .cost-details {
+            .base-cost {
+              font-size: 14px;
+              margin-bottom: 12px;
+            }
+          }
+  
+          .total-container {
+            margin-top: 16px;
+  
+            .cost-total {
+              font-size: 16px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  
+    .order-user {
+      margin-top: 24px;
+  
+      .login-msg {
+        font-size: 16px;
+        margin-bottom: 16px;
+      }
+  
+      .success-msg {
+        font-size: 16px;
+        margin: 16px 0;
+      }
+  
+      .success-txt {
+        margin: 16px 0;
+        align-items: center;
+  
+        .icon-svg {
+          width: 20px;
+          margin-right: 8px;
+        }
+  
+        .res-success-txt {
+          font-size: 18px;
+        }
+      }
+    }
+  
+    .rating-review {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 4px;
+  
+      .avg-rating {
+        font-size: 12px;
+      }
+  
+      .calcAvgReview-reviews {
+        font-size: 12px;
+        margin: 0;
+      }
+    }
+  }

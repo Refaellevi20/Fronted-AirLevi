@@ -86,10 +86,8 @@ export function checkEnvVariables() {
 //         }
 //     }
 // }
-//! acordion
+//! acordion on sort 
 
-//! fonts on footers
-//! pay button style on the modal 
 //! index header refresh header need to be fix 
 //! message border of the color of the status
 //! links
