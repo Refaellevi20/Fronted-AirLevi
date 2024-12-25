@@ -113,3 +113,18 @@
       transform: scale(1);
   }
 }
+
+
+// body:has(.login__modal--wrapper) {
+//   .login__modal--wrapper,
+//   .login__modal--wrapper * {
+//       pointer-events: all;
+//   }
+  
+//   :not(.login__modal--wrapper, .login__modal--wrapper *) {
+//       pointer-events: none;
+//   }
+// }
+
+
+

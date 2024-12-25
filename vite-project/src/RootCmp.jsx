@@ -7,7 +7,6 @@ import { StayIndex } from './pages/StayIndex'
 import { UserMsg } from './cmps/UserMsg'
 import { StayDetails } from './pages/StayDetails'
 import { HistoryPage } from './pages/HistoryPage'
-import UserWishList from './pages/UserWishList'
 import { BookPage } from './pages/BookPage'
 import { TripPage } from './pages/TripPage'
 import { OrderPage } from './pages/OrderPage'
@@ -15,6 +14,7 @@ import { DashboardPage } from './pages/DashboardPage'
 import { MessagesPage } from './pages/MessagesPage'
 import  GamesPage  from './pages/GamesPage' 
 import { Analytics } from './pages/Analytics'
+import { UserWishList } from './pages/UserWishList'
 
 export function RootCmp() {
 

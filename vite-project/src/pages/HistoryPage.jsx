@@ -5,6 +5,7 @@ import { useHistory } from '../CustomHook/StayHistory';
 import { StayPreview } from '../cmps/stay/StayPreview';
 import { Link } from 'react-router-dom';
 import { HiXMark } from "react-icons/hi2";
+import { ChatBot } from './ChatBot';
 
 export function HistoryPage() {
   const { history } = useHistory()

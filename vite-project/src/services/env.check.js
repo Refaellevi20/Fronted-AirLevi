@@ -87,5 +87,9 @@ export function checkEnvVariables() {
 //     }
 // }
 
-//! header 
 //! wishlist
+//! fonts 
+//! links
+//! pay button style on the modal 
+//! index header refresh header need to be fix 
+//! message border of the color of the status
