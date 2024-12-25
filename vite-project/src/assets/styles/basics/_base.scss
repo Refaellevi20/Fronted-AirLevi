@@ -6,6 +6,7 @@
 
 html {
     font-size: 1rem;
+    font-family: cereal-regular;
     line-height: 1.6;
     // color: $clr-text-primary;
     scroll-behavior: smooth;
@@ -27,8 +28,7 @@ h3,
 h4,
 h5,
 h6 {
-    // margin: 0 0 0.6em;
-    // display: inline;
+  font-family: cereal-Medium;
 }
 
 img {

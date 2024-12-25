@@ -24,13 +24,13 @@ export function PreviewImageSlider({ imgUrls, stay }) {
     }, [stay._id, user])
 
     //^ better to do for it custom hook
-    useEffect(() => {
-        document.body.style.overflow = 'hidden'
+    // useEffect(() => {
+    //     document.body.style.overflow = 'hidden'
 
-        return () => {
-            document.body.style.overflow = 'auto'
-        }
-    }, [])
+    //     return () => {
+    //         document.body.style.overflow = 'auto'
+    //     }
+    // }, [])
 
     const onHandleHeart = async (ev) => {
         ev.preventDefault()

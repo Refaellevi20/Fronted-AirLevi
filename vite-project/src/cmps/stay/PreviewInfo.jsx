@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router'
-import { utilService } from '../../services/util.service'
+import { dateRangeGenerator } from '../../services/dateRangeGenerator'
 import { RatingReview } from '../RatingReview'
 import { useDispatch, useSelector } from 'react-redux'
 import currencySymbolMap from "currency-symbol-map";
@@ -52,8 +52,8 @@ export function PreviewInfo({ info}) {
       </p>
       <p className='text-grey__info'>{info.type}</p>
       <p className='text-grey__info'>
-        {/$/.test(url.pathname)}
-        {/stay$/.test(url.pathname) && ' Feb 1 - Feb 20'}
+        {/$/.test(url.pathname) && dateRangeGenerator() }
+        {/stay$/.test(url.pathname) && dateRangeGenerator()}
         {/* {/wishlist$/.test(url.pathname) && `${info.capacity} beds`} */}
       </p>
       <p className='text-bold'>
