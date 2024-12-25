@@ -39,7 +39,7 @@ export function OrderList({ orders, onOrdersReorder }) {
                             {...provided.droppableProps}
                             ref={provided.innerRef}
                         >
-                            {orders.map((order, index) => (
+                            {orders.reverse().map((order, index) => (
                                 <Draggable
                                     key={order._id}
                                     draggableId={order._id}
