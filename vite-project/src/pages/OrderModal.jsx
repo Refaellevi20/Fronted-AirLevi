@@ -8,6 +8,7 @@ import { OrderDetails } from '../cmps/details/OrderDetails.jsx'
 import { utilService } from '../services/util.service.js'
 import { BtnSquareColorRed } from '../cmps/buttons ui/btn-square-color.jsx'
 import { LowerRate } from '../cmps/details/LowerRate.jsx'
+import { width } from '@mui/system'
 
 export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -170,10 +171,10 @@ export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
         </section>
 
         {/* <div> */}
-          <div className="parent-container">
-        <div className='reserve-btns-ref' ref={el => { reserveBtnRef.current = el; setRefVisible(!!el) }}></div>
+          <div style={{width:'100%'}} className="parent-container">
+        <div  className='reserve-btns-ref' ref={el => { reserveBtnRef.current = el; setRefVisible(!!el) }}></div>
           {orderParams.checkIn && orderParams.checkOut && (
-            <BtnSquareColorRed onClick={onClickReserve} children={'Reserve'} />
+            <BtnSquareColorRed  className="BtnSquareColorRed__modal--details" onClick={onClickReserve} children={'Reserve'} />
           )}
           {(!orderParams.checkIn || !orderParams.checkOut) && (
             <BtnSquareColorRed

@@ -14,6 +14,7 @@ export function OrderDetails({ checkIn, checkOut, stay }) {
 
     return (
         <>
+        <section className="container__details--order">
             <p className="no-charge-msg fs14" style={{ textAlign: 'center', padding: '0', marginTop: '16px' }}>You won't be charged yet</p>
             <div className="prices grid">
                 <p>
@@ -34,6 +35,7 @@ export function OrderDetails({ checkIn, checkOut, stay }) {
                     {currencySymbol}{totalPriceAfter.toLocaleString()}
                 </p>
             </div>
+            </section>
         </>
     )
 }

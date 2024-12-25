@@ -57,11 +57,11 @@
     align-items: center;
     width: 100%;
   }
-  
+
   .top-card__details {
     display: inline-block;
     margin: 0;
-    text-align: left; 
+    text-align: left;
   }
 
   // .order-form-header { 
@@ -276,14 +276,36 @@
       padding-top: 1rem;
     }
 
+    .container__details--order {
+      width: 170%;
+    }
+
+    @media screen and (max-width: 1125px) {
+      .container__details--order {
+        width: 140%;
+      }
+    }
+
+    @media screen and (max-width: 1075px) {
+      .container__details--order {
+        width: 120%;
+      }
+    }
+
+    @media screen and (max-width: 925px) {
+      .container__details--order {
+        width: 100%;
+      }
+    }
+
     .prices {
       grid-template-columns: 1fr 1fr;
       padding-bottom: 15px;
       border-bottom: 1px solid $clr-border-dark;
       gap: 10px;
       font-size: 0.9rem;
-      width: 140%; //! here
-      //! createAt +modal style
+      // width: 140%; //! here
+      //! createAt +modal style  1125
 
 
 
@@ -333,3 +355,9 @@
   left: 50%;
   border: solid 2px black;
 }
+
+// .reserve-btns-ref{
+//   .BtnSquareColorRed__modal--details{
+//     width: 180% !important;
+//   }
+// }
