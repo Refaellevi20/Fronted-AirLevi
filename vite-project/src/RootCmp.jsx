@@ -18,17 +18,17 @@ import { UserWishList } from './pages/UserWishList'
 import { debuggerService } from './services/Debugger.Service'
 
 export function RootCmp() {
-  useEffect(() => {
-    debuggerService.info('system', 'Application started')
+  // useEffect(() => { //* debugger
+  //   debuggerService.info('system', 'Application started')
     
-    debuggerService.debug('user', 'User module initialized')
-    debuggerService.warn('stay', 'Stay cache outdated')
-    debuggerService.error('order', 'Failed to process order',new Error('Payment failed'))
+  //   debuggerService.debug('user', 'User module initialized')
+  //   debuggerService.warn('stay', 'Stay cache outdated')
+  //   debuggerService.error('order', 'Failed to process order',new Error('Payment failed'))
 
-    return () => {
-      debuggerService.info('system', 'Application shutting down')
-    }
-  }, [])
+  //   return () => {
+  //     debuggerService.info('system', 'Application shutting down')
+  //   }
+  // }, [])
   
   return (
     <div className="main-container full">

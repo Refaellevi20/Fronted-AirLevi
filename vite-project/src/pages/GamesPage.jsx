@@ -181,6 +181,7 @@ export default function GamesPage() {
                     <NavMenu />
                 </div>
             </header>
+            
             <div className="game-container">
                 <h1>Snake Game</h1>
                 <FlowersAnimation />
