@@ -1,8 +1,6 @@
 // import axios from 'axios';
 
-// const API_URL = 'https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill'
-// const API_KEY = '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';
-
+// api
 // // Check if the API key is missing
 // if (!API_KEY) {
 //     console.warn('Hugging Face API key is missing! Please add it to your .env file as VITE_HUGGINGFACE_API_KEY.');

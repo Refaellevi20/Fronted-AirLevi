@@ -27,3 +27,10 @@ frontend/node_modules
 .env.*.local
 # DON'T ignore .env in development
 !.env
+
+
+# api 
+const API_URL =
+  'https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill'
+'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';
+ const API_KEY = 
