@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router'
 
 import { HomePage } from './pages/HomePage'
@@ -15,9 +15,21 @@ import { MessagesPage } from './pages/MessagesPage'
 import  GamesPage  from './pages/GamesPage' 
 import { Analytics } from './pages/Analytics'
 import { UserWishList } from './pages/UserWishList'
+import { debuggerService } from './services/debugger.service.js'
 
 export function RootCmp() {
+  useEffect(() => {
+    debuggerService.info('system', 'Application started')
+    
+    debuggerService.debug('user', 'User module initialized')
+    debuggerService.warn('stay', 'Stay cache outdated')
+    debuggerService.error('order', 'Failed to process order')
 
+    return () => {
+      debuggerService.info('system', 'Application shutting down')
+    }
+  }, [])
+  
   return (
     <div className="main-container full">
       <main>
