@@ -81,7 +81,8 @@ const Dashboard: React.FC<DashboardProps> = ({ payments, paymentTrends }) => {
             <th>Status</th>
           </tr> */}
         </thead>
-        <tbody>
+        {/* //* becouse they are a lot i know i can do splice but that will be on the dashboard too so no */}
+        {/* <tbody> 
           {payments.map((payment) => (
             <tr key={payment.id} style={{ borderBottom: '1px solid #ddd' }}>
               <td>{payment.id}</td>
@@ -90,7 +91,7 @@ const Dashboard: React.FC<DashboardProps> = ({ payments, paymentTrends }) => {
               <td>{payment.status}</td>
             </tr>
           ))}
-        </tbody>
+        </tbody> */}
       </table>
 
       <div style={{ width: '100%', height: '400px' }}>

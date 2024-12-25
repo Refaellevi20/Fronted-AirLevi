@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import guest from '/guest.svg'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/user.actions'
@@ -52,7 +52,7 @@ export function NavMenu() {
     setNavbarOpen((prev) => !prev)
   }
 
-  const GamesLink = () => {
+  function GamesLink() {
     const loggedInUser = useSelector((state) => state.userModule.user)
     const orders = useSelector((state) => state.orderModule.orders)
     
@@ -99,6 +99,7 @@ export function NavMenu() {
               <Link to='/wishlist'>Wishlist</Link>
               <Link to='/user/Messages'>Messages</Link>
               <Link to='/history'>history</Link>
+              {/* <NavLink to="/analytics">Analytics</NavLink> */}
               <Link to='/gust/trip/games'>Time To Think</Link>
               {user.isOwner && <Link to='/hosting/orders'>View orders</Link>}
               {user.isOwner && <Link to='/hosting/orders/dashboard'>Dashboard</Link>}

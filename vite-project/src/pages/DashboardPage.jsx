@@ -3,6 +3,7 @@ import Dashboard from './Dashboard'
 import { MdKeyboardArrowLeft } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
 import { utilService } from '../services/util.service'
+import { Analytics } from './Analytics'
 
 export function DashboardPage() {
   const orders = useSelector((storeState) => storeState.orderModule.orders)
@@ -15,7 +16,7 @@ export function DashboardPage() {
   }
 
   const payments = orders
-  .slice(0,15).map(order => ({
+  .map(order => ({
    id: order._id,
     amount: order.totalPrice || utilService.getRandomIntInclusive(100, 1000),
     date: new Date(order.createdAt).toISOString().split('T')[0],
@@ -38,6 +39,7 @@ export function DashboardPage() {
         <Dashboard payments={payments} paymentTrends={paymentTrends} />
       </div>
       {/* <Chatbot /> */}
+      <Analytics />
     </div>
   )
 }
