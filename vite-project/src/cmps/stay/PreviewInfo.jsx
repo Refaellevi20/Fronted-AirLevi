@@ -53,7 +53,7 @@ export function PreviewInfo({ info}) {
       <p className='text-grey__info'>{info.type}</p>
       <p className='text-grey__info'>
         {/$/.test(url.pathname) && dateRangeGenerator() }
-        {/stay$/.test(url.pathname) && dateRangeGenerator()}
+        {/stay$/.test(url.pathname)}
         {/* {/wishlist$/.test(url.pathname) && `${info.capacity} beds`} */}
       </p>
       <p className='text-bold'>
