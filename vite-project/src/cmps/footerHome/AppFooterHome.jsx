@@ -44,10 +44,10 @@ export function AppFooterHome() {
                 <div className="flex top-border__footer">
                     <div className="footer-p">
                         <div className="flex-start flex">
-                            <p>© 2024 AirLevi, Inc. · Terms · Sitemap ·</p>
+                            <p className="ff-c__book">© 2024 AirLevi, Inc. · Terms · Sitemap ·</p>
                         </div>
                         <div className="flex media1">
-                            <p>Privacy · Your Privacy Choices</p>
+                            <p className="ff-c__book">Privacy · Your Privacy Choices</p>
                         </div>
                     </div>
                     <div className="right-aligned__details">
@@ -55,7 +55,7 @@ export function AppFooterHome() {
                             <TbWorld onClick={() => setIsModalOpen(true)} />
                             <h1
                                 style={{ padding: '0 10px' }}
-                                className="pointer underline fs14"
+                                className="pointer underline fs14 ff-c__book"
                                 onClick={() => setIsModalOpen(true)}
                             >
                                 {i18n.language === 'en' ? 'English (US)' : i18n.language === 'he' ? 'עברית' : i18n.language === 'es' ? 'Español (MX)' : i18n.language === 'fr' ? 'Français (FR)' : i18n.language === 'de' ? 'Deutsch (DE)' : i18n.language === 'it' ? 'Italiano (IT)' : i18n.language === 'zh' ? '中文 (CN)' : i18n.language.toUpperCase()}
@@ -78,14 +78,14 @@ export function AppFooterHome() {
                             />
                         </div>
                         <div className="flex">
-                            <h1 className="pointer underline" onClick={openModalSupport} >Support & resources </h1>
+                            <h1 className="pointer underline ff-c__book" onClick={openModalSupport} >Support & resources </h1>
                             <IoIosArrowDown style={{ fontSize: '0.875em', marginLeft: '0.2em', cursor: 'pointer' }} />
                             <Modal isOpen={isModalOpenSupport} onClose={closeModalSupport}>
                                 <div style={{ position: 'relative', background: '#fff', padding: '0 20px', borderRadius: '10px' }}>
                                     <div style={{ padding: '10px' }}>
                                     </div>
                                     <section className="section-wrapper">
-                                        <div className="item-footer">
+                                        <div className="item-footer ff-c__book">
                                             <h2>{t('Support')}</h2>
                                             <ul>
                                                 <li>{t('HelpCenter')}</li>
@@ -98,7 +98,7 @@ export function AppFooterHome() {
                                             </ul>
                                         </div>
 
-                                        <div className="item-footer">
+                                        <div className="item-footer ff-c__book">
                                             <h2>{t('Hosting')}</h2>
                                             <ul>
                                                 <li>{t('AirbnbYourHome')}</li>
@@ -113,7 +113,7 @@ export function AppFooterHome() {
                                             </ul>
                                         </div>
 
-                                        <div className="item-footer">
+                                        <div className="item-footer ff-c__book">
                                             <h2>{t('Airbnb')}</h2>
                                             <ul>
                                                 <li>{t('Newsroom')}</li>

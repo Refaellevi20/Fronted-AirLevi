@@ -34,9 +34,9 @@ export function PreviewImageSlider({ imgUrls, stay,onWishlistUpdate }) {
     //     return () => {
     //         document.body.style.overflow = 'auto'
     //     }
-    // }, [])
+    // }, []) but here is bad becouse it is on also when the modal is off so i can use ref to fix it 
 
-    const onHandleHeart = async (ev) => {
+    async function onHandleHeart(ev){
         ev.preventDefault()
         ev.stopPropagation()
 

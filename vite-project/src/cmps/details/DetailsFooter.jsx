@@ -9,6 +9,8 @@ import currencySymbolMap from 'currency-symbol-map';
 import LanguageModal from '../LanguageModal';
 import CurrencyModal from '../CurrencyModal';
 import { useDispatch, useSelector } from 'react-redux';
+import { FaGithub } from "react-icons/fa";
+
 
 export function AppFooterDetails() {
     const { t, i18n } = useTranslation()
@@ -62,8 +64,8 @@ export function AppFooterDetails() {
         <footer className='main-layout-footer__details'>
             <section className='footer-details__container'>
                 <section className="section-wrapper secondary-layout section-wrapper__details">
-                    <div className="item-footer first-item">
-                        <h2>{t('Support')}</h2>
+                    <div className="item-footer first-item ff-c__book">
+                        <h2 className='ff-c__book'>{t('Support')}</h2>
                         <ul>
                             <li>{t('HelpCenter')}</li>
                             <li>{t('GetHelpWithSafetyIssue')}</li>
@@ -75,9 +77,9 @@ export function AppFooterDetails() {
                         </ul>
                     </div>
 
-                    <div className="item-footer">
-                        <div className='on-media-border__footer'>
-                            <h2>{t('Hosting')}</h2>
+                    <div className="item-footer ff-c__book">
+                        <div className='on-media-border__footer '>
+                            <h2 className='ff-c__book'>{t('Hosting')}</h2>
                             <ul>
                                 <li>{t('AirbnbYourHome')}</li>
                                 <li>{t('AirCoverForHosts')}</li>
@@ -92,7 +94,7 @@ export function AppFooterDetails() {
                         </div>
                     </div>
 
-                    <div className="item-footer">
+                    <div className="item-footer ff-c__book">
                         <div className='on-media-border__footer'>
                             <h2>{t('Airbnb')}</h2>
                             <ul>
@@ -110,10 +112,10 @@ export function AppFooterDetails() {
                     <div className="footer-bottom flex top-border__footer top-border-footer__details">
                         <div className='footer-details__txt'>
                             <div className="flex-start flex fs14 flex-txt__center">
-                                <p>© 2024 AirLevi, Inc.</p>
+                                <p className='ff-c__book'>© 2024 AirLevi, Inc.</p>
                             </div>
                             <div className="flex  fs14">
-                                <p> · Terms · Sitemap · Privacy · Your Privacy Choices</p>
+                                <p className='ff-c__book'> · Terms · Sitemap · Privacy · Your Privacy Choices</p>
                             </div>
                         </div>
                         <div className='right-aligned__details'>
@@ -148,7 +150,6 @@ export function AppFooterDetails() {
                                     onLanguageChange={changeLanguage}
                                 />
                             </div>
-                            {/* <div > */}
                             <p style={{alignItems: 'center'}}
                              className="fs14 pointer underline"
                                 onClick={() => setIsModalOpenMoney(true)}>
@@ -158,19 +159,18 @@ export function AppFooterDetails() {
                                 isOpen={isModalOpenMoney}
                                 onClose={() => setIsModalOpenMoney(false)}
                             />
-                        {/* </div> */}
                             <div>
                                 <a href="https://www.facebook.com/airbnb" target="_blank" rel="noopener noreferrer">
                                     <ImFacebook2 style={{ fontSize: '18px' }} />
                                 </a>
                             </div>
                             <div>
-                                <a href="https://twitter.com/airbnb" target="_blank" rel="noopener noreferrer">
-                                    <FaTwitterSquare style={{ fontSize: '19px' }} />
+                                <a href="https://github.com/Refaellevi20" target="_blank" rel="noopener noreferrer">
+                                <FaGithub style={{ fontSize: '19px' }} />
                                 </a>
                             </div>
                             <div>
-                                <a href="https://www.instagram.com/airbnb/" target="_blank" rel="noopener noreferrer">
+                                <a href="https://www.instagram.com/raf.levi9/?igsh=MThjY2twMWhuNzB5MQ%3D%3D#" target="_blank" rel="noopener noreferrer">
                                     <FaInstagramSquare style={{ fontSize: '19px', }} />
                                 </a>
                             </div>
