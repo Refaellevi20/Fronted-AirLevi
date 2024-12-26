@@ -1,16 +1,36 @@
+// import { useState } from "react"
+// import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io"
 
+// export function Accordion({ title, children }) {
+//     const [isOpen, setIsOpen] = useState(false)
+//     const [showExtra, setShowExtra] = useState(false)
 
-export function Accordion({ title, children }) {
-    const [isOpen, setIsOpen] = useState(false)
-    const arrow = isOpen ? '▲' : '▼';
-    return (
-        <section className="accordion">
-            <section onClick={() => setIsOpen(isOpen => !isOpen)} className="title-container">
-                <h2>{title}</h2>
-                <span>{arrow}</span>
-            </section>
-            {isOpen && <div>{children}</div>}
-            <hr />
-        </section>
-    )
-} 
+//     return (
+//         <section className="accordion">
+//             <button 
+//                 onClick={() => setIsOpen(prev => !prev)} 
+//                 className="accordion-header"
+//                 aria-expanded={isOpen}
+//             >
+//                 <h2>{title}</h2>
+//                 <span className={`accordion-icon ${isOpen ? 'open' : ''}`}>
+//                 <p className="extra-content">LOOOOOOOOOOOOOOO</p>
+//                     {isOpen ?  <IoIosArrowDown /> : <IoIosArrowForward />}
+//                 </span>
+//             </button>
+//             <div className={`accordion-content ${isOpen ? 'open' : ''}`}>
+//                 <h5 
+//                     className="clickable-text"
+//                     onClick={() => setShowExtra(prev => !prev)}
+//                 >
+//                     u will see your wishlist only on your device only!!!
+//                 </h5>
+//                 {showExtra && (
+//                     <p className="extra-content">LOOOOOOOOOOOOOOO</p>
+//                 )}
+//                 {children}
+//             </div>
+//             <hr className="accordion-divider" />
+//         </section>
+//     )
+// }

@@ -6,7 +6,8 @@
         align-items: center;
         gap: 8px;
         padding: 8px 16px;
-        border: 1px solid #ddd;
+        // border: 1px solid #ddd;
+        border: none;
         border-radius: 20px;
         background: white;
         cursor: pointer;
@@ -149,3 +150,10 @@
         }
     }
 }
+
+@media screen and (max-width: 785px) {
+    .share-button {
+        display: none !important;
+    }
+}
+

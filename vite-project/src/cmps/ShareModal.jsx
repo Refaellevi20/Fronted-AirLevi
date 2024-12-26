@@ -11,6 +11,8 @@ import { FiShare2 } from 'react-icons/fi'
 import { SiGmail, SiMicrosoftoutlook } from 'react-icons/si'
 import { IoMdClose } from 'react-icons/io'
 import { showSuccessMsg } from '../services/event-bus.service'
+import { PiUploadSimple } from "react-icons/pi";
+
 
 export function ShareModal({ stay }) {
     const [isOpen, setIsOpen] = useState(false)
@@ -126,7 +128,8 @@ export function ShareModal({ stay }) {
                 onClick={() => setIsOpen(true)}
                 aria-label="Share"
             >
-                <FiShare2 /> Share
+                <PiUploadSimple  size={24}/>
+                
             </button>
 
             {isOpen && (

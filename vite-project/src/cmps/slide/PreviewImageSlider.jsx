@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import { useWishlist } from '../../CustomHook/useWishlist'
 
 
-export function PreviewImageSlider({ imgUrls, stay,onWishlistUpdate }) {
+export function PreviewImageSlider({ imgUrls, stay }) {
     const [heart, setHeart] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const user = useSelector((state) => state.userModule.user)
@@ -83,7 +83,7 @@ export function PreviewImageSlider({ imgUrls, stay,onWishlistUpdate }) {
         }
     }
 
-    const handleModalClick = (ev) => {
+    function handleModalClick(ev) {
         if (isModalOpen) {
             ev.preventDefault()
             ev.stopPropagation()

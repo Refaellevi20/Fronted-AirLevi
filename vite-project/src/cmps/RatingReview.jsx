@@ -20,7 +20,7 @@ export function RatingReview({ reviews }) {
     return (
         <>
             <span className="avg-rating flex1" style={{flexWrap: 'nowrap'}}>
-                <span className="total-avg-star fs20"> <FaStar style={{fill: 'black',stroke:'black'}}/></span>
+                <span className="total-avg-star fs20"> <FaStar style={{fill: 'black',stroke:'black',marginTop:'-20px'}}/></span>
                 <span className="total-avg-rating " style={{paddingLeft: '4px',marginTop:'-2px',fontSize:'16px'}}>{avgRating}</span>
             </span>
         </>
