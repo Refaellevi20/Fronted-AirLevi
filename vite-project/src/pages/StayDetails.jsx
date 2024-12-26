@@ -29,7 +29,8 @@ import { CalcAvgReview } from "../cmps/calcAvgReview";
 import { ModalSize } from "../CustomHook/useModalSize";
 import { ChatBot } from './ChatBot';
 import { ShareModal } from "../cmps/ShareModal";
-import { Wish } from "./wish";
+import { padding } from "@mui/system";
+// import { Wish } from "./wish";
 
 const randomTextOptions = [
   "Lexington, Kentucky is the second-largest city in Kentucky next to Louisville, and is located in the heart of the Bluegrass region. Lexington is known as the 'Horse Capital of the World,' since it is home to the Kentucky Horse Park, Keeneland race course and the Red Mile race course.",
@@ -54,7 +55,7 @@ export function StayDetails({ reviews }) {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
   const [reviewsForModal, setReviewsForModal] = useState([])
   const [modalIsOpen, setModalIsOpen] = useState(false)
-  const [randomText, setRandomText] = useState(getRandomText);
+  const [randomText, setRandomText] = useState(getRandomText)
 
   const imgsToDisplay = stay?.imgUrls?.slice(0, 5)
   const amenitiesToDisplay = stay?.amenities?.slice(0, 10)
@@ -177,7 +178,7 @@ export function StayDetails({ reviews }) {
             />
             <section className="revers-flex__media">
               <div>
-                <div className="flex controller-layout__details secondary-layout">
+                <div style={{paddingTop:'10px',paddingBottom:'10px'}} className="flex controller-layout__details secondary-layout">
                   <h1 id="stay-top" className="stay-top ">{stay.name}</h1>
                   <ShareModal stay={stay} />
                   {/* {stay ? (

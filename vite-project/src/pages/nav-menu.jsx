@@ -99,6 +99,7 @@ export function NavMenu() {
               <Link to='/wishlist'>Wishlist</Link>
               <Link to='/user/Messages'>Messages</Link>
               <Link to='/history'>history</Link>
+              <NavLink to="/about/development">About Me</NavLink>
               {/* <NavLink to="/analytics">Analytics</NavLink> */}
               <Link to='/gust/trip/games'>Time To Think</Link>
               {user.isOwner && <Link to='/hosting/orders'>View orders</Link>}

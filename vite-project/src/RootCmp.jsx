@@ -16,7 +16,7 @@ import  GamesPage  from './pages/GamesPage'
 import { Analytics } from './pages/Analytics'
 import { UserWishList } from './pages/UserWishList'
 import { debuggerService } from './services/Debugger.Service'
-import { GradientFlash } from './cmps/GradientFlash'
+import { AboutMe } from './pages/AboutMe'
 
 export function RootCmp() {
   // useEffect(() => { //* debugger
@@ -49,10 +49,10 @@ export function RootCmp() {
           <Route element={<GamesPage />} path='/gust/trip/games' />
           <Route path="/analytics" element={<Analytics />} />
           <Route element={<MessagesPage />} path='user/Messages' />
+          <Route element={<AboutMe />} path='about/development' />
         </Routes>
       </main>
       <UserMsg />
-      <GradientFlash />
     </div>
   )
 }

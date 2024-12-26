@@ -8,6 +8,7 @@ import { loadStays } from '../store/stay/stay.action'
 import { AppFooterHome } from '../cmps/footerHome/AppFooterHome'
 import { NavBar } from '../cmps/NavBar'
 import { AppHeader } from '../cmps/AppHeader'
+import { IndexLoader } from '../cmps/IndexLoader'
 
 export function StayIndex({currency}) {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -42,20 +43,23 @@ export function StayIndex({currency}) {
     <section style={{ position: 'relative' }}>
       {filterBy.location && <h4 className='main-layout'>Showing results for {filterBy.location}</h4>}
       {filteredStays.length === 0 ? (
-        <div className="no-results-container">
-          <div className="angry-emoji">😢</div>
-          <div className="message-container">
-            <p className="no-results-message">No stays available!</p>
-            <p className="sub-message">Try different filters...</p>
-          </div>
-          <div className="angry-cloud-container">
-            <div className="angry-cloud"></div>
-            <div className="lightning"></div>
-          </div>
-        </div>
+        <IndexLoader />
       ) : (
         <StayList stays={filteredStays} currency={currency}/>
       )}
+     {/* {filteredStays.length === 0 && (
+          <div className="no-results-container">
+            <div className="angry-emoji">😢</div>
+            <div className="message-container">
+              <p className="no-results-message">No stays available!</p>
+              <p className="sub-message">Try different filters...</p>
+            </div>
+            <div className="angry-cloud-container">
+              <div className="angry-cloud"></div>
+              <div className="lightning"></div>
+            </div>
+          </div>
+        )} */}
       <AppFooterHome />
     </section>
   </section>

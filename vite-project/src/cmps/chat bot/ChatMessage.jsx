@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react'
 import { IoPersonCircle } from 'react-icons/io5'
 import { RiRobot2Fill } from 'react-icons/ri'
+import { TbPointFilled } from "react-icons/tb";
+
 
 export function ChatMessage({ message }) {
     function formatTime(timestamp) {
@@ -30,8 +32,10 @@ export function ChatMessage({ message }) {
                     <IoPersonCircle className="user-avatar" />
                 )}
             </div>
-            <div className="message-content">
+            <div className="message-content ">
                 {message.text}
+                <p></p>
+               {/* <p>{'\u200B'}</p> */}
                 {message.timestamp ? formatTime(message.timestamp) : formatTime(new Date())}
                 </div>
                 </div>
