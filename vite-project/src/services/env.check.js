@@ -91,4 +91,5 @@ export function checkEnvVariables() {
 //! index header refresh header need to be fix 
 //~ message border of the color of the status (maybe)
 //! links
+//! heart on the details
 //! the chatbot is on perpers not outclick 

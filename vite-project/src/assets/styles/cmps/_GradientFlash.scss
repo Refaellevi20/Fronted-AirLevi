@@ -1,0 +1,38 @@
+@keyframes gradientWave {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .gradient-flash {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      #ff385c,
+      #ffb4c0,
+      #ffd700,
+      #ffb4c0,
+      #ff385c
+    );
+    background-size: 200% 200%;
+    opacity: 0;
+    transform: scaleY(0);
+    transition: transform 0.2s, opacity 0.2s;
+    z-index: 9999;
+  }
+  
+  .gradient-flash.active {
+    animation: gradientWave 1s ease infinite;
+    opacity: 1;
+    transform: scaleY(1);
+  }

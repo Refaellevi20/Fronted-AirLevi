@@ -16,6 +16,7 @@ import  GamesPage  from './pages/GamesPage'
 import { Analytics } from './pages/Analytics'
 import { UserWishList } from './pages/UserWishList'
 import { debuggerService } from './services/Debugger.Service'
+import { GradientFlash } from './cmps/GradientFlash'
 
 export function RootCmp() {
   // useEffect(() => { //* debugger
@@ -51,6 +52,7 @@ export function RootCmp() {
         </Routes>
       </main>
       <UserMsg />
+      <GradientFlash />
     </div>
   )
 }

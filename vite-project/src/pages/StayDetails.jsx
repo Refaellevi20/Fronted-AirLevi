@@ -28,6 +28,7 @@ import { AppHeader } from "../cmps/AppHeader";
 import { CalcAvgReview } from "../cmps/calcAvgReview";
 import { ModalSize } from "../CustomHook/useModalSize";
 import { ChatBot } from './ChatBot';
+import { ShareModal } from "../cmps/ShareModal";
 
 const randomTextOptions = [
   "Lexington, Kentucky is the second-largest city in Kentucky next to Louisville, and is located in the heart of the Bluegrass region. Lexington is known as the 'Horse Capital of the World,' since it is home to the Kentucky Horse Park, Keeneland race course and the Red Mile race course.",
@@ -177,8 +178,9 @@ export function StayDetails({ reviews }) {
             />
             <section className="revers-flex__media">
               <div>
-                <div className="controller-layout__details secondary-layout">
-                  <h1 id="stay-top" className="stay-top">{stay.name}</h1>
+                <div className="flex controller-layout__details secondary-layout">
+                  <h1 id="stay-top" className="stay-top ">{stay.name}</h1>
+                    <ShareModal stay={stay} />
                 </div>
               </div>
 
