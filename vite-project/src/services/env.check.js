@@ -86,9 +86,10 @@ export function checkEnvVariables() {
 //         }
 //     }
 // }
-//! acordion on => u will see your wishlist only on your device only!!!
 
-//! index header refresh header need to be fix 
+//TODO index header refresh header need to be fix 
 //~ message border of the color of the status (maybe)
-//! heart on the details
+//TODO heart on the details
 //! the chatbot is on perpers not outclick 
+//TODO add to the database count 
+//TODO database maybe wishlist
