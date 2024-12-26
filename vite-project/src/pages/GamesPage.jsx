@@ -172,7 +172,7 @@ export default function GamesPage() {
 
     return (
         <div>
-            <header className='app-header secondary-layout flex' style={{ justifyContent: 'space-between' }}>
+            <header className='app-header main-layout flex' style={{ justifyContent: 'space-between' }}>
                 <div className='header-logo-container'>
                     <AppLogo />
                 </div>
@@ -181,7 +181,6 @@ export default function GamesPage() {
                     <NavMenu />
                 </div>
             </header>
-            
             <div className="game-container">
                 <h1>Snake Game</h1>
                 <FlowersAnimation />

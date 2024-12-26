@@ -31,7 +31,7 @@ export function AboutMe() {
 
     return (
         <section>
-            <header className='app-header header-container flex'>
+            <header className='app-header header-container flex main-layout'>
                 <div className='header-logo-container'>
                     <AppLogo />
                 </div>
