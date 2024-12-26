@@ -24,7 +24,7 @@ export function UserMsg() {
     })
 
     socketService.on(SOCKET_EVENT_ORDER_FOR_YOU, (data) => {
-      console.log(data)
+      // console.log(data)
       const notification = {'type': 'order', 'data': data}
       dispatch({type: 'NOTIFY', notification})
       showSuccessMsg(`New order about for you`)

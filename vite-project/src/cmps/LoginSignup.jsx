@@ -41,13 +41,14 @@ export function LoginSignup({ closeModal }) {
     console.log('onLogin')
     if (ev) ev.preventDefault()
     if (!credentials.username) return
-
+    const user = await login(credentials)
+    showSuccessMsg(`Welcome: ${user.fullname}`)
     try {
-      const user = await login(credentials)
-      showSuccessMsg(`Welcome: ${user.fullname}`)
       closeModal()
     } catch (err) {
-      showErrorMsg('Cannot login')
+      const user = await login(credentials)
+      showSuccessMsg(`Welcome: ${user.fullname}`)
+      // showErrorMsg('Cannot login')
     }
     clearState()
   }
@@ -56,7 +57,7 @@ export function LoginSignup({ closeModal }) {
     if (ev) ev.preventDefault()
     if (!credentials.username || !credentials.password || !credentials.fullname)
       return
-    if (!credentials.imgUrl) { credentials.imgUrl = 'https://robohash.org/mat.png?size=50x50&set=set1' }
+    if (!credentials.imgUrl) { credentials.imgUrl = 'https://robohash.org/mat.png?size=50x50&set=set4' }
     signup(credentials)
     clearState()
   }

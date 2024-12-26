@@ -93,3 +93,7 @@ export function checkEnvVariables() {
 //! the chatbot is on perpers not outclick 
 //TODO add to the database count 
 //TODO database maybe wishlist
+
+//TODO fonts not working need to be fix 
+//TODO need to add more fonts
+//TODO user msg style

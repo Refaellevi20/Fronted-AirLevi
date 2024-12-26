@@ -129,6 +129,10 @@ export function ShareModal({ stay }) {
                 aria-label="Share"
             >
                 <PiUploadSimple  size={24}/>
+                <p className='fs14'> Share</p>
+               
+
+
                 
             </button>
 

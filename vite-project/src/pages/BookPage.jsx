@@ -15,6 +15,8 @@ import { BtnSquareColorRed } from '../cmps/buttons ui/btn-square-color.jsx'
 import { RatingReview3 } from '../cmps/RatingReview3.jsx'
 import { LoginSignup } from '../cmps/LoginSignup.jsx'
 import { Loader } from '../cmps/Loader.jsx'
+import { Link} from 'react-router-dom'
+
 
 export function BookPage() {
   const navigate = useNavigate()
@@ -153,7 +155,7 @@ export function BookPage() {
               alt='arrowLeftImg'
               onClick={onGoBack}
             /> */}
-            <MdKeyboardArrowLeft size={44} style={{ cursor: 'pointer' }} />
+            <Link to="/"><MdKeyboardArrowLeft size={44} style={{ cursor: 'pointer' }} /></Link>
           </div>
           <div>
             {/* {currentStep !== 'payment' && !isBooked && <h2>Request to book</h2>}

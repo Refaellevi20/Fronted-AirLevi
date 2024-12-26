@@ -33,6 +33,8 @@ export function RootCmp() {
   
   return (
     <div className="main-container full">
+          
+
       <main>
         <Routes>
         <Route path='/' element={<StayIndex />} />
