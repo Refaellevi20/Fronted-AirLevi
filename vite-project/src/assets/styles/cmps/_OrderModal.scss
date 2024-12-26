@@ -277,24 +277,24 @@
     }
 
     .container__details--order {
-      width: 170%;
+      width: 140% !important;
     }
 
     @media screen and (max-width: 1125px) {
       .container__details--order {
-        width: 140%;
+        width: 140% !important;
       }
     }
 
     @media screen and (max-width: 1075px) {
       .container__details--order {
-        width: 120%;
+        width: 120% !important;
       }
     }
 
     @media screen and (max-width: 925px) {
       .container__details--order {
-        width: 100%;
+        width: 100% !important;
       }
     }
 
