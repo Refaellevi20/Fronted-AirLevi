@@ -36,6 +36,7 @@ export function PreviewImageSlider({ imgUrls, stay }) {
     //     }
     // }, []) but here is bad becouse it is on also when the modal is off so i can use ref to fix it 
 
+
     async function onHandleHeart(ev){
         ev.preventDefault()
         ev.stopPropagation()

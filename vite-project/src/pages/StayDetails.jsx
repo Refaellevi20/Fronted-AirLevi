@@ -29,6 +29,7 @@ import { CalcAvgReview } from "../cmps/calcAvgReview";
 import { ModalSize } from "../CustomHook/useModalSize";
 import { ChatBot } from './ChatBot';
 import { ShareModal } from "../cmps/ShareModal";
+import { Wish } from "./wish";
 
 const randomTextOptions = [
   "Lexington, Kentucky is the second-largest city in Kentucky next to Louisville, and is located in the heart of the Bluegrass region. Lexington is known as the 'Horse Capital of the World,' since it is home to the Kentucky Horse Park, Keeneland race course and the Red Mile race course.",
@@ -60,7 +61,6 @@ export function StayDetails({ reviews }) {
   // const reviewsToDisplay = stay?.reviews?.slice(0, 6)
   const [reviewsToDisplay, setReviewsToDisplay] = useState(stay?.reviews?.slice(0, 6) || [])
   const reviewsToAll = stay?.reviews || []
-
 
   useEffect(() => {
     const updateReviewsToDisplay = () => {
@@ -109,7 +109,6 @@ export function StayDetails({ reviews }) {
     }
   }, [isOpenAmenities])
 
-
   async function loadStay() {
     try {
       const stay = await stayService.getById(stayId)
@@ -153,7 +152,7 @@ export function StayDetails({ reviews }) {
 
   function getRandomText() {
     const randomIndex = Math.floor(Math.random() * randomTextOptions.length);
-    return randomTextOptions[randomIndex];
+    return randomTextOptions[randomIndex]
   }
 
   if (!stay) {
@@ -180,7 +179,12 @@ export function StayDetails({ reviews }) {
               <div>
                 <div className="flex controller-layout__details secondary-layout">
                   <h1 id="stay-top" className="stay-top ">{stay.name}</h1>
-                    <ShareModal stay={stay} />
+                  <ShareModal stay={stay} />
+                  {/* {stay ? (
+    <Wish stayId={stay._id} />
+) : (
+    <p>Loading Wish component...</p>
+)} */}
                 </div>
               </div>
 
@@ -276,11 +280,11 @@ export function StayDetails({ reviews }) {
         <div className="stay-rating controller-layout__details stay-rating__details">
           <div onClick={openModal} className=" rev-btn show-all-amenities fs16 border-reviews__details">
             <p className="">{stay.reviews.length} reviews</p>
-            
+
           </div>
           {modalIsOpen && (
             <>
-              <ModalReviews closeModal={closeModal} reviews={reviewsForModal} stay={stay}/>
+              <ModalReviews closeModal={closeModal} reviews={reviewsForModal} stay={stay} />
             </>
           )}
         </div>
@@ -306,7 +310,7 @@ export function StayDetails({ reviews }) {
         {stay && <StayMobileFooter stay={stay} setOpenTab={setOpenTab} />}
       </div>
       <div className="">
-      <ChatBot />
+        <ChatBot />
       </div>
     </section>
   )
