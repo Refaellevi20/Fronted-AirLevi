@@ -1,9 +1,10 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 import { utilService } from '../services/util.service'
-import { StayPreview } from './stay/StayPreview'
+// import { StayPreview } from './stay/StayPreview'
 import Modal from './Modal'
+import { StayPreview } from './stay/StayPreview'
 
-export function WishlistList({ stays }) {
+export function WishlistList({ stays,openModal }) {
   const navigate = useNavigate()
   const currLocation = useLocation()
 
@@ -17,10 +18,10 @@ export function WishlistList({ stays }) {
   if (!stays) return <div></div>
   return (
     <>
-      <div className='details-modal'>
+      {/* <div className='details-modal'>
         {' '}
         <Modal />
-      </div>
+      </div> */}
       <ul className='card-grid stay-list clean-list main-layout'>
         {stays.map((stay) => {
           return (

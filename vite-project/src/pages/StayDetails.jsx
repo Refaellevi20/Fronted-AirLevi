@@ -30,7 +30,6 @@ import { ModalSize } from "../CustomHook/useModalSize";
 import { ChatBot } from './ChatBot';
 import { ShareModal } from "../cmps/ShareModal";
 import { padding } from "@mui/system";
-import { useSelector } from "react-redux";
 // import { Wish } from "./wish";
 
 const randomTextOptions = [
@@ -57,15 +56,12 @@ export function StayDetails({ reviews }) {
   const [reviewsForModal, setReviewsForModal] = useState([])
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [randomText, setRandomText] = useState(getRandomText)
-  const user = useSelector((state) => state.userModule.user)
 
   const imgsToDisplay = stay?.imgUrls?.slice(0, 5)
   const amenitiesToDisplay = stay?.amenities?.slice(0, 10)
   // const reviewsToDisplay = stay?.reviews?.slice(0, 6)
   const [reviewsToDisplay, setReviewsToDisplay] = useState(stay?.reviews?.slice(0, 6) || [])
   const reviewsToAll = stay?.reviews || []
-
-  const isLoggedin = user ? true : false
 
   useEffect(() => {
     const updateReviewsToDisplay = () => {
@@ -86,8 +82,6 @@ export function StayDetails({ reviews }) {
   useEffect(() => {
     loadStay()
   }, [])
-
-  function openReviewMap() {}
 
   //^ becouse i have the scroll of the page too
   //^ becouse i did 100% modal (all the page)
@@ -192,28 +186,8 @@ export function StayDetails({ reviews }) {
 ) : (
     <p>Loading Wish component...</p>
 )} */}
-                  <div className='stay-location' onClick={openReviewMap}>
-                    {stay.loc.address}
-                  </div>
-
-                  <button className='save-stay active'>
-                    <div className='heart'>
-                      <DetailsHeart
-                        handleClick={() => onLikeStay(stay._id)}
-                        isLiked={
-                          !!user
-                            ? stay.likedByUsers.find(
-                              (miniUser) => miniUser._id === user._id
-                            )
-                            : false
-                        }
-                        isLoggedin={isLoggedin}
-                      />
-                    </div>
-                  </button>
                 </div>
               </div>
-
               <div className="sss">
                 <ImgUseGrid
                   imgsToDisplay={imgsToDisplay}

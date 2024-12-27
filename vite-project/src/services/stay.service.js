@@ -17,7 +17,7 @@ window.us=stayService
 
 async function query(filterBy) {
     //can you not put the filterBy in the body?
-    var queryStr = (!filterBy) ? '' : `?location=${filterBy.location || ''}&likedByUserId=${filterBy.likedByUserId || ''}`
+    var queryStr = (!filterBy) ? '' : `?location=${filterBy.location || ''}`
     return await httpService.get(`stay${queryStr}`)
 }
 

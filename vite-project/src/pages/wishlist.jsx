@@ -1,16 +1,13 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { WishlistList } from '../cmps/wishlist-list.jsx'
-import arrowLeftImg from '../assets/img/arrow-left.svg'
+import { WishlistList } from '../cmps/WishlistList.jsx' 
+import arrowLeftImg from '/arrow-left.svg'
 
-import { loadStays, onLikeStayOptimistic } from '../store/stay/stay.action.js'
-import { Logo } from '../cmps/logo.jsx'
-import { NavMenu } from '../cmps/nav-menu.jsx'
-import { IndexLoader } from '../cmps/stay-list/index-loader.jsx'
 import { useNavigate } from 'react-router-dom'
 import { AppLogo } from '../cmps/app-logo.jsx'
-import { NavMenu } from './nav-menu'
-import { IndexLoader } from '../cmps/IndexLoader'
+import { NavMenu } from './nav-menu.jsx'
+import { IndexLoader } from '../cmps/IndexLoader.jsx'
+import { loadStays, onLikeStayOptimistic } from '../store/stay/stay.action.js'
 
 export function WishList() {
   const stays = useSelector((state) => state.stayModule.stays)

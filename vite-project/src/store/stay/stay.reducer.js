@@ -16,11 +16,11 @@ export const UPDATE_WISHLIST = 'UPDATE_WISHLIST'
 const initialState = {
   stays: [],
   labels: [],
-  lastLikedStay: null,
+  lastLikedStay: [],
   isLoading: false,
   filterBy: stayService.getDefaultFilter(),
   currency: 'USD',
-  wishlist: null
+  // wishlist: null
 }
 
 export function stayReducer(state = initialState, action) {
@@ -54,25 +54,25 @@ export function stayReducer(state = initialState, action) {
       return { ...state, stays }
     case SET_LABELS:
         return { ...state, filterBy: action.filterBy }
-    case TOGGLE_LIKE_STAY:
-      const likedStay = state.stays.find(stay => stay._id === action.stayId)
-      if (!!likedStay.likedByUsers.find(user => user._id === action.user._id)) {
-        likedStay.likedByUsers = likedStay.likedByUsers.filter(user => user._id !== action.user._id)
-      } else {
-        likedStay.likedByUsers = [...likedStay.likedByUsers, action.user]
-      }
-      stays = state.stays.map(stay => (stay._id === action.stayId) ? likedStay : stay)
-      return { ...state, stays, lastLikedStay: { stayId: action.stayId, user: action.user } }
-    case UNDO_TOGGLE_LIKE_STAY:
-      if (state.lastLikedStay) {
-        const lastLikedStay = state.stays.find(stay => stay._id === state.lastLikedStay.stayId)
-        if (lastLikedStay.likedByUsers.find(user => user._id === action.user._id)) {
-          lastLikedStay.likedByUsers = lastLikedStay.likedByUsers.filter(user => user._id !== action.user._id)
-        } else {
-          lastLikedStay.likedByUsers = [...lastLikedStay.likedByUsers, action.user]
-        }
-        return { ...state, stays: [...state.stays, lastLikedStay], lastLikedStay: null }
-      }
+        case TOGGLE_LIKE_STAY:
+          const likedStay = state.stays.find(stay => stay._id === action.stayId)
+          if (!!likedStay.likedByUsers.find(user => user._id === action.user._id)) {
+            likedStay.likedByUsers = likedStay.likedByUsers.filter(user => user._id !== action.user._id)
+          } else {
+            likedStay.likedByUsers = [...likedStay.likedByUsers, action.user]
+          }
+          stays = state.stays.map(stay => (stay._id === action.stayId) ? likedStay : stay)
+          return { ...state, stays, lastLikedStay: { stayId: action.stayId, user: action.user } }
+        case UNDO_TOGGLE_LIKE_STAY:
+          if (state.lastLikedStay) {
+            const lastLikedStay = state.stays.find(stay => stay._id === state.lastLikedStay.stayId)
+            if (lastLikedStay.likedByUsers.find(user => user._id === action.user._id)) {
+              lastLikedStay.likedByUsers = lastLikedStay.likedByUsers.filter(user => user._id !== action.user._id)
+            } else {
+              lastLikedStay.likedByUsers = [...lastLikedStay.likedByUsers, action.user]
+            }
+            return { ...state, stays: [...state.stays, lastLikedStay], lastLikedStay: null }
+          }
       break
     default:
       return { ...state }
