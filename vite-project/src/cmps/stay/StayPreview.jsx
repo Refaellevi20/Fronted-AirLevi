@@ -4,6 +4,11 @@ import { PreviewInfo } from './PreviewInfo'
 
 export function StayPreview({ stay,currency,onWishlistUpdate }) {
   const user = useSelector((state) => state.userModule.user)
+ 
+  const isLiked = !!user
+  ? stay?.likedByUsers?.find((miniUser) => miniUser._id === user._id)
+  : false
+
   const imgUrls = stay.imgUrls
   const { price, reviews, type, capacity } = stay
 
@@ -15,6 +20,7 @@ export function StayPreview({ stay,currency,onWishlistUpdate }) {
         imgUrls={imgUrls}
         user={user}
         stayId={stay._id}
+        isLiked={isLiked}
         stay={stay}
         onWishlistUpdate={onWishlistUpdate} 
 
