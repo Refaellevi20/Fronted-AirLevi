@@ -21,14 +21,14 @@ export function StayList({ stays, currency }) {
     window.open(url, '_blank', 'noopener,noreferrer')
   }
 
-  async function onRemoveStay(stayId) {
-    try {
-      await removeStay(stayId)
-      showSuccessMsg('Stay remove successfully')
-    } catch {
-      showErrorMsg('Cannot remove stay')
-    }
-  }
+  // async function onRemoveStay(stayId) {
+  //   try {
+  //     await removeStay(stayId)
+  //     showSuccessMsg('Stay remove successfully')
+  //   } catch {
+  //     showErrorMsg('Cannot remove stay')
+  //   }
+  // }
 
   return (
     <>
@@ -51,7 +51,8 @@ export function StayList({ stays, currency }) {
               <StayPreview
                 stay={stay}
                 currency={currency}
-                onRemoveStay={onRemoveStay} />
+                // onRemoveStay={onRemoveStay} 
+                />
             </li>
           )
         })}

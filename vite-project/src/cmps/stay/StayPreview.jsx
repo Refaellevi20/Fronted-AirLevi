@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux'
 import { PreviewImageSlider } from '../slide/PreviewImageSlider'
 import { PreviewInfo } from './PreviewInfo'
+import { removeStay } from '../../store/stay/stay.action'
 
-export function StayPreview({ stay, currency,onRemoveStay, onWishlistUpdate }) {
+export function StayPreview({ stay, currency, onWishlistUpdate }) {
   const user = useSelector((state) => state.userModule.user)
   // const loggedInUser = useSelector(state => state.userModule.user)
   // const isOwner = loggedInUser?.isAdmin || stay.host._id === loggedInUser?._id
@@ -16,6 +17,21 @@ export function StayPreview({ stay, currency,onRemoveStay, onWishlistUpdate }) {
   const { loc: { address: location } = {} } = stay || {}
   const info = { price, reviews, location, type, capacity }
 
+  async function handleRemove(ev) {
+    if (ev) {
+      ev.preventDefault()
+      ev.stopPropagation()
+    }
+    {
+      try {
+        await removeStay(stay._id)
+        showSuccessMsg('Stay remove successfully')
+      } catch {
+        showErrorMsg('Cannot remove stay')
+      }
+    }
+  }
+
   return (
     <article className='preview'>
       <PreviewImageSlider
@@ -25,11 +41,9 @@ export function StayPreview({ stay, currency,onRemoveStay, onWishlistUpdate }) {
         stay={stay}
         onWishlistUpdate={onWishlistUpdate}
         isOwner={isOwner}
-        onRemoveStay={onRemoveStay}
+        onRemove={handleRemove}
       />
       <PreviewInfo info={info} currency={currency} />
-
-
     </article>
   )
 }

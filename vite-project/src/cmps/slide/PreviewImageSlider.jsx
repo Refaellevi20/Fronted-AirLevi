@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import { useWishlist } from '../../CustomHook/useWishlist'
 
 
-export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemoveStay, onWishListStay, stayId }) {
+export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, onWishListStay, stayId }) {
     const [heart, setHeart] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const user = useSelector((state) => state.userModule.user)
@@ -132,12 +132,9 @@ export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemoveStay, onWis
             {isOwner && (
                 <button
                     className='delete-btn'
-                    onClick={(ev => {
-                        ev.preventDefault()
-                        ev.stopPropagation()
-                        onRemoveStay(stayId)
-                    })} 
-                >delete
+                    onClick={onRemove}
+                  
+                >x
                 </button>
 
             )}
