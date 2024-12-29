@@ -16,7 +16,7 @@ export const stayService = {
   getDefaultFilter,
 }
 
-_createStays()
+// _createStays()
 
 async function query(filterBy) {
   let stays = await storageService.query(STORAGE_KEY)

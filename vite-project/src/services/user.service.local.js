@@ -83,7 +83,7 @@ function _createUsers() {
       {
         _id: 'u101',
         fullname: 'shukiy Host',
-        imgUrl: 'https://robohash.org/shukiyhost',
+        imgUrl: 'https://robohash.org/shukiyhost?set=set4',
         username: 'host',
         password: 'secret',
         isOwner: true, 
@@ -92,7 +92,7 @@ function _createUsers() {
       {
         _id: 'u102',
         fullname: 'Puki guest',
-        imgUrl: 'https://robohash.org/pukiguest',
+        imgUrl: 'https://robohash.org/pukiguest?set=set4',
         username: 'guest',
         password: 'secret',
         likedStays: [{ _id: '622f337a75c7d36e498aaaf8' }],

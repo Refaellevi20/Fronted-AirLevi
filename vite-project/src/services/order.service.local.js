@@ -12,7 +12,7 @@ export const orderService = {
   getEmptyOrder,
 }
 
-_createOrders()
+// _createOrders()
 
 async function query(filterBy = {}) {
   let orders = await storageService.query(STORAGE_KEY)
