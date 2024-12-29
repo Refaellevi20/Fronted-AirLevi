@@ -108,7 +108,7 @@ export function DeleteConfirmation({ onConfirm, onCancel }) {
                     </>
                 ) : (
                     <>
-                        <p>Final step! Type exactly: "yes i love u too"</p>
+                        <p>Final step! do u love codding?</p>
                         <form onSubmit={handleSubmit}>
                             <input
                                 type="text"
