@@ -26,8 +26,35 @@ async function getById(stayId) {
     return stay
 }
 
-async function remove(stayId) {
-    return await httpService.delete(`stay/${stayId}`)
+function isOwner(stay,loggedInUser) {
+    return loggedInUser?.isOwner || stay.host._id === loggedInUser?._id
+}
+// async function remove(stayId) {
+
+// try{
+//     return await httpService.delete(BASE_URL + stayId)
+// } catch {
+//             console.log('filed to remove stay:', err)
+//             throw err
+// }
+
+// }
+
+
+async function remove(stayId,user) {
+    if(!user) throw new Error ('Not authorized')
+    try {
+        const stay = await getById(stayId)
+        if(!user || (user.isAdmin && stay.host._id !== user._id)) {
+            throw new Error('Not authorized to delete this stay')
+        }
+       return await httpService.delete(BASE_URL + stayId)
+    } catch {
+        console.log('filed to remove stay:', err)
+        throw err
+        
+    }
+    // return await httpService.delete(`stay/${stayId}`)
 }
 
 async function save(stay) {

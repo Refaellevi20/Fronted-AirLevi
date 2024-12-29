@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import { useWishlist } from '../../CustomHook/useWishlist'
 
 
-export function PreviewImageSlider({ imgUrls, stay }) {
+export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemoveStay, onWishListStay, stayId }) {
     const [heart, setHeart] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const user = useSelector((state) => state.userModule.user)
@@ -36,19 +36,19 @@ export function PreviewImageSlider({ imgUrls, stay }) {
     //     }
     // }, [])//^ but here is bad becouse it is on also when the modal is off so i can use ref to fix it 
 
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'auto'
-    }
+    useEffect(() => {
+        if (isModalOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'auto'
+        }
 
-    return () => {
-      document.body.style.overflow = 'auto'
-    }
-  }, [isModalOpen])
+        return () => {
+            document.body.style.overflow = 'auto'
+        }
+    }, [isModalOpen])
 
-    async function onHandleHeart(ev){
+    async function onHandleHeart(ev) {
         ev.preventDefault()
         ev.stopPropagation()
 
@@ -77,7 +77,7 @@ export function PreviewImageSlider({ imgUrls, stay }) {
                 showSuccessMsg('Removed from wishlist')
 
                 // Dispatch action to update global state
-               
+
             } else {
                 //* Add 
                 userWishlist.push(stay._id)
@@ -127,6 +127,20 @@ export function PreviewImageSlider({ imgUrls, stay }) {
                         />
                     </button>
                 </div>
+            </span>
+            <span>
+            {isOwner && (
+                <button
+                    className='delete-btn'
+                    onClick={(ev => {
+                        ev.preventDefault()
+                        ev.stopPropagation()
+                        onRemoveStay(stayId)
+                    })} 
+                >delete
+                </button>
+
+            )}
             </span>
             <Slider>
                 {imgUrls.map((url, idx) => (
