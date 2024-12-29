@@ -1,0 +1,162 @@
+.bathroom-step {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 32px 24px;
+
+    .bathroom-container {
+        h2 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #222222;
+            margin: 0 0 48px;
+            line-height: 1.1;
+        }
+
+        .bathroom-types {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+
+            .bathroom-type {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 24px 0;
+                border-bottom: 1px solid #dddddd;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                .type-header {
+                    flex: 1;
+
+                    h3 {
+                        font-size: 18px;
+                        font-weight: 600;
+                        color: #222222;
+                        margin: 0 0 4px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        color: #717171;
+                        margin: 0;
+                        max-width: 400px;
+                    }
+                }
+
+                .counter {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+
+                    button {
+                        width: 32px;
+                        height: 32px;
+                        border: 1px solid #b0b0b0;
+                        border-radius: 50%;
+                        background: none;
+                        font-size: 18px;
+                        color: #222222;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: all 0.2s ease;
+
+                        &:hover:not(:disabled) {
+                            border-color: #222222;
+                            background: #f7f7f7;
+                        }
+
+                        &:disabled {
+                            border-color: #dddddd;
+                            color: #dddddd;
+                            cursor: not-allowed;
+                        }
+                    }
+
+                    span {
+                        font-size: 18px;
+                        font-weight: 400;
+                        color: #222222;
+                        min-width: 24px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+    // Responsive Design
+    @media (max-width: 744px) {
+        padding: 24px 16px;
+
+        .bathroom-container {
+            h2 {
+                font-size: 26px;
+                margin-bottom: 32px;
+            }
+
+            .bathroom-types {
+                .bathroom-type {
+                    padding: 20px 0;
+                    flex-direction: column;
+                    gap: 16px;
+                    align-items: flex-start;
+
+                    .type-header {
+                        margin-bottom: 8px;
+                    }
+                }
+            }
+        }
+    }
+
+    // Dark Mode Support
+    @media (prefers-color-scheme: dark) {
+        .bathroom-container {
+            h2 {
+                color: #e3e3e3;
+            }
+
+            .bathroom-types {
+                .bathroom-type {
+                    border-bottom-color: #3d3d3d;
+
+                    .type-header {
+                        h3 {
+                            color: #e3e3e3;
+                        }
+
+                        p {
+                            color: #a1a1a1;
+                        }
+                    }
+
+                    .counter {
+                        button {
+                            border-color: #3d3d3d;
+                            color: #e3e3e3;
+
+                            &:hover:not(:disabled) {
+                                border-color: #e3e3e3;
+                                background: #3d3d3d;
+                            }
+
+                            &:disabled {
+                                border-color: #3d3d3d;
+                                color: #4d4d4d;
+                            }
+                        }
+
+                        span {
+                            color: #e3e3e3;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -4,7 +4,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import guest from '/guest.svg'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/user.actions'
-import { LoginSignup } from '../cmps/LoginSignup' 
+import { LoginSignup } from '../cmps/LoginSignup'
 import { useModal } from '../customHook/useModal.jsx'
 import { MenuHeader } from '../cmps/menuHeader.jsx'
 import { useLoginModal } from '../CustomHook/useLoginModal.jsx'
@@ -21,17 +21,17 @@ export function NavMenu() {
   //* with a lot of every kind of use ref
   useEffect(() => {
     function handleClickOutside(event) {
-        if (navRef.current && !navRef.current.contains(event.target)) {
-            setNavbarOpen(false)
-        }
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setNavbarOpen(false)
+      }
     }
 
     document.addEventListener('mousedown', handleClickOutside)
-    
+
     return () => {
-        document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('mousedown', handleClickOutside)
     }
-}, [])
+  }, [])
 
 
   async function onLogout() {
@@ -48,18 +48,18 @@ export function NavMenu() {
     navigate('/newStay')
   }
 
-  function handleToggle(){
+  function handleToggle() {
     setNavbarOpen((prev) => !prev)
   }
 
   function GamesLink() {
     const loggedInUser = useSelector((state) => state.userModule.user)
     const orders = useSelector((state) => state.orderModule.orders)
-    
-    const hasValidOrder = orders?.some(order => 
-        order.buyerId === loggedInUser?._id && 
-        order.status === 'completed' && 
-        order.isPaid
+
+    const hasValidOrder = orders?.some(order =>
+      order.buyerId === loggedInUser?._id &&
+      order.status === 'completed' &&
+      order.isPaid
     )
 
     if (!loggedInUser || !hasValidOrder) return null
@@ -68,14 +68,14 @@ export function NavMenu() {
 
   return (
     <>
-     <LoginModal />
+      <LoginModal />
       {/* <Modal /> */}
-      <nav className='nav-menu' onClick={handleToggle}  ref={navRef}>
+      <nav className='nav-menu' onClick={handleToggle} ref={navRef}>
         {notifications.length > 0 && (
           <div className='notificaiton-badge'>{notifications.length}</div>
         )}
         <div className='menu-btn'>
-        <MenuHeader />
+          <MenuHeader />
           <div />
           <div className='menu-avatar'>
             {user?.imgUrl ? (
@@ -85,35 +85,39 @@ export function NavMenu() {
             )}
           </div>
         </div>
-        {navbarOpen &&   (!user ? (
-             <div className='menu-links'>
-             <Link onClick={() => 
-                 openLoginModal(<LoginSignup closeModal={closeLoginModal} />)
-             }>
-                 Log in
-             </Link>
-         </div>
-          ) : (
-            <div className='menu-links'>
-              <Link to='/trip'>Trips</Link>
-              <Link to='/wishlist'>Wishlist</Link>
-              <Link to='/user/Messages'>Messages</Link>
-              <Link to='/history'>history</Link>
-              <NavLink to="/about/development">About Me</NavLink>
-              {/* <NavLink to="/analytics">Analytics</NavLink> */}
-              <Link to='/gust/trip/games'>Time To Think</Link>
-              {user.isOwner && <Link to='/hosting/orders'>View orders</Link>}
-              {user.isOwner && <Link to='/hosting/orders/dashboard'>Dashboard</Link>}
-              <button onClick={onAddStay}>
-                {user.isOwner ? 'Add Another Stay' : 'Become a host (Add stay)'}
-              </button>
-              <button
-                style={{ borderTop: `1px solid hsl(0, 0%, 87%)` }}
-                onClick={onLogout}>
-                Log out
-              </button>
-            </div>
-          ))}
+        {navbarOpen && (!user ? (
+          <div className='menu-links'>
+            <Link onClick={() =>
+              openLoginModal(<LoginSignup closeModal={closeLoginModal} />)
+            }>
+              Log in
+            </Link>
+          </div>
+        ) : (
+          <div className='menu-links'>
+            <Link to='/trip'>Trips</Link>
+            <Link to='/wishlist'>Wishlist</Link>
+            <Link to='/user/Messages'>Messages</Link>
+            <Link to='/history'>history</Link>
+            <NavLink to="/about/development">About Me</NavLink>
+            {/* <NavLink to="/analytics">Analytics</NavLink> */}
+            <Link to='/gust/trip/games'>Time To Think</Link>
+            <Link to='/Become-a-Host'>Become-a-Host</Link>
+            {user.isOwner && <Link to='/hosting/orders'>View orders</Link>}
+            {user.isOwner && <Link to='/hosting/orders/dashboard'>Dashboard</Link>}
+            {user?.isOwner && (
+              <NavLink to="/group-chat" className='nav-link'>Group Chats</NavLink>
+            )}
+            <button onClick={onAddStay}>
+              {user.isOwner ? 'Add Another Stay' : 'Become a host (Add stay)'}
+            </button>
+            <button
+              style={{ borderTop: `1px solid hsl(0, 0%, 87%)` }}
+              onClick={onLogout}>
+              Log out
+            </button>
+          </div>
+        ))}
       </nav>
     </>
   )

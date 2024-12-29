@@ -1,0 +1,198 @@
+.location-step {
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .location-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+
+        h2 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #222222;
+            margin: 0 0 8px;
+            line-height: 1.1;
+        }
+
+        p {
+            font-size: 16px;
+            color: #717171;
+            margin: 0 0 24px;
+        }
+
+        .search-container {
+            position: relative;
+            z-index: 1000;
+            margin-bottom: 16px;
+
+            .search-input-wrapper {
+                position: relative;
+                width: 100%;
+                max-width: 560px;
+                margin: 0 auto;
+
+                .search-icon {
+                    position: absolute;
+                    left: 16px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 20px;
+                    color: #222222;
+                }
+
+                .location-input {
+                    width: 100%;
+                    padding: 16px 48px;
+                    font-size: 16px;
+                    border: none;
+                    border-radius: 32px;
+                    background: #ffffff;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    transition: all 0.2s ease;
+
+                    &:focus {
+                        outline: none;
+                        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                    }
+
+                    &::placeholder {
+                        color: #717171;
+                    }
+                }
+
+                .location-pin {
+                    position: absolute;
+                    right: 16px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 20px;
+                    color: #222222;
+                }
+            }
+
+            .suggestions-dropdown {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                max-width: 560px;
+                margin: 8px auto 0;
+                background: #ffffff;
+                border-radius: 16px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                overflow: hidden;
+
+                .suggestion-item {
+                    width: 100%;
+                    padding: 16px;
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    border: none;
+                    background: none;
+                    cursor: pointer;
+                    transition: background-color 0.2s ease;
+
+                    &:hover {
+                        background-color: #f7f7f7;
+                    }
+
+                    .suggestion-icon {
+                        font-size: 24px;
+                        color: #717171;
+                    }
+
+                    .suggestion-text {
+                        text-align: left;
+
+                        .main-text {
+                            display: block;
+                            font-size: 16px;
+                            color: #222222;
+                        }
+
+                        .secondary-text {
+                            display: block;
+                            font-size: 14px;
+                            color: #717171;
+                        }
+                    }
+                }
+            }
+        }
+
+        .map-container {
+            flex: 1;
+            position: relative;
+            min-height: 400px;
+
+            .google-map {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border-radius: 12px;
+            }
+        }
+    }
+
+    // Dark Mode Support
+    @media (prefers-color-scheme: dark) {
+        .location-container {
+            h2 {
+                color: #e3e3e3;
+            }
+
+            p {
+                color: #a1a1a1;
+            }
+
+            .search-container {
+                .search-input-wrapper {
+                    .search-icon,
+                    .location-pin {
+                        color: #e3e3e3;
+                    }
+
+                    .location-input {
+                        background: #2b2b2b;
+                        color: #e3e3e3;
+
+                        &::placeholder {
+                            color: #8f8f8f;
+                        }
+                    }
+                }
+
+                .suggestions-dropdown {
+                    background: #2b2b2b;
+
+                    .suggestion-item {
+                        &:hover {
+                            background-color: #3d3d3d;
+                        }
+
+                        .suggestion-icon {
+                            color: #a1a1a1;
+                        }
+
+                        .suggestion-text {
+                            .main-text {
+                                color: #e3e3e3;
+                            }
+
+                            .secondary-text {
+                                color: #a1a1a1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

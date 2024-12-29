@@ -16,7 +16,8 @@ export const utilService = {
   getTimeStampXDaysAgo,
   getTimeStampXDaysFromNow,
   setAnyBlankParamsWithDefaults,
-  formatCurrency2
+  formatCurrency2,
+  timeAgo
 }
 
 function makeId(length = 8) {
@@ -29,6 +30,20 @@ function makeId(length = 8) {
   }
 
   return txt
+}
+
+function timeAgo(timestamp) {
+  const now = Date.now()
+  const diff = now - timestamp;
+  if (diff < 1000) return 'just now'
+  const seconds = Math.floor(diff / 1000)
+  if (seconds < 60) return `${seconds} seconds ago`
+  const minutes = Math.floor(seconds / 60)
+  if (minutes < 60) return `${minutes} minutes ago`
+  const hours = Math.floor(minutes / 60)
+  if (hours < 24) return `${hours} hours ago`
+  const days = Math.floor(hours / 24)
+  return `${days} days ago`
 }
 
 function makeLorem(size = 100) {
@@ -77,7 +92,7 @@ function makeLorem(size = 100) {
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min)
   max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min + 1)) + min 
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 function randomPastTime() {
@@ -110,8 +125,8 @@ function loadFromStorage(key) {
 
 function formatCurrency(num, currency) {
   const numFormat = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: currency,
+    style: 'currency',
+    currency: currency,
   })
   return numFormat.format(num)
 } //* toFix + strong (usa) usUse for now (using laberiy)
@@ -180,16 +195,16 @@ function getTimeStampXDaysFromNow(days) {
 }
 
 
-function setAnyBlankParamsWithDefaults(searchStr){
-  if (!searchStr.includes('checkIn')){
+function setAnyBlankParamsWithDefaults(searchStr) {
+  if (!searchStr.includes('checkIn')) {
     searchStr += '&checkIn=' + getTimeStampXDaysFromNow(7)
-  } 
-  if (!searchStr.includes('checkOut')){
+  }
+  if (!searchStr.includes('checkOut')) {
     searchStr += '&checkOut=' + getTimeStampXDaysFromNow(14)
   }
-  const firstChar=searchStr.charAt(0)
+  const firstChar = searchStr.charAt(0)
   if (firstChar === '&') {
-    searchStr= '?' + searchStr.slice(1)
+    searchStr = '?' + searchStr.slice(1)
   }
   return searchStr
 }

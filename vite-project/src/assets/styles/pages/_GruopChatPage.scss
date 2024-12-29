@@ -1,0 +1,126 @@
+.group-chat-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+    background-color: #f5f5f5;
+
+    .group-chat-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
+        margin-bottom: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin: 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+
+            &:hover {
+                background-color: #0056b3;
+            }
+        }
+    }
+
+    .group-chat-container {
+        display: flex;
+        gap: 20px;
+        height: calc(100vh - 120px);
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+
+        .group-list {
+            flex: 0 0 300px;
+            border-right: 1px solid #e0e0e0;
+            overflow-y: auto;
+            background-color: #f8f9fa;
+        }
+
+        .group-chat-room {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+        }
+    }
+
+    // Styles for the "Only hosts can access" message
+    > div:first-child:not(.group-chat-header) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-size: 20px;
+        color: #666;
+        background-color: #f8f9fa;
+    }
+}
+
+// Media queries for responsiveness
+@media (max-width: 768px) {
+    .group-chat-page {
+        padding: 10px;
+
+        .group-chat-container {
+            flex-direction: column;
+            height: calc(100vh - 100px);
+
+            .group-list {
+                flex: 0 0 auto;
+                max-height: 200px;
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+        }
+    }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+    .group-chat-page {
+        background-color: #1a1a1a;
+
+        .group-chat-header {
+            background-color: #2d2d2d;
+           
+            h2 {
+                color: #fff;
+            }
+        }
+
+        .group-chat-container {
+            background-color: #2d2d2d;
+
+            .group-list {
+                background-color: #333;
+                border-right-color: #404040;
+            }
+
+            .group-chat-room {
+                background-color: #2d2d2d;
+            }
+        }
+
+        > div:first-child:not(.group-chat-header) {
+            background-color: #1a1a1a;
+            color: #ccc;
+        }
+    }
+}

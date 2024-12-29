@@ -1,0 +1,232 @@
+.privacy-type-step {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 32px 24px;
+
+    .privacy-container {
+        h2 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #222222;
+            margin: 0 0 8px;
+            line-height: 1.1;
+        }
+
+        p {
+            font-size: 16px;
+            color: #717171;
+            margin: 0 0 32px;
+        }
+
+        .privacy-options {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            .privacy-option {
+                width: 100%;
+                padding: 24px;
+                border: 1px solid #b0b0b0;
+                border-radius: 12px;
+                background: #ffffff;
+                cursor: pointer;
+                text-align: left;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    border-color: #222222;
+                    transform: translateY(-1px);
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+
+                    .option-icon {
+                        transform: scale(1.1);
+                    }
+                }
+
+                &.selected {
+                    border: 2px solid #222222;
+                    background-color: #f7f7f7;
+
+                    .option-icon {
+                        color: #222222;
+                    }
+                }
+
+                .option-content {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 24px;
+
+                    .option-icon {
+                        font-size: 32px;
+                        color: #717171;
+                        transition: all 0.2s ease;
+                        flex-shrink: 0;
+                        margin-top: 4px;
+                    }
+
+                    .option-text {
+                        flex: 1;
+
+                        h3 {
+                            font-size: 18px;
+                            font-weight: 600;
+                            color: #222222;
+                            margin: 0 0 4px;
+                        }
+
+                        p {
+                            font-size: 14px;
+                            color: #717171;
+                            margin: 0;
+                            line-height: 1.4;
+                        }
+                    }
+                }
+
+                .option-details {
+                    margin-top: 24px;
+                    padding-top: 24px;
+                    border-top: 1px solid #dddddd;
+                    animation: fadeIn 0.3s ease;
+
+                    h4 {
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: #222222;
+                        margin: 0 0 12px;
+                    }
+
+                    ul {
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+
+                        li {
+                            font-size: 14px;
+                            color: #717171;
+                            margin-bottom: 8px;
+                            padding-left: 24px;
+                            position: relative;
+
+                            &:before {
+                                content: "•";
+                                position: absolute;
+                                left: 8px;
+                                color: #717171;
+                            }
+
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Animations
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    // Responsive Design
+    @media (max-width: 744px) {
+        padding: 24px 16px;
+
+        .privacy-container {
+            h2 {
+                font-size: 26px;
+            }
+
+            .privacy-options {
+                .privacy-option {
+                    padding: 20px;
+
+                    .option-content {
+                        gap: 16px;
+
+                        .option-icon {
+                            font-size: 28px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Dark Mode Support
+    @media (prefers-color-scheme: dark) {
+        .privacy-container {
+            h2 {
+                color: #e3e3e3;
+            }
+
+            p {
+                color: #a1a1a1;
+            }
+
+            .privacy-options {
+                .privacy-option {
+                    background: #2b2b2b;
+                    border-color: #3d3d3d;
+
+                    &:hover {
+                        border-color: #e3e3e3;
+                    }
+
+                    &.selected {
+                        border-color: #e3e3e3;
+                        background-color: #3d3d3d;
+                    }
+
+                    .option-content {
+                        .option-icon {
+                            color: #a1a1a1;
+                        }
+
+                        .option-text {
+                            h3 {
+                                color: #e3e3e3;
+                            }
+
+                            p {
+                                color: #a1a1a1;
+                            }
+                        }
+                    }
+
+                    .option-details {
+                        border-top-color: #3d3d3d;
+
+                        h4 {
+                            color: #e3e3e3;
+                        }
+
+                        ul li {
+                            color: #a1a1a1;
+
+                            &:before {
+                                color: #a1a1a1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Focus States for Accessibility
+    .privacy-option:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #222222;
+    }
+}

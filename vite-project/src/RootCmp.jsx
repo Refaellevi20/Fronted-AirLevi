@@ -17,6 +17,9 @@ import { Analytics } from './pages/Analytics'
 import { UserWishList } from './pages/UserWishList'
 import { debuggerService } from './services/Debugger.Service'
 import { AboutMe } from './pages/AboutMe'
+import { GroupChatPage } from './pages/GroupChatPage'
+import { useSelector } from 'react-redux'
+import { BecomeHostPage } from './pages/BecomeHostPage'
 
 export function RootCmp() {
   // useEffect(() => { //* debugger
@@ -28,7 +31,7 @@ export function RootCmp() {
 
   //   return () => {
   //     debuggerService.info('system', 'Application shutting down')
-  //   }
+  //   }  
   // }, [])
   
   return (
@@ -51,6 +54,15 @@ export function RootCmp() {
           <Route element={<GamesPage />} path='/gust/trip/games' />
           <Route path="/analytics" element={<Analytics />} />
           <Route element={<MessagesPage />} path='user/Messages' />
+          <Route element={<BecomeHostPage />} path='Become-a-Host' />
+          <Route 
+                path="/group-chat" 
+                element={
+                    <PrivateRoute isOwnerOnly={true}>
+                        <GroupChatPage />
+                    </PrivateRoute>
+                } 
+            />
           <Route element={<AboutMe />} path='about/development' />
         </Routes>
       </main>
@@ -59,4 +71,13 @@ export function RootCmp() {
   )
 }
 
+
+function PrivateRoute({ children, isOwnerOnly = false }) {
+  const user = useSelector((storeState) => storeState.userModule.user)
+  
+  if (!user) return <Navigate to="/login" />
+  if (isOwnerOnly && !user.isOwner) return <Navigate to="/" />
+  
+  return children
+}
 //! flash

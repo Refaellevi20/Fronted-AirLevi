@@ -43,6 +43,9 @@
 @import "cmps/GradientFlash";
 @import "cmps/Accordion";
 @import "cmps/UserMsg";
+@import "cmps/GroupList";
+@import "cmps/CreateGroupModal";
+@import "cmps/GroupChatRoom";
 
 //& reveiws / cmps
 @import "cmps/reveiws/IndexReviews";
@@ -62,6 +65,24 @@
 @import "cmps/details/ImgUseGrid";
 @import "cmps/details/SecondaryHeader";
 @import "cmps/details/DetailsMobileFooter";
+
+
+
+@import "cmps/become-a-host/PhotosStep";
+@import "cmps/become-a-host/DescriptionStep";
+@import "cmps/become-a-host/ReviewStep";
+@import "cmps/become-a-host/AmenitiesStep";
+@import "cmps/become-a-host/HostHeader";
+@import "cmps/become-a-host/HostFooter";
+@import "cmps/become-a-host/PriceStep";
+@import "cmps/become-a-host/TitleStep";
+@import "cmps/become-a-host/PrivacyTypeStep";
+@import "cmps/become-a-host/BathroomStep";
+@import "cmps/become-a-host/StayTypeStep";
+@import "cmps/become-a-host/LocationStep";
+@import "cmps/become-a-host/BedroomGuestStep";
+@import "cmps/become-a-host/BathroomStep";
+
 
 //& search / cmps
 @import "cmps/search/SearchForm-nav";
@@ -90,3 +111,5 @@
 @import "pages/Widget";
 @import "pages/Analytics";
 @import "pages/AboutMe";
+@import "pages/GroupChat";
+@import "pages/GruopChatPage";

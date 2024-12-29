@@ -1,0 +1,230 @@
+.stay-type-step {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 32px 24px;
+
+    .stay-type-container {
+        h2 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #222222;
+            margin: 0 0 8px;
+            line-height: 1.1;
+        }
+
+        p {
+            font-size: 16px;
+            color: #717171;
+            margin: 0 0 32px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+
+            .category-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 24px 16px;
+                border: 1px solid #b0b0b0;
+                border-radius: 12px;
+                background: #ffffff;
+                cursor: pointer;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    border-color: #222222;
+                    transform: translateY(-1px);
+
+                    .category-icon {
+                        transform: scale(1.1);
+                        color: #222222;
+                    }
+                }
+
+                &.selected {
+                    border: 2px solid #222222;
+                    background-color: #f7f7f7;
+
+                    .category-icon {
+                        color: #222222;
+                    }
+                }
+
+                .category-icon {
+                    font-size: 32px;
+                    color: #717171;
+                    margin-bottom: 12px;
+                    transition: all 0.2s ease;
+                }
+
+                span {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #222222;
+                    text-align: center;
+                }
+            }
+        }
+
+        .property-types-container {
+            animation: fadeIn 0.3s ease;
+
+            h3 {
+                font-size: 22px;
+                font-weight: 600;
+                color: #222222;
+                margin: 0 0 24px;
+            }
+
+            .types-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 16px;
+
+                .type-item {
+                    width: 100%;
+                    padding: 16px 24px;
+                    border: 1px solid #b0b0b0;
+                    border-radius: 8px;
+                    background: #ffffff;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    text-align: left;
+
+                    &:hover {
+                        border-color: #222222;
+                        transform: translateY(-1px);
+                    }
+
+                    &.selected {
+                        border: 2px solid #222222;
+                        background-color: #f7f7f7;
+
+                        .type-label {
+                            color: #222222;
+                        }
+                    }
+
+                    .type-label {
+                        font-size: 16px;
+                        color: #222222;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+
+    // Animations
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    // Responsive Design
+    @media (max-width: 744px) {
+        padding: 24px 16px;
+
+        .stay-type-container {
+            h2 {
+                font-size: 26px;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 12px;
+
+                .category-item {
+                    padding: 16px 12px;
+
+                    .category-icon {
+                        font-size: 28px;
+                    }
+                }
+            }
+
+            .property-types-container {
+                .types-grid {
+                    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                }
+            }
+        }
+    }
+
+    // Dark Mode Support
+    @media (prefers-color-scheme: dark) {
+        .stay-type-container {
+            h2, h3 {
+                color: #e3e3e3;
+            }
+
+            p {
+                color: #a1a1a1;
+            }
+
+            .categories-grid {
+                .category-item {
+                    background: #2b2b2b;
+                    border-color: #3d3d3d;
+
+                    &:hover {
+                        border-color: #e3e3e3;
+                    }
+
+                    &.selected {
+                        border-color: #e3e3e3;
+                        background-color: #3d3d3d;
+                    }
+
+                    .category-icon {
+                        color: #a1a1a1;
+                    }
+
+                    span {
+                        color: #e3e3e3;
+                    }
+                }
+            }
+
+            .property-types-container {
+                .types-grid {
+                    .type-item {
+                        background: #2b2b2b;
+                        border-color: #3d3d3d;
+
+                        &:hover {
+                            border-color: #e3e3e3;
+                        }
+
+                        &.selected {
+                            border-color: #e3e3e3;
+                            background-color: #3d3d3d;
+                        }
+
+                        .type-label {
+                            color: #e3e3e3;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Focus States for Accessibility
+    .category-item:focus-visible,
+    .type-item:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #222222;
+    }
+}

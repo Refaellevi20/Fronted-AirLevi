@@ -1,0 +1,186 @@
+.review-step {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 24px;
+
+    .review-sections {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: start;
+
+        @media (max-width: 744px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    // Listing Preview Card
+    .listing-preview {
+        position: sticky;
+        top: 24px;
+        border-radius: 12px;
+        border: 1px solid #dddddd;
+        overflow: hidden;
+        transition: transform 0.2s;
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+
+        .image-container {
+            position: relative;
+            padding-bottom: 66.67%; // 3:2 aspect ratio
+
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .heart-btn {
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 24px;
+                cursor: pointer;
+                filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
+            }
+        }
+
+        .listing-content {
+            padding: 16px;
+
+            .listing-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 8px;
+
+                h3 {
+                    font-size: 15px;
+                    font-weight: 500;
+                    color: #222222;
+                    margin: 0;
+                }
+
+                .rating {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    font-size: 14px;
+                    color: #222222;
+                }
+            }
+
+            .listing-details {
+                p {
+                    margin: 0;
+                    color: #717171;
+                    font-size: 14px;
+                    line-height: 1.4;
+
+                    &.specs {
+                        margin-top: 4px;
+                    }
+                }
+            }
+
+            .price-info {
+                margin-top: 12px;
+                font-size: 16px;
+
+                .price {
+                    font-weight: 600;
+                    color: #222222;
+                }
+
+                .night {
+                    color: #717171;
+                    margin-left: 4px;
+                }
+            }
+        }
+    }
+
+    // Review Details Sections
+    .review-details {
+        .review-section {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #dddddd;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            h3 {
+                font-size: 18px;
+                font-weight: 600;
+                color: #222222;
+                margin: 0 0 16px 0;
+            }
+
+            .info-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+
+                .info-item {
+                    .label {
+                        font-size: 14px;
+                        color: #717171;
+                        display: block;
+                        margin-bottom: 4px;
+                    }
+
+                    p {
+                        font-size: 16px;
+                        color: #222222;
+                        margin: 0;
+                    }
+                }
+            }
+
+            .description-text {
+                font-size: 16px;
+                line-height: 1.5;
+                color: #222222;
+                margin: 0;
+            }
+
+            .amenities-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 16px;
+
+                .amenity-item {
+                    font-size: 16px;
+                    color: #222222;
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+
+                    &:before {
+                        content: "•";
+                        color: #222222;
+                    }
+                }
+            }
+        }
+    }
+
+    // Responsive adjustments
+    @media (max-width: 744px) {
+        padding: 16px;
+
+        .review-details {
+            .info-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    }
+}
