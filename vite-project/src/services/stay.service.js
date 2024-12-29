@@ -13,7 +13,7 @@ export const stayService = {
     getDefaultFilter
 }
 
-window.us=stayService
+window.us = stayService
 
 async function query(filterBy) {
     //can you not put the filterBy in the body?
@@ -26,19 +26,19 @@ async function getById(stayId) {
     return stay
 }
 
-function isOwner(stay,loggedInUser) {
+function isOwner(stay, loggedInUser) {
     return loggedInUser?.isOwner || stay.host._id === loggedInUser?._id
 }
 
 
 async function remove(stayId) {
 
-try{
-    return await httpService.delete(`stay/${stayId}`)
-} catch {
-            console.log('filed to remove stay:', err)
-            throw err
-}
+    try {
+        return await httpService.delete(`stay/${stayId}`)
+    } catch {
+        console.log('filed to remove stay:', err)
+        throw err
+    }
 
 }
 
@@ -50,11 +50,11 @@ try{
 //         if(!user || (user.isAdmin && stay.host._id !== user._id)) {
 //             throw new Error('Not authorized to delete this stay')
 //         }
-//        return await httpService.delete(BASE_URL + stayId)
+//        return await httpService.delete(`stay/${stayId}`)
 //     } catch {
 //         console.log('filed to remove stay:', err)
 //         throw err
-        
+
 //     }
 //     // return await httpService.delete(`stay/${stayId}`)
 // }
@@ -73,7 +73,7 @@ async function addStayLike(stayId) {
 
 function getDefaultFilter() {
     return { labels: '' }
-  }
+}
 
 async function removeStayLike(stayId) {
     return await httpService.delete(`stay/${stayId}/like`)

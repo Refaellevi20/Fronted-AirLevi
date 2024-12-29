@@ -5,8 +5,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { LoginSignup } from '../LoginSignup'
 import { useModal } from '../../customHook/useModal'
 import { useLoginModal } from '../../CustomHook/useLoginModal'
+import { DeleteConfirmation } from '../DeleteConfirmation'
 import { Link } from 'react-router-dom'
 import { useWishlist } from '../../CustomHook/useWishlist'
+import { HiXMark } from "react-icons/hi2";
 
 
 export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, onWishListStay, stayId }) {
@@ -16,7 +18,18 @@ export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, onWishLis
     const { LoginModal, openLoginModal, closeLoginModal } = useLoginModal()
     const dispatch = useDispatch()
     const { removeFromWishlist } = useWishlist()
+    const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
 
+    function handleDeleteClick(ev) {
+        ev.preventDefault()
+        ev.stopPropagation()
+        setShowDeleteConfirmation(true)
+    }
+
+    function handleConfirmDelete() {
+        onRemove()
+        setShowDeleteConfirmation(false)
+    }
 
     useEffect(() => {
         if (user) {
@@ -128,16 +141,22 @@ export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, onWishLis
                     </button>
                 </div>
             </span>
-            <span>
+            <span className='btn-delete__preview'>
             {isOwner && (
-                <button
-                    className='delete-btn'
-                    onClick={onRemove}
-                  
-                >x
-                </button>
-
-            )}
+                           <button
+                               className="delete-btn"
+                               onClick={handleDeleteClick}
+                           >
+                              <HiXMark className="fs24" />
+                           </button>
+                       )}
+           
+                       {showDeleteConfirmation && (
+                           <DeleteConfirmation
+                               onConfirm={handleConfirmDelete}
+                               onCancel={() => setShowDeleteConfirmation(false)}
+                           />
+                       )}
             </span>
             <Slider>
                 {imgUrls.map((url, idx) => (
@@ -147,3 +166,5 @@ export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, onWishLis
         </div>
     )
 }
+
+

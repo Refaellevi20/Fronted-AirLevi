@@ -1,0 +1,88 @@
+.delete-confirmation-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.delete-confirmation-modal {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+
+    h2 {
+        margin: 0 0 1rem;
+        color: #FF385C;
+    }
+
+    .math-problem {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 1.5rem 0;
+        text-align: center;
+        color: #222;
+    }
+
+    input {
+        width: 100%;
+        padding: 0.8rem;
+        margin: 1rem 0;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+
+        &:focus {
+            outline: none;
+            border-color: #FF385C;
+        }
+    }
+
+    .error-message {
+        color: #FF385C;
+        margin-bottom: 1rem;
+        font-size: 14px;
+    }
+
+    .button-group {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+
+        button {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+
+            &.confirm-btn {
+                background-color: #FF385C;
+                color: white;
+
+                &:hover {
+                    background-color: darken(#FF385C, 10%);
+                }
+            }
+
+            &.cancel-btn {
+                background-color: #eee;
+                color: #222;
+
+                &:hover {
+                    background-color: darken(#eee, 10%);
+                }
+            }
+        }
+    }
+}
