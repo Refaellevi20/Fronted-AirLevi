@@ -7,7 +7,7 @@ export function HostHeader({ currentStep, totalSteps }) {
     return (
         <header className="host-header">
             <div className="header-content">
-                <button className="logo-btn" onClick={() => navigate('/')}>
+                <button style={{border:'none',background: 'transparent'}} className="logo-btn" onClick={() => navigate('/')}>
                     <AppLogo />
                 </button>
                
@@ -19,9 +19,9 @@ export function HostHeader({ currentStep, totalSteps }) {
                         ></div>
                     </div>
                 </div>
-                <button className="exit-btn" onClick={() => navigate('/stay')}>
+                {/* <button className="exit-btn" onClick={() => navigate('/stay')}>
                     Exit
-                </button>
+                </button> */}
             </div>
         </header>
     )

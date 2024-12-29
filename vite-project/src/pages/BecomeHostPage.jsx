@@ -144,13 +144,13 @@ export function BecomeHostPage() {
             case 1: return !!stayData.type
             case 2: return !!stayData.privacyType
             case 3: return !!stayData.loc.address
-            case 4: return true // FloorPlan always has default values
+            case 4: return true
             case 5: return stayData.amenities.length > 0
             case 6: return stayData.imgUrls.length >= 5
             case 7: return !!stayData.name
             case 8: return !!stayData.summary
             case 9: return !!stayData.price
-            case 10: return true // Review step
+            case 10: return true 
             default: return false
         }
     }
