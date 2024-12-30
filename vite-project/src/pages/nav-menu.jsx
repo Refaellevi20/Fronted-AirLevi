@@ -102,7 +102,7 @@ export function NavMenu() {
             <NavLink to="/about/development">About Me</NavLink>
             {/* <NavLink to="/analytics">Analytics</NavLink> */}
             <Link to='/gust/trip/games'>Time To Think</Link>
-            <Link to='/Become-a-Host'>Become-a-Host</Link>
+            <Link to='/Become-a-Host'>Become a host (Add stay)</Link>
             {user.isOwner && <Link to='/hosting/orders'>View orders</Link>}
             {user.isOwner && <Link to='/hosting/orders/dashboard'>Dashboard</Link>}
             {user?.isOwner && (
