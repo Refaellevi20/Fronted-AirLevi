@@ -245,7 +245,7 @@ export function StayDetails({ reviews }) {
                     <div className="modal-content__gallery">
                       <div className='flex gallery-txt'>
                         <button className="btn-close" onClick={onCloseStayGallery}>
-                          <HiXMark className="fs24" />
+                        <MdKeyboardArrowLeft size={32} style={{cursor:'pointer'}}/>
                         </button>
                         <h2>Gallery</h2>
                       </div>
