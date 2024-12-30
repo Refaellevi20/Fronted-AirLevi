@@ -31,6 +31,8 @@ import { ChatBot } from './ChatBot';
 import { ShareModal } from "../cmps/ShareModal";
 import { padding } from "@mui/system";
 // import { AppHeader } from './AppHeader'
+import { FaHeart, FaShareAlt } from 'react-icons/fa';
+import { MdKeyboardArrowLeft } from 'react-icons/md'
 
 
 const randomTextOptions = [
@@ -57,6 +59,7 @@ export function StayDetails({ reviews }) {
   const [reviewsForModal, setReviewsForModal] = useState([])
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [randomText, setRandomText] = useState(getRandomText)
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 785)
 
   const imgsToDisplay = stay?.imgUrls?.slice(0, 5)
   const amenitiesToDisplay = stay?.amenities?.slice(0, 10)
@@ -83,6 +86,15 @@ export function StayDetails({ reviews }) {
   useEffect(() => {
     loadStay()
   }, [])
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 785)
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, []) 
 
   //^ becouse i have the scroll of the page too
   //^ becouse i did 100% modal (all the page)
@@ -172,13 +184,37 @@ export function StayDetails({ reviews }) {
               {/*remove postion:fix by creating header2  */}
             </div>
           
-            <div>
-            <AppHeader className='secondary-layout stay-index details-header__none' />
-              <div className="a-test">
-              <p>bubebuhruv</p>
-              <p>hfruihgurh</p>
-            </div>
-            </div>
+            {isMobile ? (
+              <section>
+              <div className=" secondary-layout">
+                
+              <div className="flex">
+            <div className="flex" style={{padding:'10px 0'}}>
+              <div onClick={() => navigate('/stay')} style={{ marginLeft: '10px' }}>
+              <MdKeyboardArrowLeft size={28} style={{cursor:'pointer'}}/>
+                </div>
+                </div>
+                <div className="flex1">
+                <ShareModal stay={stay} /> 
+                {/* <span className="heart">
+                <div className="stay-heart__preview">
+                    <button>
+                        <img
+                            src={"./img/red_heart.png"}
+                            alt="Heart"
+                            className="heart-img"
+                        />
+                    </button>
+                </div>
+            </span> */}
+                </div>
+           
+              </div>
+            </div> 
+            </section>
+            ) : (
+              <AppHeader className='secondary-layout stay-index details-header__none' />
+            )}
             <SecondaryHeader
               stay={stay}
               imgGridVisible={imgGridVisible}
@@ -189,7 +225,9 @@ export function StayDetails({ reviews }) {
               <div>
                 <div style={{ paddingTop: '10px', paddingBottom: '10px' }} className="flex controller-layout__details secondary-layout">
                   <h1 id="stay-top" className="stay-top ">{stay.name}</h1>
+                  <div className="mobile-size__none">
                   <ShareModal stay={stay} />
+                  </div>
                   {/* {stay ? (
     <Wish stayId={stay._id} />
 ) : (
