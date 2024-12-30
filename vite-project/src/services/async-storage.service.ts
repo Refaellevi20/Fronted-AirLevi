@@ -23,7 +23,7 @@ async function get<T extends EntityId>(entityType: string, entityId: string): Pr
     const entities = await query<T>(entityType)
     const entity = entities.find(entity => entity._id === entityId)
     if (!entity) throw new Error(`Cannot get, Item ${entityId} of type: ${entityType} does not exist`)
-    return entity;
+    return entity
 }
 
 async function post<T>(entityType: string, newEntity: T): Promise<T> {

@@ -113,8 +113,8 @@ export function DeleteConfirmation({ onConfirm, onCancel }) {
                             <input
                                 type="text"
                                 value={confirmPhrase}
-                                onChange={(e) => {
-                                    setConfirmPhrase(e.target.value)
+                                onChange={(ev) => {
+                                    setConfirmPhrase(ev.target.value)
                                     setError('')
                                 }}
                                 placeholder="Type the phrase"

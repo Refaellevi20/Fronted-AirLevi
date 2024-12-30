@@ -7,7 +7,7 @@ import { StayList } from '../cmps/stay/StayList'
 import { loadStays } from '../store/stay/stay.action'
 import { AppFooterHome } from '../cmps/footerHome/AppFooterHome'
 import { NavBar } from '../cmps/NavBar'
-import { AppHeader } from '../cmps/AppHeader'
+import { AppHeader } from './AppHeader'
 import { IndexLoader } from '../cmps/IndexLoader'
 
 export function StayIndex({currency}) {

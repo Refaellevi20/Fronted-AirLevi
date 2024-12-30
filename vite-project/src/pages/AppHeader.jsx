@@ -1,6 +1,6 @@
-import { AppLogo } from './app-logo' 
-import { NavMenu } from '../pages/nav-menu'
-import { SearchBars as StaySearchBars } from './search-cmps/SearchBars'
+import { AppLogo } from '../cmps/app-logo' 
+import { NavMenu } from './nav-menu'
+import { SearchBars as StaySearchBars } from '../cmps/search-cmps/SearchBars'
 
 export function AppHeader({ className, ...props }) {
   return (

@@ -24,13 +24,14 @@ import { StayMobileFooter } from "../cmps/details/StayNobileFooter";
 import Gallery from "../cmps/buttons ui/image-grid";
 import ModalReviews from "../cmps/ModalReviews";
 import { StayMap } from "../cmps/StayMap";
-import { AppHeader } from "../cmps/AppHeader";
+import { AppHeader } from "./AppHeader";
 import { CalcAvgReview } from "../cmps/calcAvgReview";
 import { ModalSize } from "../CustomHook/useModalSize";
 import { ChatBot } from './ChatBot';
 import { ShareModal } from "../cmps/ShareModal";
 import { padding } from "@mui/system";
-// import { Wish } from "./wish";
+// import { AppHeader } from './AppHeader'
+
 
 const randomTextOptions = [
   "Lexington, Kentucky is the second-largest city in Kentucky next to Louisville, and is located in the heart of the Bluegrass region. Lexington is known as the 'Horse Capital of the World,' since it is home to the Kentucky Horse Park, Keeneland race course and the Red Mile race course.",
@@ -169,6 +170,14 @@ export function StayDetails({ reviews }) {
             <div>
               {/* <AppHeader className='main-layout stay-index' />  */}
               {/*remove postion:fix by creating header2  */}
+            </div>
+          
+            <div>
+            <AppHeader className='secondary-layout stay-index details-header__none' />
+              <div className="a-test">
+              <p>bubebuhruv</p>
+              <p>hfruihgurh</p>
+            </div>
             </div>
             <SecondaryHeader
               stay={stay}
