@@ -29,7 +29,7 @@ export function UserWishList() {
 
     return (
         <section>
-         <header className='app-header secondary-layout flex' style={{ justifyContent: 'space-between' }}>
+         <header className='app-header main-layout flex' style={{ justifyContent: 'space-between' }}>
                         <div className='header-logo-container'>
                             <AppLogo />
                         </div>
@@ -45,7 +45,7 @@ export function UserWishList() {
             <Accordion >
                 <section style={{cursor:'help'}}>
                 <h5>Using local storage for a wishlist is beneficial because:</h5>
-                <div  className="flex1">
+                <div  className="flex1 ff-cm">
                     <p >1 <strong>Simplicity:</strong> Local storage is easy to implement, requiring no backend setup or server infrastructure, saving development time and cost.</p>
                 </div>
                 <div>
