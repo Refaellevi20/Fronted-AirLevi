@@ -8,6 +8,7 @@ import { useState } from 'react'
 export function StayCalendar() {
     const [searchParams, setSearchParams] = useSearchParams()
     const [isGuestsOpen, setGuestModal] = useState(false)
+    const [clearDatesFlag, setClearDatesFlag] = useState(false)
 
     const orderParams = {
         checkIn: searchParams.get('checkIn')
@@ -43,6 +44,14 @@ export function StayCalendar() {
         setSearchParams(searchParams)
     }
 
+    function clearDates (){
+        searchParams.set('checkIn','')
+        searchParams.set('checkOut','')
+        setSearchParams(searchParams)
+        setClearDatesFlag(true)
+        setTimeout(() => setClearDatesFlag(false),0)
+    }
+
 
     function toggleGuest() {
         setGuestModal(!isGuestsOpen)
@@ -59,6 +68,7 @@ export function StayCalendar() {
                     checkIn={orderParams.checkIn}
                     checkOut={orderParams.checkOut}
                     onSetField={onSetField}
+                    clearDatesFlag={clearDatesFlag}
                     monthsToShow={monthsToShow}
                     className='date-picker'
                 />
@@ -75,7 +85,8 @@ export function StayCalendar() {
                 )}
                 <div className="date-picker-modal-btns  flex justify-between">
                     {/* <button className="select-guests-btn clean-button" onClick={() => { toggleGuest() }}>Select guests</button> */}
-                    <button className="reset-dates-btn clean-button" onClick={() => { onSetField('checkIn', ''); onSetField('checkOut', '') }}>Clear dates</button>
+                    <button className="reset-dates-btn clean-button" onClick={clearDates}>Clear dates</button>
+                    {/* <button className="reset-dates-btn clean-button" onClick={() => { onSetField('checkIn', ''); onSetField('checkOut', '') }}>Clear dates</button> */}
                 </div>
             </section>
         </section>

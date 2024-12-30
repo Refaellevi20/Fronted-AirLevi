@@ -2,9 +2,9 @@ import 'react-date-range/dist/styles.css' // main css file
 import 'react-date-range/dist/theme/default.css' // theme css file
 import { DateRange } from 'react-date-range'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-export function DateSelect({ onSetField, checkIn, checkOut, monthsToShow = 2 }) {
+export function DateSelect({ onSetField, checkIn, checkOut, monthsToShow = 2,clearDatesFlag }) {
   checkIn = checkIn || new Date()
   checkOut = checkOut || new Date()
   const [range, setRange] = useState([
@@ -14,6 +14,16 @@ export function DateSelect({ onSetField, checkIn, checkOut, monthsToShow = 2 }) 
       key: 'selection'
     }
   ])
+
+  useEffect(() => {
+    if (clearDatesFlag) {
+      // When clearDatesFlag is true, reset the range to empty
+      setRange([{ startDate: null, endDate: null, key: 'selection' }])
+    } else {
+      // When clearDatesFlag is false
+      setRange([{ startDate: new Date(), endDate: new Date(), key: 'selection' }])
+    }
+  }, [clearDatesFlag])
 
   function handleChange(item) {
     const selection = item.selection
