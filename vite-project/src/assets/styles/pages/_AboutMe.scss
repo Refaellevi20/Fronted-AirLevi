@@ -1,4 +1,5 @@
 .about-me__container {
+    position: relative; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,8 +7,33 @@
     padding: 60px;
     background-color: #f4f4f4;
     min-height: 100vh;
-    animation: fadeIn 2s ease-out;
+    animation: fadeIn 3s ease-out;
+    background: linear-gradient(0deg, red, orange, yellow, green, blue, indigo, violet, pink);
 
+
+    // Flashing border effect
+    &::before {
+        content: '';
+        // position: absolute;
+        top: -10px; 
+        left: -10px; 
+        right: -10px; 
+        bottom: -10px; 
+        border-radius: 12px; 
+        background: linear-gradient(0deg, red, orange, yellow, green, blue, indigo, violet, pink);
+        background-size: 400%; 
+        animation: borderFlash  linear infinite;
+        z-index: -1; 
+    }
+
+    @keyframes borderFlash {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 100% 50%;
+        }
+    }
 
     @keyframes fadeIn {
         0% {
@@ -80,11 +106,41 @@
         padding: 30px;
         background-color: #fff;
         border-radius: 12px;
-        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
-        ;
+        // border: 20px solid linear-gradient(90deg, 
+        // red, orange, yellow, green, blue, 
+        // indigo, violet, pink, 
+        // cyan, magenta, lime, purple);
+        // border: 1px solid rgb(224, 38, 69);
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);  ;
         max-width: 650px;
         animation: slideInUp 1s ease-in-out;
-        transition: all 0.3s ease;
+        // transition: all 0.5s ease;
+
+        .border-animation{
+            content: '';
+            position: absolute;
+            top: -5px; 
+            left: -5px;
+            right: -5px; 
+            bottom: -5px;
+            border-radius: 12x;
+            // background: linear-gradient(90deg, 
+            //     red, orange, yellow, green, blue, 
+            //     indigo, violet, pink, 
+            //     cyan, magenta, lime, purple);
+            // background-size: 300% 300%; 
+            // animation: borderAnimation 10s linear infinite; 
+            // z-index: -1; 
+        }
+    
+        // @keyframes borderAnimation {
+        //     0% {
+        //         background-position: 0% 50%;
+        //     }
+        //     100% {
+        //         background-position: 100% 50%;
+        //     }
+        // }
 
         .user-name {
             font-size: 2rem;
@@ -223,3 +279,7 @@
     }
 }
 
+
+.hidden{
+    display: none;
+}

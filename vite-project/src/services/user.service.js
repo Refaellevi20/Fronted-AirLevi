@@ -12,6 +12,8 @@ export const userService = {
     getUsers,
     getById,
     remove,
+    updateUserCount,
+    getAllUsers,
 }
 
 window.userService = userService
@@ -28,6 +30,17 @@ async function getById(userId) {
     return user
 }
 
+async function updateUser(user) {
+    return await httpService.put(`user/${user._id}`,user)
+}
+
+async function updateUserCount(userId) {
+    const user = await getById(userId)
+    user.count = Number(user.count) || 0
+    user.count += 1
+    return await updateUser(user)
+  }
+
 function remove(userId) {
     return httpService.delete(`user/${userId}`)
 }
@@ -37,7 +50,6 @@ async function login(userCred) {
     console.log(user)
     if (user) {
         socketService.login(user._id)
-        
         return saveLocalUser(user)
     }
 }
@@ -52,15 +64,19 @@ async function logout() {
     return await httpService.post('auth/logout')
 }
 
+async function getAllUsers() {
+    return await httpService.get('user/counts')
+}
 
 function saveLocalUser(user) {
     console.log(user)
-    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, isOwner: user.isOwner}
+    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, isOwner: user.isOwner,count:Number(user.count) || 0}
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
 
 function getLoggedinUser() {
+    // const user = JSON.parse(sessionStorage)
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
