@@ -66,8 +66,8 @@
 @import "cmps/details/ImgUseGrid";
 @import "cmps/details/SecondaryHeader";
 @import "cmps/details/DetailsMobileFooter";
-
-
+@import "cmps/details/HostProfile ";
+@import "cmps/details/ThingsToKnow";
 
 @import "cmps/become-a-host/PhotosStep";
 @import "cmps/become-a-host/DescriptionStep";
@@ -83,7 +83,6 @@
 @import "cmps/become-a-host/LocationStep";
 @import "cmps/become-a-host/BedroomGuestStep";
 @import "cmps/become-a-host/BathroomStep";
-
 
 //& search / cmps
 @import "cmps/search/SearchForm-nav";

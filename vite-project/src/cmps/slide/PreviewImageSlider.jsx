@@ -6,10 +6,9 @@ import { LoginSignup } from '../LoginSignup'
 import { useModal } from '../../customHook/useModal'
 import { useLoginModal } from '../../CustomHook/useLoginModal'
 import { DeleteConfirmation } from '../DeleteConfirmation'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import { useWishlist } from '../../CustomHook/useWishlist'
 import { HiXMark } from "react-icons/hi2";
-
 
 export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, onWishListStay, stayId }) {
     const [heart, setHeart] = useState(false)
@@ -19,6 +18,7 @@ export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, onWishLis
     const dispatch = useDispatch()
     const { removeFromWishlist } = useWishlist()
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
+    const navigate = useNavigate()
 
     function handleDeleteClick(ev) {
         ev.preventDefault()
@@ -124,7 +124,16 @@ export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, onWishLis
             onHandleHeart(ev)
         }
     }
-    //! home footer on middle size + here user (login)
+
+function handleEditClick(stayId,ev) {
+    if(ev){
+        ev.preventDefault()
+        ev.stopPropagation()
+    }
+    navigate(`/stay/edit/${stayId}`)
+}
+
+    //! home footer 
     return (
         <div className='image-slider almost-square-ratio'>
             <div className='click-outside login__modal--wrapper' onClick={handleModalClick}>
@@ -158,6 +167,13 @@ export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, onWishLis
                            />
                        )}
             </span>
+            {/* <span>
+                <EditStay stay={stay}/>
+            </span> */}
+
+            {/* <span style={{zIndex:'10000'}}>
+                <button onClick={() => handleEditClick(stay._id)}>ddddddddd</button>
+            </span> */}
             <Slider>
                 {imgUrls.map((url, idx) => (
                     <img key={idx} src={url} alt='Stay' />

@@ -33,6 +33,8 @@ import { padding } from "@mui/system";
 // import { AppHeader } from './AppHeader'
 import { FaHeart, FaShareAlt } from 'react-icons/fa';
 import { MdKeyboardArrowLeft } from 'react-icons/md'
+import HostProfile from "../cmps/details/HostProfile ";
+import ThingsToKnow from "../cmps/details/ThingsToKnow"
 
 
 const randomTextOptions = [
@@ -349,6 +351,12 @@ export function StayDetails({ reviews }) {
           </h3>
           <p>{randomText}</p>
         </div>
+        {/* <div>
+        <HostProfile />
+        </div>
+        <div>
+        <ThingsToKnow />
+        </div> */}
         <div className="main-content">
           <AppFooterDetails />
         </div>

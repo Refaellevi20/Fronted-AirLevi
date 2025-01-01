@@ -20,6 +20,7 @@ import { AboutMe } from './pages/AboutMe'
 import { GroupChatPage } from './pages/GroupChatPage'
 import { useSelector } from 'react-redux'
 import { BecomeHostPage } from './pages/BecomeHostPage'
+import EditStay from './pages/EditStay'
 
 export function RootCmp() {
   // useEffect(() => { //* debugger
@@ -43,6 +44,7 @@ export function RootCmp() {
         <Route path='/' element={<StayIndex />} />
           <Route path='/stay' element={<StayIndex />} /> 
           <Route path="/stay/:stayId" element={<StayDetails />} />
+          <Route path="/stay/edit/:id" element={<EditStay />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route element={<BookPage />} path='/book/stay/:stayId' />
           {/* <Route path="/history/historyAll" element={<historyAllPage />} /> */}

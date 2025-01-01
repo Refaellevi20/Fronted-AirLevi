@@ -1,0 +1,134 @@
+.host-profile {
+    padding: 20px;
+    // background-color: #f7f7f7;
+    // max-width: 800px;
+    margin: auto;
+    border-radius: 12px;
+
+    // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+
+    h2 {
+        // text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .host-card {
+        display: flex;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        width: 380px;
+        height: 230px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .host-card__center {
+        display: flex;
+    }
+
+    @media screen and (max-width: 950px) {
+        .host-card__center {
+            display: block;
+        }
+    }
+
+.host-details-info {
+    margin-top: 15px;
+    padding-top: 8px;
+}
+
+    .host-info {
+        display: flex;
+        padding: 20px;
+        flex: 1;
+    }
+
+    .host-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+
+    .host-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .host-name {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .host-status {
+        color: #ff385c;
+    }
+
+    .host-rating {
+        // display: flex;
+        align-items: center;
+    }
+
+    .rating {
+        font-size: 1.2rem;
+        margin-right: 10px;
+    }
+
+    .reviews {
+        font-size: 0.9rem;
+        color: #888;
+    }
+
+    .host-description {
+        padding: 0 20px;
+        flex: 2;
+    }
+
+    .message-host {
+        background-color: #222222;
+        color: white;
+        border: none;
+        height: 45px;
+        width: 153.8px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: black;
+        }
+    }
+
+    .messege-host__profile{
+        padding-top: 38px;
+        padding-bottom: 10px;
+
+    }
+
+    .host-education {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    .host-bio {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    .show-more {
+        background: none;
+        border: none;
+        color: #007bff;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .text-host__profile {
+        line-height: 1.2;
+    }
+}
