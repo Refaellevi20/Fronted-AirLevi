@@ -23,7 +23,9 @@ export function MyJourney() {
             <h4>What I know</h4>
             <SkillList /> 
             <h4>About Me</h4>
-            <p>I am looking for a job as a web developer.</p>  
+            <p>I am looking for a job as a web developer.
+                my number is 0584368050 and my email is: <a href="mailto:refael14levi@gmail.com">refael14levi@gmail.com</a>
+                </p>  
      </div>
     )
 }
