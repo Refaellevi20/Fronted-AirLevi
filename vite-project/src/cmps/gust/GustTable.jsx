@@ -2,7 +2,7 @@
 export function GuestTable({ guest }) {
   console.log('guest:', guest)
   const { fullname, imgURL } = guest
-
+const guestImgUrl = ['https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/female/5.jpg','https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/female/6.jpg','https://res.cloudinary.com/dgzyxjapv/image/upload/v1670246635/stayby/avatars/female/6.jpg']
   return (
     <div>
       <div >

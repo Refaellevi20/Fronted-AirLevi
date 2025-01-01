@@ -16,7 +16,7 @@ export function AboutMe() {
     const [animationClass, setAnimationClass] = useState('')
     const [totalCount, setTotalCount] = useState(0)
     const [isVisible, setIsVisible] = useState(true)
-    
+
     // useEffect(() => {
     //     async function fetchTotalCount() {
     //         const count = await getTotalCount()
@@ -143,7 +143,7 @@ export function AboutMe() {
                     </div>
                     <h3>Contact:</h3>
                     <p className="contact-info">{userDetails.contact}</p>
-
+                    <p>0584368050</p>
                     <h3>Project Details:</h3>
                     <p className="project-details">{userDetails.projectDetails}</p>
 
@@ -164,9 +164,9 @@ export function AboutMe() {
                         {/* <div className={`border-animation ${isVisible ? '' : 'hidden'}`}></div> */}
                     </div>
                 </div>
-            {/* <div> */}
-            <MyJourney />
-            {/* </div> */}
+                {/* <div> */}
+                <MyJourney />
+                {/* </div> */}
             </div>
             {/* <GradientFlash /> */}
         </section>
