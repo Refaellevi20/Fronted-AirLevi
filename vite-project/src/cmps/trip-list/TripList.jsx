@@ -36,7 +36,7 @@ export function TripList({ orders, isLoading, onOrdersReorder }) {
                 {isLoading ? (
                   <TableSkeleton />
                 ) : (
-                  orders.map((order, index) => (
+                  orders.reverse().map((order, index) => (
                     <Draggable 
                       key={order._id} 
                       draggableId={order._id} 
@@ -65,6 +65,7 @@ export function TripList({ orders, isLoading, onOrdersReorder }) {
   )
 }
 
+//!!!! there is no laberiy that i can do reverse() + drag and drop
 
 // import React from 'react'
 // import { DndProvider, useDrag, useDrop } from 'react-dnd'
@@ -135,3 +136,5 @@ export function TripList({ orders, isLoading, onOrdersReorder }) {
 //         </DndProvider>
 //     )
 // }
+
+
