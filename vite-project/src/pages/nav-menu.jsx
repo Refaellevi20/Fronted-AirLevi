@@ -92,6 +92,7 @@ export function NavMenu() {
             }>
               Log in
             </Link>
+            <NavLink to="/about/development">About Me</NavLink>
           </div>
         ) : (
           <div className='menu-links'>
