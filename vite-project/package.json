@@ -48,6 +48,8 @@
     "react-chartjs-2": "^5.2.0",
     "react-date-range": "^2.0.1",
     "react-datepicker": "^7.5.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.3.1",
     "react-grid-layout": "^1.5.0",
     "react-i18next": "^15.1.3",

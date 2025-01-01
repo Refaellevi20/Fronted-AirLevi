@@ -99,7 +99,7 @@ export function NavMenu() {
             <Link to='/trip'>Trips</Link>
             <Link to='/wishlist'>Wishlist</Link>
             <Link to='/user/Messages'>Messages</Link>
-            <Link to='/history'>history</Link>
+            <Link to='/history'>History</Link>
             <NavLink to="/about/development">About Me</NavLink>
             {/* <NavLink to="/analytics">Analytics</NavLink> */}
             <Link to='/gust/trip/games'>Time To Think</Link>
@@ -109,9 +109,9 @@ export function NavMenu() {
             {user?.isOwner && (
               <NavLink to="/group-chat" className='nav-link'>Group Chats</NavLink>
             )}
-            <button onClick={onAddStay}>
+            {/* <button onClick={onAddStay}>
               {user.isOwner ? 'Add Another Stay' : 'Become a host (Add stay)'}
-            </button>
+            </button> */}
             <button
               style={{ borderTop: `1px solid hsl(0, 0%, 87%)` }}
               onClick={onLogout}>

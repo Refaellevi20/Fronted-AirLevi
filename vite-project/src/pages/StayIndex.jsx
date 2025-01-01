@@ -36,7 +36,7 @@ export function StayIndex({currency}) {
 
   return (
     <section>
-    <div className="">
+    <div className="index-stay__container">
       <AppHeader className='main-layout stay-index' />
       <NavBar setFilteredStays={setFilteredStays} />
     </div>

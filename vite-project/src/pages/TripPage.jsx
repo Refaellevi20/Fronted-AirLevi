@@ -29,7 +29,7 @@ export function TripPage() {
     }
   }, [storeOrders])
 
-  const handleOrdersReorder = (reorderedOrders) => {
+  function handleOrdersReorder(reorderedOrders) {
     setOrders(reorderedOrders)
   }
 

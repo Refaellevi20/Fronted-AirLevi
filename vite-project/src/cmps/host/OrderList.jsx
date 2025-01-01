@@ -1,9 +1,10 @@
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { Order } from './Order'
 
 export function OrderList({ orders, onOrdersReorder }) {
-    const onDragEnd = (result) => {
+    function onDragEnd (result) {
         const { destination, source } = result
+
         if (!destination) return
 
         if (
@@ -39,7 +40,7 @@ export function OrderList({ orders, onOrdersReorder }) {
                             {...provided.droppableProps}
                             ref={provided.innerRef}
                         >
-                            {orders.reverse().map((order, index) => (
+                            {orders.map((order, index) => (
                                 <Draggable
                                     key={order._id}
                                     draggableId={order._id}

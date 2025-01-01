@@ -18,20 +18,24 @@
 }
 
 .stay-index {
+  .nav-menu {
+    @include for-mobile-layout {
+      display: none;
+    }
+  }
   .header-logo-container {
     @include for-mobile-layout {
       display: none !important;
     }
   }
-
-  .header-menu-container {
-    .nav-menu {
-      @include for-mobile-layout {
-        display: none;
-      }
-    }
-  }
 }
+//   .header-container{
+//   .header-menu-container {
+   
+//     }
+//   }
+// }
+
 
 .secondary-layout {
   max-width: $secondary-max-width;
@@ -41,10 +45,10 @@
   @include for-mobile-layout {
     padding: 0;
 
-    &.app-header .logo,
-    &.app-header .nav-menu {
-      display: none;
-    }
+    // &.app-header .logo,
+    // &.app-header .nav-menu {
+    //   display: none;
+    // }
   }
 
   @include for-max-narrow-layout {

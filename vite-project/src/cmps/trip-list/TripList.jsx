@@ -36,7 +36,7 @@ export function TripList({ orders, isLoading, onOrdersReorder }) {
                 {isLoading ? (
                   <TableSkeleton />
                 ) : (
-                  orders.reverse().map((order, index) => (
+                  orders.map((order, index) => (
                     <Draggable 
                       key={order._id} 
                       draggableId={order._id} 
@@ -64,3 +64,74 @@ export function TripList({ orders, isLoading, onOrdersReorder }) {
     </div>
   )
 }
+
+
+// import React from 'react'
+// import { DndProvider, useDrag, useDrop } from 'react-dnd'
+// import { HTML5Backend } from 'react-dnd-html5-backend'
+// import { TripPage } from '../../pages/TripPage'
+
+// const ItemType = 'ORDER'
+
+// const DraggableOrder = ({ order, index, moveOrder }) => {
+//     const [{ isDragging }, drag] = useDrag({
+//         type: ItemType,
+//         item: { index },
+//         collect: (monitor) => ({
+//             isDragging: monitor.isDragging(),
+//         }),
+//     })
+
+//     return (
+//         <tr ref={drag} style={{ opacity: isDragging ? 0.5 : 1 }}>
+//             <TripPage order={order} />
+//         </tr>
+//     )
+// }
+
+// const DroppableArea = ({ orders, moveOrder }) => {
+//     const [, drop] = useDrop({
+//         accept: ItemType,
+//         hover(item) {
+//             if (item.index !== index) {
+//                 moveOrder(item.index, index)
+//                 item.index = index; // Update the index for the dragged item
+//             }
+//         },
+//     })
+
+//     return (
+//         <tbody ref={drop}>
+//             {orders.map((order, index) => (
+//                 <DraggableOrder key={order._id} order={order} index={index} moveOrder={moveOrder} />
+//             ))}
+//         </tbody>
+//     )
+// }
+
+// export function OrderList({ orders, onOrdersReorder }) {
+//     const moveOrder = (fromIndex, toIndex) => {
+//         const updatedOrders = [...orders]
+//         const [movedOrder] = updatedOrders.splice(fromIndex, 1)
+//         updatedOrders.splice(toIndex, 0, movedOrder)
+//         onOrdersReorder(updatedOrders); // Update the order in the parent component
+//     }
+
+//     return (
+//         <DndProvider backend={HTML5Backend}>
+//             <table className="orders-table">
+//                 <thead>
+//                     <tr>
+//                         <th>Guest</th>
+//                         <th>Dates</th>
+//                         <th>Stay</th>
+//                         <th>Total</th>
+//                         <th>Status</th>
+//                         <th>Actions</th>
+//                     </tr>
+//                 </thead>
+//                 <DroppableArea orders={orders.reverse()} moveOrder={moveOrder} />
+//             </table>
+//         </DndProvider>
+//     )
+// }
