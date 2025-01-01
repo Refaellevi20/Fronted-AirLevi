@@ -7,6 +7,7 @@ import { userService } from '../services/user.service'
 import { UserCounts } from '../cmps/UserCounts';
 import { Hidden } from '@mui/material';
 import { showSuccessMsg } from '../services/event-bus.service';
+import { MyJourney } from '../cmps/MyJourney';
 
 export function AboutMe() {
     const [count, setCount] = useState(10)
@@ -163,6 +164,9 @@ export function AboutMe() {
                         {/* <div className={`border-animation ${isVisible ? '' : 'hidden'}`}></div> */}
                     </div>
                 </div>
+            {/* <div> */}
+            <MyJourney />
+            {/* </div> */}
             </div>
             {/* <GradientFlash /> */}
         </section>
