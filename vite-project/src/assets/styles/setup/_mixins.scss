@@ -77,3 +77,257 @@
         }
     }
   }
+
+  @mixin center-align($method: flex) {
+    @if $method == flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    } @else if $method == grid {
+      display: grid;
+      place-items: center;
+    } @else {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @mixin flip-card {
+    perspective: 1000px;
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+  
+      &:hover {
+        transform: rotateY(180deg);
+      }
+  
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+      }
+  
+      .flip-card-back {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+  
+  // 22. Glassmorphism
+  @mixin glassmorphism($blur: 10px, $opacity: 0.6, $color: white) {
+    background: rgba($color, $opacity);
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  // 23. Skewed Section
+  @mixin skewed-section($angle: -10deg) {
+    transform: skewY($angle);
+    transform-origin: 0;
+  }
+  
+  // 24. Glow Animation
+  @mixin glow-animation($color: #00ff00) {
+    animation: glow 1.5s infinite alternate;
+  
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 10px $color;
+      }
+      100% {
+        box-shadow: 0 0 30px $color;
+      }
+    }
+  }
+  
+  // 25. Waves Background
+  @mixin waves($color1: #3498db, $color2: #9b59b6) {
+    background: linear-gradient(-45deg, $color1, $color2);
+    background-size: 400% 400%;
+    animation: waves 8s ease infinite;
+  
+    @keyframes waves {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  }
+  
+  // 2. Responsive Typography
+  @mixin responsive-font($min-size, $max-size) {
+    font-size: calc(#{$min-size}px + (#{$max-size} - #{$min-size}) * ((100vw - 320px) / (1280 - 320)));
+  }
+  
+  // 3. Circular Design
+  @mixin circle($size, $color) {
+    width: $size;
+    height: $size;
+    background-color: $color;
+    border-radius: 50%;
+  }
+  
+  // 4. Text Shadow Generator
+  @mixin text-shadow($shadows...) {
+    text-shadow: $shadows;
+  }
+  
+  // 5. Border with Gradient
+  @mixin gradient-border($width, $colors...) {
+    border: $width solid transparent;
+    border-image: linear-gradient($colors) 1;
+  }
+  
+  // 6. Button Hover Shine Effect
+  @mixin button-shine {
+    position: relative;
+    overflow: hidden;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: skewX(-30deg);
+      transition: all 0.5s;
+    }
+    &:hover::after {
+      left: 100%;
+    }
+  }
+  
+  // 8. Dynamic Grid Layout
+  @mixin dynamic-grid($columns: 3, $gap: 20px) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $gap;
+  }
+  
+  // 9. Multi-Layer Shadow
+  @mixin multi-shadow($shadows...) {
+    box-shadow: $shadows;
+  }
+  
+  // 10. Background Overlay
+  @mixin background-overlay($color, $opacity: 0.5) {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $color;
+      opacity: $opacity;
+      z-index: -1;
+    }
+  }
+  
+  // 11. Parallax Effect
+  @mixin parallax($speed: 0.5) {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translateY(calc(var(--scroll-y, 0) * #{$speed}));
+  }
+  
+  // 12. Gradient Background Animation
+  @mixin animated-gradient($colors...) {
+    background: linear-gradient(45deg, $colors...);
+    background-size: 400% 400%;
+    animation: gradient-animation 6s ease infinite;
+  
+    @keyframes gradient-animation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  }
+  
+  // 13. Text Clipping
+  @mixin text-clip($background: linear-gradient(to right, #3498db, #2ecc71)) {
+    background: $background;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  // 14. Outline Glow
+  @mixin outline-glow($color: #3498db) {
+    outline: 2px solid $color;
+    outline-offset: 4px;
+    box-shadow: 0 0 10px $color, 0 0 20px $color, 0 0 30px $color;
+  }
+  
+  // 15. Elastic Hover Animation
+  @mixin elastic-hover {
+    transform: scale(1);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  // 16. Stripe Background
+  @mixin stripe-background($color1, $color2, $angle: 45deg) {
+    background: repeating-linear-gradient(
+      $angle,
+      $color1,
+      $color1 10px,
+      $color2 10px,
+      $color2 20px
+    );
+  }
+  
+  // 17. Neon Text Effect
+  @mixin neon-text($color: #2ecc71) {
+    color: $color;
+    text-shadow: 0 0 5px $color, 0 0 10px $color, 0 0 20px $color, 0 0 30px $color;
+  }
+  
+  // 18. Isometric Element
+  @mixin isometric($angle: 30deg, $depth: 10px) {
+    transform: skewY($angle);
+    box-shadow: 0 $depth $depth rgba(0, 0, 0, 0.3);
+  }
+  
+  // 19. Trapezoid Shape
+  @mixin trapezoid($width: 100px, $height: 50px, $skew: 20deg) {
+    width: $width;
+    height: $height;
+    background-color: $primary-color;
+    transform: skewX($skew);
+  }
+  
+  // 20. Custom Scrollbar
+  @mixin custom-scrollbar($thumb-color, $track-color) {
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      background: $track-color;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $thumb-color;
+      border-radius: 10px;
+    }
+  }
+  

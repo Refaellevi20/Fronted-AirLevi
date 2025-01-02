@@ -167,7 +167,22 @@ export function AboutMe() {
                 {/* <div> */}
                 <MyJourney />
                 {/* </div> */}
+
             </div>
+            <footer className="footer">
+            <div className="footer-content">
+                <h2 className="footer-title">Connect with Me</h2>
+                <p className="footer-description">Feel free to reach out through my social media channels!</p>
+                <div className="social-links">
+                    <a href="https://github.com/Refaellevi20" target="_blank" rel="noopener noreferrer" className="social-link">GitHub</a>
+                    <a href="https://www.instagram.com/raf.levi9/?igsh=MThjY2twMWhuNzB5MQ%3D%3D" target="_blank" rel="noopener noreferrer" className="social-link">Instagram</a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
+                </div>
+                <div className="footer-credits">
+                    <p>© 2025 My Portfolio. All rights reserved to Refael Levi.</p>
+                </div>
+            </div>
+        </footer>
             {/* <GradientFlash /> */}
         </section>
     )

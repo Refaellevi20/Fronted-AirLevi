@@ -7,6 +7,7 @@ export function TripList({ orders, isLoading, onOrdersReorder }) {
     if (!result.destination) return
 
     const items = Array.from(orders)
+    // const items =[...orders]
     const [reorderedItem] = items.splice(result.source.index, 1)
     items.splice(result.destination.index, 0, reorderedItem)
 

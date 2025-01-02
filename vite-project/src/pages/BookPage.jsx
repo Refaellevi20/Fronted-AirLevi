@@ -27,7 +27,7 @@ export function BookPage() {
   const user = useSelector((state) => state.userModule.user)
   const [isBooked, setIsBooked] = useState(false)
   const { stay, order } = info || {}
-
+  
   useEffect(() => {
     loadInfo()
   }, [])

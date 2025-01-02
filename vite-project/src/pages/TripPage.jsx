@@ -6,6 +6,8 @@ import { REMOVE_NOTIFICATION } from '../store/user.reducer'
 import { loadOrders } from '../store/order.action'
 import { TripList } from '../cmps/trip-list/TripList'
 import { NavMenu } from './nav-menu'
+import { ScrollButton } from '../cmps/ScrollButton'
+
 
 export function TripPage() {
   const loggedinUser = useSelector((storeState) => storeState.userModule.user)
@@ -36,7 +38,7 @@ export function TripPage() {
   if (!loggedinUser) navigate('/stay')
   
   return (
-    <section>
+    <section >
       <header className='app-header secondary-layout flex' style={{justifyContent:'space-between'}}>
         <div className='header-logo-container'>
           <AppLogo />
@@ -59,6 +61,7 @@ export function TripPage() {
           />
         </section>
       )}
+      <ScrollButton />
     </section>
   )
 }
