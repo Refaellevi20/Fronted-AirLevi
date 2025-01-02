@@ -11,39 +11,41 @@
     align-items: center;
     z-index: 1000;
     animation: modalFadeIn 0.3s ease-out;
-
-    .login-modal-container {
-        background: white;
-        border-radius: 12px;
-        padding: 24px;
-        position: relative;
-        width: 100%;
-        max-width: 568px;
-        margin: 20px;
-        animation: modalSlideUp 0.3s ease-out;
-
-        .close-button {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-
-            &:hover {
-                background-color: #f7f7f7;
-            }
-        }
-    }
 }
 
+.login-modal-container {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    width: 100%;
+    max-width: 568px;
+    margin: 20px;
+    animation: modalSlideUp 0.3s ease-out;
+    z-index: 1010;
+}
+
+.login-modal-container .close-button {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.login-modal-container .close-button:hover {
+    background-color: #f7f7f7;
+}
+
+/* Animations */
 @keyframes modalFadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -57,5 +59,18 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 505px) {
+    .login-modal-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        border-radius: 0;
+        padding: 16px;
     }
 }
