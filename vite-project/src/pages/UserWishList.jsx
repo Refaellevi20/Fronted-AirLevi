@@ -30,7 +30,7 @@ export function UserWishList() {
 
     return (
         <section>
-            <header className='app-header main-layout flex' style={{ justifyContent: 'space-between' }}>
+            <header className='app-header main-layout flex border-buttom' style={{ justifyContent: 'space-between' }}>
                 <div className='header-logo-container'>
                     <AppLogo />
                 </div>
@@ -40,6 +40,7 @@ export function UserWishList() {
                 </div>
             </header>
             <div className="wish-list main-layout">
+                <p style={{paddingTop:'20px'}}></p>
                 <Link to="/" ><IoIosArrowBack size={30} /></Link>
                 <h1 style={{ marginTop: '23px' }} className='fs32'>Wishlist</h1>
 

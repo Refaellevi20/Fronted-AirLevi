@@ -480,3 +480,25 @@
       }
     }
   }
+
+  .order-list-container table::-webkit-scrollbar {
+    height: 8px; 
+  }
+  
+  .order-list-container table::-webkit-scrollbar-thumb {
+    background: #cccccc;
+    border-radius: 4px; 
+  }
+  
+  .order-list-container table::-webkit-scrollbar-thumb:hover {
+    background: #888888; 
+  }
+  
+  .order-list-container table::-webkit-scrollbar-track {
+    background: #f4f4f4;
+    border-radius: 4px;
+  }
+
+  //! 0verflow-X 
+  //! modal login on mobile
+  //! border bottom header

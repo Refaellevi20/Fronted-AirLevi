@@ -12,6 +12,7 @@ import { logout } from '../store/user.actions'
 import { LoginSignup } from './LoginSignup'
 import { useScrollVisibility } from '../CustomHook/useScrollVisibility'
 import { SvgChat } from './svg'
+import { useLoginModal } from '../CustomHook/useLoginModal'
 
 export function FooterMenu() {
   const user = useSelector((storeState) => storeState.userModule.user)
@@ -19,8 +20,8 @@ export function FooterMenu() {
   const location = useLocation()
   const [selectedMenu, setSelectedMenu] = useState('search')
   const isVisible = useScrollVisibility(50)
+  const { LoginModal, openLoginModal, closeLoginModal } = useLoginModal()
 
-  const { closeModal, openModal, Modal } = useModal()
 
   async function onLogout() {
     try {
@@ -49,14 +50,14 @@ export function FooterMenu() {
 
   return (
     <>
-      <Modal />
+      <LoginModal />
       {isVisible && (
       <nav className="nav-menu--container">
         {!user ? (
           <div className="menu-not-logged">
             <Link
               onClick={() => {
-                openModal(<LoginSignup closeModal={closeModal} />)
+                openLoginModal(<LoginSignup closeModal={closeLoginModal} />)
                 setSelectedMenu('login')
               }}
               className="no-underline--mobile"

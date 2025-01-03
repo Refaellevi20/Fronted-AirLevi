@@ -6,6 +6,8 @@ import { CreateGroupModal } from '../cmps/chat/CreateGroupModal'
 import { groupService } from '../services/group.service'
 import { socketService } from '../services/socket.service'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
+import { AppLogo } from '../cmps/app-logo'
+import { NavMenu } from './nav-menu'
 
 export function GroupChatPage() {
   const [groups, setGroups] = useState([]) // Initialize as empty array
@@ -57,6 +59,16 @@ export function GroupChatPage() {
   }
 
   return (
+    <section>
+       <header className='app-header secondary-layout flex border-buttom' style={{ justifyContent: 'space-between' }}>
+              <div className='header-logo-container'>
+                <AppLogo />
+              </div>
+              <div className='spacer'></div>
+              <div className='header-menu-container'>
+                <NavMenu />
+              </div>
+            </header>
     <section className="group-chat-page">
       <div className="group-chat-header">
         <h2>Group Chats</h2>
@@ -89,6 +101,7 @@ export function GroupChatPage() {
           loggedInUser={loggedInUser}
         />
       )}
+    </section>
     </section>
   )
 }

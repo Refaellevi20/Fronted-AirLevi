@@ -37,7 +37,7 @@ export function TripList({ orders, isLoading, onOrdersReorder }) {
                 {isLoading ? (
                   <TableSkeleton />
                 ) : (
-                  orders.reverse().map((order, index) => (
+                  orders.map((order, index) => (
                     <Draggable 
                       key={order._id} 
                       draggableId={order._id} 

@@ -6,6 +6,7 @@ import { login, signup } from '../store/user.actions'
 import { BtnSquareColorRed } from './buttons ui/btn-square-color.jsx'
 import { BtnLoginColorGold } from './buttons ui/btn-loginGust-color.jsx'
 import { BtnLoginColorHost } from './buttons ui/btn-loginHost-color.jsx'
+import { useNavigate } from 'react-router-dom'
 
 export function LoginSignup({ closeModal }) {
   const [credentials, setCredentials] = useState({
@@ -16,7 +17,7 @@ export function LoginSignup({ closeModal }) {
   const [isSignup, setIsSignup] = useState(false)
   const [users, setUsers] = useState([])
   // const user = useSelector((state) => state.userModule.user)
-
+  const navigate = useNavigate()
   useEffect(() => {
     loadUsers()
   }, [])
@@ -51,6 +52,8 @@ export function LoginSignup({ closeModal }) {
       // showErrorMsg('Cannot login')
     }
     clearState()
+    closeModal()
+    // navigate('/')
   }
 
   function onSignup(ev = null) {
@@ -60,6 +63,8 @@ export function LoginSignup({ closeModal }) {
     if (!credentials.imgUrl) { credentials.imgUrl = 'https://robohash.org/mat.png?size=50x50&set=set4' }
     signup(credentials)
     clearState()
+    closeModal()
+    // navigate('/')
   }
 
   function toggleSignup() {

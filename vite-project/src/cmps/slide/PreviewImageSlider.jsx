@@ -10,7 +10,7 @@ import { Link,useNavigate } from 'react-router-dom'
 import { useWishlist } from '../../CustomHook/useWishlist'
 import { HiXMark } from "react-icons/hi2";
 
-export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, onWishListStay, stayId }) {
+export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, stayId }) {
     const [heart, setHeart] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const user = useSelector((state) => state.userModule.user)
@@ -66,12 +66,16 @@ export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, onWishLis
         ev.stopPropagation()
 
         if (!user) {
-            setIsModalOpen(true)
+            if(ev) {
+                ev.preventDefault()
+                ev.stopPropagation()
+            }
+            // setIsModalOpen(true)
             openLoginModal(
                 <LoginSignup
                     closeModal={() => {
                         closeLoginModal()
-                        setIsModalOpen(false)
+                        // setIsModalOpen(false)
                     }}
                 />
             )
@@ -88,8 +92,6 @@ export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, onWishLis
                 setHeart(false)
                 removeFromWishlist(stay._id)
                 showSuccessMsg('Removed from wishlist')
-
-                // Dispatch action to update global state
 
             } else {
                 //* Add 
@@ -117,13 +119,25 @@ export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, onWishLis
 
 
     //! dispach remove from (updateStay(updatedStay)) here
-    function onWishListStay(stayId) {
-        if (!user) {
-            openModal(<LoginSignup />)
-        } else {
-            onHandleHeart(ev)
-        }
-    }
+    // function onWishListStay(ev) {
+    //     if(ev){
+    //         ev.preventDefault()
+    //         ev.stopPropagation()
+    //     }
+    //     if (!user) {
+    //         if(ev){
+    //             ev.preventDefault()
+    //             ev.stopPropagation()
+    //         }
+    //         openLoginModal(<LoginSignup />)
+    //     } else {
+    //         if(ev){
+    //             ev.preventDefault()
+    //             ev.stopPropagation()
+    //         }
+    //         onHandleHeart(ev)
+    //     }
+    // }
 
 function handleEditClick(stayId,ev) {
     if(ev){
@@ -184,3 +198,25 @@ function handleEditClick(stayId,ev) {
 }
 
 
+// {!user ? (
+//     <div className='menu-links'>
+//         <Link onClick={() =>
+//             openLoginModal(<LoginSignup closeModal={closeLoginModal} />)
+//         }>
+//             Log in
+//         </Link>
+//     </div>
+// ) : (
+//     <span className="heart">
+//         <div className="stay-heart__preview">
+//             <button onClick={onHandleHeart}>
+//                 <img
+//                     src={heart ? "./img/red_heart.png" : "./img/gray_heart.png"}
+//                     alt="Heart"
+//                     className="heart-img"
+//                 />
+//             </button>
+//         </div>
+//     </span>
+// )}
+//^ option 2

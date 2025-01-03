@@ -22,6 +22,7 @@ export function OrderList({ orders, onOrdersReorder }) {
     }
 
     return (
+        
         <DragDropContext onDragEnd={onDragEnd}>
             <table className="orders-table">
                 <thead>

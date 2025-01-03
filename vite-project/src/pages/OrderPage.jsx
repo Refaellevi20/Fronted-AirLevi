@@ -6,6 +6,7 @@ import { AppLogo } from '../cmps/app-logo'
 import { NavMenu } from './nav-menu'
 import { OrderList } from '../cmps/host/OrderList'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { ScrollButton } from '../cmps/ScrollButton'
 
 export function OrderPage() {
   const initialOrders = useSelector((storeState) =>   storeState.orderModule.orders.sort((a, b) => b.startDate - a.startDate))
@@ -29,7 +30,7 @@ export function OrderPage() {
   if (!loggedinUser) navigate('/stay')
   return (
     <div className='order-page'>
-       <header className='app-header flex'>
+       <header className='app-header flex border-buttom'>
         <div className='header-logo-container'>
           <AppLogo />
         </div>
@@ -47,6 +48,7 @@ export function OrderPage() {
       <OrderList   onOrdersReorder={handleOrdersReorder} orders={orders} isLoading={isLoading} />
       </div>
     )}
+      <ScrollButton />
     </div>
   )
 }
