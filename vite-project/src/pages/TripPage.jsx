@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { AppLogo } from '../cmps/app-logo' 
+import { AppLogo } from '../cmps/app-logo'
 import { REMOVE_NOTIFICATION } from '../store/user.reducer'
 import { loadOrders } from '../store/order.action'
 import { TripList } from '../cmps/trip-list/TripList'
 import { NavMenu } from './nav-menu'
 import { ScrollButton } from '../cmps/ScrollButton'
+import { AppFooterMobile } from '../cmps/AppFooterMobile'
 
 
 export function TripPage() {
@@ -14,7 +15,7 @@ export function TripPage() {
   const storeOrders = useSelector((storeState) => storeState.orderModule.orders)
   const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
   const [orders, setOrders] = useState([])
-  
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -36,10 +37,10 @@ export function TripPage() {
   }
 
   if (!loggedinUser) navigate('/stay')
-  
+
   return (
     <section >
-      <header className='app-header secondary-layout flex' style={{justifyContent:'space-between'}}>
+      <header className='app-header secondary-layout flex' style={{ justifyContent: 'space-between' }}>
         <div className='header-logo-container'>
           <AppLogo />
         </div>
@@ -54,14 +55,15 @@ export function TripPage() {
             <h2>Welcome back, {loggedinUser.fullname}</h2>
           </div>
           <h3>Your trips</h3>
-          <TripList 
-            orders={orders} 
-            isLoading={isLoading} 
+          <TripList
+            orders={orders}
+            isLoading={isLoading}
             onOrdersReorder={handleOrdersReorder}
           />
         </section>
       )}
       <ScrollButton />
+      <AppFooterMobile />
     </section>
   )
 }

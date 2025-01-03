@@ -13,7 +13,6 @@ export function ScrollButton() {
 
       setScrollProgress(progress)
 
-      // Detect if the user is at the bottom of the page
       const isBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 1
       setIsAtBottom(isBottom)
     }
@@ -41,7 +40,7 @@ export function ScrollButton() {
       className="scroll-button__container"
       style={{
         position: 'fixed',
-        bottom: '20px',
+        bottom: '70px',
         right: '50%',
         padding: '10px 20px',
         fontSize: '16px',

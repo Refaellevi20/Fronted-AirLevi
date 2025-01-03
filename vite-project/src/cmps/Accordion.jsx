@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { IoIosArrowForward, IoIosArrowDown  } from 'react-icons/io';
 import { IoIosArrowUp } from "react-icons/io";
 
-export function Accordion({ children, title = 'u will see your wishlist only on your device only!!!' }) {
+export function Accordion({ children, title = 'u will see your wishlist only on your device!!!' }) {
     const [isMobile, setIsMobile] = useState(window.matchMedia("(max-width: 600px)").matches)
     const [isOpen, setIsOpen] = useState(false)
 

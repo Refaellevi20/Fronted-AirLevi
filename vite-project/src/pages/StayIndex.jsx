@@ -9,6 +9,7 @@ import { AppFooterHome } from '../cmps/footerHome/AppFooterHome'
 import { NavBar } from '../cmps/NavBar'
 import { AppHeader } from './AppHeader'
 import { IndexLoader } from '../cmps/IndexLoader'
+import { AppFooterMobile } from '../cmps/AppFooterMobile'
 
 export function StayIndex({currency}) {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -34,6 +35,7 @@ export function StayIndex({currency}) {
     setSearchParams((prevFilter) => ({ ...prevFilter, [field]: value }))
   }
 
+  if (isLoading) return <IndexLoader />
   return (
     <section>
     <div className="index-stay__container">
@@ -47,7 +49,7 @@ export function StayIndex({currency}) {
       ) : (
         <StayList stays={filteredStays} currency={currency}/>
       )}
-     {/* {filteredStays.length === 0 && (
+     {filteredStays.length === 0 && (
           <div className="no-results-container">
             <div className="angry-emoji">😢</div>
             <div className="message-container">
@@ -59,10 +61,12 @@ export function StayIndex({currency}) {
               <div className="lightning"></div>
             </div>
           </div>
-        )} */}
+        )}
+        <AppFooterMobile />
       <AppFooterHome />
     </section>
   </section>
   )
 }
 
+//* or <> </> insted of (<React.Fragment></React.Fragment>) + the father section of this component

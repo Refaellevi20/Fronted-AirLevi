@@ -21,6 +21,7 @@ import { GroupChatPage } from './pages/GroupChatPage'
 import { useSelector } from 'react-redux'
 import { BecomeHostPage } from './pages/BecomeHostPage'
 import EditStay from './pages/EditStay'
+import { ProfilePage } from './pages/ProfilePage'
 
 export function RootCmp() {
   // useEffect(() => { //* debugger
@@ -66,6 +67,7 @@ export function RootCmp() {
                 } 
             />
           <Route element={<AboutMe />} path='about/development' />
+          <Route element={<ProfilePage />} path='Profile' />
         </Routes>
       </main>
         <UserMsg />
