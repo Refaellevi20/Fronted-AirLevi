@@ -6,7 +6,7 @@ import { LoginSignup } from '../LoginSignup'
 import { useModal } from '../../customHook/useModal'
 import { useLoginModal } from '../../CustomHook/useLoginModal'
 import { DeleteConfirmation } from '../DeleteConfirmation'
-import { Link,useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useWishlist } from '../../CustomHook/useWishlist'
 import { HiXMark } from "react-icons/hi2";
 
@@ -66,7 +66,7 @@ export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, stayId })
         ev.stopPropagation()
 
         if (!user) {
-            if(ev) {
+            if (ev) {
                 ev.preventDefault()
                 ev.stopPropagation()
             }
@@ -75,10 +75,13 @@ export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, stayId })
                 <LoginSignup
                     closeModal={() => {
                         closeLoginModal()
+                        // ev.preventDefault()
+                        // ev.stopPropagation()
                         // setIsModalOpen(false)
                     }}
                 />
             )
+
             return
         }
 
@@ -110,8 +113,15 @@ export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, stayId })
         }
     }
 
+    // function handleModalClick(ev) {
+    //     if (isModalOpen) {
+    //         ev.preventDefault()
+    //         ev.stopPropagation()
+    //     }
+    // }
+
     function handleModalClick(ev) {
-        if (isModalOpen) {
+        if (ev) {
             ev.preventDefault()
             ev.stopPropagation()
         }
@@ -139,13 +149,13 @@ export function PreviewImageSlider({ imgUrls, stay, isOwner, onRemove, stayId })
     //     }
     // }
 
-function handleEditClick(stayId,ev) {
-    if(ev){
-        ev.preventDefault()
-        ev.stopPropagation()
+    function handleEditClick(stayId, ev) {
+        if (ev) {
+            ev.preventDefault()
+            ev.stopPropagation()
+        }
+        navigate(`/stay/edit/${stayId}`)
     }
-    navigate(`/stay/edit/${stayId}`)
-}
 
     //! home footer 
     return (
@@ -165,21 +175,21 @@ function handleEditClick(stayId,ev) {
                 </div>
             </span>
             <span className='btn-delete__preview'>
-            {isOwner && (
-                           <button
-                               className="delete-btn"
-                               onClick={handleDeleteClick}
-                           >
-                              <HiXMark className="fs24" />
-                           </button>
-                       )}
-           
-                       {showDeleteConfirmation && (
-                           <DeleteConfirmation
-                               onConfirm={handleConfirmDelete}
-                               onCancel={() => setShowDeleteConfirmation(false)}
-                           />
-                       )}
+                {isOwner && (
+                    <button
+                        className="delete-btn"
+                        onClick={handleDeleteClick}
+                    >
+                        <HiXMark className="fs24" />
+                    </button>
+                )}
+
+                {showDeleteConfirmation && (
+                    <DeleteConfirmation
+                        onConfirm={handleConfirmDelete}
+                        onCancel={() => setShowDeleteConfirmation(false)}
+                    />
+                )}
             </span>
             {/* <span>
                 <EditStay stay={stay}/>
