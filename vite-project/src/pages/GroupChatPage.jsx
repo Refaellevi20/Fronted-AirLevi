@@ -60,7 +60,7 @@ export function GroupChatPage() {
 
   return (
     <section>
-       <header className='app-header secondary-layout flex border-buttom' style={{ justifyContent: 'space-between' }}>
+       <header className='app-header main-layout flex' style={{ justifyContent: 'space-between' }}>
               <div className='header-logo-container'>
                 <AppLogo />
               </div>
