@@ -16,7 +16,7 @@ export function ChatBot() {
         }
     ])
     const messagesEndRef = useRef(null)
-    const { setIsWaiting } = useWaitingCursor()  
+    const { setIsWaiting } = useWaitingCursor()
     const [isLoading, setIsLoading] = useState(false)
 
     function scrollToBottom() {
@@ -33,7 +33,7 @@ export function ChatBot() {
     const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
 
-    async function handleSendMessage(message){
+    async function handleSendMessage(message) {
         if (!message.trim() || isLoading) return
 
         try {
@@ -41,7 +41,7 @@ export function ChatBot() {
             setIsWaiting(true)
             setMessages(prev => [...prev, { text: message, isBot: false }])
             const response = await chatbotService.getChatResponse(message)
-          
+
             await delay(2000)
             //^ another way
             // await new Promise(resolve => setTimeout(resolve, 2000))
@@ -74,39 +74,42 @@ export function ChatBot() {
                 </button>
             ) : (
                 <div className=''>
-                <div className="chatbot-window ">
-                    <div className="chat-header">
-                        <h3>Booking Assistant</h3>
-                        <button
-                            className="close-btn"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            <IoClose />
-                        </button>
-                    </div>
-                    <div className="chat-messages">
-                        {messages.map((msg, idx) => (
-                            <ChatMessage key={idx} message={msg} />
-                        ))}
-                        {isLoading && (
-                            <div className="typing-indicator-container">
-                            <div className="typing-indicator">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
+                    <div className="chatbot-window ">
+                        <div className="chat-header">
+                            <h3>Booking Assistant</h3>
+                            <button
+                                className="close-btn"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                <IoClose />
+                            </button>
                         </div>
-                        )}
-                        <div ref={messagesEndRef} />
+                        <div className="chat-messages">
+                            {messages.map((msg, idx) => (
+                                <ChatMessage key={idx} message={msg} />
+                            ))}
+                            {isLoading && (
+                                <div className="typing-indicator-container">
+                                    <div className="typing-indicator">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            )}
+                            <div ref={messagesEndRef} />
+                        </div>
+                        <ChatInput
+                            onSendMessage={handleSendMessage}
+                            isLoading={isLoading}
+                        />
                     </div>
-                    <ChatInput
-                        onSendMessage={handleSendMessage}
-                        isLoading={isLoading}
-                    />
-                </div>
                 </div>
             )}
-             {/* <div ref={messagesEndRef} /> */} //^ moved to line 100
+            {/* <div ref={messagesEndRef} /> */}
         </div>
     )
 }
+
+// <div ref={messagesEndRef} />
+//^ moved to line 100
