@@ -130,12 +130,7 @@ export function ShareModal({ stay }) {
             >
                 <PiUploadSimple  size={24}/>
                 <p className='fs14'> Share</p>
-               
-
-
-                
             </button>
-
             {isOpen && (
                 <div className="share-modal-overlay">
                     <div className="share-options-container" ref={modalRef}>
@@ -149,7 +144,6 @@ export function ShareModal({ stay }) {
                                 <IoMdClose />
                             </button>
                         </div>
-
                         <div className="share-options">
                             {shareOptions.map((option) => (
                                 <button

@@ -21,12 +21,12 @@ export function MyJourney() {
                 I successfully built a fully functional application featuring user authentication and a seamless booking process, enhancing the user experience. The project not only solidified my coding skills but also gave me a sense of accomplishment and confidence in my abilities as a developer.
             </p>
             <h4>What I know</h4>
-            <SkillList /> 
+            <SkillList />
             <h4>About Me</h4>
             <p>I am looking for a job as a web developer.
                 my number is 0584368050 and my email is: <a href="mailto:refael14levi@gmail.com">refael14levi@gmail.com</a>
-                </p>  
-     </div>
+            </p>
+        </div>
     )
 }
 

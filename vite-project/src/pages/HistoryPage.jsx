@@ -18,8 +18,11 @@ export function HistoryPage() {
     return <div>No stays in history yet!</div>
   }
 
-  const uniqueHistory = Array.from(new Set(history.map(stay => stay._id)))
-    .map(id => history.find(stay => stay._id === id))
+  const uniqueHistory = Array
+    .from(new Set(history
+    .map(stay => stay._id)))
+    .map(id => history
+    .find(stay => stay._id === id))
 
   return (
     <div className='main-layout'>

@@ -1,3 +1,6 @@
+//^ i called it diffrente from the others because i want to use it a lot 
+//^ so i needed it to unique name
+
 import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
@@ -5,7 +8,6 @@ import guest from '/guest.svg'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/user.actions'
 import { LoginSignup } from '../cmps/LoginSignup'
-import { useModal } from '../customHook/useModal.jsx'
 import { MenuHeader } from '../cmps/menuHeader.jsx'
 import { useLoginModal } from '../CustomHook/useLoginModal.jsx'
 
@@ -33,7 +35,6 @@ export function NavMenu() {
     }
   }, [])
 
-
   async function onLogout() {
     try {
       await logout()
@@ -44,32 +45,31 @@ export function NavMenu() {
     }
   }
 
-  function onAddStay() {
-    navigate('/newStay')
-  }
+  // function onAddStay() {
+  //   navigate('/newStay')
+  // }
 
   function handleToggle() {
     setNavbarOpen((prev) => !prev)
   }
 
-  function GamesLink() {
-    const loggedInUser = useSelector((state) => state.userModule.user)
-    const orders = useSelector((state) => state.orderModule.orders)
+  // function GamesLink() {
+  //   const loggedInUser = useSelector((state) => state.userModule.user)
+  //   const orders = useSelector((state) => state.orderModule.orders)
 
-    const hasValidOrder = orders?.some(order =>
-      order.buyerId === loggedInUser?._id &&
-      order.status === 'completed' &&
-      order.isPaid
-    )
+  //   const hasValidOrder = orders?.some(order =>
+  //     order.buyerId === loggedInUser?._id &&
+  //     order.status === 'completed' &&
+  //     order.isPaid
+  //   )
 
-    if (!loggedInUser || !hasValidOrder) return null
+  //   if (!loggedInUser || !hasValidOrder) return null
 
-  }
+  // } //^ maybe only the people that ordered can play the game
 
   return (
     <>
       <LoginModal />
-      {/* <Modal /> */}
       <nav className='nav-menu' onClick={handleToggle} ref={navRef}>
         {notifications.length > 0 && (
           <div className='notificaiton-badge'>{notifications.length}</div>
@@ -111,7 +111,7 @@ export function NavMenu() {
             )}
             {/* <button onClick={onAddStay}>
               {user.isOwner ? 'Add Another Stay' : 'Become a host (Add stay)'}
-            </button> */}
+            </button> */} //^ another way to do it
             <button
               style={{ borderTop: `1px solid hsl(0, 0%, 87%)` }}
               onClick={onLogout}>

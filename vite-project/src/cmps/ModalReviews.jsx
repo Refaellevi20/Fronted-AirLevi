@@ -19,7 +19,6 @@ import { ModalSize } from '../CustomHook/useModalSize.tsx'
 function Modal({ closeModal, reviews, stay }) {
     const [filteredReviews, setFilteredReviews] = useState(reviews)
   
-
     function handleModalClick(ev){
         if (ev.target === ev.currentTarget) {
             closeModal()
@@ -48,11 +47,9 @@ function Modal({ closeModal, reviews, stay }) {
                 <div></div>
                 <RatingReview2 reviews={stay.reviews} />
 
-                {/* <div className=''> */}
                 <div className="flex1 top-reviews__none">
                     <ReviewBar reviews={stay.reviews} />
                     <IndexReviews reviews={reviews} />
-                    {/* </div> */}
                 </div>
 
                 <div className=' top-reviews__left'>

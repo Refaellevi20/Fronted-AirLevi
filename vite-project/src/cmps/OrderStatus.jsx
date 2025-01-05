@@ -15,7 +15,6 @@ function getStatusStyles(status) {
   }
 }
 
-// OrderStatus component
 export function OrderStatus({ status }){
   const { color, text } = getStatusStyles(status)
 

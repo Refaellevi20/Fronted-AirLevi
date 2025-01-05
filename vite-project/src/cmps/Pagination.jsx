@@ -21,3 +21,5 @@ export function Pagination({ currentPage, totalPages, onPageChange }) {
         </nav>
     )
 }
+
+//* unused for now (maybe to the view orders page)

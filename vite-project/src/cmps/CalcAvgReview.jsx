@@ -1,7 +1,6 @@
 
 import { TbPointFilled } from "react-icons/tb";
 
-
 export function CalcAvgReview({stay}) {
 
     function calcAvgReview(reviews) {

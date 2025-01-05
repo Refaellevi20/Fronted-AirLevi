@@ -7,9 +7,7 @@ import FurryFriends from '/img/highlights/furry-friends.svg'
 import GreatCheckIn from '/img/highlights/great-checkin.svg'
 import GreatLocation from '/img/highlights/great-location.svg'
 
-
 export function StayHighlights() {
-
 const [searchParams, setSearchParams] = useSearchParams()
 
 const today = new Date().getTime()
@@ -41,7 +39,6 @@ const dateToCancel = utilService.ShortFormattedDate(checkInDate - (1000 * 60 * 6
                     <p>100% of recent guests gave the check-in process a 5-star rating.</p>
                 </div>
             </div>
-
         {!isMoreThanFiveDays &&
             <div className="furry-friends highlight flex1">
                 <img src={highlightMap["Furry friends"]} className="highlight-img" alt="highlightImg" />

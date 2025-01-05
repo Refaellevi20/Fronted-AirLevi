@@ -5,10 +5,6 @@ import guest from '/guest.svg'
 import { CiHeart } from "react-icons/ci"
 import { IoSearchOutline } from "react-icons/io5"
 import { FaAirbnb } from "react-icons/fa"
-import { FaRegMessage } from "react-icons/fa6"
-import { useModal } from '../customHook/useModal'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { logout } from '../store/user.actions'
 import { LoginSignup } from './LoginSignup'
 import { useScrollVisibility } from '../CustomHook/useScrollVisibility'
 import { SvgChat } from './svg'
@@ -21,17 +17,6 @@ export function FooterMenu() {
   const [selectedMenu, setSelectedMenu] = useState('search')
   const isVisible = useScrollVisibility(50)
   const { LoginModal, openLoginModal, closeLoginModal } = useLoginModal()
-
-
-  async function onLogout() {
-    try {
-      await logout()
-      navigate('/stay')
-      showSuccessMsg('Bye now')
-    } catch (err) {
-      showErrorMsg('Cannot logout')
-    }
-  }
 
   useEffect(() => {
     // Update route

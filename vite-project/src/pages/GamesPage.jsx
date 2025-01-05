@@ -14,7 +14,7 @@ export default function GamesPage() {
         return parseInt(localStorage.getItem('snakeGameBestScore')) || 0
     })
     const loggedInUser = useSelector((state) => state.userModule.user)
-    const orders = useSelector((state) => state.orderModule.orders)
+    const orders = useSelector((state) => state.orderModule.orders)//^ if needed later (orders)
     const scoreRef = useRef({ current: 0, best: parseInt(localStorage.getItem('snakeGameBestScore')) || 0 })
 
     const FOOD_EMOJIS = [
@@ -50,13 +50,13 @@ export default function GamesPage() {
         canvas.height = ROWS * BLOCK_SIZE
         canvas.width = COLS * BLOCK_SIZE
 
-        const placeFood = () => {
+        function placeFood() {
             foodX = Math.floor(Math.random() * COLS) * BLOCK_SIZE
             foodY = Math.floor(Math.random() * ROWS) * BLOCK_SIZE
             currentFoodEmoji = FOOD_EMOJIS[Math.floor(Math.random() * FOOD_EMOJIS.length)]
         }
 
-        const update = () => {
+        function update() {
             if (gameOver) return
 
             context.fillStyle = "black"
@@ -112,11 +112,10 @@ export default function GamesPage() {
             }
         }
 
-        const showNewRecordMessage = () => {
+        function showNewRecordMessage() {
             const message = document.createElement('div')
             message.className = 'new-record-popup'
 
-            // Create inner elements for better styling
             const trophy = document.createElement('span')
             trophy.className = 'trophy-icon'
             trophy.textContent = '🏆'
@@ -138,7 +137,7 @@ export default function GamesPage() {
             }, 2000)
         }
 
-        const changeDirection = (ev) => {
+        function changeDirection(ev)  {
             if (ev.key === 'ArrowUp' && velocityY !== 1) {
                 velocityX = 0
                 velocityY = -1
@@ -194,9 +193,7 @@ export default function GamesPage() {
                         <h2>Game Over!</h2>
                         {currentScore === bestScore && (
                             <div className="best-score-holder">
-                                {/* <span className="crown">👑</span> */}
                                 <span className="player-name">{loggedInUser.fullname}</span>
-
                                 <span className="title">New Champion! </span>
                             </div>
                         )}

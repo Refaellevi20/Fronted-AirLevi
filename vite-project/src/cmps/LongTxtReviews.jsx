@@ -8,9 +8,8 @@ export function LongTxtReviews({ txt, length, onShowMoreClick }) {
     }
 
     function onToggleLongTxt() {
-        // setShowMore(prevLongTxtShown => !prevLongTxtShown)
-        if (!isShowMore) onShowMoreClick()
-            
+        // setShowMore(prevLongTxtShown => !prevLongTxtShown) //^ option to see all text
+        if (!isShowMore) onShowMoreClick() 
     }
 
     return (

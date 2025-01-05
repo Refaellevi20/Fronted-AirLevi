@@ -8,6 +8,7 @@ import { stayService } from '../services/stay.service';
 import { useNavigate, useParams } from 'react-router-dom';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service';
 
+//^ this is on mark because it is with no style
 export function EditStay() {
     const { id } = useParams()
     const navigate = useNavigate()

@@ -10,7 +10,7 @@ import { AppLogo } from '../cmps/app-logo'
 import { NavMenu } from './nav-menu'
 
 export function GroupChatPage() {
-  const [groups, setGroups] = useState([]) // Initialize as empty array
+  const [groups, setGroups] = useState([]) 
   const [selectedGroup, setSelectedGroup] = useState(null)
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
   const loggedInUser = useSelector((storeState) => storeState.userModule.user)
@@ -53,7 +53,7 @@ export function GroupChatPage() {
     }
   }
 
-  // Only allow owners to access this page
+  //^ Only allow owners to access this page
   if (!loggedInUser?.isOwner) {
     return <div className="unauthorized-message">Only hosts can access group chats</div>
   }

@@ -3,7 +3,6 @@ import { useState } from 'react'
 export function useModal() {
   const [isOpen, setIsOpen] = useState(false)
   const [component, setComponent] = useState(null)
-//! devtools rejuir jsx
 
   function openModal(componentToOpen) {
     console.log('isOpen:', isOpen)

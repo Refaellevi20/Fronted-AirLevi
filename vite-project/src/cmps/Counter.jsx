@@ -2,7 +2,7 @@ export function Counter({ field, value = 0, onChange,maxValue = 8  }) {
 
     function incrementCount() {
         if (value < maxValue) {
-            onChange(field, value + 1);  // Increment only if value is less than maxValue
+            onChange(field, value + 1)
         }
     }
 

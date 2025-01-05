@@ -31,7 +31,7 @@ export function BecomeHostPage() {
         price: '',
         summary: '',
         capacity: {
-            guests: 1,
+            guests: 2,
             bedrooms: 1,
             beds: 1,
             bathrooms: 1
@@ -117,6 +117,7 @@ export function BecomeHostPage() {
     async function handleSubmit() {
         try {
             const savedStay = await stayService.save(stayData)
+            // console.log('Saved stay:', savedStay) //^ debug
             showSuccessMsg('Your place was listed successfully!')
             navigate('/stay')
         } catch (err) {
@@ -161,14 +162,12 @@ export function BecomeHostPage() {
                 currentStep={currentStep}
                 totalSteps={steps.length}
             />
-           
             <main className="host-content">
                 <h1>{steps[currentStep - 1].title}</h1>
                 <div className="step-container">
                     {steps[currentStep - 1].component}
                 </div>
             </main>
-
             <HostFooter
                 currentStep={currentStep}
                 totalSteps={steps.length}

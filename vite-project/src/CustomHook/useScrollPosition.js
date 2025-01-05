@@ -10,7 +10,7 @@ export function useScrollPosition(scrollThreshold = 500) {
       } else {
         setScrolled(false)
       }
-    };
+    }
 
     window.addEventListener("scroll", handleScroll)
     return () => {

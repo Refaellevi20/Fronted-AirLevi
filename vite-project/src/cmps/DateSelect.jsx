@@ -17,10 +17,8 @@ export function DateSelect({ onSetField, checkIn, checkOut, monthsToShow = 2,cle
 
   useEffect(() => {
     if (clearDatesFlag) {
-      // When clearDatesFlag is true, reset the range to empty
       setRange([{ startDate: null, endDate: null, key: 'selection' }])
     } else {
-      // When clearDatesFlag is false
       setRange([{ startDate: new Date(), endDate: new Date(), key: 'selection' }])
     }
   }, [clearDatesFlag])

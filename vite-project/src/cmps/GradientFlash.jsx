@@ -6,7 +6,6 @@ export function GradientFlash() {
     useEffect(() => {
         const handleClick = () => {
             setIsActive(true)
-            // setTimeout(() => setIsActive(false),1000)
         }
 
         document.addEventListener('click', handleClick)

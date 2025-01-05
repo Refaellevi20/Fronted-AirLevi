@@ -26,7 +26,7 @@ function CurrencyModal({ isOpen, onClose }) {
 
     const handleCurrencySelection = (newCurrency) => {
         dispatch(setCurrency(newCurrency))
-        // console.log('Toggling currency from', currency, 'to', newCurrency)
+        // console.log('Toggling currency from', currency, 'to', newCurrency) //^ for testing
         setSelectedCurrency(newCurrency)
         onClose()
     }
@@ -96,7 +96,6 @@ function CurrencyModal({ isOpen, onClose }) {
             >
                 <div className="modal">
                     <ModalSize closeModal={onClose} className="border-buttom" />
-                    {/* <p className="border-buttom"></p> */}
                       <h2 className="border-top">Choose Currency</h2>
                     <section className='grid-buttons'>
                         {supportedCurrencies.map((currency) => (
@@ -113,7 +112,6 @@ function CurrencyModal({ isOpen, onClose }) {
                                         {currencyDetails[currency.code]?.symbol || ''}
                                     </div>
                                 </div>
-
                             </button>
                         ))}
                     </section>

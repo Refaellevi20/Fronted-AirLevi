@@ -1,7 +1,7 @@
 import { AmenitiesList } from "./AmenitiesList"
 
 export function AllAmenities({ amenities }) {
-    console.log('amenities', amenities)
+    // console.log('amenities', amenities) //^ debug
     return (
         <section className="all-amenities">
             <div className="amenities-header">

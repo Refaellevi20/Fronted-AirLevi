@@ -18,6 +18,7 @@ export function MessagesPage() {
   const dispatch = useDispatch()
   console.log(notifications)
   // const [filteredOrders, setFilteredOrders] = useState(orders)
+  //^ if i want to do filter later
 
   useEffect(() => {
     loadOrders()
@@ -40,7 +41,7 @@ export function MessagesPage() {
 //       })
 //       setFilteredOrders(filtered)
 //   }
-// }
+// } //^ or sort
 
   function onSetCurrOrder(orderId) {
     const orderToSet = orders.find((order) => order._id === orderId)
@@ -61,7 +62,6 @@ export function MessagesPage() {
         </div>
       </header>
       </div>
-
       <div className='msg-main-container'>
         <div className='inbox-container'>
           <div className='inbox-column orders-list'>
@@ -87,7 +87,6 @@ export function MessagesPage() {
               </div>
             )}
           </div>
-
           <div className='inbox-column messages'>
             <div className='chat-backdrop'>
               {isLoading && (
@@ -102,7 +101,6 @@ export function MessagesPage() {
               )}
             </div>
           </div>
-
           <div className='inbox-column order-details'>
             <div className='inbox-header'>
               <h2>Order details</h2>

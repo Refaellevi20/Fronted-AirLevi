@@ -21,7 +21,6 @@ export function UserCounts() {
 
     return (
         <div>
-            {/* <h2>User Counts</h2> */}
             <ul>
                 {userCounts.length > 0 ? (
                 userCounts.map(user => (

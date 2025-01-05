@@ -84,9 +84,7 @@ export function StayCalendar() {
                     </>
                 )}
                 <div className="date-picker-modal-btns  flex justify-between">
-                    {/* <button className="select-guests-btn clean-button" onClick={() => { toggleGuest() }}>Select guests</button> */}
                     <button className="reset-dates-btn clean-button" onClick={clearDates}>Clear dates</button>
-                    {/* <button className="reset-dates-btn clean-button" onClick={() => { onSetField('checkIn', ''); onSetField('checkOut', '') }}>Clear dates</button> */}
                 </div>
             </section>
         </section>

@@ -4,8 +4,7 @@ import { AppLogo } from '../cmps/app-logo';
 import { NavMenu } from './nav-menu';
 import { GradientFlash } from '../cmps/GradientFlash'
 import { userService } from '../services/user.service'
-import { UserCounts } from '../cmps/UserCounts';
-import { Hidden } from '@mui/material';
+import { UserCounts } from '../cmps/UserCounts'; //^ later maybe
 import { showSuccessMsg } from '../services/event-bus.service';
 import { MyJourney } from '../cmps/MyJourney';
 
@@ -14,16 +13,8 @@ export function AboutMe() {
     const [hasCounted, setHasCounted] = useState(false)
     const [clicked, setClicked] = useState(false)
     const [animationClass, setAnimationClass] = useState('')
-    const [totalCount, setTotalCount] = useState(0)
+    const [totalCount, setTotalCount] = useState(0) //^ later maybe
     const [isVisible, setIsVisible] = useState(true)
-
-    // useEffect(() => {
-    //     async function fetchTotalCount() {
-    //         const count = await getTotalCount()
-    //         setTotalCount(count)
-    //     }
-    //     fetchTotalCount()
-    // }, [])
 
     const userDetails = {
         name: 'Refael Levi',
@@ -36,7 +27,6 @@ export function AboutMe() {
         github: 'https://github.com/Refaellevi20',
         Instagram: 'https://www.instagram.com/raf.levi9/?igsh=MThjY2twMWhuNzB5MQ%3D%3D',
     }
-    //! maybe later to the database
 
     useEffect(() => {
         const loggedInUser = userService.getLoggedinUser();
@@ -104,7 +94,7 @@ export function AboutMe() {
     //         console.error('Failed to get total count:', error)
     //         return 0
     //     }
-    // }
+    // } //^ later maybe
 
     return (
         <section>
@@ -118,12 +108,10 @@ export function AboutMe() {
                 </div>
             </header>
             <div className="about-me__container">
-
                 <div className={`details-section`}>
                     <h1 className="user-name">{userDetails.name}</h1>
                     <p className="user-age">Age: {userDetails.age}</p>
                     <p className="user-bio">{userDetails.bio}</p>
-
                     <h3>Hobbies:</h3>
                     <div className='flex'>
                         <ul className="hobbies-list">
@@ -146,7 +134,6 @@ export function AboutMe() {
                     <p>0584368050</p>
                     <h3>Project Details:</h3>
                     <p className="project-details">{userDetails.projectDetails}</p>
-
                     <div className="social-links">
                         <a href={userDetails.github} target="_blank" rel="noopener noreferrer" className="social-link">GitHub</a>
                         <a href={userDetails.Instagram} target="_blank" rel="noopener noreferrer" className="social-link">Instagram</a>
@@ -159,15 +146,12 @@ export function AboutMe() {
                         >
                             <FaThumbsUp /> {count}
                             {/* {totalCount} */}
-                            {/* <UserCounts />  */}
+                            {/* <UserCounts />  */} //^ later maybe
                         </button>
                         {/* <div className={`border-animation ${isVisible ? '' : 'hidden'}`}></div> */}
                     </div>
                 </div>
-                {/* <div> */}
                 <MyJourney />
-                {/* </div> */}
-
             </div>
             <footer className="footer">
             <div className="footer-content">
@@ -183,7 +167,7 @@ export function AboutMe() {
                 </div>
             </div>
         </footer>
-            {/* <GradientFlash /> */}
+            {/* <GradientFlash /> */} //^ later maybe
         </section>
     )
 }

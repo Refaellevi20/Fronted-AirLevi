@@ -30,11 +30,11 @@ import { ModalSize } from "../CustomHook/useModalSize";
 import { ChatBot } from './ChatBot';
 import { ShareModal } from "../cmps/ShareModal";
 import { padding } from "@mui/system";
-// import { AppHeader } from './AppHeader'
-import { FaHeart, FaShareAlt } from 'react-icons/fa';
+
 import { MdKeyboardArrowLeft } from 'react-icons/md'
 import HostProfile from "../cmps/details/HostProfile ";
 import ThingsToKnow from "../cmps/details/ThingsToKnow"
+//* needs fix the style if i want to add it
 
 
 const randomTextOptions = [
@@ -65,7 +65,6 @@ export function StayDetails({ reviews }) {
 
   const imgsToDisplay = stay?.imgUrls?.slice(0, 5)
   const amenitiesToDisplay = stay?.amenities?.slice(0, 10)
-  // const reviewsToDisplay = stay?.reviews?.slice(0, 6)
   const [reviewsToDisplay, setReviewsToDisplay] = useState(stay?.reviews?.slice(0, 6) || [])
   const reviewsToAll = stay?.reviews || []
 
@@ -90,7 +89,7 @@ export function StayDetails({ reviews }) {
   }, [])
 
   useEffect(() => {
-    const handleResize = () => {
+    function handleResize() {
       setIsMobile(window.innerWidth <= 785)
     }
 

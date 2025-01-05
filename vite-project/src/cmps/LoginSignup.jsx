@@ -17,7 +17,7 @@ export function LoginSignup({ closeModal }) {
   const [isSignup, setIsSignup] = useState(false)
   const [users, setUsers] = useState([])
   // const user = useSelector((state) => state.userModule.user)
-  const navigate = useNavigate()
+  const navigate = useNavigate() //^ optional
   useEffect(() => {
     loadUsers()
   }, [])
@@ -53,7 +53,6 @@ export function LoginSignup({ closeModal }) {
     }
     clearState()
     closeModal()
-    // navigate('/')
   }
 
   function onSignup(ev = null) {
@@ -64,7 +63,6 @@ export function LoginSignup({ closeModal }) {
     signup(credentials)
     clearState()
     closeModal()
-    // navigate('/')
   }
 
   function toggleSignup() {
@@ -78,7 +76,6 @@ export function LoginSignup({ closeModal }) {
   return (
     <div className='login-page login__plus--signup'>
       <header className='login-signup-header'>
-        {/* <h1>Login in or sign up</h1> */}
       </header>
       {!isSignup && (
         <form className='login-form' onSubmit={onLogin}>

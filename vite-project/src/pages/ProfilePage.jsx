@@ -20,7 +20,8 @@ export function ProfilePage() {
   //   if (loggedinUser) {
   //     dispatch({ type: REMOVE_NOTIFICATION, notificationType: 'order' })
   //   }
-  // }, [loggedinUser])
+  // }, [loggedinUser]) 
+  //* maybe for someone that logged in and out
 
   async function onLogout() {
     try {

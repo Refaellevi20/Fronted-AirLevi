@@ -97,15 +97,10 @@ export function BookPage() {
     try {
       await orderService.save(orderToSet)
       setIsBooked(true)
-      // setCurrentStep('payment')
       console.log('isBooked has been sent', isBooked)
     } catch (err) {
       console.log('Had issues in booking', err)
     }
-    // const timeout = setTimeout(() => {
-    //   navigate('/stay')
-    // }, 3000)
-    // return () => clearTimeout(timeout)
   }
 
   function getGuestsSubHeading() {
@@ -134,10 +129,6 @@ export function BookPage() {
     navigate('/trip')
   }
 
-  function onGoBack() {
-    navigate(-1)
-  }
-
   if (!info) return <div><Loader /></div>
   return (
     <>
@@ -149,17 +140,9 @@ export function BookPage() {
       <section className='main-layout secondary-layout'>
         <header className='booking-title flex1 secondary-layout'>
           <div className='icon-svg'>
-            {/* <img
-              src={arrowLeftImg}
-              className='arrow-img fs32'
-              alt='arrowLeftImg'
-              onClick={onGoBack}
-            /> */}
             <Link to="/"><MdKeyboardArrowLeft size={44} style={{ cursor: 'pointer' }} /></Link>
           </div>
           <div>
-            {/* {currentStep !== 'payment' && !isBooked && <h2>Request to book</h2>}
-            {currentStep === 'payment' && <h2>Proceed to Payment</h2>} */}
             {!isBooked && <h2>Request to book</h2>}
             {isBooked && (
               <div className="success-message-container">
@@ -245,7 +228,6 @@ export function BookPage() {
               )}
             </div>
           </section>
-
           <section className='summary-card'>
             <div style={{ display: 'flex' }} className='stay-details border-buttom'>
               <img
@@ -266,7 +248,6 @@ export function BookPage() {
                 </div>
               </div>
             </div>
-
             <div className='air-cover flex1 border-buttom'>
               <p className='flex1'>
                 <span className='air-cover-text'>

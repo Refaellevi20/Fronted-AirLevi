@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { DashboardGrid } from '../cmps/Visualization/DashboardGrid'
 
 export function Analytics() {
-    // Hardcoded data for each chart
+    //^ Hardcoded data for each chart
     const mockData = {
         bookings: [{
             id: "bookings",

@@ -5,19 +5,20 @@ import { REMOVE_NOTIFICATION } from '../store/user.reducer'
 import { AppLogo } from '../cmps/app-logo'
 import { NavMenu } from './nav-menu'
 import { OrderList } from '../cmps/host/OrderList'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ScrollButton } from '../cmps/ScrollButton'
 
 export function OrderPage() {
-  const initialOrders = useSelector((storeState) =>   storeState.orderModule.orders.sort((a, b) => b.startDate - a.startDate))
   const [orders, setOrders] = useState(initialOrders)
+
+  const initialOrders = useSelector((storeState) =>   storeState.orderModule.orders.sort((a, b) => b.startDate - a.startDate))
   const loggedinUser = useSelector((storeState) => storeState.userModule.user)
   const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
- 
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const handleOrdersReorder = (reorderedOrders) => {
+  function handleOrdersReorder(reorderedOrders) {
       setOrders(reorderedOrders)
 
   }

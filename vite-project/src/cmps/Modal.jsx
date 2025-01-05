@@ -13,17 +13,17 @@ function Modal({ closeModal, reviews,focusedReview  }) {
     }
 
     useEffect(() => {
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'
     
         if (focusedReview && focusedRef.current) {
-          // Scroll smoothly to the focused review
-          focusedRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          //* Scroll smoothly to the focused review
+          focusedRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
         }
     
         return () => {
-          document.body.style.overflow = 'auto';
-        };
-      }, [focusedReview]);
+          document.body.style.overflow = 'auto'
+        }
+      }, [focusedReview])
 
 
     const modalStyle = {
@@ -47,7 +47,7 @@ function Modal({ closeModal, reviews,focusedReview  }) {
         maxHeight: '80%',
         overflowY: 'auto',
         position: 'relative',
-        border: '2px solid #ddd', // Add border here
+        border: '2px solid #ddd', 
         boxSizing: 'border-box',
     }
 
@@ -60,9 +60,9 @@ function Modal({ closeModal, reviews,focusedReview  }) {
     }
 
     const scrollableContentStyle = {
-        maxHeight: 'calc(100% - 40px)', // Ensure that the content is within the padding area
-        overflowY: 'auto', // Enable scrolling if the content exceeds the available height
-        paddingRight: '10px', // Prevent content from getting clipped by the scrollbar
+        maxHeight: 'calc(100% - 40px)',
+        overflowY: 'auto',
+        paddingRight: '10px',
     }
 
     const allReviewsStyle = {

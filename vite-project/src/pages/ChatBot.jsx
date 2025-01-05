@@ -1,87 +1,3 @@
-// import { useState, useRef, useEffect } from 'react'
-// import { ChatMessage } from '../cmps/chat bot/ChatMessage'
-// import { ChatInput } from '../cmps/chat bot/ChatInput'
-// import { IoClose } from 'react-icons/io5'
-// import { IoChatbubbleEllipses } from 'react-icons/io5'
-// import { chatbotService } from '../services/openai.service'
-
-// export function ChatBot() {
-//     const [isOpen, setIsOpen] = useState(false)
-//     const [messages, setMessages] = useState([
-//         { text: "Hello! How can I help you with your booking?", isBot: true }
-//     ])
-//     const [isTyping, setIsTyping] = useState(false)
-//     const messagesEndRef = useRef(null)
-
-//     const scrollToBottom = () => {
-//         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-//     }
-
-//     useEffect(() => {
-//         scrollToBottom()
-//     }, [messages])
-
-//     const handleSendMessage = async (message) => {
-//         if (!message.trim()) return
-
-//         // Add user message
-//         setMessages(prev => [...prev, { text: message, isBot: false }])
-//         setIsTyping(true)
-
-//         try {
-//             // Get response from ChatGPT
-//             const response = await chatbotService.getChatResponse(message)
-//             setMessages(prev => [...prev, { text: response, isBot: true }])
-//         } catch (error) {
-//             setMessages(prev => [...prev, { 
-//                 text: "Sorry, I'm having trouble connecting. Please try again.", 
-//                 isBot: true 
-//             }])
-//         } finally {
-//             setIsTyping(false)
-//         }
-//     }
-
-//     return (
-//         <div className="chatbot-container">
-//             {!isOpen ? (
-//                 <button 
-//                     className="chat-toggle-btn"
-//                     onClick={() => setIsOpen(true)}
-//                 >
-//                     <IoChatbubbleEllipses />
-//                     <span>Need Help?</span>
-//                 </button>
-//             ) : (
-//                 <div className="chatbot-window">
-//                     <div className="chat-header">
-//                         <h3>Booking Assistant</h3>
-//                         <button 
-//                             className="close-btn"
-//                             onClick={() => setIsOpen(false)}
-//                         >
-//                             <IoClose />
-//                         </button>
-//                     </div>
-//                     <div className="chat-messages">
-//                         {messages.map((msg, idx) => (
-//                             <ChatMessage key={idx} message={msg} />
-//                         ))}
-//                         {isTyping && (
-//                             <div className="typing-indicator">
-//                                 <span></span>
-//                                 <span></span>
-//                                 <span></span>
-//                             </div>
-//                         )}
-//                         <div ref={messagesEndRef} />
-//                     </div>
-//                     <ChatInput onSendMessage={handleSendMessage} />
-//                 </div>
-//             )}
-//         </div>
-//     )
-// }
 
 import { useState, useRef, useEffect } from 'react'
 import { ChatMessage } from '../cmps/chat bot/ChatMessage'
@@ -103,14 +19,12 @@ export function ChatBot() {
     const { setIsWaiting } = useWaitingCursor()  
     const [isLoading, setIsLoading] = useState(false)
 
-    const scrollToBottom = () => {
+    function scrollToBottom() {
         const chatMessages = document.querySelector('.chat-messages')
         if (chatMessages) {
             chatMessages.scrollTop = chatMessages.scrollHeight
         }
     }
-
-//! loading on the bottom and not top
 
     useEffect(() => {
         scrollToBottom()
@@ -151,7 +65,6 @@ export function ChatBot() {
     return (
         <div className="chatbot-container secondary-layout">
             {!isOpen ? (
-                
                 <button
                     className="chat-toggle-btn"
                     onClick={() => setIsOpen(true)}
@@ -193,7 +106,7 @@ export function ChatBot() {
                 </div>
                 </div>
             )}
-             {/* <div ref={messagesEndRef} /> */}
+             {/* <div ref={messagesEndRef} /> */} //^ moved to line 100
         </div>
     )
 }

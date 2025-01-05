@@ -19,7 +19,6 @@ export default function LanguageModal({ isOpen, onClose, selectedLanguage, onLan
             <h3 onClick={onClose}><HiXMark style={{ cursor: 'pointer' }} /></h3>
             <h2 style={{ textAlign: 'start' }} className='txt-language border-top'>Choose a language and region</h2>
             <section className='grid-buttons'>
-              {/* <div className='footer-language__container'> */}
                 <button
                   onClick={() => handleChangeLanguage('en')}
                   className={selectedLanguage === 'en' ? 'selected' : ''}
@@ -98,7 +97,6 @@ export default function LanguageModal({ isOpen, onClose, selectedLanguage, onLan
                 >
                   Dutch <br /> Nederlannl
                 </button>
-              {/* </div> */}
             </section>
           </div>
         </div>

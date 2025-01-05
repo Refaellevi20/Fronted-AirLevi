@@ -25,7 +25,7 @@ export function StayMap({ stay }) {
             console.log("Map container is ready", mapRef.current);
         }
     }, [])
-//! here border radius
+//! here border radius missing
     return (
         <div style={{ height: '480px', width: '100%', borderRadius: '16px' }} ref={mapRef}>
             <GoogleMapReact

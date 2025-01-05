@@ -23,7 +23,7 @@ export function ScrollButton() {
     }
   }, [])
 
-  const handleScrollClick = () => {
+  function handleScrollClick() {
     if (isAtBottom) {
       // Scroll up when at the bottom
       window.scrollTo({ top: 0, behavior: 'smooth' })

@@ -114,9 +114,7 @@ export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
             <span className="order-night fs16" style={{ fontFamily: 'cereal-Book' }}> night</span>
           </h4>
         </header>
-
         <section className='picker-container'>
-          
           {(openTab === 'checkIn' || openTab === 'checkOut') && (
             <section className='date-picker-modal'>
               <div className='date-picker-header'>
@@ -152,7 +150,6 @@ export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
               <div className='order-sub-heading'>{checkOutSubHeading}</div>
             </button>
           </section>
-
           <div className='guest-picker'>
             <button className='clean-button guest-btn' onClick={() => (openTab === 'guests' ? setOpenTab(null) : setOpenTab('guests'))}>
               <div className='order-heading'>Guests</div>
@@ -169,8 +166,6 @@ export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
             )}
           </div>
         </section>
-
-        {/* <div> */}
           <div style={{width:'100%'}} className="parent-container">
         <div  className='reserve-btns-ref' ref={el => { reserveBtnRef.current = el; setRefVisible(!!el) }}></div>
           {orderParams.checkIn && orderParams.checkOut && (
@@ -199,7 +194,6 @@ export function OrderModal({ stay, setOpenTab, openTab, reserveBtnRef }) {
             )}
 
           </section>
-        {/* </div> */}
       </div>
       <LowerRate />
     </section>

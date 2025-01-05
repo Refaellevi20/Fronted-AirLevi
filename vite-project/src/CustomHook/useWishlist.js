@@ -1,3 +1,5 @@
+//^ ro remove the stay without refresh the page
+
 import { create } from 'zustand'
 
 export const useWishlist = create((set) => ({
