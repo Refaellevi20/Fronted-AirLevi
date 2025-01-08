@@ -7,11 +7,12 @@ import { NavMenu } from './nav-menu'
 import { OrderList } from '../cmps/host/OrderList'
 import { useNavigate } from 'react-router-dom'
 import { ScrollButton } from '../cmps/ScrollButton'
+import { AppFooterMobileOrder } from '../cmps/AppFooterMobileOrder'
 
 export function OrderPage() {
-  const [orders, setOrders] = useState(initialOrders)
-
+  
   const initialOrders = useSelector((storeState) =>   storeState.orderModule.orders.sort((a, b) => b.startDate - a.startDate))
+  const [orders, setOrders] = useState(initialOrders)
   const loggedinUser = useSelector((storeState) => storeState.userModule.user)
   const isLoading = useSelector((storeState) => storeState.systemModule.isLoading)
 
@@ -50,6 +51,7 @@ export function OrderPage() {
       </div>
     )}
       <ScrollButton />
+      <AppFooterMobileOrder />
     </div>
   )
 }

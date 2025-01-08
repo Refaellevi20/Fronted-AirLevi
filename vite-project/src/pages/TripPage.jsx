@@ -8,6 +8,7 @@ import { TripList } from '../cmps/trip-list/TripList'
 import { NavMenu } from './nav-menu'
 import { ScrollButton } from '../cmps/ScrollButton'
 import { AppFooterMobile } from '../cmps/AppFooterMobile'
+import { AppFooterMobileTrip } from '../cmps/AppFooterMobileTrip'
 
 
 export function TripPage() {
@@ -63,7 +64,7 @@ export function TripPage() {
         </section>
       )}
       <ScrollButton />
-      <AppFooterMobile />
+      <AppFooterMobileTrip />
     </section>
   )
 }

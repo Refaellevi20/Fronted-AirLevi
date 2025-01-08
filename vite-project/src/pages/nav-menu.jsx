@@ -109,9 +109,7 @@ export function NavMenu() {
             {user?.isOwner && (
               <NavLink to="/group-chat" className='nav-link'>Group Chats</NavLink>
             )}
-            {/* <button onClick={onAddStay}>
-              {user.isOwner ? 'Add Another Stay' : 'Become a host (Add stay)'}
-            </button> */} //^ another way to do it
+           
             <button
               style={{ borderTop: `1px solid hsl(0, 0%, 87%)` }}
               onClick={onLogout}>
@@ -123,3 +121,7 @@ export function NavMenu() {
     </>
   )
 }
+
+ {/* <button onClick={onAddStay}>
+              {user.isOwner ? 'Add Another Stay' : 'Become a host (Add stay)'}
+            </button> */} //^ another way to do it

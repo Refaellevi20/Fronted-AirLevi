@@ -6,6 +6,7 @@ import { utilService } from '../services/util.service'
 import { Analytics } from './Analytics'
 import { AppLogo } from '../cmps/app-logo'
 import { NavMenu } from './nav-menu'
+import { AppFooterMobileOrder } from '../cmps/AppFooterMobileOrder'
 
 export function DashboardPage() {
   const orders = useSelector((storeState) => storeState.orderModule.orders)
@@ -53,6 +54,7 @@ export function DashboardPage() {
         {/* <Chatbot /> */}
         <Analytics />
       </div>
+      <AppFooterMobileOrder />
     </section>
   )
 }

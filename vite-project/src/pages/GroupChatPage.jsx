@@ -8,6 +8,7 @@ import { socketService } from '../services/socket.service'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { AppLogo } from '../cmps/app-logo'
 import { NavMenu } from './nav-menu'
+import { AppFooterMobileOrder } from '../cmps/AppFooterMobileOrder'
 
 export function GroupChatPage() {
   const [groups, setGroups] = useState([]) 
@@ -82,7 +83,7 @@ export function GroupChatPage() {
      
       <div className="group-chat-container flex1">
         <GroupList
-          groups={groups} // Now guaranteed to be an array
+          groups={groups} 
           selectedGroup={selectedGroup}
           onSelectGroup={setSelectedGroup}
         />
@@ -102,6 +103,7 @@ export function GroupChatPage() {
         />
       )}
     </section>
+    <AppFooterMobileOrder />
     </section>
   )
 }
