@@ -23,8 +23,6 @@ async function getUsers() {
     return await httpService.get(`user`)
 }
 
-
-
 async function getById(userId) {
     const user = await httpService.get(`user/${userId}`)
     return user

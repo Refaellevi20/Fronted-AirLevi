@@ -124,15 +124,104 @@
     width: 100%;
     cursor: pointer;
     border-radius: 6px;
+
     &:focus {
       outline: none;
     }
+
     // justify-content: center;
     // align-items: center;
     // display: flex;
-  
+
     &:hover {
-        background-color: #f0f0f0;
+      background-color: #f0f0f0;
+    }
+  }
+}
+
+.footer-profile {
+  //   .social-links {
+  //     display: flex;
+  //     justify-content: center;
+  //     gap: 15px;
+  //     margin-top: 20px;
+
+  //     .social-link {
+  //         font-size: 1.1rem;
+  //         text-decoration: none;
+  //         color: #4c6ef5;
+  //         border: 2px solid #4c6ef5;
+  //         border-radius: 8px;
+  //         padding: 12px;
+  //         transition: all 0.3s ease;
+  //         position: relative;
+  //         overflow: hidden;
+  //         color: #111111;
+
+  //         &:hover {
+  //             background-color: #4c6ef5;
+  //             color: #fff;
+  //             animation: glow 1.5s ease-in-out infinite;
+  //         }
+
+  //         &:before {
+  //             content: '';
+  //             position: absolute;
+  //             top: 50%;
+  //             left: 50%;
+  //             width: 300%;
+  //             height: 300%;
+  //             // background-color: #9ce0fc;
+  //             transition: width 0.3s ease, height 0.3s ease;
+  //             border-radius: 50%;
+  //             transform: translate(-50%, -50%);
+  //         }
+
+  //         &:hover:before {
+  //             width: 0;
+  //             height: 0;
+  //         }
+  //     }
+  // }
+}
+
+.footer-profile {
+  color: $text-color-about;
+  text-align: center;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  // background-color: #222222;
+
+  // @include background-overlay($background-color-about, 0.8);
+  // @include glow-animation($highlight-color);
+
+  .footer-content {
+    @include center-align(grid);
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+
+      .social-link {
+        @include button-shine;
+        color: $text-color-about;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background 0.3s;
+        @include gradient-border(2, $primary-color-about, $secondary-color-about);
+        // @include background-overlay($background-color-about, 0.8);
+        @include waves($primary-color-about, $secondary-color-about);
+
+        &:hover {
+          // background: rgba(255, 255, 255, 0.1);
+          @include elastic-hover;
+        }
+      }
     }
   }
 }

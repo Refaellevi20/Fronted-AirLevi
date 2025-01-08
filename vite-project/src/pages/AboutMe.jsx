@@ -167,7 +167,8 @@ export function AboutMe() {
                 </div>
             </div>
         </footer>
-            {/* <GradientFlash /> */} //^ later maybe
+            {/* <GradientFlash /> */} 
         </section>
     )
 }
+//^ later maybe

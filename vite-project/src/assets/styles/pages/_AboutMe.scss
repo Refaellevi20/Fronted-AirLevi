@@ -377,3 +377,15 @@
         }
     }
 }
+
+
+@media screen and (max-width: 675px) {
+    .about-me__container {
+        .details-section{
+        border-radius: 0 ;
+        }
+    }
+    .my-journey-card {
+        border-radius: 0 ;
+    }
+}

@@ -3,12 +3,13 @@
 import React, { useEffect } from "react";
 import { SvgProfile, SvgSetting, SvgNotification, SvgHelp, SvgShield, SvgCloud, SvgStar } from "../cmps/svg";
 import { MdKeyboardArrowLeft } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../store/user.actions";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
 import { AppFooterMobile } from "../cmps/AppFooterMobile";
 import { REMOVE_NOTIFICATION } from "../store/user.reducer";
+import { Link} from 'react-router-dom'
 
 export function ProfilePage() {
   const user = useSelector((storeState) => storeState.userModule.user)
@@ -113,6 +114,13 @@ export function ProfilePage() {
         <div className="experience-hosting">Host an Experience</div>
       </footer> */}
         {/* here langugaes */}
+        <footer className="footer-profile">
+            <div className="footer-content">
+                <div className="social-links">
+                <NavLink to="/about/development" className="social-link">About Me</NavLink>
+                </div>
+            </div>
+        </footer>
         <AppFooterMobile />
       </div>
     </section>
