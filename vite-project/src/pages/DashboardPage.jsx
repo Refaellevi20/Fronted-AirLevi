@@ -19,6 +19,7 @@ export function DashboardPage() {
   }
 
   const payments = orders
+    .slice(-15)
     .map(order => ({
       id: order._id,
       amount: order.totalPrice || utilService.getRandomIntInclusive(100, 1000),

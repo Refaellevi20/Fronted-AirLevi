@@ -146,7 +146,7 @@ export function AboutMe() {
                         >
                             <FaThumbsUp /> {count}
                             {/* {totalCount} */}
-                            {/* <UserCounts />  */} //^ later maybe
+                            {/* <UserCounts />  */} 
                         </button>
                         {/* <div className={`border-animation ${isVisible ? '' : 'hidden'}`}></div> */}
                     </div>
