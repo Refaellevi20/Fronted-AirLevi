@@ -23,6 +23,7 @@
     margin: 20px;
     animation: modalSlideUp 0.3s ease-out;
     z-index: 1010;
+    max-height: 100%;
 }
 
 .login-modal-container .close-button {
