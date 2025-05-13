@@ -10,6 +10,7 @@
     color: $clr-text-primary;
     padding: 10px 16px;
     border: none;
+    cursor: pointer;
 
     &:not(.active)>span {
         position: relative;
