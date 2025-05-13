@@ -18,8 +18,28 @@ export function NavBar({ setFilteredStays }) {
     const [isAtEnd, setIsAtEnd] = useState(false)
     const [selectedCategory, setSelectedCategory] = useState(null)
     const stays = useSelector((storeState) => storeState.stayModule.stays)
+    const [isScrolled, setIsScrolled] = useState(false)
 
-    const categoryList = document.querySelector('.navBar-container')
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsScrolled(true)
+                if (categoryListRef.current) {
+                    categoryListRef.current.classList.add('scrolling')
+                }
+            } else {
+                setIsScrolled(false)
+                if (categoryListRef.current) {
+                    categoryListRef.current.classList.remove('scrolling')
+                    categoryListRef.current.classList.remove('margin')
+                }
+            }
+        }   
+        window.addEventListener('scroll', handleScroll)
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
 
     useEffect(() => {
         const handleScroll = () => {
@@ -30,17 +50,6 @@ export function NavBar({ setFilteredStays }) {
             setIsAtStart(scrollLeft === 0)
             setIsAtEnd(scrollLeft === maxScrollLeft)
         }
-
-        window.addEventListener('scroll', () => {
-            if (categoryList) {
-                if (window.scrollY > 0) {
-                    categoryList.classList.add('scrolling')
-                } else {
-                    categoryList.classList.remove('scrolling')
-                    categoryList.classList.remove('margin')
-                }
-            }
-        })
 
         if (categoryListRef.current) {
             categoryListRef.current.addEventListener('scroll', handleScroll)
@@ -167,11 +176,11 @@ export function NavBar({ setFilteredStays }) {
     )
 
     return (
-        <section className="flex navBar-container main-layout">
+        <section className={`flex navBar-container main-layout${isScrolled ? 'scrolled' : ''}`}>
             <span className="left-icon__list main-layout__navBar2">
                 {LeftNavIcon}
             </span>
-            <section className="category-list main-layout" ref={categoryListRef} style={{ position: 'relative' }}>
+            <section className="category-list main-layout"  ref={categoryListRef} style={{ position: 'relative' }}>
                 {categories.map((category) => (
                     <div
                         key={category.url}

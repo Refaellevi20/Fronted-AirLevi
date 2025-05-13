@@ -22,6 +22,14 @@ body {
     // color: #62646a;
 }
 
+body {
+    &.modal-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+}
+
 h1,
 h2,
 h3,
